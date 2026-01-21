@@ -4,8 +4,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import Image from 'next/image';
 import { useTheme } from '@/contexts/ThemeContext';
+import { useRouter } from 'next/navigation';
 
 export default function Header() {
+  const router = useRouter();
   const { theme, toggleTheme } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
@@ -27,13 +29,13 @@ export default function Header() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="flex items-center space-x-3"
           >
-            <div className="h-10 w-auto flex items-center">
+            <div className="h-10 w-auto flex items-center cursor-pointer" onClick={() => router.push('/')}>
               <Image 
                 src="/assets/V3.svg" 
                 alt="KAMPALO Logo" 
                 width={120} 
                 height={22} 
-                className="h-8 w-auto"
+                className="h-8 w-auto dark:brightness-0 dark:invert"
                 priority
               />
             </div>

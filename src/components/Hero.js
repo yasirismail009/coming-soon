@@ -83,7 +83,7 @@ export default function Hero() {
           >
           <motion.div
             variants={itemVariants}
-            className="inline-flex items-center px-4 py-2 rounded-full bg-[#174A6E]/10 dark:bg-[#174A6E]/30 text-[#174A6E] dark:text-[#174A6E]/80 text-sm font-medium mb-8"
+            className="inline-flex items-center px-4 py-2 rounded-full bg-[#174A6E]/10 dark:bg-[#174A6E]/30 text-[#174A6E] dark:text-white text-sm font-medium mb-8"
           >
             <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
@@ -100,7 +100,7 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.8 }}
-              className="block bg-gradient-to-r from-[#174A6E] to-[#0B3049] bg-clip-text text-transparent"
+              className="block bg-gradient-to-r from-[#174A6E] to-[#0B3049] dark:from-white dark:to-blue-200 bg-clip-text text-transparent"
             >
               All Your Ads
             </motion.span>

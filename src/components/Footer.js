@@ -11,16 +11,17 @@ const footerLinks = {
     { name: 'Roadmap', href: '#' },
   ],
   company: [
-    { name: 'About', href: '#' },
+    { name: 'About Us', href: '/about' },
     { name: 'Blog', href: '#' },
     { name: 'Careers', href: '#' },
-    { name: 'Contact', href: '#' },
+    { name: 'Contact', href: '/help' },
   ],
   support: [
-    { name: 'Documentation', href: '#' },
-    { name: 'Help Center', href: '#' },
-    { name: 'Privacy', href: '#' },
-    { name: 'Terms', href: '#' },
+    { name: 'Documentation', href: '/documentation' },
+    { name: 'Help Center', href: '/help' },
+    { name: 'Privacy Policy', href: '/privacy' },
+    { name: 'Terms & Conditions', href: '/terms' },
+    { name: 'Cookies Policy', href: '/cookies' },
   ],
 };
 
@@ -65,7 +66,7 @@ export default function Footer() {
                   alt="KAMPALO Logo" 
                   width={120} 
                   height={22} 
-                  className="h-8 w-auto"
+                  className="h-8 w-auto dark:brightness-0 dark:invert"
                 />
               </div>
             </div>
