@@ -51,21 +51,21 @@ export default function Hero() {
     return (
       <div className={`relative ${className}`}>
         {/* Laptop Base */}
-        <div className="relative bg-gradient-to-b from-slate-300 to-slate-400 dark:from-slate-700 dark:to-slate-800 rounded-t-lg p-2 shadow-2xl">
+        <div className="relative bg-gradient-to-b from-slate-300 to-slate-400 dark:from-slate-700 dark:to-slate-800 rounded-t-lg p-1.5 shadow-2xl">
           {/* Screen Bezel */}
-          <div className="bg-slate-900 rounded-lg p-2">
+          <div className="bg-slate-900 rounded-lg p-1.5">
             {/* Camera/Indicator */}
-            <div className="h-1 w-16 bg-slate-700 rounded-full mx-auto mb-2"></div>
+            <div className="h-0.5 w-12 bg-slate-700 rounded-full mx-auto mb-1.5"></div>
             {/* Screen Content */}
-            <div className="bg-white dark:bg-slate-900 rounded overflow-hidden aspect-video">
+            <div className="bg-white dark:bg-slate-900 rounded overflow-hidden" style={{ aspectRatio: '16/10', maxHeight: '400px' }}>
               {children}
             </div>
           </div>
         </div>
         {/* Laptop Base Bottom */}
-        <div className="h-2 bg-gradient-to-b from-slate-400 to-slate-500 dark:from-slate-800 dark:to-slate-900 rounded-b-lg mx-auto w-[85%]"></div>
+        <div className="h-1.5 bg-gradient-to-b from-slate-400 to-slate-500 dark:from-slate-800 dark:to-slate-900 rounded-b-lg mx-auto w-[85%]"></div>
         {/* Trackpad */}
-        <div className="h-1 bg-slate-600 dark:bg-slate-700 rounded-full mx-auto w-[30%] mt-1"></div>
+        <div className="h-0.5 bg-slate-600 dark:bg-slate-700 rounded-full mx-auto w-[30%] mt-1"></div>
       </div>
     );
   };
