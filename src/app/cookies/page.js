@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { TEKREIGN_CONTACT } from '@/constants/companyContact';
 
 export const metadata = {
   title: 'Cookies Policy - KAMPALO',
@@ -23,10 +24,18 @@ export default function CookiesPolicy() {
             <section className="mb-8">
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mt-8 mb-4">1. Introduction</h2>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                This Cookies Policy explains how KAMPALO ("we," "our," or "us") uses cookies and similar tracking technologies on our website and platform. This policy should be read alongside our <a href="/privacy" className="text-[#174A6E] dark:text-[#174A6E]/80 hover:underline">Privacy Policy</a>.
+                This Cookies Policy explains how {TEKREIGN_CONTACT.productName}, operated by{' '}
+                {TEKREIGN_CONTACT.parentCompany} (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;), uses cookies and
+                similar tracking technologies on our website and platform. This policy should be read alongside our{' '}
+                <a href="/privacy" className="text-[#174A6E] dark:text-[#174A6E]/80 hover:underline">
+                  Privacy Policy
+                </a>
+                .
               </p>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                By using KAMPALO, you consent to the use of cookies in accordance with this policy. You can manage or disable cookies through your browser settings, though this may affect your ability to use certain features of our platform.
+                By using {TEKREIGN_CONTACT.productName}, you consent to the use of cookies in accordance with this
+                policy. You can manage or disable cookies through your browser settings, though this may affect your
+                ability to use certain features of our platform.
               </p>
             </section>
 
@@ -225,9 +234,25 @@ export default function CookiesPolicy() {
                 If you have any questions about our use of cookies or this Cookies Policy, please contact us:
               </p>
               <div className="bg-slate-100 dark:bg-slate-800 p-6 rounded-lg">
-                <p className="text-slate-900 dark:text-white font-semibold mb-2">KAMPALO Privacy Team</p>
-                <p className="text-slate-600 dark:text-slate-300">Email: <a href="mailto:privacy@kampalo.com" className="text-[#174A6E] dark:text-[#174A6E]/80 hover:underline">privacy@kampalo.com</a></p>
-                <p className="text-slate-600 dark:text-slate-300">Address: [Your Company Address]</p>
+                <p className="text-slate-900 dark:text-white font-semibold mb-1">
+                  {TEKREIGN_CONTACT.parentCompany}{' '}
+                  <span className="font-normal text-slate-600 dark:text-slate-400">
+                    (parent company of {TEKREIGN_CONTACT.productName})
+                  </span>
+                </p>
+                <p className="text-slate-900 dark:text-white font-semibold mb-3">{TEKREIGN_CONTACT.productName} Privacy Team</p>
+                <p className="text-slate-600 dark:text-slate-300">
+                  Email:{' '}
+                  <a
+                    href={`mailto:${TEKREIGN_CONTACT.contactEmail}`}
+                    className="text-[#174A6E] dark:text-[#174A6E]/80 hover:underline"
+                  >
+                    {TEKREIGN_CONTACT.contactEmail}
+                  </a>
+                </p>
+                <p className="text-slate-600 dark:text-slate-300 mt-2">
+                  Address: {TEKREIGN_CONTACT.addressLine1}, {TEKREIGN_CONTACT.addressLine2}
+                </p>
               </div>
             </section>
           </div>

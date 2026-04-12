@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
+import { TEKREIGN_CONTACT } from '@/constants/companyContact';
 
 export const metadata = {
   title: 'Help Center - KAMPALO',
@@ -95,30 +96,50 @@ export default function HelpCenter() {
           </div>
 
           {/* Quick Links */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 max-w-4xl mx-auto">
             <Link href="/documentation" className="bg-gradient-to-br from-[#174A6E] to-[#0B3049] rounded-xl p-6 text-white hover:shadow-lg transition-shadow">
               <div className="text-3xl mb-3">📚</div>
               <h3 className="text-xl font-semibold mb-2">Documentation</h3>
               <p className="text-white/80 text-sm">Complete guides and tutorials</p>
             </Link>
-            
-            <div className="bg-slate-50 dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
-              <div className="text-3xl mb-3">💬</div>
-              <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">Live Chat</h3>
-              <p className="text-slate-600 dark:text-slate-400 text-sm">Get instant support from our team</p>
-              <button className="mt-4 bg-[#174A6E] hover:bg-[#0f3451] text-white px-4 py-2 rounded-lg text-sm transition-colors">
-                Start Chat
-              </button>
-            </div>
-            
+
             <div className="bg-slate-50 dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
               <div className="text-3xl mb-3">📧</div>
-              <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">Email Support</h3>
-              <p className="text-slate-600 dark:text-slate-400 text-sm">We'll respond within 24 hours</p>
-              <a href="mailto:support@kampalo.com" className="mt-4 inline-block bg-[#174A6E] hover:bg-[#0f3451] text-white px-4 py-2 rounded-lg text-sm transition-colors">
-                Send Email
+              <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">Email support</h3>
+              <p className="text-slate-600 dark:text-slate-400 text-sm mb-1">
+                Reach Tekreign at{' '}
+                <a
+                  href={`mailto:${TEKREIGN_CONTACT.contactEmail}`}
+                  className="text-[#174A6E] dark:text-blue-300 font-medium hover:underline"
+                >
+                  {TEKREIGN_CONTACT.contactEmail}
+                </a>
+                . We typically respond within one business day.
+              </p>
+              <a
+                href={`mailto:${TEKREIGN_CONTACT.contactEmail}`}
+                className="mt-4 inline-block bg-[#174A6E] hover:bg-[#0f3451] text-white px-4 py-2 rounded-lg text-sm transition-colors"
+              >
+                Send email
               </a>
             </div>
+          </div>
+
+          <div className="max-w-4xl mx-auto mb-16 rounded-2xl border border-red-200 dark:border-red-900/50 bg-red-50/70 dark:bg-red-950/25 p-6 md:p-8">
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+              Disconnecting integrations or deleting your account
+            </h2>
+            <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+              In the KAMPALO app, disconnecting an integration permanently deletes synced data for that connection—there is
+              no recovery. Deleting your account from Settings removes all integrations, connections, and stored
+              analytics forever.
+            </p>
+            <Link
+              href="/data-deletion"
+              className="inline-flex items-center text-sm font-semibold text-[#174A6E] dark:text-blue-300 hover:underline"
+            >
+              Read full data deletion &amp; disconnection instructions →
+            </Link>
           </div>
 
           {/* FAQ Categories */}
@@ -153,14 +174,21 @@ export default function HelpCenter() {
           <section className="mt-16 bg-gradient-to-r from-[#174A6E] to-[#0B3049] rounded-2xl p-8 md:p-12 text-center text-white">
             <h2 className="text-3xl font-bold mb-4">Still Need Help?</h2>
             <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
-              Our support team is here to help you get the most out of KAMPALO. Reach out and we'll get back to you as soon as possible.
+              Our team is here to help you get the most out of KAMPALO. Email{' '}
+              <a
+                href={`mailto:${TEKREIGN_CONTACT.contactEmail}`}
+                className="underline underline-offset-2 font-semibold"
+              >
+                {TEKREIGN_CONTACT.contactEmail}
+              </a>{' '}
+              and we will get back to you as soon as we can.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="mailto:support@kampalo.com"
+                href={`mailto:${TEKREIGN_CONTACT.contactEmail}`}
                 className="bg-white hover:bg-slate-100 text-[#174A6E] px-8 py-3 rounded-xl font-semibold transition-colors"
               >
-                Contact Support
+                Email {TEKREIGN_CONTACT.contactEmail}
               </a>
               <Link
                 href="/documentation"

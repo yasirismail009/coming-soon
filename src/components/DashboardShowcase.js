@@ -3,59 +3,35 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { useTheme } from '@/contexts/ThemeContext';
+import { resolveDashboardImage } from '@/utils/dashboardScreenshots';
+import LaptopFrame from '@/components/LaptopFrame';
 
 const dashboards = [
   {
     id: 'main',
     name: 'Unified Dashboard',
     description: 'Get a complete overview of all your advertising campaigns in one place',
-    image: '/assets/main_dashboard.png',
   },
   {
     id: 'google',
     name: 'Google Ads Dashboard',
     description: 'Comprehensive analytics and insights for your Google Ads campaigns',
-    image: '/assets/google_dashboard.png',
   },
   {
     id: 'facebook',
     name: 'Meta Ads Dashboard',
     description: 'Monitor and optimize your Facebook and Instagram ad performance',
-    image: '/assets/facebook_dashboard.png',
   },
   {
     id: 'comparison',
     name: 'Cross-Platform Comparison',
     description: 'Compare performance metrics across all your advertising platforms side-by-side',
-    image: '/assets/comparision_dashbaord.png',
   },
 ];
 
-// Laptop Frame Component
-const LaptopFrame = ({ children, className = '' }) => {
-  return (
-    <div className={`relative ${className}`}>
-      {/* Laptop Base */}
-      <div className="relative bg-gradient-to-b from-slate-300 to-slate-400 dark:from-slate-700 dark:to-slate-800 rounded-t-lg p-2 shadow-2xl">
-        {/* Screen Bezel */}
-        <div className="bg-slate-900 rounded-lg p-2">
-          {/* Camera/Indicator */}
-          <div className="h-1 w-16 bg-slate-700 rounded-full mx-auto mb-2"></div>
-          {/* Screen Content */}
-          <div className="bg-white dark:bg-slate-900 rounded overflow-hidden aspect-video">
-            {children}
-          </div>
-        </div>
-      </div>
-      {/* Laptop Base Bottom */}
-      <div className="h-2 bg-gradient-to-b from-slate-400 to-slate-500 dark:from-slate-800 dark:to-slate-900 rounded-b-lg mx-auto w-[85%]"></div>
-      {/* Trackpad */}
-      <div className="h-1 bg-slate-600 dark:bg-slate-700 rounded-full mx-auto w-[30%] mt-1"></div>
-    </div>
-  );
-};
-
 export default function DashboardShowcase() {
+  const { theme } = useTheme();
   const [activeTab, setActiveTab] = useState('main');
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
@@ -148,24 +124,24 @@ export default function DashboardShowcase() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="mb-16 max-w-4xl mx-auto relative"
+          className="mb-16 max-w-3xl mx-auto relative"
         >
           <div className="relative">
             <AnimatePresence mode="wait">
               <motion.div
-                key={activeTab}
+                key={`${activeTab}-${theme}`}
                 initial={{ opacity: 0, x: 50, scale: 0.95 }}
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 exit={{ opacity: 0, x: -50, scale: 0.95 }}
                 transition={{ duration: 0.5, ease: 'easeInOut' }}
               >
                 <LaptopFrame>
-                  <div className="relative w-full h-full">
+                  <div className="absolute inset-0">
                     <Image
-                      src={activeDashboard.image}
+                      src={resolveDashboardImage(activeDashboard.id, theme)}
                       alt={activeDashboard.name}
                       fill
-                      className="object-contain"
+                      className="object-contain object-top"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
                       priority={activeTab === 'main'}
                     />
@@ -236,13 +212,14 @@ export default function DashboardShowcase() {
                 setIsAutoPlaying(false);
               }}
             >
-              <LaptopFrame className="scale-75 lg:scale-90 origin-center">
-                <div className="relative w-full h-full">
+              <LaptopFrame className="scale-[0.72] lg:scale-[0.82] origin-center">
+                <div className="absolute inset-0">
                   <Image
-                    src={dashboard.image}
+                    key={`${dashboard.id}-${theme}`}
+                    src={resolveDashboardImage(dashboard.id, theme)}
                     alt={dashboard.name}
                     fill
-                    className="object-contain"
+                    className="object-contain object-top"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                   />
                 </div>

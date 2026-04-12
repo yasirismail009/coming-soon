@@ -1,5 +1,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Link from 'next/link';
+import { TEKREIGN_CONTACT } from '@/constants/companyContact';
 
 export const metadata = {
   title: 'Privacy Policy - KAMPALO',
@@ -23,10 +25,16 @@ export default function PrivacyPolicy() {
             <section className="mb-8">
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mt-8 mb-4">1. Introduction</h2>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                Welcome to KAMPALO ("we," "our," or "us"). We are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our unified marketing analytics and campaign management platform.
+                Welcome to {TEKREIGN_CONTACT.productName}. The platform is operated by{' '}
+                {TEKREIGN_CONTACT.parentCompany} (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;), the parent company
+                responsible for this product. We are committed to protecting your privacy and ensuring the security of
+                your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard
+                your information when you use our unified marketing analytics and campaign management platform.
               </p>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                By accessing or using KAMPALO, you agree to the collection and use of information in accordance with this Privacy Policy. If you do not agree with our policies and practices, please do not use our services.
+                By accessing or using {TEKREIGN_CONTACT.productName}, you agree to the collection and use of information
+                in accordance with this Privacy Policy. If you do not agree with our policies and practices, please do
+                not use our services.
               </p>
             </section>
 
@@ -151,7 +159,14 @@ export default function PrivacyPolicy() {
                 <li><strong>Restriction:</strong> Request restriction of processing</li>
               </ul>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                To exercise these rights, please contact us at <a href="mailto:privacy@kampalo.com" className="text-[#174A6E] dark:text-[#174A6E]/80 hover:underline">privacy@kampalo.com</a>.
+                To exercise these rights, please contact us at{' '}
+                <a
+                  href={`mailto:${TEKREIGN_CONTACT.contactEmail}`}
+                  className="text-[#174A6E] dark:text-[#174A6E]/80 hover:underline"
+                >
+                  {TEKREIGN_CONTACT.contactEmail}
+                </a>
+                .
               </p>
             </section>
 
@@ -186,12 +201,36 @@ export default function PrivacyPolicy() {
             <section className="mb-8">
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mt-8 mb-4">11. Contact Us</h2>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                If you use the KAMPALO application, read our{' '}
+                <Link href="/data-deletion" className="text-[#174A6E] dark:text-[#174A6E]/80 hover:underline font-medium">
+                  data deletion &amp; disconnection instructions
+                </Link>{' '}
+                for what happens when you disconnect integrations or delete your account—data is removed permanently and
+                cannot be recovered from KAMPALO.
+              </p>
+              <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
                 If you have any questions or concerns about this Privacy Policy or our data practices, please contact us:
               </p>
               <div className="bg-slate-100 dark:bg-slate-800 p-6 rounded-lg">
-                <p className="text-slate-900 dark:text-white font-semibold mb-2">KAMPALO Privacy Team</p>
-                <p className="text-slate-600 dark:text-slate-300">Email: <a href="mailto:privacy@kampalo.com" className="text-[#174A6E] dark:text-[#174A6E]/80 hover:underline">privacy@kampalo.com</a></p>
-                <p className="text-slate-600 dark:text-slate-300">Address: [Your Company Address]</p>
+                <p className="text-slate-900 dark:text-white font-semibold mb-1">
+                  {TEKREIGN_CONTACT.parentCompany}{' '}
+                  <span className="font-normal text-slate-600 dark:text-slate-400">
+                    (parent company of {TEKREIGN_CONTACT.productName})
+                  </span>
+                </p>
+                <p className="text-slate-900 dark:text-white font-semibold mb-3">{TEKREIGN_CONTACT.productName} Privacy Team</p>
+                <p className="text-slate-600 dark:text-slate-300">
+                  Email:{' '}
+                  <a
+                    href={`mailto:${TEKREIGN_CONTACT.contactEmail}`}
+                    className="text-[#174A6E] dark:text-[#174A6E]/80 hover:underline"
+                  >
+                    {TEKREIGN_CONTACT.contactEmail}
+                  </a>
+                </p>
+                <p className="text-slate-600 dark:text-slate-300 mt-2">
+                  Address: {TEKREIGN_CONTACT.addressLine1}, {TEKREIGN_CONTACT.addressLine2}
+                </p>
               </div>
             </section>
           </div>

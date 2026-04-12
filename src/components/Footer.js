@@ -12,13 +12,13 @@ const footerLinks = {
   ],
   company: [
     { name: 'About Us', href: '/about' },
-    { name: 'Blog', href: '#' },
-    { name: 'Careers', href: '#' },
-    { name: 'Contact', href: '/help' },
+    { name: 'Tekreign', href: 'https://tekreign.com', external: true },
+    { name: 'Contact', href: '/contact' },
   ],
   support: [
     { name: 'Documentation', href: '/documentation' },
     { name: 'Help Center', href: '/help' },
+    { name: 'Data deletion', href: '/data-deletion' },
     { name: 'Privacy Policy', href: '/privacy' },
     { name: 'Terms & Conditions', href: '/terms' },
     { name: 'Cookies Policy', href: '/cookies' },
@@ -98,9 +98,15 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
+                    {...(link.external
+                      ? { target: '_blank', rel: 'noopener noreferrer' }
+                      : {})}
                     className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors inline-block"
                   >
                     {link.name}
+                    {link.external ? (
+                      <span className="sr-only"> (opens in new tab)</span>
+                    ) : null}
                   </a>
                 </li>
               ))}

@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { TEKREIGN_CONTACT } from '@/constants/companyContact';
 
 export const metadata = {
   title: 'Terms and Conditions - KAMPALO',
@@ -23,7 +24,9 @@ export default function TermsAndConditions() {
             <section className="mb-8">
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mt-8 mb-4">1. Acceptance of Terms</h2>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                By accessing or using KAMPALO ("the Service"), you agree to be bound by these Terms and Conditions ("Terms"). If you disagree with any part of these Terms, you may not access the Service.
+                By accessing or using {TEKREIGN_CONTACT.productName} (&quot;the Service&quot;), operated by{' '}
+                {TEKREIGN_CONTACT.parentCompany}, you agree to be bound by these Terms and Conditions
+                (&quot;Terms&quot;). If you disagree with any part of these Terms, you may not access the Service.
               </p>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
                 These Terms apply to all visitors, users, and others who access or use the Service. By creating an account or using our platform, you acknowledge that you have read, understood, and agree to be bound by these Terms.
@@ -241,9 +244,25 @@ export default function TermsAndConditions() {
                 If you have any questions about these Terms, please contact us:
               </p>
               <div className="bg-slate-100 dark:bg-slate-800 p-6 rounded-lg">
-                <p className="text-slate-900 dark:text-white font-semibold mb-2">KAMPALO Legal Team</p>
-                <p className="text-slate-600 dark:text-slate-300">Email: <a href="mailto:legal@kampalo.com" className="text-[#174A6E] dark:text-[#174A6E]/80 hover:underline">legal@kampalo.com</a></p>
-                <p className="text-slate-600 dark:text-slate-300">Address: [Your Company Address]</p>
+                <p className="text-slate-900 dark:text-white font-semibold mb-1">
+                  {TEKREIGN_CONTACT.parentCompany}{' '}
+                  <span className="font-normal text-slate-600 dark:text-slate-400">
+                    (parent company of {TEKREIGN_CONTACT.productName})
+                  </span>
+                </p>
+                <p className="text-slate-900 dark:text-white font-semibold mb-3">{TEKREIGN_CONTACT.productName} Legal Team</p>
+                <p className="text-slate-600 dark:text-slate-300">
+                  Email:{' '}
+                  <a
+                    href={`mailto:${TEKREIGN_CONTACT.contactEmail}`}
+                    className="text-[#174A6E] dark:text-[#174A6E]/80 hover:underline"
+                  >
+                    {TEKREIGN_CONTACT.contactEmail}
+                  </a>
+                </p>
+                <p className="text-slate-600 dark:text-slate-300 mt-2">
+                  Address: {TEKREIGN_CONTACT.addressLine1}, {TEKREIGN_CONTACT.addressLine2}
+                </p>
               </div>
             </section>
           </div>

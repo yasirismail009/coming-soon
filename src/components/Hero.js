@@ -3,15 +3,19 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { useTheme } from '@/contexts/ThemeContext';
+import { resolveDashboardImage } from '@/utils/dashboardScreenshots';
+import LaptopFrame from '@/components/LaptopFrame';
 
 const heroDashboards = [
-  { id: 'main', image: '/assets/main_dashboard.png' },
-  { id: 'google', image: '/assets/google_dashboard.png' },
-  { id: 'facebook', image: '/assets/facebook_dashboard.png' },
-  { id: 'comparison', image: '/assets/comparision_dashbaord.png' },
+  { id: 'main' },
+  { id: 'google' },
+  { id: 'facebook' },
+  { id: 'comparison' },
 ];
 
 export default function Hero() {
+  const { theme } = useTheme();
   const [currentDashboard, setCurrentDashboard] = useState(0);
 
   const containerVariants = {
@@ -45,30 +49,6 @@ export default function Hero() {
 
     return () => clearInterval(interval);
   }, []);
-
-  // Laptop Frame Component
-  const LaptopFrame = ({ children, className = '' }) => {
-    return (
-      <div className={`relative ${className}`}>
-        {/* Laptop Base */}
-        <div className="relative bg-gradient-to-b from-slate-300 to-slate-400 dark:from-slate-700 dark:to-slate-800 rounded-t-lg p-1.5 shadow-2xl">
-          {/* Screen Bezel */}
-          <div className="bg-slate-900 rounded-lg p-1.5">
-            {/* Camera/Indicator */}
-            <div className="h-0.5 w-12 bg-slate-700 rounded-full mx-auto mb-1.5"></div>
-            {/* Screen Content */}
-            <div className="bg-white dark:bg-slate-900 rounded overflow-hidden" style={{ aspectRatio: '16/10', maxHeight: '400px' }}>
-              {children}
-            </div>
-          </div>
-        </div>
-        {/* Laptop Base Bottom */}
-        <div className="h-1.5 bg-gradient-to-b from-slate-400 to-slate-500 dark:from-slate-800 dark:to-slate-900 rounded-b-lg mx-auto w-[85%]"></div>
-        {/* Trackpad */}
-        <div className="h-0.5 bg-slate-600 dark:bg-slate-700 rounded-full mx-auto w-[30%] mt-1"></div>
-      </div>
-    );
-  };
 
   return (
     <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
@@ -165,21 +145,21 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="hidden lg:block relative"
           >
-            <LaptopFrame>
+            <LaptopFrame className="max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto">
               <AnimatePresence mode="wait">
                 <motion.div
-                  key={currentDashboard}
+                  key={`${currentDashboard}-${theme}`}
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.5, ease: 'easeInOut' }}
-                  className="relative w-full h-full"
+                  className="absolute inset-0"
                 >
                   <Image
-                    src={heroDashboards[currentDashboard].image}
+                    src={resolveDashboardImage(heroDashboards[currentDashboard].id, theme)}
                     alt={`KAMPALO Dashboard ${currentDashboard + 1}`}
                     fill
-                    className="object-contain"
+                    className="object-contain object-top"
                     sizes="(max-width: 1200px) 100vw, 800px"
                     priority={currentDashboard === 0}
                   />
