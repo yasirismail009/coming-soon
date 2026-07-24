@@ -83,10 +83,16 @@ const getFeatures = (plan) => {
   const features = [];
   
   // Platform integrations
-  if (plan.has_google_ads) features.push('Google Ads Integration');
-  if (plan.has_meta_ads) features.push('Meta Ads Integration');
+  if (plan.has_google_ads) features.push('Google Ads, SA360, GA4 & Search Console');
+  if (plan.has_meta_ads) features.push('Meta Ads, Page & Instagram');
   
   // Limits
+  if (plan.max_connections > 0) {
+    features.push(`${plan.max_connections} Connection${plan.max_connections > 1 ? 's' : ''}`);
+  } else {
+    features.push('Higher connection quotas');
+  }
+
   if (plan.max_ad_accounts > 0) {
     features.push(`${plan.max_ad_accounts} Ad Account${plan.max_ad_accounts > 1 ? 's' : ''}`);
   } else {
@@ -100,12 +106,20 @@ const getFeatures = (plan) => {
   }
   
   // Features
-  if (plan.has_advanced_analytics) features.push('Advanced Analytics & KPIs');
-  if (plan.has_custom_reports) features.push('Custom Reports');
+  features.push('Kai AI assistant');
+  if (plan.has_advanced_analytics) features.push('Trends & KPI comparison');
+  if (plan.plan_type === 'enterprise') {
+    features.push('Auto-include all accounts & campaigns');
+    features.push('Agency clients & brand scoping');
+    features.push('KPI Comparison');
+  }
+  if (plan.has_custom_reports) features.push('Branded reports & scheduling');
+  if (plan.plan_type !== 'free') features.push('Organic Insights & moderation');
   if (plan.has_api_access) features.push('API Access');
   if (plan.has_priority_support) features.push('Priority Support');
   if (plan.has_white_label) features.push('White Label');
   if (plan.has_custom_integrations) features.push('Custom Integrations');
+  if (plan.plan_type === 'enterprise') features.push('Team roles (Admin → Visitor)');
   
   return features;
 };
@@ -162,10 +176,10 @@ export default function Pricing() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-            Simple, Transparent Pricing
+            Simple pricing. Start free.
           </h2>
           <p className="text-lg lg:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto mb-8">
-            Choose the plan that fits your business needs
+            Connect Google Ads and Meta, explore the dashboard, and try Kai—upgrade when your team is ready.
           </p>
 
           {/* Billing Toggle */}

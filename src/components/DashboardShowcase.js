@@ -7,37 +7,67 @@ import { useTheme } from '@/contexts/ThemeContext';
 import { resolveDashboardImage } from '@/utils/dashboardScreenshots';
 import LaptopFrame from '@/components/LaptopFrame';
 
+/** Tab labels match the in-app sidebar exactly. Screenshots are full product UI (nav + page). */
 const dashboards = [
   {
-    id: 'main',
-    name: 'Unified Dashboard',
-    description: 'Get a complete overview of all your advertising campaigns in one place',
+    id: 'kai',
+    name: 'Kai',
+    description: 'Ask about spend, ROAS, and what to optimize next',
   },
   {
-    id: 'google',
-    name: 'Google Ads Dashboard',
-    description: 'Comprehensive analytics and insights for your Google Ads campaigns',
+    id: 'overview',
+    name: 'Dashboard',
+    description: 'Performance overview across connected accounts',
   },
   {
-    id: 'facebook',
-    name: 'Meta Ads Dashboard',
-    description: 'Monitor and optimize your Facebook and Instagram ad performance',
+    id: 'trends',
+    name: 'Trends',
+    description: 'How metrics move over your selected date range',
   },
   {
-    id: 'comparison',
-    name: 'Cross-Platform Comparison',
-    description: 'Compare performance metrics across all your advertising platforms side-by-side',
+    id: 'kpis',
+    name: 'KPI Comparison',
+    description: 'Side-by-side KPI comparison (enterprise)',
+  },
+  {
+    id: 'accountsCampaigns',
+    name: 'Accounts & Campaigns',
+    description: 'Google Ads and Meta Ads detail in one place',
+  },
+  {
+    id: 'analytics',
+    name: 'Google Analytics',
+    description: 'GA4 traffic, pages, and sales trends',
+  },
+  {
+    id: 'seo',
+    name: 'SEO Suite',
+    description: 'Audit domains—scores, inspection, and indexing',
+  },
+  {
+    id: 'organicInsights',
+    name: 'Organic Insights',
+    description: 'Page and Instagram insights plus moderation',
+  },
+  {
+    id: 'reports',
+    name: 'Reports',
+    description: 'Generate, brand, and schedule exports',
+  },
+  {
+    id: 'connect',
+    name: 'Connect',
+    description: 'One Google OAuth and one Meta OAuth',
   },
 ];
 
 export default function DashboardShowcase() {
   const { theme } = useTheme();
-  const [activeTab, setActiveTab] = useState('main');
+  const [activeTab, setActiveTab] = useState('kai');
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   const activeDashboard = dashboards.find((d) => d.id === activeTab) || dashboards[0];
 
-  // Auto-rotate dashboards every 5 seconds
   useEffect(() => {
     if (!isAutoPlaying) return;
 
@@ -52,31 +82,9 @@ export default function DashboardShowcase() {
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const imageVariants = {
-    hidden: { opacity: 0, scale: 0.95 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-        ease: 'easeOut',
-      },
-    },
-  };
-
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-800 dark:to-slate-900">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -85,31 +93,31 @@ export default function DashboardShowcase() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-            See Your Data in Action
+            The same workspace your team opens every day
           </h2>
           <p className="text-lg lg:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
-            Explore powerful dashboards designed to give you complete visibility into your advertising performance
+            Full product screens—Kai through Connect—exactly as they appear in Kampalo.
           </p>
         </motion.div>
 
-        {/* Tab Navigation */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-3 mb-12"
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="flex flex-wrap justify-center gap-2 mb-10"
         >
           {dashboards.map((dashboard) => (
             <button
               key={dashboard.id}
+              type="button"
               onClick={() => {
                 setActiveTab(dashboard.id);
                 setIsAutoPlaying(false);
               }}
-              className={`px-6 py-3 rounded-lg font-medium text-sm transition-all ${
+              className={`px-3.5 sm:px-4 py-2 rounded-lg font-medium text-sm transition-all ${
                 activeTab === dashboard.id
-                  ? 'bg-[#174A6E] text-white shadow-lg'
+                  ? 'bg-[#174A6E] text-white shadow-md'
                   : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700'
               }`}
             >
@@ -118,58 +126,45 @@ export default function DashboardShowcase() {
           ))}
         </motion.div>
 
-        {/* Dashboard Preview in Laptop Frame */}
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
-          className="mb-16 max-w-3xl mx-auto relative"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.55 }}
+          className="relative"
         >
-          <div className="relative">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`${activeTab}-${theme}`}
-                initial={{ opacity: 0, x: 50, scale: 0.95 }}
-                animate={{ opacity: 1, x: 0, scale: 1 }}
-                exit={{ opacity: 0, x: -50, scale: 0.95 }}
-                transition={{ duration: 0.5, ease: 'easeInOut' }}
-              >
-                <LaptopFrame>
-                  <div className="absolute inset-0">
-                    <Image
-                      src={resolveDashboardImage(activeDashboard.id, theme)}
-                      alt={activeDashboard.name}
-                      fill
-                      className="object-contain object-top"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
-                      priority={activeTab === 'main'}
-                    />
-                  </div>
-                </LaptopFrame>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-          <motion.div
-            key={`info-${activeTab}`}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="mt-6 text-center"
-          >
-            <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`${activeTab}-${theme}`}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.35, ease: 'easeInOut' }}
+            >
+              <LaptopFrame>
+                <Image
+                  src={resolveDashboardImage(activeDashboard.id, theme)}
+                  alt={`Kampalo ${activeDashboard.name}`}
+                  fill
+                  className="object-cover object-left-top"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1152px"
+                  priority={activeTab === 'kai'}
+                />
+              </LaptopFrame>
+            </motion.div>
+          </AnimatePresence>
+
+          <div className="mt-6 text-center">
+            <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-1">
               {activeDashboard.name}
             </h3>
-            <p className="text-sm text-slate-600 dark:text-slate-400">
+            <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
               {activeDashboard.description}
             </p>
-          </motion.div>
-
-          {/* Auto-play control */}
-          <div className="flex justify-center mt-4">
             <button
+              type="button"
               onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-              className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
+              className="inline-flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
             >
               {isAutoPlaying ? (
                 <>
@@ -188,52 +183,6 @@ export default function DashboardShowcase() {
               )}
             </button>
           </div>
-        </motion.div>
-
-        {/* Dashboard Grid - All Screenshots in Laptop Frames */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12"
-        >
-          {dashboards.map((dashboard, index) => (
-            <motion.div
-              key={dashboard.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-              whileHover={{ y: -8, transition: { duration: 0.2 } }}
-              className="cursor-pointer"
-              onClick={() => {
-                setActiveTab(dashboard.id);
-                setIsAutoPlaying(false);
-              }}
-            >
-              <LaptopFrame className="scale-[0.72] lg:scale-[0.82] origin-center">
-                <div className="absolute inset-0">
-                  <Image
-                    key={`${dashboard.id}-${theme}`}
-                    src={resolveDashboardImage(dashboard.id, theme)}
-                    alt={dashboard.name}
-                    fill
-                    className="object-contain object-top"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-                  />
-                </div>
-              </LaptopFrame>
-              <div className="mt-4 text-center">
-                <h4 className="text-base font-semibold text-slate-900 dark:text-white mb-1">
-                  {dashboard.name}
-                </h4>
-                <p className="text-xs text-slate-600 dark:text-slate-400">
-                  {dashboard.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
         </motion.div>
       </div>
     </section>

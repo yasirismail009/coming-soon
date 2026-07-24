@@ -6,9 +6,9 @@ import LaptopFrame from '@/components/LaptopFrame';
 
 const SCREENSHOTS = {
   disconnect: {
-    light: '/assets/disconnect_integrations.png',
-    dark: '/assets/disconnect_integrations_dark.png',
-    alt: 'KAMPALO Integrations page showing Disconnect on an integration card',
+    light: '/assets/Connect_Light.png',
+    dark: '/assets/Connect_Dark.png',
+    alt: 'Kampalo Connect page where you manage and disconnect Google and Meta integrations',
   },
   accountDeletion: {
     light: '/assets/account_deletion.png',
@@ -36,7 +36,7 @@ export default function DataDeletionScreenshot({ variant, caption }) {
           src={src}
           alt={cfg.alt}
           fill
-          className="object-contain object-top"
+          className="object-cover object-left-top"
           sizes="(max-width: 768px) 100vw, 576px"
           priority={variant === 'disconnect'}
         />

@@ -12,7 +12,7 @@ const accent = '#174A6E';
 const services = [
   {
     label: 'Product demo',
-    description: 'See KAMPALO live or start a trial',
+    description: 'See Kampalo live or start a trial',
     icon: (
       <svg width="32" height="32" fill="none" viewBox="0 0 32 32" aria-hidden>
         <circle cx="16" cy="16" r="16" fill={accent} />
@@ -79,7 +79,7 @@ const MARKETING_QUOTES = [
 
 const OFFICE_HOURS = 'Monday – Friday, 9:00 am – 6:00 pm (local time)';
 const CONTACT_BLURB =
-  'Questions about unified marketing analytics, integrations, or enterprise plans? Tell us what you need—we will route your message to the right team.';
+  'Questions about Kampalo, Google Ads or Meta connections, Kai, or enterprise plans? Tell us what you need—we will route your message to the right team.';
 
 const QUOTE_INTERVAL_MS = 6500;
 
@@ -168,7 +168,7 @@ export default function ContactPageClient() {
           {/* Contact form */}
           <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-xl border border-slate-200 dark:border-slate-700 px-6 md:px-10 py-10 md:py-12">
             <h1 className="text-2xl md:text-3xl font-bold mb-2 text-slate-900 dark:text-white leading-tight">
-              Let&apos;s work together
+              Talk to the Kampalo team
             </h1>
             <p className="text-slate-600 dark:text-slate-300 mb-6 md:mb-8 text-sm md:text-base leading-relaxed">
               {CONTACT_BLURB}
@@ -293,7 +293,7 @@ export default function ContactPageClient() {
           <div className="flex flex-col gap-6 lg:sticky lg:top-28">
             <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-lg border border-slate-200 dark:border-slate-700 p-6 md:p-8 overflow-hidden">
               <p className="text-xs font-semibold uppercase tracking-wide text-[#174A6E] dark:text-blue-300 mb-4">
-                Why teams choose unified analytics
+                Why teams want unified ads analytics
               </p>
               <div className="relative min-h-[140px] md:min-h-[120px]">
                 <AnimatePresence mode="wait">

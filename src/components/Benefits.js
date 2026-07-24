@@ -4,23 +4,26 @@ import { motion } from 'framer-motion';
 
 const benefits = [
   {
-    title: 'Eliminate Dashboard Switching',
-    description: 'Stop wasting time jumping between Google Ads, Meta Business Manager, and other platforms. Everything you need is in one place.',
+    title: 'One workspace instead of five tabs',
+    description:
+      'Ads, GA4, SEO Suite, Organic Insights, and Reports live together—so your team stops hopping between tools.',
   },
   {
-    title: 'Data-Driven Decisions',
-    description: 'Make smarter marketing decisions with comprehensive analytics, cross-platform comparisons, and advanced KPIs at your fingertips.',
+    title: 'Know what to fund next',
+    description:
+      'Compare KPIs, then ask Kai about campaigns or Meta organic—based on your synced data, not guesses.',
   },
   {
-    title: 'Scale Efficiently',
-    description: 'Manage multiple accounts and campaigns across all platforms. Bulk selection and unified controls make scaling your advertising effortless.',
+    title: 'Built for individuals and agencies',
+    description:
+      'Individual plans pick accounts within limits. Enterprise auto-includes accounts, adds brand clients, roles, and higher quotas.',
   },
 ];
 
 const stats = [
-  { label: 'Time Saved Per Week', value: '15+ hours' },
-  { label: 'Platforms Connected', value: 'Unlimited' },
-  { label: 'ROI Improvement', value: 'Up to 40%', highlight: true },
+  { label: 'Live connections today', value: 'Google + Meta' },
+  { label: 'How you get answers', value: 'Dashboards + Kai' },
+  { label: 'Trial', value: '14 days free', highlight: true },
 ];
 
 export default function Benefits() {
@@ -72,7 +75,7 @@ export default function Benefits() {
               variants={itemVariants}
               className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-8 lg:mb-12"
             >
-              Save Time, Increase ROI
+              Less reporting. More optimizing.
             </motion.h2>
             <div className="space-y-6 lg:space-y-8">
               {benefits.map((benefit, index) => (
@@ -119,8 +122,8 @@ export default function Benefits() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </motion.div>
-                <h3 className="text-xl lg:text-2xl font-bold text-slate-900 dark:text-white mb-2">10x Faster</h3>
-                <p className="text-slate-600 dark:text-slate-300 text-base lg:text-lg">Marketing analytics workflow</p>
+                <h3 className="text-xl lg:text-2xl font-bold text-slate-900 dark:text-white mb-2">Built for busy teams</h3>
+                <p className="text-slate-600 dark:text-slate-300 text-base lg:text-lg">Analytics without the tab chaos</p>
               </div>
 
               <div className="space-y-4">

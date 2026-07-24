@@ -1,11 +1,14 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { TEKREIGN_CONTACT } from '@/constants/companyContact';
+import { pageMetadata } from '@/lib/site';
 
-export const metadata = {
-  title: 'Terms and Conditions - KAMPALO',
-  description: 'KAMPALO Terms and Conditions - Read our terms of service and usage agreements.',
-};
+export const metadata = pageMetadata({
+  title: 'Terms and Conditions',
+  description:
+    'Kampalo terms of service: acceptable use, subscriptions, and agreements for the marketing analytics platform.',
+  path: '/terms',
+});
 
 export default function TermsAndConditions() {
   return (

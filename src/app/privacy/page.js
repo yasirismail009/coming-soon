@@ -2,11 +2,14 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
 import { TEKREIGN_CONTACT } from '@/constants/companyContact';
+import { pageMetadata } from '@/lib/site';
 
-export const metadata = {
-  title: 'Privacy Policy - KAMPALO',
-  description: 'KAMPALO Privacy Policy - Learn how we collect, use, and protect your data.',
-};
+export const metadata = pageMetadata({
+  title: 'Privacy Policy',
+  description:
+    'Kampalo privacy policy: how Tekreign collects, uses, and protects marketing analytics and account data.',
+  path: '/privacy',
+});
 
 export default function PrivacyPolicy() {
   return (

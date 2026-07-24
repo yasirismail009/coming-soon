@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 const platforms = [
   {
     name: 'Google Ads',
-    subtitle: 'Search & Display',
+    subtitle: 'Ads, SA360, GA4 & Search Console',
     icon: (
       <svg className="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
         <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -16,14 +16,14 @@ const platforms = [
     ),
     gradient: 'from-red-500 to-orange-500',
     bgGradient: 'from-white to-red-50 dark:from-slate-800 dark:to-slate-800/50',
-    description: 'Connect your Google Ads accounts, view campaigns, track performance, and manage SA360 assets—all in one place.',
+    description: 'Connect Google Ads and Search Ads 360, plus GA4 and Search Console, in one sign-in—gated by your plan.',
     status: 'active',
-    statusText: 'Active Integration',
+    statusText: 'Available now',
     statusColor: 'text-green-600 dark:text-green-400',
   },
   {
     name: 'Meta Ads',
-    subtitle: 'Facebook & Instagram',
+    subtitle: 'Ads, Page & Instagram',
     icon: (
       <svg className="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
         <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
@@ -31,9 +31,9 @@ const platforms = [
     ),
     gradient: 'from-[#174A6E] to-[#0f3451]',
     bgGradient: 'from-white to-blue-50 dark:from-slate-800 dark:to-slate-800/50',
-    description: 'Manage your Facebook and Instagram ad campaigns with comprehensive insights and analytics.',
+    description: 'Meta Ads with device, region, and placement breakdowns—plus Page and Instagram organic insights and comment moderation.',
     status: 'active',
-    statusText: 'Active Integration',
+    statusText: 'Available now',
     statusColor: 'text-green-600 dark:text-green-400',
   },
   {
@@ -46,7 +46,7 @@ const platforms = [
     ),
     gradient: 'from-slate-400 to-slate-500',
     bgGradient: 'from-white to-slate-50 dark:from-slate-800 dark:to-slate-800/50',
-    description: 'TikTok advertising integration is currently in development. Get notified when it\'s ready!',
+    description: 'TikTok Ads is on our roadmap. Get notified when the connection is ready.',
     status: 'coming-soon',
     statusText: 'Coming Soon',
     statusColor: 'text-[#174A6E] dark:text-[#174A6E]/80',
@@ -90,10 +90,10 @@ export default function PlatformIntegrations() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-            Connect All Your Platforms
+            Connect once. Cover the stack.
           </h2>
           <p className="text-lg lg:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
-            Unified analytics and campaign management across all major advertising platforms
+            One Google connection and one Meta connection unlock ads, analytics, search, and organic—subject to your plan. More channels are on the roadmap.
           </p>
         </motion.div>
 

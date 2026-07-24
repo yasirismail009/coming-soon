@@ -48,13 +48,20 @@ export default function Header() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="hidden md:flex items-center space-x-6 lg:space-x-8"
           >
-            <a href="#features" className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">
+            <a href="/#features" className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">
               Features
             </a>
-            <a href="#platforms" className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">
+            <a
+              href="/kai"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-[#174A6E]/10 dark:bg-[#174A6E]/25 text-[#174A6E] dark:text-blue-200 px-3 py-1.5 font-semibold hover:bg-[#174A6E]/15 dark:hover:bg-[#174A6E]/40 transition-colors"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" aria-hidden />
+              Kai AI
+            </a>
+            <a href="/#platforms" className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">
               Platforms
             </a>
-            <a href="#pricing" className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">
+            <a href="/#pricing" className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">
               Pricing
             </a>
             <a
@@ -142,21 +149,28 @@ export default function Header() {
             >
               <div className="py-4 space-y-3 border-t border-slate-200 dark:border-slate-800">
                 <a
-                  href="#features"
+                  href="/#features"
                   onClick={() => setMobileMenuOpen(false)}
                   className="block px-4 py-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors"
                 >
                   Features
                 </a>
                 <a
-                  href="#platforms"
+                  href="/kai"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block px-4 py-2 font-semibold text-[#174A6E] dark:text-blue-200 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors"
+                >
+                  Kai AI
+                </a>
+                <a
+                  href="/#platforms"
                   onClick={() => setMobileMenuOpen(false)}
                   className="block px-4 py-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors"
                 >
                   Platforms
                 </a>
                 <a
-                  href="#pricing"
+                  href="/#pricing"
                   onClick={() => setMobileMenuOpen(false)}
                   className="block px-4 py-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors"
                 >

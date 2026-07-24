@@ -1,10 +1,13 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { pageMetadata } from '@/lib/site';
 
-export const metadata = {
-  title: 'Documentation - KAMPALO',
-  description: 'KAMPALO Documentation - Complete guide to using our unified marketing analytics platform.',
-};
+export const metadata = pageMetadata({
+  title: 'Documentation',
+  description:
+    'Learn Kampalo: connect Google and Meta once, use dashboards and Kai, run SEO audits, and schedule branded reports.',
+  path: '/documentation',
+});
 
 export default function Documentation() {
   return (
@@ -16,7 +19,7 @@ export default function Documentation() {
             Documentation
           </h1>
           <p className="text-lg text-slate-600 dark:text-slate-400 mb-12">
-            Complete guide to getting started with KAMPALO and maximizing your marketing analytics.
+            Connect once, explore dashboards and Kai, then use SEO, organic Meta, and branded reports—step by step.
           </p>
 
           <div className="space-y-12">
@@ -28,14 +31,15 @@ export default function Documentation() {
                 <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
                   <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">1. Creating Your Account</h3>
                   <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                    To get started with KAMPALO, follow these simple steps:
+                    Choose Individual or Enterprise signup, then set up your workspace:
                   </p>
                   <ol className="list-decimal pl-6 space-y-2 text-slate-600 dark:text-slate-300">
-                    <li>Visit our homepage and click "Start Free Trial"</li>
-                    <li>Enter your email address and create a secure password</li>
-                    <li>Verify your email address through the confirmation link</li>
-                    <li>Complete your profile with company information</li>
-                    <li>Choose your subscription plan (you can start with the Free plan)</li>
+                    <li>Visit our homepage and click &quot;Start Free Trial&quot;</li>
+                    <li>Pick Individual or Enterprise signup</li>
+                    <li>Create your account and verify your email</li>
+                    <li>For Enterprise: set up your agency home and brand clients</li>
+                    <li>Invite teammates with roles: Admin, Manager, Marketer, Client User, or Visitor</li>
+                    <li>Choose a plan—feature access (Ads, GA4, Search Console, and more) follows your subscription</li>
                   </ol>
                 </div>
 
@@ -60,56 +64,54 @@ export default function Documentation() {
               
               <div className="space-y-6">
                 <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
-                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">Connecting Google Ads</h3>
+                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">Connecting Google</h3>
                   <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                    Connect your Google Ads account to start tracking campaign performance:
+                    One Google sign-in covers Google Ads, Search Ads 360, GA4, and Search Console (subject to your plan):
                   </p>
                   <ol className="list-decimal pl-6 space-y-2 text-slate-600 dark:text-slate-300">
-                    <li>Navigate to Settings → Integrations</li>
-                    <li>Click "Connect Google Ads"</li>
-                    <li>Sign in with your Google account that has access to your Google Ads account</li>
-                    <li>Authorize KAMPALO to access your Google Ads data</li>
-                    <li>Select the Google Ads accounts you want to connect</li>
-                    <li>Wait for the initial data sync to complete (usually 2-5 minutes)</li>
+                    <li>Go to Connect (or Settings → Connections)</li>
+                    <li>Click Connect Google</li>
+                    <li>Sign in with the Google account that owns your Ads / Analytics / Search Console properties</li>
+                    <li>Authorize the scopes Kampalo requests</li>
+                    <li>Enterprise can auto-include all accounts and campaigns; Individual plans select within plan limits</li>
+                    <li>Wait for the first sync to finish</li>
                   </ol>
                 </div>
 
                 <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
-                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">Connecting Meta Ads (Facebook & Instagram)</h3>
+                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">Connecting Meta</h3>
                   <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                    Integrate your Meta advertising accounts:
+                    One Meta sign-in covers Ads, Facebook Page, and Instagram:
                   </p>
                   <ol className="list-decimal pl-6 space-y-2 text-slate-600 dark:text-slate-300">
-                    <li>Go to Settings → Integrations</li>
-                    <li>Click "Connect Meta Ads"</li>
-                    <li>Log in with your Facebook account</li>
-                    <li>Grant necessary permissions for ad account access</li>
-                    <li>Select the ad accounts you want to monitor</li>
-                    <li>Choose the business manager if applicable</li>
-                    <li>Confirm the connection and wait for data synchronization</li>
+                    <li>Go to Connect (or Settings → Connections)</li>
+                    <li>Click Connect Meta</li>
+                    <li>Log in with Facebook and grant ad, page, and Instagram permissions</li>
+                    <li>Select ad accounts, pages, and Instagram accounts to sync</li>
+                    <li>Confirm and wait for the first synchronization</li>
                   </ol>
                 </div>
 
                 <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
-                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">Other Platform Integrations</h3>
+                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">Other platforms (roadmap)</h3>
                   <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                    KAMPALO also supports integrations with:
+                    Google Ads and Meta are available today. We are also planning connections for:
                   </p>
                   <ul className="list-disc pl-6 space-y-2 text-slate-600 dark:text-slate-300">
-                    <li><strong>TikTok Ads:</strong> Connect your TikTok for Business account</li>
-                    <li><strong>Shopify Ads:</strong> Link your Shopify store for ad performance tracking</li>
-                    <li><strong>LinkedIn Ads:</strong> Integrate your LinkedIn Campaign Manager account</li>
-                    <li><strong>Apple Search Ads:</strong> Connect your Apple Search Ads account</li>
+                    <li><strong>TikTok Ads</strong></li>
+                    <li><strong>LinkedIn Ads</strong></li>
+                    <li><strong>Shopify</strong> advertising signals</li>
+                    <li><strong>Apple Search Ads</strong></li>
                   </ul>
                   <p className="text-slate-600 dark:text-slate-300 leading-relaxed mt-4">
-                    The connection process is similar for all platforms—navigate to Integrations, select the platform, and follow the OAuth authentication flow.
+                    When a platform launches, the connection flow will match Google and Meta: Integrations → select the platform → secure sign-in → choose accounts → wait for the first sync.
                   </p>
                 </div>
 
                 <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6">
-                  <h4 className="text-lg font-semibold text-blue-900 dark:text-blue-200 mb-2">💡 Tip: Managing Connections</h4>
+                  <h4 className="text-lg font-semibold text-blue-900 dark:text-blue-200 mb-2">Tip: Managing Connections</h4>
                   <p className="text-blue-800 dark:text-blue-300 text-sm">
-                    You can manage, refresh, or disconnect platform connections at any time from Settings → Integrations. We recommend refreshing connections weekly to ensure data accuracy.
+                    Manage, refresh, or disconnect platforms anytime from Connect / Settings → Connections. Disconnecting removes synced data for that connection (see Data Deletion).
                   </p>
                 </div>
               </div>
@@ -123,14 +125,14 @@ export default function Documentation() {
                 <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
                   <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">Understanding the Unified Dashboard</h3>
                   <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                    The unified dashboard provides a comprehensive view of all your advertising campaigns:
+                    Kampalo includes overview, trends, and KPI views across connected accounts:
                   </p>
                   <ul className="list-disc pl-6 space-y-2 text-slate-600 dark:text-slate-300">
-                    <li><strong>Performance Overview:</strong> Key metrics aggregated across all platforms (Spend, Impressions, Clicks, Conversions, ROI)</li>
-                    <li><strong>Funnel Health:</strong> Track CTR, Conversion Rate, and Engagement Rate</li>
-                    <li><strong>Business Impact:</strong> Monitor overall ROI and revenue attribution</li>
-                    <li><strong>Platform Breakdown:</strong> Compare performance across different advertising platforms</li>
-                    <li><strong>Time-based Analysis:</strong> View trends over daily, weekly, monthly, or custom date ranges</li>
+                    <li><strong>Dashboard:</strong> Overall stats across connected accounts</li>
+                    <li><strong>Trends:</strong> Overall trends over your selected date range</li>
+                    <li><strong>KPI Comparison:</strong> Side-by-side comparison (enterprise)</li>
+                    <li><strong>Accounts &amp; Campaigns:</strong> Google Ads, Search Ads 360, and Meta detail with breakdowns</li>
+                    <li><strong>Google Analytics:</strong> GA4 home, reports, and Drive online sales views</li>
                   </ul>
                 </div>
 
@@ -163,17 +165,47 @@ export default function Documentation() {
                 <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
                   <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">Creating Custom Reports</h3>
                   <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                    Generate custom reports tailored to your needs:
+                    Build, brand, and schedule reports for brand, client, or user scope—covering Google Ads, Meta Ads, GA4, Search Console, and Meta organic:
                   </p>
                   <ol className="list-decimal pl-6 space-y-2 text-slate-600 dark:text-slate-300">
-                    <li>Navigate to Reports → Create New Report</li>
-                    <li>Select the date range and platforms to include</li>
-                    <li>Choose the metrics and dimensions you want to analyze</li>
-                    <li>Apply filters for campaigns, ad groups, or keywords</li>
-                    <li>Customize the report format (table, chart, or export)</li>
-                    <li>Save the report template for future use</li>
-                    <li>Schedule automated reports to be sent via email</li>
+                    <li>Open Reports and create a new report</li>
+                    <li>Choose date range, platforms, and metrics</li>
+                    <li>Apply campaign or account filters as needed</li>
+                    <li>Add report branding (logo and colors) in Settings</li>
+                    <li>Export or save the report</li>
+                    <li>Schedule recurring delivery when you need it on autopilot</li>
                   </ol>
+                </div>
+              </div>
+            </section>
+
+            {/* Product surfaces */}
+            <section>
+              <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">More in Kampalo</h2>
+              <div className="space-y-6">
+                <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
+                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">SEO Suite</h3>
+                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                    Search Console plus on-page and off-page checks, performance audits, page metadata, indexing, and sitemap visibility for domains you already own.
+                  </p>
+                </div>
+                <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
+                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">Organic Insights</h3>
+                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                    Facebook Page and Instagram insights, post and media detail, comment moderation with toxicity scoring, and auto-moderation preferences in Settings.
+                  </p>
+                </div>
+                <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
+                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">Notifications</h3>
+                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                    Get notified about sync events and other updates in your user notification feed.
+                  </p>
+                </div>
+                <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
+                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">Settings</h3>
+                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                    Manage connections, plan and feature gates, team roles, auto-moderation, report branding, and workspace preferences.
+                  </p>
                 </div>
               </div>
             </section>
@@ -186,11 +218,11 @@ export default function Documentation() {
                 <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
                   <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">Cross-Platform Comparison</h3>
                   <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                    Compare performance metrics across different advertising platforms:
+                    Compare performance metrics across accounts and campaigns (enterprise):
                   </p>
                   <ul className="list-disc pl-6 space-y-2 text-slate-600 dark:text-slate-300">
-                    <li>Side-by-side comparison of ROI, CPA, and CTR across platforms</li>
-                    <li>Identify which platforms deliver the best performance for your business</li>
+                    <li>Side-by-side comparison of ROI, CPA, and CTR</li>
+                    <li>Identify which accounts and campaigns deliver the best results</li>
                     <li>Allocate budget based on data-driven insights</li>
                     <li>Export comparison reports for stakeholder presentations</li>
                   </ul>
@@ -199,27 +231,13 @@ export default function Documentation() {
                 <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
                   <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">API Access</h3>
                   <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                    Available for Premium and Enterprise plans. Access your data programmatically:
+                    Available for Premium and Enterprise plans. Pull analytics programmatically:
                   </p>
                   <ul className="list-disc pl-6 space-y-2 text-slate-600 dark:text-slate-300">
                     <li>Generate API keys from Settings → API Access</li>
-                    <li>Use RESTful API endpoints to retrieve analytics data</li>
-                    <li>Set up webhooks for real-time data updates</li>
-                    <li>Integrate KAMPALO data into your own applications</li>
-                    <li>Review API documentation for detailed endpoint specifications</li>
-                  </ul>
-                </div>
-
-                <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
-                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">Automated Alerts</h3>
-                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                    Set up automated alerts for important changes in your campaigns:
-                  </p>
-                  <ul className="list-disc pl-6 space-y-2 text-slate-600 dark:text-slate-300">
-                    <li>Budget threshold alerts (e.g., when spending exceeds daily limits)</li>
-                    <li>Performance alerts (e.g., when CTR drops below a threshold)</li>
-                    <li>Error alerts (e.g., when ad accounts become disconnected)</li>
-                    <li>Receive notifications via email or in-app notifications</li>
+                    <li>Use REST endpoints to retrieve analytics data</li>
+                    <li>Optionally configure webhooks for update notifications</li>
+                    <li>Bring Kampalo data into your own tools and workflows</li>
                   </ul>
                 </div>
               </div>
@@ -248,11 +266,11 @@ export default function Documentation() {
                 <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
                   <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">Data Sync Delays</h3>
                   <div className="space-y-3 text-slate-600 dark:text-slate-300">
-                    <p><strong>Problem:</strong> Data not updating in real-time</p>
+                    <p><strong>Problem:</strong> Data not updating as expected</p>
                     <p><strong>Solution:</strong></p>
                     <ul className="list-disc pl-6 space-y-1">
-                      <li>Most platforms sync data every 4-6 hours</li>
-                      <li>Use the "Refresh Data" button for manual sync</li>
+                      <li>Most platforms sync on a regular schedule (typically every 4–6 hours)</li>
+                      <li>Use Refresh on a connection when you need fresher numbers</li>
                       <li>Check platform API status for any known issues</li>
                       <li>Verify that your platform connections are still active</li>
                     </ul>
@@ -281,8 +299,13 @@ export default function Documentation() {
               
               <div className="space-y-6">
                 <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
+                  <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">What is Kai?</h3>
+                  <p className="text-slate-600 dark:text-slate-300">Kai is Kampalo&apos;s AI marketing assistant. Ask plain-language questions about your Google Ads and Meta performance; Kai answers from your synced data and highlights which campaigns to scale. Learn more on the <a href="/kai" className="text-[#174A6E] dark:text-blue-300 font-medium hover:underline">Kai page</a>.</p>
+                </div>
+
+                <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
                   <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">How often is data synced?</h3>
-                  <p className="text-slate-600 dark:text-slate-300">Data is automatically synced every 4-6 hours. You can manually refresh data at any time from the dashboard.</p>
+                  <p className="text-slate-600 dark:text-slate-300">Data typically syncs every 4–6 hours. You can refresh manually from the dashboard. Kai uses the same synced stats—it does not call Google or Meta live inside chat.</p>
                 </div>
 
                 <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
@@ -297,7 +320,7 @@ export default function Documentation() {
 
                 <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
                   <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">What happens if I disconnect a platform?</h3>
-                  <p className="text-slate-600 dark:text-slate-300">Historical data remains in your account, but no new data will be synced. You can reconnect at any time to resume data collection.</p>
+                  <p className="text-slate-600 dark:text-slate-300">Disconnecting an integration permanently deletes synced data for that connection—there is no recovery. See our <a href="/data-deletion" className="text-[#174A6E] dark:text-blue-300 font-medium hover:underline">data deletion instructions</a> before you disconnect.</p>
                 </div>
               </div>
             </section>

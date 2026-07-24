@@ -8,10 +8,10 @@ import { resolveDashboardImage } from '@/utils/dashboardScreenshots';
 import LaptopFrame from '@/components/LaptopFrame';
 
 const heroDashboards = [
-  { id: 'main' },
-  { id: 'google' },
-  { id: 'facebook' },
-  { id: 'comparison' },
+  { id: 'kai', alt: 'Kampalo Kai — AI marketing analyst' },
+  { id: 'overview', alt: 'Kampalo Dashboard — performance overview' },
+  { id: 'accountsCampaigns', alt: 'Kampalo Accounts & Campaigns' },
+  { id: 'organicInsights', alt: 'Kampalo Organic Insights' },
 ];
 
 export default function Hero() {
@@ -65,24 +65,22 @@ export default function Hero() {
             variants={itemVariants}
             className="inline-flex items-center px-4 py-2 rounded-full bg-[#174A6E]/10 dark:bg-[#174A6E]/30 text-[#174A6E] dark:text-white text-sm font-medium mb-8"
           >
-            <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
-            </svg>
-            Unify Your Marketing Analytics
+            <span className="mr-2 h-2 w-2 rounded-full bg-emerald-500 animate-pulse" aria-hidden />
+            Meet Kai — AI assistant for ads &amp; organic
           </motion.div>
 
           <motion.h1
             variants={itemVariants}
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6 leading-tight"
           >
-            One Dashboard for
+            <span className="block">Kampalo</span>
             <motion.span
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.8 }}
               className="block bg-gradient-to-r from-[#174A6E] to-[#0B3049] dark:from-white dark:to-blue-200 bg-clip-text text-transparent"
             >
-              All Your Ads
+              See all your ads. Ask Kai what to scale.
             </motion.span>
           </motion.h1>
 
@@ -90,7 +88,7 @@ export default function Hero() {
             variants={itemVariants}
             className="text-lg md:text-xl lg:text-2xl text-slate-600 dark:text-slate-300 mb-10 leading-relaxed"
           >
-            Connect, monitor, analyze, and optimize your advertising campaigns across Google Ads, Meta, and more—all from a single, unified platform.
+            Connect Google and Meta once. Then ask Kai—your AI assistant—about ROAS, spend, campaigns, and organic performance.
           </motion.p>
 
           <motion.div
@@ -104,13 +102,14 @@ export default function Hero() {
             >
               Start Free Trial
             </motion.button>
-            <motion.button
+            <motion.a
+              href="#kai"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="w-full sm:w-auto bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-900 dark:text-white border border-slate-300 dark:border-slate-700 px-8 py-4 rounded-xl font-semibold text-base transition-all"
+              className="w-full sm:w-auto inline-flex justify-center items-center bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-900 dark:text-white border border-slate-300 dark:border-slate-700 px-8 py-4 rounded-xl font-semibold text-base transition-all"
             >
-              Watch Demo
-            </motion.button>
+              Meet Kai
+            </motion.a>
           </motion.div>
 
           <motion.div
@@ -145,23 +144,24 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="hidden lg:block relative"
           >
-            <LaptopFrame className="max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto">
+            <LaptopFrame className="w-full max-w-2xl mx-auto">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={`${currentDashboard}-${theme}`}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.5, ease: 'easeInOut' }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.4, ease: 'easeInOut' }}
                   className="absolute inset-0"
                 >
                   <Image
                     src={resolveDashboardImage(heroDashboards[currentDashboard].id, theme)}
-                    alt={`KAMPALO Dashboard ${currentDashboard + 1}`}
+                    alt={heroDashboards[currentDashboard].alt}
                     fill
-                    className="object-contain object-top"
-                    sizes="(max-width: 1200px) 100vw, 800px"
+                    className="object-cover object-left-top"
+                    sizes="(max-width: 1024px) 0px, 672px"
                     priority={currentDashboard === 0}
+                    quality={80}
                   />
                 </motion.div>
               </AnimatePresence>

@@ -39,13 +39,13 @@ export default function CTA() {
             variants={itemVariants}
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 lg:mb-8"
           >
-            Ready to Unify Your Marketing Analytics?
+            Ready to ask Kai what to scale?
           </motion.h2>
           <motion.p
             variants={itemVariants}
             className="text-lg lg:text-xl text-white/90 mb-10 lg:mb-12 max-w-3xl mx-auto leading-relaxed"
           >
-            Join thousands of marketers who are saving time and increasing ROI with KAMPALO. Start your free trial today—no credit card required.
+            Start a free trial of Kampalo. Connect Google and Meta, then ask your AI assistant about ROAS, spend, and campaigns—no credit card required.
           </motion.p>
           <motion.div
             variants={itemVariants}

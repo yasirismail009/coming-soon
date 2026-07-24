@@ -1,12 +1,17 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
+import JsonLd from '@/components/JsonLd';
 import { TEKREIGN_CONTACT } from '@/constants/companyContact';
+import { pageMetadata } from '@/lib/site';
+import { breadcrumbSchema, faqSchema, HELP_FAQS } from '@/lib/structuredData';
 
-export const metadata = {
-  title: 'Help Center - KAMPALO',
-  description: 'KAMPALO Help Center - Get support and answers to common questions.',
-};
+export const metadata = pageMetadata({
+  title: 'Help Center',
+  description:
+    'Get help with Kampalo: account setup, Google Ads and Meta connections, billing, troubleshooting, and Kai.',
+  path: '/help',
+});
 
 export default function HelpCenter() {
   const helpCategories = [
@@ -33,10 +38,19 @@ export default function HelpCenter() {
       title: 'Analytics & Reporting',
       icon: '📊',
       topics: [
-        { question: 'What metrics does KAMPALO track?', answer: 'We track ROI, ROAS, CTR, CPA, Conversion Rate, Spend, Impressions, Clicks, Leads, and more across all connected platforms.' },
+        { question: 'What metrics does Kampalo track?', answer: 'We track spend, impressions, clicks, conversions, ROI, ROAS, CTR, CPA, conversion rate, and related KPIs across connected platforms.' },
         { question: 'How do I create a custom report?', answer: 'Navigate to Reports → Create New Report, select your date range, platforms, metrics, and filters, then save or schedule the report.' },
         { question: 'Can I compare performance across platforms?', answer: 'Yes, use the Cross-Platform Comparison feature to analyze performance side-by-side and identify trends.' },
         { question: 'How accurate is the data?', answer: 'Data is pulled directly from platform APIs and synced regularly. Some metrics may have slight delays due to platform processing times.' },
+      ],
+    },
+    {
+      title: 'Kai AI Assistant',
+      icon: '🤖',
+      topics: [
+        { question: 'What is Kai?', answer: 'Kai is Kampalo’s AI marketing assistant. Ask questions in plain language about your Google Ads and Meta performance; Kai answers from your synced data and highlights which campaigns to scale.' },
+        { question: 'Does Kai call Google or Meta live in chat?', answer: 'No. Kai uses campaign stats already synced into Kampalo. Refresh integrations in the app when you need newer numbers.' },
+        { question: 'Where can I learn more about Kai?', answer: 'Visit the Kai product page for how questions work, what data Kai can see, and how it fits with your dashboards.' },
       ],
     },
     {
@@ -63,6 +77,15 @@ export default function HelpCenter() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-slate-900">
+      <JsonLd
+        data={[
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Help Center', path: '/help' },
+          ]),
+          faqSchema(HELP_FAQS),
+        ]}
+      />
       <Header />
       <main className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
@@ -72,7 +95,7 @@ export default function HelpCenter() {
               Help Center
             </h1>
             <p className="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto">
-              Find answers to common questions, learn how to use KAMPALO, and get the support you need.
+              Quick answers for setup, integrations, analytics, billing, and Kai—so you can get back to optimizing campaigns.
             </p>
             
             {/* Search Bar */}
@@ -130,7 +153,7 @@ export default function HelpCenter() {
               Disconnecting integrations or deleting your account
             </h2>
             <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-              In the KAMPALO app, disconnecting an integration permanently deletes synced data for that connection—there is
+            In the Kampalo app, disconnecting an integration permanently deletes synced data for that connection—there is
               no recovery. Deleting your account from Settings removes all integrations, connections, and stored
               analytics forever.
             </p>
@@ -174,7 +197,7 @@ export default function HelpCenter() {
           <section className="mt-16 bg-gradient-to-r from-[#174A6E] to-[#0B3049] rounded-2xl p-8 md:p-12 text-center text-white">
             <h2 className="text-3xl font-bold mb-4">Still Need Help?</h2>
             <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
-              Our team is here to help you get the most out of KAMPALO. Email{' '}
+              Our team is here to help you get the most out of Kampalo. Email{' '}
               <a
                 href={`mailto:${TEKREIGN_CONTACT.contactEmail}`}
                 className="underline underline-offset-2 font-semibold"

@@ -1,12 +1,14 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ContactPageClient from '@/components/ContactPageClient';
+import { pageMetadata } from '@/lib/site';
 
-export const metadata = {
-  title: 'Contact Us - KAMPALO',
+export const metadata = pageMetadata({
+  title: 'Contact',
   description:
-    'Get in touch about KAMPALO unified marketing analytics—demos, sales, enterprise plans, and technical support.',
-};
+    'Contact the Kampalo team for product demos, sales, enterprise plans, or help connecting Google Ads and Meta.',
+  path: '/contact',
+});
 
 export default function ContactPage() {
   return (

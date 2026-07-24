@@ -1,19 +1,28 @@
 /**
- * Laptop device chrome — same visual as the main marketing sections (dashboard showcase).
+ * Browser-style frame for full-app screenshots (~1920×870).
+ * Keeps native aspect so UI stays sharp—no laptop letterboxing or side crop.
  */
 export default function LaptopFrame({ children, className = '' }) {
   return (
-    <div className={`relative ${className}`}>
-      <div className="relative bg-gradient-to-b from-slate-300 to-slate-400 dark:from-slate-700 dark:to-slate-800 rounded-t-lg p-2 shadow-2xl">
-        <div className="bg-slate-900 rounded-lg p-2">
-          <div className="h-1 w-16 bg-slate-700 rounded-full mx-auto mb-2" />
-          <div className="relative w-full aspect-[16/10] overflow-hidden rounded bg-white dark:bg-slate-900">
-            <div className="absolute inset-0">{children}</div>
+    <div
+      className={`relative rounded-xl border border-slate-200/80 dark:border-slate-700/80 bg-slate-100 dark:bg-slate-800 shadow-[0_20px_50px_-20px_rgba(15,23,42,0.45)] overflow-hidden ${className}`}
+    >
+      <div className="flex items-center gap-3 px-3 sm:px-4 py-2.5 border-b border-slate-200/80 dark:border-slate-700/80 bg-slate-50 dark:bg-slate-900/80">
+        <div className="flex items-center gap-1.5 shrink-0" aria-hidden>
+          <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]" />
+          <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]" />
+          <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]" />
+        </div>
+        <div className="flex-1 min-w-0">
+          <div className="mx-auto max-w-[14rem] sm:max-w-xs truncate rounded-md bg-white dark:bg-slate-800 px-3 py-1 text-center text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 border border-slate-200/70 dark:border-slate-700/70">
+            app.kampalo.com
           </div>
         </div>
+        <div className="w-10 shrink-0" aria-hidden />
       </div>
-      <div className="h-2 bg-gradient-to-b from-slate-400 to-slate-500 dark:from-slate-800 dark:to-slate-900 rounded-b-lg mx-auto w-[85%]" />
-      <div className="h-1 bg-slate-600 dark:bg-slate-700 rounded-full mx-auto w-[30%] mt-1" />
+      <div className="relative w-full aspect-[1920/870] bg-slate-950">
+        <div className="absolute inset-0">{children}</div>
+      </div>
     </div>
   );
 }

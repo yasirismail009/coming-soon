@@ -49,10 +49,10 @@ export default function KeyMetrics() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-            Track What Matters Most
+            The metrics marketers actually use
           </h2>
           <p className="text-lg lg:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
-            Comprehensive KPIs and metrics to optimize your advertising ROI
+            Track return, cost, and engagement in one place—then ask Kai what they mean for next week&apos;s budget.
           </p>
         </motion.div>
 

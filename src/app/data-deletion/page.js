@@ -3,12 +3,14 @@ import Footer from '@/components/Footer';
 import Link from 'next/link';
 import DataDeletionScreenshot from '@/components/DataDeletionScreenshot';
 import { TEKREIGN_CONTACT } from '@/constants/companyContact';
+import { pageMetadata } from '@/lib/site';
 
-export const metadata = {
-  title: 'Data Deletion & Disconnection Instructions - KAMPALO',
+export const metadata = pageMetadata({
+  title: 'Data Deletion & Disconnection',
   description:
-    'What happens when you disconnect an integration or delete your KAMPALO account: permanent removal of data with no recovery.',
-};
+    'How disconnecting integrations or deleting a Kampalo account permanently removes synced marketing data.',
+  path: '/data-deletion',
+});
 
 export default function DataDeletionInstructionsPage() {
   return (

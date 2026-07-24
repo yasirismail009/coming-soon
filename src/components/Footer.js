@@ -5,10 +5,11 @@ import Image from 'next/image';
 
 const footerLinks = {
   product: [
-    { name: 'Features', href: '#features' },
-    { name: 'Integrations', href: '#platforms' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'Roadmap', href: '#' },
+    { name: 'Features', href: '/#features' },
+    { name: 'Kai AI Agent', href: '/kai' },
+    { name: 'Compare platforms', href: '/compare' },
+    { name: 'Integrations', href: '/#platforms' },
+    { name: 'Pricing', href: '/#pricing' },
   ],
   company: [
     { name: 'About Us', href: '/about' },
@@ -71,7 +72,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-sm lg:text-base leading-relaxed text-slate-600 dark:text-slate-400">
-              Unified marketing analytics and campaign management for modern businesses.
+              AI marketing analytics for Google Ads and Meta—one dashboard, then ask Kai what to scale.
             </p>
           </motion.div>
 
@@ -137,7 +138,7 @@ export default function Footer() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="border-t border-slate-200 dark:border-slate-800 pt-8 text-center text-sm lg:text-base"
         >
-          <p className="text-slate-600 dark:text-slate-400">© 2024 KAMPALO. All rights reserved.</p>
+          <p className="text-slate-600 dark:text-slate-400">© {new Date().getFullYear()} Kampalo. All rights reserved.</p>
         </motion.div>
       </div>
     </footer>

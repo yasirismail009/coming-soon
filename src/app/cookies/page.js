@@ -1,11 +1,14 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { TEKREIGN_CONTACT } from '@/constants/companyContact';
+import { pageMetadata } from '@/lib/site';
 
-export const metadata = {
-  title: 'Cookies Policy - KAMPALO',
-  description: 'KAMPALO Cookies Policy - Learn how we use cookies and similar technologies.',
-};
+export const metadata = pageMetadata({
+  title: 'Cookies Policy',
+  description:
+    'Kampalo cookies policy: how we use cookies and similar technologies on kampalo.com.',
+  path: '/cookies',
+});
 
 export default function CookiesPolicy() {
   return (

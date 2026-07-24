@@ -1,12 +1,14 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
+import { pageMetadata } from '@/lib/site';
 
-export const metadata = {
-  title: 'About Us - Tekreign & KAMPALO',
+export const metadata = pageMetadata({
+  title: 'About Tekreign & Kampalo',
   description:
-    'Tekreign builds innovative software including KAMPALO, a unified marketing analytics platform. Learn our vision for cross-channel advertising and AI agent workflows.',
-};
+    'Tekreign builds Kampalo—AI marketing analytics with Kai for teams that run Google Ads and Meta in one place.',
+  path: '/about',
+});
 
 const TEKREIGN_URL = 'https://tekreign.com';
 
@@ -21,12 +23,12 @@ export default function AboutUs() {
               About us
             </p>
             <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">
-              Tekreign &amp; KAMPALO
+              Tekreign &amp; Kampalo
             </h1>
             <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
               We are a software engineering team built for innovation—including{' '}
-              <strong className="text-slate-800 dark:text-slate-200">KAMPALO</strong>, our unified marketing analytics
-              platform. Our work spans products, platforms, and intelligent systems.
+              <strong className="text-slate-800 dark:text-slate-200">Kampalo</strong>, our AI marketing
+              analytics platform for teams that run Google Ads and Meta together.
             </p>
           </div>
 
@@ -58,46 +60,45 @@ export default function AboutUs() {
           </section>
 
           <section className="mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">KAMPALO vision</h2>
+            <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">Kampalo vision</h2>
             <p className="text-sm font-medium text-[#174A6E] dark:text-blue-300 mb-6 uppercase tracking-wide">
               Marketing platform
             </p>
             <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
-              Modern marketers juggle Google Ads, Meta, TikTok, LinkedIn, and more—each with its own dashboard, metrics,
-              and exports. KAMPALO exists to give you a <strong className="text-slate-900 dark:text-white">single,
-              unified view</strong> of advertising performance so you can monitor campaigns, compare channels, and act
-              on insights instead of fighting spreadsheets.
+              Modern marketers juggle Google Ads, Meta, and more—each with its own dashboard and exports. Kampalo
+              gives you <strong className="text-slate-900 dark:text-white">one place to see performance</strong> and{' '}
+              <strong className="text-slate-900 dark:text-white">Kai</strong> to help decide what to scale next.
             </p>
             <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
-              Our vision for the platform is simple: <strong className="text-slate-900 dark:text-white">less time
-              gathering data, more time improving ROI.</strong> We want marketing teams to trust one place for
-              cross-platform analytics, clearer KPIs, and faster decisions—from startups to enterprises.
+              Our goal is simple:{' '}
+              <strong className="text-slate-900 dark:text-white">
+                less time gathering data, more time improving results.
+              </strong>
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-slate-50 dark:bg-slate-800 rounded-xl p-6 border border-slate-200/80 dark:border-slate-700">
-                <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">One marketing stack</h3>
+                <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">One marketing workspace</h3>
                 <p className="text-slate-600 dark:text-slate-300">
-                  Connect the channels you already use and see performance side by side instead of switching tabs all
-                  day.
+                  Connect the channels you already use and review performance side by side—starting with Google Ads and
+                  Meta.
                 </p>
               </div>
               <div className="bg-slate-50 dark:bg-slate-800 rounded-xl p-6 border border-slate-200/80 dark:border-slate-700">
-                <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">Actionable analytics</h3>
+                <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">Answers you can act on</h3>
                 <p className="text-slate-600 dark:text-slate-300">
-                  Dashboards and metrics designed for decisions—where to spend, what to scale, and how each platform
-                  contributes to outcomes.
+                  Dashboards for the full picture; Kai for plain-language recommendations on return, clicks, and cost.
                 </p>
               </div>
               <div className="bg-slate-50 dark:bg-slate-800 rounded-xl p-6 border border-slate-200/80 dark:border-slate-700">
-                <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">Built for scale</h3>
+                <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">Built to grow with you</h3>
                 <p className="text-slate-600 dark:text-slate-300">
-                  Reliable, secure foundations so your data stays trustworthy as accounts, teams, and budgets grow.
+                  Secure connections and a reliable foundation as accounts, teams, and budgets expand.
                 </p>
               </div>
               <div className="bg-slate-50 dark:bg-slate-800 rounded-xl p-6 border border-slate-200/80 dark:border-slate-700">
-                <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">Always evolving</h3>
+                <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">Always improving</h3>
                 <p className="text-slate-600 dark:text-slate-300">
-                  We keep improving integrations and workflows based on how real teams run campaigns in the wild.
+                  We keep shipping integrations and workflows based on how real teams run campaigns.
                 </p>
               </div>
             </div>
@@ -106,7 +107,7 @@ export default function AboutUs() {
                 href="/#features"
                 className="text-[#174A6E] dark:text-blue-300 font-semibold hover:underline underline-offset-4"
               >
-                Explore KAMPALO on the homepage
+                Explore Kampalo on the homepage
               </Link>
             </p>
           </section>
@@ -114,43 +115,36 @@ export default function AboutUs() {
           <section className="mb-16">
             <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">Tekreign vision</h2>
             <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-6 uppercase tracking-wide">
-              Innovation, AI agents &amp; training
+              Beyond Kampalo
             </p>
             <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
-              As a team, we want to help organizations move faster without sacrificing quality: from reliable automation
-              to assistants that understand context. A core part of where we are headed is{' '}
-              <strong className="text-slate-900 dark:text-white">AI agent workflows</strong>—orchestrated flows where
-              agents plan, act, and hand off work safely—and the{' '}
-              <strong className="text-slate-900 dark:text-white">training and evaluation</strong> that keeps them
-              accurate, auditable, and aligned with how your business actually operates.
+              As a company, Tekreign helps organizations move faster with reliable software and practical AI
+              assistants—systems that stay observable, controllable, and aligned with how your business works.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-slate-50 dark:bg-slate-800 rounded-xl p-6 border border-slate-200/80 dark:border-slate-700">
-                <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">Agentic flows</h3>
+                <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">Useful AI assistants</h3>
                 <p className="text-slate-600 dark:text-slate-300">
-                  Multi-step pipelines that combine models, tools, and human checkpoints—so automation stays observable
-                  and controllable end to end.
+                  Multi-step workflows that combine models, tools, and human checkpoints—so automation stays trustworthy.
                 </p>
               </div>
               <div className="bg-slate-50 dark:bg-slate-800 rounded-xl p-6 border border-slate-200/80 dark:border-slate-700">
-                <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">Training &amp; quality</h3>
+                <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">Quality you can measure</h3>
                 <p className="text-slate-600 dark:text-slate-300">
-                  Datasets, fine-tuning, evals, and guardrails so systems improve over time and stay trustworthy in
-                  production.
+                  Evaluation and guardrails so systems improve over time and stay reliable in production.
                 </p>
               </div>
               <div className="bg-slate-50 dark:bg-slate-800 rounded-xl p-6 border border-slate-200/80 dark:border-slate-700">
                 <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">Product discipline</h3>
                 <p className="text-slate-600 dark:text-slate-300">
-                  Shipping many products taught us to invest in architecture, developer experience, and clear ownership
-                  so velocity scales.
+                  Shipping many products taught us to invest in architecture and clear ownership so velocity scales.
                 </p>
               </div>
               <div className="bg-slate-50 dark:bg-slate-800 rounded-xl p-6 border border-slate-200/80 dark:border-slate-700">
-                <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">Open collaboration</h3>
+                <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">Close collaboration</h3>
                 <p className="text-slate-600 dark:text-slate-300">
-                  We work closely with partners and users—because the best software comes from tight feedback loops,
-                  not assumptions.
+                  We work tightly with partners and users—because the best software comes from feedback, not
+                  assumptions.
                 </p>
               </div>
             </div>
@@ -159,7 +153,7 @@ export default function AboutUs() {
           <section className="mb-16 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50/80 dark:bg-slate-800/50 p-8 md:p-10">
             <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Explore our work</h2>
             <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
-              This site focuses on KAMPALO, our marketing analytics platform. For more of what Tekreign builds—case
+              This site focuses on Kampalo, our marketing analytics product. For more of what Tekreign builds—case
               studies, products, and partnerships—visit our main site.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
