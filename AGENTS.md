@@ -23,7 +23,11 @@ Layout and type use `%` (widths, gutters, decorative orbs) and `rem` (type, spac
 
 ## Routes
 
-`/`, `/kai`, `/compare`, `/about`, `/contact`, `/documentation`, `/help`, `/data-deletion`, `/privacy`, `/terms`, `/cookies`.
+`/`, `/kai`, `/kai/mcp`, `/google-ads-meta-dashboard`, `/compare`, `/compare/agencyanalytics`, `/compare/supermetrics`, `/integrations`, `/integrations/google-ads`, `/integrations/meta`, `/blog`, `/blog/google-ads-vs-meta`, `/about`, `/contact`, `/documentation`, `/help`, `/data-deletion`, `/privacy`, `/terms`, `/cookies`.
+
+SEO landers share `SeoPageShell`, `pageMetadata`, sitemap via `INDEXABLE_ROUTES`, and FAQ/Article JSON-LD in `src/lib/structuredData.js`. Do not add a second blog engine or CMS.
+
+Hash URLs (`/#pricing`) and header/footer CTAs must use a real `<a>` / `AppLink`, not `next/link` — Link has dropped hashes and swallowed homepage clicks. Homepage uses `HashScroll`. E2E: Playwright in `e2e/` (`pnpm test:e2e`).
 
 Contact form sends via EmailJS (`src/utils/emailjsClient.js`). Parent company contact is `src/constants/companyContact.js`.
 

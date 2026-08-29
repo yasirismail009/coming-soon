@@ -1,4 +1,5 @@
 import BrandLogo from '@/components/BrandLogo';
+import AppLink from '@/components/AppLink';
 
 const footerLinks = {
   product: [
@@ -7,19 +8,25 @@ const footerLinks = {
     { name: 'Reports', href: '/#reports' },
     { name: 'Pricing', href: '/#pricing' },
     { name: 'Compare platforms', href: '/compare' },
+    { name: 'Google + Meta dashboard', href: '/google-ads-meta-dashboard' },
+    { name: 'Kai MCP', href: '/kai/mcp' },
   ],
   integrations: [
-    { name: 'Google Ads', href: '/#platform' },
-    { name: 'Meta Ads', href: '/#platform' },
+    { name: 'All integrations', href: '/integrations' },
+    { name: 'Google Ads', href: '/integrations/google-ads' },
+    { name: 'Meta Ads', href: '/integrations/meta' },
     { name: 'Analytics 4', href: '/#platform' },
     { name: 'Search Console', href: '/#platform' },
   ],
   company: [
     { name: 'About us', href: '/about' },
+    { name: 'Blog', href: '/blog' },
     { name: 'Contact us', href: '/contact' },
     { name: 'Tekreign', href: 'https://tekreign.com', external: true },
     { name: 'Documentation', href: '/documentation' },
     { name: 'Help Center', href: '/help' },
+  ],
+  legal: [
     { name: 'Privacy', href: '/privacy' },
     { name: 'Terms', href: '/terms' },
     { name: 'Cookies', href: '/cookies' },
@@ -34,14 +41,14 @@ function Col({ title, links }) {
         {title}
       </div>
       {links.map((link) => (
-        <a
+        <AppLink
           key={link.name}
           href={link.href}
           {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
           className="text-[var(--km-muted)] hover:text-[var(--km-ink)] transition-colors"
         >
           {link.name}
-        </a>
+        </AppLink>
       ))}
     </div>
   );
@@ -66,9 +73,17 @@ export default function Footer() {
           <span className="text-[0.84375rem] text-[var(--km-faint)]">
             © {new Date().getFullYear()} Kampalo
           </span>
-          <span className="text-[0.84375rem] text-[var(--km-faint)]">
-            Built for agencies and in-house teams
-          </span>
+          <nav className="flex flex-wrap items-center gap-x-[1.25rem] gap-y-[0.5rem] text-[0.84375rem]">
+            {footerLinks.legal.map((link) => (
+              <AppLink
+                key={link.name}
+                href={link.href}
+                className="text-[var(--km-faint)] hover:text-[var(--km-ink)] transition-colors"
+              >
+                {link.name}
+              </AppLink>
+            ))}
+          </nav>
         </div>
       </div>
     </footer>

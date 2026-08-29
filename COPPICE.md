@@ -28,4 +28,8 @@ Use the library already in the project. Do not add a second one for the same job
 Do not delete Django apps, migrations, management commands, admin, models, or login pages.
 These look unused. Only remove them if you are sure they are leftover experiments:
 
+- Extra unused file: e2e/navigation.spec.js. Only remove it if you are sure nothing runs it.
+- Extra unused file: playwright.config.js. Only remove it if you are sure nothing runs it.
+- Unused export SITE_NAME in src/lib/site.js. Remove it.
+- Unused export DASHBOARD_IMAGES in src/utils/dashboardScreenshots.js. Drop the export only; keep the value — it is used in this file.
 - Package sharp@0.35.4 is not referenced in source, config, or CSS. Uninstall it.

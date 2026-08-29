@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useTheme } from '@/contexts/ThemeContext';
 import { resolveDashboardImage } from '@/utils/dashboardScreenshots';
 import KaiMark from '@/components/KaiMark';
@@ -77,9 +76,9 @@ export default function Hero() {
           Kampalo unifies Google Ads, Meta Ads, Analytics, Search Console and organic social into a single workspace — spend, revenue and ROAS side by side, for every account you run.
         </p>
         <div className="mb-6 flex flex-wrap items-center justify-center gap-3.5">
-          <Link href="/contact" className="km-btn-primary">
+          <a href="/contact" className="km-btn-primary">
             Contact us
-          </Link>
+          </a>
           <a href="#platform" className="km-btn-ghost">
             See the platform
           </a>

@@ -311,12 +311,12 @@ export default function ContactPageClient() {
             The platform pages walk through the dashboard, Kai and the report builder with real screens.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3.5">
-            <Link href="/#platform" className="km-btn-primary">
+            <a href="/#platform" className="km-btn-primary">
               See the platform
-            </Link>
-            <Link href="/#pricing" className="km-btn-ghost">
+            </a>
+            <a href="/#pricing" className="km-btn-ghost">
               See pricing
-            </Link>
+            </a>
           </div>
         </div>
       </section>

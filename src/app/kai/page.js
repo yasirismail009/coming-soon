@@ -139,15 +139,16 @@ export default function KaiPage() {
             <p className="text-lg text-slate-600 dark:text-slate-300 mb-6">
               Chat with Kai inside Kampalo—including streaming replies and saved conversations—alongside
               dashboards for trends and platform comparisons. Teams that build custom workflows can also
-              connect through our developer integrations (MCP).
+              connect through our developer integrations (
+              <Link href="/kai/mcp" className="text-[var(--km-link)] underline">
+                MCP
+              </Link>
+              ).
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/#pricing"
-                className="km-btn-primary"
-              >
+              <a href="/#pricing" className="km-btn-primary">
                 Start free trial
-              </Link>
+              </a>
               <Link
                 href="/compare"
                 className="km-btn-ghost"

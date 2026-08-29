@@ -108,6 +108,34 @@ export default function ComparePage() {
             </div>
           </section>
 
+          <section className="mb-16">
+            <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">
+              Comparing tools, not just platforms
+            </h2>
+            <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+              Need Google versus Meta inside Kampalo? You are on that page. Choosing a vendor?
+            </p>
+            <ul className="list-disc pl-6 space-y-3 text-lg text-slate-600 dark:text-slate-300">
+              <li>
+                <a href="/compare/agencyanalytics" className="text-[var(--km-link)] underline">
+                  Kampalo vs AgencyAnalytics
+                </a>
+                {' — '}client reporting suite versus a Google + Meta workspace
+              </li>
+              <li>
+                <a href="/compare/supermetrics" className="text-[var(--km-link)] underline">
+                  Kampalo vs Supermetrics
+                </a>
+                {' — '}product dashboard versus a data pipeline
+              </li>
+              <li>
+                <a href="/blog/google-ads-vs-meta" className="text-[var(--km-link)] underline">
+                  Google Ads vs Meta guide
+                </a>
+              </li>
+            </ul>
+          </section>
+
           <section>
             <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">FAQ</h2>
             <div className="space-y-5">

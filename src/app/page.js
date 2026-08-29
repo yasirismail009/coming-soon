@@ -1,3 +1,4 @@
+import HashScroll from '@/components/HashScroll';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import PlatformIntegrations from '@/components/PlatformIntegrations';
@@ -24,6 +25,7 @@ export const metadata = pageMetadata({
 export default function Home() {
   return (
     <div className="km-page">
+      <HashScroll />
       <Header />
       <Hero />
       <PlatformIntegrations />

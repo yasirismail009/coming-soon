@@ -2,7 +2,6 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import Link from 'next/link';
 import { useTheme } from '@/contexts/ThemeContext';
 import BrandLogo from '@/components/BrandLogo';
 
@@ -60,9 +59,9 @@ export default function Header() {
           >
             Sign in
           </a>
-          <Link href="/contact" className="km-btn-primary km-btn-sm">
+          <a href="/contact" className="km-btn-primary km-btn-sm">
             Contact us
-          </Link>
+          </a>
         </div>
 
         <div className="flex md:hidden items-center gap-2">
@@ -126,13 +125,13 @@ export default function Header() {
               >
                 Sign in
               </a>
-              <Link
+              <a
                 href="/contact"
                 onClick={() => setMobileMenuOpen(false)}
                 className="km-btn-primary km-btn-sm mt-2 w-full"
               >
                 Contact us
-              </Link>
+              </a>
             </div>
           </motion.div>
         )}

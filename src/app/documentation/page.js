@@ -61,6 +61,21 @@ export default function Documentation() {
             {/* Platform Integrations Section */}
             <section>
               <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">Platform Integrations</h2>
+              <p className="text-slate-600 dark:text-slate-400 mb-6">
+                Marketing summaries:{' '}
+                <a href="/integrations/google-ads" className="text-[var(--km-accent)] font-medium hover:underline">
+                  Google Ads
+                </a>
+                {' · '}
+                <a href="/integrations/meta" className="text-[var(--km-accent)] font-medium hover:underline">
+                  Meta Ads
+                </a>
+                {' · '}
+                <a href="/kai/mcp" className="text-[var(--km-accent)] font-medium hover:underline">
+                  Kai MCP
+                </a>
+                .
+              </p>
               
               <div className="space-y-6">
                 <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">

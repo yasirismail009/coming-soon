@@ -103,12 +103,12 @@ export default function AboutUs() {
               </div>
             </div>
             <p className="text-center mt-8">
-              <Link
+              <a
                 href="/#platform"
                 className="text-[var(--km-accent)] font-semibold hover:underline underline-offset-4"
               >
                 Explore Kampalo on the homepage
-              </Link>
+              </a>
             </p>
           </section>
 
