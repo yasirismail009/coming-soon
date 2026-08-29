@@ -40,6 +40,22 @@ export const DASHBOARD_IMAGES = {
     light: '/assets/Campaigns_Detail_Light.png',
     dark: '/assets/Campaigns_Detail_Dark.png',
   },
+  campaignGender: {
+    light: '/assets/Campaigns_Detail_Gender_Light.png',
+    dark: '/assets/Campaigns_Detail_Gender_Dark.png',
+  },
+  campaignDevices: {
+    light: '/assets/Campaigns_Detail_Devices_Light.png',
+    dark: '/assets/Campaigns_Detail_Devices_Dark.png',
+  },
+  campaignPlacement: {
+    light: '/assets/Campaigns_Detail_Placement_Light.png',
+    dark: '/assets/Campaigns_Detail_Placement_Dark.png',
+  },
+  campaignLocation: {
+    light: '/assets/Campaigns_Detail_Location_Light.png',
+    dark: '/assets/Campaigns_Detail_Location_Dark.png',
+  },
 
   // Kai
   kai: {
@@ -83,6 +99,10 @@ export const DASHBOARD_IMAGES = {
   seoAudit: {
     light: '/assets/SEO_Full_Audit_Light.png',
     dark: '/assets/SEO_Full_Audit_Dark.png',
+  },
+  seoAuditScore: {
+    light: '/assets/SEO_Full_Audit_Score_Light.png',
+    dark: '/assets/SEO_Full_Audit_Score_Dark.png',
   },
 
   // Meta organic

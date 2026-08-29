@@ -12,10 +12,10 @@ export const metadata = pageMetadata({
 
 export default function TermsAndConditions() {
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-900">
+    <div className="km-page">
       <Header />
-      <main className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
+      <main className="km-main">
+        <div className="km-prose">
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
             Terms and Conditions
           </h1>
@@ -258,7 +258,7 @@ export default function TermsAndConditions() {
                   Email:{' '}
                   <a
                     href={`mailto:${TEKREIGN_CONTACT.contactEmail}`}
-                    className="text-[#174A6E] dark:text-[#174A6E]/80 hover:underline"
+                    className="text-[var(--km-link)] hover:underline"
                   >
                     {TEKREIGN_CONTACT.contactEmail}
                   </a>

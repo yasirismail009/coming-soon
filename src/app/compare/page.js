@@ -33,7 +33,7 @@ const benefits = [
 
 export default function ComparePage() {
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-900">
+    <div className="km-page">
       <JsonLd
         data={[
           breadcrumbSchema([
@@ -44,9 +44,9 @@ export default function ComparePage() {
         ]}
       />
       <Header />
-      <main className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-sm font-semibold uppercase tracking-wide text-[#174A6E] dark:text-blue-300 mb-3">
+      <main className="km-main">
+        <div className="km-prose">
+          <p className="text-sm font-semibold uppercase tracking-wide text-[var(--km-accent)] mb-3">
             Cross-platform analytics
           </p>
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">
@@ -95,13 +95,13 @@ export default function ComparePage() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/kai"
-                className="inline-flex justify-center bg-[#174A6E] hover:bg-[#0f3451] text-white px-7 py-3 rounded-xl font-semibold transition-colors"
+                className="km-btn-primary"
               >
                 Learn about Kai
               </Link>
               <Link
                 href="/documentation"
-                className="inline-flex justify-center border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white px-7 py-3 rounded-xl font-semibold hover:bg-white dark:hover:bg-slate-800 transition-colors"
+                className="km-btn-ghost"
               >
                 Read documentation
               </Link>

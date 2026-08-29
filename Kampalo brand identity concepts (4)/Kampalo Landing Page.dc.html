@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:#070C16; font-family:"Plus Jakarta Sans", system-ui, sans-serif; -webkit-font-smoothing:antialiased; color:#FFFFFF; }
+  a { color:#7FB2E8; text-decoration:none; }
+  a:hover { color:#BBD8F5; }
+  details > summary { list-style:none; cursor:pointer; }
+  details > summary::-webkit-details-marker { display:none; }
+  details[open] summary span[data-plus] { transform:rotate(45deg); }
+  @keyframes km-float { 0%,100% { transform:translateY(0) } 50% { transform:translateY(-14px) } }
+  @keyframes km-glow { 0%,100% { opacity:0.55; transform:translate3d(0,0,0) scale(1) } 50% { opacity:0.9; transform:translate3d(0,-3%,0) scale(1.12) } }
+  @keyframes km-drift { 0% { transform:translateX(0) } 100% { transform:translateX(-50%) } }
+  @keyframes km-pulse { 0%,100% { opacity:1; transform:scale(1) } 50% { opacity:0.35; transform:scale(0.7) } }
+  @keyframes km-sheen { 0% { transform:translateX(-120%) skewX(-18deg) } 60%,100% { transform:translateX(220%) skewX(-18deg) } }
+  [data-reveal] { opacity:0; transform:translateY(30px); transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); will-change:opacity, transform; }
+  [data-reveal].is-in { opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal] { opacity:1; transform:none; transition:none; }
+    * { animation:none !important; }
+  }
+</style>
+</helmet>
+
+<div style="width:100%; background:#070C16">
+
+  <header style="position:sticky; top:0; z-index:50; background:rgba(7,12,22,0.85); backdrop-filter:blur(14px); border-bottom:1px solid rgba(255,255,255,0.08)">
+    <div style="max-width:1220px; margin:0 auto; padding:0 32px; height:74px; display:flex; align-items:center; justify-content:space-between; gap:32px">
+      <a href="#top" style="display:flex; align-items:center; gap:11px; color:#FFFFFF" style-hover="color:#FFFFFF">
+        <svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true"><g fill="#FFFFFF"><path d="M8 8 H20 V22 L38 8 H58 L20 32 V34 L46 50 V58 L20 42 V56 H8 Z"></path><rect x="51" y="49" width="9" height="9" rx="2"></rect></g></svg>
+        <span style="font-size:19px; font-weight:800; letter-spacing:-0.02em">Kampalo</span>
+      </a>
+      <nav style="display:flex; align-items:center; gap:30px; font-size:14.5px; font-weight:600">
+        <a href="#platform" style="color:#93A4BC" style-hover="color:#FFFFFF">Platform</a>
+        <a href="#kai" style="color:#93A4BC" style-hover="color:#FFFFFF">Kai</a>
+        <a href="#reports" style="color:#93A4BC" style-hover="color:#FFFFFF">Reports</a>
+        <a href="#pricing" style="color:#93A4BC" style-hover="color:#FFFFFF">Pricing</a>
+      </nav>
+      <div style="display:flex; align-items:center; gap:16px">
+        <a href="#top" style="font-size:14.5px; font-weight:600; color:#93A4BC" style-hover="color:#FFFFFF">Sign in</a>
+        <a href="#cta" style="display:inline-flex; align-items:center; height:42px; padding:0 20px; border-radius:9px; background:#2F7FE4; color:#FFFFFF; font-size:14.5px; font-weight:700" style-hover="background:#4B95F0; color:#FFFFFF">Book a demo</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="top" style="position:relative; overflow:hidden; background:radial-gradient(120% 80% at 50% -10%, #12304F 0%, #0A1524 45%, #070C16 100%)">
+    <div aria-hidden="true" style="position:absolute; top:-320px; left:50%; margin-left:-620px; width:1240px; height:820px; pointer-events:none; background:radial-gradient(closest-side, rgba(47,127,228,0.42), rgba(47,127,228,0)); filter:blur(20px); animation:km-glow 11s ease-in-out infinite"></div>
+    <div aria-hidden="true" style="position:absolute; top:-180px; left:8%; width:560px; height:560px; pointer-events:none; background:radial-gradient(closest-side, rgba(109,74,255,0.3), rgba(109,74,255,0)); filter:blur(10px); animation:km-glow 15s ease-in-out infinite 1.5s"></div>
+    <div aria-hidden="true" style="position:absolute; top:-120px; right:6%; width:480px; height:480px; pointer-events:none; background:radial-gradient(closest-side, rgba(16,185,129,0.16), rgba(16,185,129,0)); filter:blur(10px); animation:km-glow 13s ease-in-out infinite 3s"></div>
+    <div style="position:relative; max-width:1220px; margin:0 auto; padding:100px 32px 100px; text-align:center">
+      <div style="display:inline-flex; align-items:center; gap:10px; padding:7px 16px 7px 10px; border:1px solid rgba(255,255,255,0.16); border-radius:100px; font-size:13px; font-weight:600; color:#B6C7DA; margin-bottom:30px">
+        <svg viewBox="0 0 64 64" width="17" height="17" aria-hidden="true"><rect width="64" height="64" rx="18" fill="#6D4AFF"></rect><g fill="none" stroke="#FFFFFF" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 28 Q32 44 44 28"></path></g></svg>
+        Kai, your marketing analyst, is included on every plan
+        <span aria-hidden="true" style="width:6px; height:6px; border-radius:50%; background:#34D399; animation:km-pulse 2.4s ease-in-out infinite"></span>
+      </div>
+      <h1 style="margin:0 auto 22px; max-width:15em; font-size:66px; line-height:1.04; letter-spacing:-0.038em; font-weight:800; text-wrap:balance">Every ad account, in one dashboard</h1>
+      <p style="margin:0 auto 36px; max-width:33em; font-size:19px; line-height:1.62; color:#93A4BC; text-wrap:pretty">Kampalo unifies Google Ads, Meta Ads, Analytics, Search Console and organic social into a single workspace — spend, revenue and ROAS side by side, for every account you run.</p>
+      <div style="display:flex; align-items:center; justify-content:center; gap:14px; flex-wrap:wrap; margin-bottom:22px">
+        <a href="#cta" style="display:inline-flex; align-items:center; height:52px; padding:0 28px; border-radius:10px; background:#2F7FE4; color:#FFFFFF; font-size:16px; font-weight:700" style-hover="background:#4B95F0; color:#FFFFFF">Book a demo</a>
+        <a href="#platform" style="display:inline-flex; align-items:center; height:52px; padding:0 26px; border-radius:10px; border:1px solid rgba(255,255,255,0.22); color:#FFFFFF; font-size:16px; font-weight:600" style-hover="border-color:rgba(255,255,255,0.55); color:#FFFFFF">See the platform</a>
+      </div>
+      <div style="font-size:12.5px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#66788F; margin-bottom:58px">Ask. Automate. Grow.</div>
+      <div style="max-width:1060px; margin:0 auto; animation:km-float 10s ease-in-out infinite">
+        <div style="position:relative; padding:14px 14px 16px; border-radius:20px; background:linear-gradient(180deg, #26303F 0%, #161E2B 100%); border:1px solid rgba(255,255,255,0.14); box-shadow:0 50px 110px -40px rgba(0,0,0,0.9), 0 0 90px rgba(47,127,228,0.2)">
+          <div style="border-radius:11px; overflow:hidden; background:#0B111C; border:1px solid rgba(255,255,255,0.08)">
+            <div style="display:flex; align-items:center; gap:7px; padding:10px 14px; background:#121B29; border-bottom:1px solid rgba(255,255,255,0.07)">
+              <span style="width:10px; height:10px; border-radius:50%; background:#FF5F57"></span>
+              <span style="width:10px; height:10px; border-radius:50%; background:#FEBC2E"></span>
+              <span style="width:10px; height:10px; border-radius:50%; background:#28C840"></span>
+              <span style="flex:1; display:flex; justify-content:center"><span style="padding:4px 16px; border-radius:6px; background:rgba(255,255,255,0.06); font-size:11.5px; font-weight:600; color:#7E90A8">app.kampalo.com/dashboard</span></span>
+              <span style="width:52px"></span>
+            </div>
+            <div data-shot="1" style="position:relative; aspect-ratio:2.6/1; overflow:hidden">
+              <img src="uploads/Dashboard_Overview_Dark.png" alt="Kampalo dashboard showing ROAS, spend, revenue and conversions across Google and Meta" style="display:block; width:100%; height:auto; will-change:transform">
+              <div aria-hidden="true" style="position:absolute; inset:0; pointer-events:none; overflow:hidden">
+                <div style="position:absolute; top:0; bottom:0; width:40%; background:linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.07), rgba(255,255,255,0)); animation:km-sheen 8s ease-in-out infinite 2s"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div aria-hidden="true" style="position:relative; width:118%; margin-left:-9%; height:15px; border-radius:0 0 14px 14px; background:linear-gradient(180deg, #2B3646 0%, #171F2C 100%); box-shadow:0 24px 40px -18px rgba(0,0,0,0.9)"></div>
+        <div aria-hidden="true" style="width:130px; height:5px; margin:0 auto; border-radius:0 0 6px 6px; background:#0D131E"></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-top:1px solid rgba(255,255,255,0.08); border-bottom:1px solid rgba(255,255,255,0.08); background:#0A101C">
+    <div style="display:flex; align-items:center; gap:28px; padding:24px 0; overflow:hidden; mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)">
+      <div style="display:flex; align-items:center; gap:44px; flex-shrink:0; padding-left:44px; animation:km-drift 34s linear infinite">
+        <span style="font-size:12px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#5E7089; white-space:nowrap">Connects to</span>
+        <span style="font-size:17px; font-weight:700; color:#B6C7DA; white-space:nowrap">Google Ads</span>
+        <span style="font-size:17px; font-weight:700; color:#B6C7DA; white-space:nowrap">Meta Ads</span>
+        <span style="font-size:17px; font-weight:700; color:#B6C7DA; white-space:nowrap">Google Analytics 4</span>
+        <span style="font-size:17px; font-weight:700; color:#B6C7DA; white-space:nowrap">Search Console</span>
+        <span style="font-size:17px; font-weight:700; color:#B6C7DA; white-space:nowrap">Instagram</span>
+        <span style="font-size:17px; font-weight:700; color:#B6C7DA; white-space:nowrap">Facebook Pages</span>
+        <span style="font-size:15px; font-weight:600; color:#5E7089; white-space:nowrap">TikTok Ads soon</span>
+        <span aria-hidden="true" style="font-size:12px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#5E7089; white-space:nowrap">Connects to</span>
+        <span aria-hidden="true" style="font-size:17px; font-weight:700; color:#B6C7DA; white-space:nowrap">Google Ads</span>
+        <span aria-hidden="true" style="font-size:17px; font-weight:700; color:#B6C7DA; white-space:nowrap">Meta Ads</span>
+        <span aria-hidden="true" style="font-size:17px; font-weight:700; color:#B6C7DA; white-space:nowrap">Google Analytics 4</span>
+        <span aria-hidden="true" style="font-size:17px; font-weight:700; color:#B6C7DA; white-space:nowrap">Search Console</span>
+        <span aria-hidden="true" style="font-size:17px; font-weight:700; color:#B6C7DA; white-space:nowrap">Instagram</span>
+        <span aria-hidden="true" style="font-size:17px; font-weight:700; color:#B6C7DA; white-space:nowrap">Facebook Pages</span>
+        <span aria-hidden="true" style="font-size:15px; font-weight:600; color:#5E7089; white-space:nowrap">TikTok Ads soon</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="platform" style="max-width:1220px; margin:0 auto; padding:104px 32px 0">
+    <div style="max-width:42em; margin-bottom:52px">
+      <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#4B95F0; margin-bottom:16px">The platform</div>
+      <h2 style="margin:0 0 18px; font-size:44px; line-height:1.1; letter-spacing:-0.03em; font-weight:800">Six surfaces, one source of numbers</h2>
+      <p style="margin:0; font-size:18px; line-height:1.65; color:#93A4BC; text-wrap:pretty">Every view reads from the same synced data, so the ROAS on a client report matches the ROAS in the dashboard and the one Kai quotes back to you.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.08); border-radius:16px; overflow:hidden">
+      <div style="background:#0C1421; padding:34px 30px 36px">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#4B95F0" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg>
+        <h3 style="margin:18px 0 8px; font-size:19px; font-weight:800; letter-spacing:-0.01em">Dashboard</h3>
+        <p style="margin:0; font-size:15px; line-height:1.65; color:#93A4BC">Eight headline KPIs with period-over-period deltas, spend against revenue over time, and the platform split. Three density layouts.</p>
+      </div>
+      <div style="background:#0C1421; padding:34px 30px 36px">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#4B95F0" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path></svg>
+        <h3 style="margin:18px 0 8px; font-size:19px; font-weight:800; letter-spacing:-0.01em">Trends</h3>
+        <p style="margin:0; font-size:15px; line-height:1.65; color:#93A4BC">Revenue, spend, ROAS, CTR and CPA as sparklines across any window, so you can see what is rising, falling or flat.</p>
+      </div>
+      <div style="background:#0C1421; padding:34px 30px 36px">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#4B95F0" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M12 3v18M5 7l-3 7h6zM19 7l-3 7h6zM6 5h12"></path></svg>
+        <h3 style="margin:18px 0 8px; font-size:19px; font-weight:800; letter-spacing:-0.01em">KPI comparison</h3>
+        <p style="margin:0; font-size:15px; line-height:1.65; color:#93A4BC">Google against Meta, account against account, client against client — with the better value marked in every row.</p>
+      </div>
+      <div style="background:#0C1421; padding:34px 30px 36px">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#4B95F0" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"></path></svg>
+        <h3 style="margin:18px 0 8px; font-size:19px; font-weight:800; letter-spacing:-0.01em">SEO Suite</h3>
+        <p style="margin:0; font-size:15px; line-height:1.65; color:#93A4BC">Lighthouse audits, Search Console performance, URL inspection and the Indexing API in a single run.</p>
+      </div>
+      <div style="background:#0C1421; padding:34px 30px 36px">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#4B95F0" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M17 3a4 4 0 100 8 4 4 0 000-8zM7 13a4 4 0 100 8 4 4 0 000-8zM7 3v8M17 13v8"></path></svg>
+        <h3 style="margin:18px 0 8px; font-size:19px; font-weight:800; letter-spacing:-0.01em">Organic insights</h3>
+        <p style="margin:0; font-size:15px; line-height:1.65; color:#93A4BC">Facebook Page and Instagram reach, engagement and follower movement, kept separate from paid spend.</p>
+      </div>
+      <div style="background:#0C1421; padding:34px 30px 36px">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#4B95F0" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8zM14 3v5h5M9 13h6M9 17h4"></path></svg>
+        <h3 style="margin:18px 0 8px; font-size:19px; font-weight:800; letter-spacing:-0.01em">Reports</h3>
+        <p style="margin:0; font-size:15px; line-height:1.65; color:#93A4BC">Branded PDFs and CSVs per client, built from four report types and sent on a schedule you set once.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-pin="1" style="position:relative; max-width:1220px; margin:0 auto; padding:104px 32px 0; min-height:150vh">
+    <div style="position:sticky; top:112px; display:grid; grid-template-columns:0.85fr 1.15fr; gap:60px; align-items:center">
+      <div>
+        <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#4B95F0; margin-bottom:16px">Dashboard layouts</div>
+        <h2 style="margin:0 0 18px; font-size:38px; line-height:1.14; letter-spacing:-0.03em; font-weight:800">The density you want, not the one we picked</h2>
+        <p style="margin:0 0 26px; font-size:17px; line-height:1.7; color:#93A4BC; text-wrap:pretty">Overview gives every KPI its own card with a sparkline. Focus puts revenue front and centre. Compact fits the whole picture above the fold. Same data, same period controls, switched in one click.</p>
+        <div style="display:flex; gap:6px; padding:5px; background:#0F1826; border:1px solid rgba(255,255,255,0.1); border-radius:12px; width:fit-content; margin-bottom:18px">
+          <button type="button" onClick="{{ pickOverview }}" style="{{ tabOverview }}">Overview</button>
+          <button type="button" onClick="{{ pickFocus }}" style="{{ tabFocus }}">Focus</button>
+          <button type="button" onClick="{{ pickCompact }}" style="{{ tabCompact }}">Compact</button>
+        </div>
+        <p style="margin:0; font-size:15px; line-height:1.6; color:#66788F">{{ layoutNote }}</p>
+      </div>
+      <div style="border-radius:14px; overflow:hidden; background:#0B111C; border:1px solid rgba(255,255,255,0.12); box-shadow:0 40px 90px -40px rgba(0,0,0,0.9)">
+        <div style="display:flex; align-items:center; gap:7px; padding:10px 14px; background:#121B29; border-bottom:1px solid rgba(255,255,255,0.07)">
+          <span style="width:9px; height:9px; border-radius:50%; background:#FF5F57"></span>
+          <span style="width:9px; height:9px; border-radius:50%; background:#FEBC2E"></span>
+          <span style="width:9px; height:9px; border-radius:50%; background:#28C840"></span>
+          <span style="flex:1; display:flex; justify-content:center"><span style="padding:4px 14px; border-radius:6px; background:rgba(255,255,255,0.06); font-size:11px; font-weight:600; color:#7E90A8">app.kampalo.com/dashboard</span></span>
+          <span style="width:46px"></span>
+        </div>
+        <div style="position:relative; overflow:hidden">
+          <img src="uploads/Dashboard_Overview_Dark.png" alt="Kampalo dashboard, Overview layout" style="{{ shotOverview }}">
+          <img src="uploads/Dashboard_Focus_Dark.png" alt="Kampalo dashboard, Focus layout" style="{{ shotFocus }}">
+          <img src="uploads/Dashboard_Compact_Dark.png" alt="Kampalo dashboard, Compact layout" style="{{ shotCompact }}">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1220px; margin:0 auto; padding:104px 32px 0">
+    <div style="max-width:40em; margin-bottom:44px">
+      <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#4B95F0; margin-bottom:16px">Trends</div>
+      <h2 style="margin:0 0 18px; font-size:38px; line-height:1.14; letter-spacing:-0.03em; font-weight:800">Nine metrics, one glance, any window</h2>
+      <p style="margin:0; font-size:17px; line-height:1.7; color:#93A4BC; text-wrap:pretty">Revenue, spend, ROAS, conversions, impressions, clicks, CTR, CPC and CPA each carry their own sparkline. Filter to Google or Meta and the whole board re-reads for that platform.</p>
+    </div>
+    <div style="border-radius:16px; overflow:hidden; background:#0B111C; border:1px solid rgba(255,255,255,0.12); box-shadow:0 40px 90px -45px rgba(0,0,0,0.9)">
+      <div style="display:flex; align-items:center; gap:7px; padding:11px 15px; background:#121B29; border-bottom:1px solid rgba(255,255,255,0.07)">
+        <span style="width:10px; height:10px; border-radius:50%; background:#FF5F57"></span>
+        <span style="width:10px; height:10px; border-radius:50%; background:#FEBC2E"></span>
+        <span style="width:10px; height:10px; border-radius:50%; background:#28C840"></span>
+        <span style="flex:1; display:flex; justify-content:center"><span style="padding:4px 16px; border-radius:6px; background:rgba(255,255,255,0.06); font-size:11.5px; font-weight:600; color:#7E90A8">app.kampalo.com/trends</span></span>
+        <span style="width:52px"></span>
+      </div>
+      <div data-shot="1" style="aspect-ratio:2.6/1; overflow:hidden">
+        <img src="uploads/Trends_Dark.png" alt="Trends view with sparkline cards for revenue, spend, ROAS, conversions and more" style="display:block; width:100%; height:auto; will-change:transform">
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1220px; margin:0 auto; padding:104px 32px 0">
+    <div style="display:grid; grid-template-columns:1.15fr 0.85fr; gap:60px; align-items:center">
+      <div style="border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,0.1); box-shadow:0 30px 70px -35px rgba(0,0,0,0.85)">
+        <img src="uploads/Kpis_Dark.png" alt="KPI comparison of Google Ads against Meta Ads across ROAS, revenue, spend and CPA" style="display:block; width:100%; height:auto">
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#4B95F0; margin-bottom:16px">KPI comparison</div>
+        <h2 style="margin:0 0 18px; font-size:38px; line-height:1.14; letter-spacing:-0.03em; font-weight:800">Settle the Google-versus-Meta argument</h2>
+        <p style="margin:0 0 26px; font-size:17px; line-height:1.7; color:#93A4BC; text-wrap:pretty">Put two platforms, two accounts or two campaigns beside each other and read ROAS, revenue, spend and CPA on the same bars. Currencies stay labelled rather than silently converted.</p>
+        <div style="display:grid; gap:16px">
+          <div style="display:flex; gap:13px; align-items:flex-start">
+            <span style="flex-shrink:0; margin-top:3px; width:20px; height:20px; border-radius:50%; background:rgba(75,149,240,0.15); display:flex; align-items:center; justify-content:center"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#4B95F0" stroke-width="3.2" stroke-linecap="round" aria-hidden="true"><path d="M4 12l5 5L20 6"></path></svg></span>
+            <span style="font-size:15.5px; line-height:1.6; color:#B6C7DA">Best value in each row highlighted automatically</span>
+          </div>
+          <div style="display:flex; gap:13px; align-items:flex-start">
+            <span style="flex-shrink:0; margin-top:3px; width:20px; height:20px; border-radius:50%; background:rgba(75,149,240,0.15); display:flex; align-items:center; justify-content:center"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#4B95F0" stroke-width="3.2" stroke-linecap="round" aria-hidden="true"><path d="M4 12l5 5L20 6"></path></svg></span>
+            <span style="font-size:15.5px; line-height:1.6; color:#B6C7DA">Tick two accounts on Accounts &amp; Campaigns to compare them the same way</span>
+          </div>
+          <div style="display:flex; gap:13px; align-items:flex-start">
+            <span style="flex-shrink:0; margin-top:3px; width:20px; height:20px; border-radius:50%; background:rgba(75,149,240,0.15); display:flex; align-items:center; justify-content:center"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#4B95F0" stroke-width="3.2" stroke-linecap="round" aria-hidden="true"><path d="M4 12l5 5L20 6"></path></svg></span>
+            <span style="font-size:15.5px; line-height:1.6; color:#B6C7DA">Campaign detail breaks down by gender, age, location, device and placement</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1220px; margin:0 auto; padding:104px 32px 0">
+    <div style="max-width:42em; margin-bottom:44px">
+      <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#4B95F0; margin-bottom:16px">Accounts &amp; campaigns</div>
+      <h2 style="margin:0 0 18px; font-size:38px; line-height:1.14; letter-spacing:-0.03em; font-weight:800">Tick two boxes to compare anything</h2>
+      <p style="margin:0; font-size:17px; line-height:1.7; color:#93A4BC; text-wrap:pretty">One account selected drills into it. Two or more drops them into a comparison table — accounts or campaigns, Google or Meta, in whatever currency each one reports.</p>
+    </div>
+    <div style="border-radius:16px; overflow:hidden; background:#0B111C; border:1px solid rgba(255,255,255,0.12); box-shadow:0 40px 90px -45px rgba(0,0,0,0.9); margin-bottom:24px">
+      <div style="display:flex; align-items:center; gap:7px; padding:11px 15px; background:#121B29; border-bottom:1px solid rgba(255,255,255,0.07)">
+        <span style="width:10px; height:10px; border-radius:50%; background:#FF5F57"></span>
+        <span style="width:10px; height:10px; border-radius:50%; background:#FEBC2E"></span>
+        <span style="width:10px; height:10px; border-radius:50%; background:#28C840"></span>
+        <span style="flex:1; display:flex; justify-content:center"><span style="padding:4px 16px; border-radius:6px; background:rgba(255,255,255,0.06); font-size:11.5px; font-weight:600; color:#7E90A8">app.kampalo.com/accounts</span></span>
+        <span style="width:52px"></span>
+      </div>
+      <div data-shot="1" style="aspect-ratio:2.6/1; overflow:hidden">
+        <img src="uploads/Acounts_Campaigns_Dark.png" alt="Accounts and campaigns screen with selectable account cards and a campaign table" style="display:block; width:100%; height:auto; will-change:transform">
+      </div>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:24px">
+      <div style="border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,0.1)">
+        <img src="uploads/Accounts_Comparison_Dark.png" alt="Account comparison table with best values highlighted" style="display:block; width:100%; height:auto">
+      </div>
+      <div style="border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,0.1)">
+        <img src="uploads/Campaigns_Comparison_Dark.png" alt="Campaign comparison table with spend, revenue, ROAS, CPA and conversions" style="display:block; width:100%; height:auto">
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1220px; margin:0 auto; padding:104px 32px 0">
+    <div style="max-width:42em; margin-bottom:44px">
+      <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#4B95F0; margin-bottom:16px">Campaign detail</div>
+      <h2 style="margin:0 0 18px; font-size:38px; line-height:1.14; letter-spacing:-0.03em; font-weight:800">Five breakdowns behind every campaign</h2>
+      <p style="margin:0; font-size:17px; line-height:1.7; color:#93A4BC; text-wrap:pretty">Open any campaign for spend, impressions, clicks and CTR, then read it by gender and age, location, device or placement. Each tab leads with the headline finding rather than a wall of rows.</p>
+    </div>
+    <div style="border-radius:16px; overflow:hidden; background:#0B111C; border:1px solid rgba(255,255,255,0.12); box-shadow:0 40px 90px -45px rgba(0,0,0,0.9); margin-bottom:24px">
+      <div style="display:flex; align-items:center; gap:7px; padding:11px 15px; background:#121B29; border-bottom:1px solid rgba(255,255,255,0.07)">
+        <span style="width:10px; height:10px; border-radius:50%; background:#FF5F57"></span>
+        <span style="width:10px; height:10px; border-radius:50%; background:#FEBC2E"></span>
+        <span style="width:10px; height:10px; border-radius:50%; background:#28C840"></span>
+        <span style="flex:1; display:flex; justify-content:center"><span style="padding:4px 16px; border-radius:6px; background:rgba(255,255,255,0.06); font-size:11.5px; font-weight:600; color:#7E90A8">app.kampalo.com/campaign</span></span>
+        <span style="width:52px"></span>
+      </div>
+      <div data-shot="1" style="aspect-ratio:2.6/1; overflow:hidden">
+        <img src="uploads/Campaigns_Detail_Dark.png" alt="Campaign detail overview with spend, impressions, clicks and CTR" style="display:block; width:100%; height:auto; will-change:transform">
+      </div>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:20px">
+      <div style="border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,0.1)">
+        <img src="uploads/Campaigns_Detail_Gender_Dark.png" alt="Demographic performance by age and gender" style="display:block; width:100%; height:auto">
+      </div>
+      <div style="border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,0.1)">
+        <img src="uploads/Campaigns_Detail_Devices_Dark.png" alt="Device performance insights" style="display:block; width:100%; height:auto">
+      </div>
+      <div style="border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,0.1)">
+        <img src="uploads/Campaigns_Detail_Placement_Dark.png" alt="Publisher platform performance for Facebook and Instagram" style="display:block; width:100%; height:auto">
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1220px; margin:0 auto; padding:104px 32px 0">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px">
+      <div style="background:#0C1421; border:1px solid rgba(255,255,255,0.09); border-radius:16px; padding:36px 36px 0; overflow:hidden">
+        <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#4B95F0; margin-bottom:14px">Analytics</div>
+        <h3 style="margin:0 0 12px; font-size:26px; line-height:1.2; letter-spacing:-0.02em; font-weight:800">GA4, without the report builder</h3>
+        <p style="margin:0 0 26px; font-size:16px; line-height:1.7; color:#93A4BC">Audience, acquisition, engagement and live traffic for any property and range, with a prior-period delta on every metric and Search Console sitting next to it.</p>
+        <img src="uploads/Google_Analytics_Dark.png" alt="Google Analytics view with views, events, sessions and engagement rate" style="display:block; width:100%; height:auto; border-radius:10px 10px 0 0; border:1px solid rgba(255,255,255,0.09); border-bottom:0">
+      </div>
+      <div style="background:#0C1421; border:1px solid rgba(255,255,255,0.09); border-radius:16px; padding:36px 36px 0; overflow:hidden">
+        <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#4B95F0; margin-bottom:14px">SEO Suite</div>
+        <h3 style="margin:0 0 12px; font-size:26px; line-height:1.2; letter-spacing:-0.02em; font-weight:800">A full audit on a schedule</h3>
+        <p style="margin:0 0 26px; font-size:16px; line-height:1.7; color:#93A4BC">Lighthouse category scores, Core Web Vitals and a ranked list of failing audits, beside clicks, impressions and average position from Search Console.</p>
+        <img src="uploads/SEO_Full_Audit_Score_Dark.png" alt="Website audit with performance, accessibility, best practices and SEO scores" style="display:block; width:100%; height:auto; border-radius:10px 10px 0 0; border:1px solid rgba(255,255,255,0.09); border-bottom:0">
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1220px; margin:0 auto; padding:104px 32px 0">
+    <div style="display:grid; grid-template-columns:0.85fr 1.15fr; gap:60px; align-items:center">
+      <div>
+        <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#4B95F0; margin-bottom:16px">Organic insights</div>
+        <h2 style="margin:0 0 18px; font-size:38px; line-height:1.14; letter-spacing:-0.03em; font-weight:800">The half of the picture that is not paid</h2>
+        <p style="margin:0 0 26px; font-size:17px; line-height:1.7; color:#93A4BC; text-wrap:pretty">Page fans, views and post engagement from Facebook, reach, saves and profile taps from Instagram. Read on separate insight tokens, shown next to the ads numbers but never mixed into them.</p>
+        <a href="#cta" style="display:inline-flex; align-items:center; height:46px; padding:0 22px; border-radius:9px; border:1px solid rgba(255,255,255,0.22); color:#FFFFFF; font-size:15px; font-weight:600" style-hover="border-color:rgba(255,255,255,0.55); color:#FFFFFF">See it on your accounts</a>
+      </div>
+      <div style="border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,0.1); box-shadow:0 30px 70px -35px rgba(0,0,0,0.85)">
+        <img src="uploads/Organic_Insights_Dark.png" alt="Organic insights showing Facebook Pages and Instagram connection status and metrics" style="display:block; width:100%; height:auto">
+      </div>
+    </div>
+  </section>
+
+  <section id="kai" style="margin-top:104px; background:linear-gradient(180deg, #0A0F1F 0%, #120D2E 50%, #0A0F1F 100%); border-top:1px solid rgba(255,255,255,0.08); border-bottom:1px solid rgba(255,255,255,0.08)">
+    <div style="max-width:1220px; margin:0 auto; padding:96px 32px; display:grid; grid-template-columns:0.85fr 1.15fr; gap:60px; align-items:center">
+      <div>
+        <svg viewBox="0 0 64 64" width="54" height="54" aria-hidden="true"><rect width="64" height="64" rx="18" fill="#6D4AFF"></rect><g fill="none" stroke="#FFFFFF" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 28 Q32 44 44 28"></path></g></svg>
+        <h2 style="margin:26px 0 18px; font-size:40px; line-height:1.12; letter-spacing:-0.03em; font-weight:800">Ask Kai instead of building a pivot table</h2>
+        <p style="margin:0 0 28px; font-size:17px; line-height:1.7; color:#A99FD8; text-wrap:pretty">Kai reads the same synced data the dashboard does. Ask which campaigns have the best ROAS, how Google compared to Meta this month, or where to cut spend — and get an answer with the numbers attached.</p>
+        <div style="display:flex; flex-direction:column; gap:11px">
+          <div style="padding:14px 18px; background:rgba(109,74,255,0.12); border:1px solid rgba(151,124,255,0.28); border-radius:10px; font-size:15px; font-weight:600; color:#D8D2F5">Which campaigns have the best ROAS?</div>
+          <div style="padding:14px 18px; background:rgba(109,74,255,0.12); border:1px solid rgba(151,124,255,0.28); border-radius:10px; font-size:15px; font-weight:600; color:#D8D2F5">Compare Google vs Meta this month</div>
+          <div style="padding:14px 18px; background:rgba(109,74,255,0.12); border:1px solid rgba(151,124,255,0.28); border-radius:10px; font-size:15px; font-weight:600; color:#D8D2F5">Where should I cut spend?</div>
+        </div>
+      </div>
+      <div style="border-radius:14px; overflow:hidden; background:#0B111C; border:1px solid rgba(151,124,255,0.3); box-shadow:0 40px 90px -35px rgba(109,74,255,0.45)">
+        <div style="display:flex; align-items:center; gap:7px; padding:11px 15px; background:#151132; border-bottom:1px solid rgba(151,124,255,0.2)">
+          <span style="width:10px; height:10px; border-radius:50%; background:#FF5F57"></span>
+          <span style="width:10px; height:10px; border-radius:50%; background:#FEBC2E"></span>
+          <span style="width:10px; height:10px; border-radius:50%; background:#28C840"></span>
+          <span style="flex:1; display:flex; justify-content:center"><span style="padding:4px 16px; border-radius:6px; background:rgba(151,124,255,0.14); font-size:11.5px; font-weight:600; color:#B3A7EA">app.kampalo.com/kai</span></span>
+          <span style="width:52px"></span>
+        </div>
+        <div data-shot="1" style="aspect-ratio:2.6/1; overflow:hidden">
+          <img src="uploads/Kampalo_AI_Dark.png" alt="Kai chat interface with suggested questions about ROAS and spend" style="display:block; width:100%; height:auto; will-change:transform">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reports" style="max-width:1220px; margin:0 auto; padding:104px 32px 0">
+    <div style="max-width:42em; margin-bottom:48px">
+      <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#4B95F0; margin-bottom:16px">Report templates</div>
+      <h2 style="margin:0 0 18px; font-size:40px; line-height:1.12; letter-spacing:-0.03em; font-weight:800">Four templates, your logo, their inbox</h2>
+      <p style="margin:0; font-size:18px; line-height:1.65; color:#93A4BC; text-wrap:pretty">Pick a template, a date range and a data scope. Kampalo renders a branded PDF in your client's colours, logo and footer — or a CSV if they would rather have the rows.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:20px; margin-bottom:44px">
+      <div style="background:#0C1421; border:1px solid rgba(255,255,255,0.09); border-radius:14px; padding:26px 24px 28px" style-hover="border-color:rgba(75,149,240,0.55)">
+        <div style="display:flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:10px; background:rgba(75,149,240,0.14); margin-bottom:18px">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#4B95F0" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path></svg>
+        </div>
+        <h3 style="margin:0 0 8px; font-size:17px; font-weight:800">Performance summary</h3>
+        <p style="margin:0 0 16px; font-size:14.5px; line-height:1.6; color:#93A4BC">Spend, revenue, ROAS and conversions with the revenue-against-spend chart.</p>
+        <div style="font-size:11.5px; font-weight:700; letter-spacing:0.11em; text-transform:uppercase; color:#5E7089">Monthly retainer</div>
+      </div>
+      <div style="background:#0C1421; border:1px solid rgba(255,255,255,0.09); border-radius:14px; padding:26px 24px 28px" style-hover="border-color:rgba(75,149,240,0.55)">
+        <div style="display:flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:10px; background:rgba(75,149,240,0.14); margin-bottom:18px">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#4B95F0" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg>
+        </div>
+        <h3 style="margin:0 0 8px; font-size:17px; font-weight:800">Platform breakdown</h3>
+        <p style="margin:0 0 16px; font-size:14.5px; line-height:1.6; color:#93A4BC">Google against Meta with totals, for the budget conversation.</p>
+        <div style="font-size:11.5px; font-weight:700; letter-spacing:0.11em; text-transform:uppercase; color:#5E7089">Quarterly review</div>
+      </div>
+      <div style="background:#0C1421; border:1px solid rgba(255,255,255,0.09); border-radius:14px; padding:26px 24px 28px" style-hover="border-color:rgba(75,149,240,0.55)">
+        <div style="display:flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:10px; background:rgba(75,149,240,0.14); margin-bottom:18px">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#4B95F0" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M16 20v-2a4 4 0 00-8 0v2M12 4a4 4 0 100 8 4 4 0 000-8z"></path></svg>
+        </div>
+        <h3 style="margin:0 0 8px; font-size:17px; font-weight:800">Client report</h3>
+        <p style="margin:0 0 16px; font-size:14.5px; line-height:1.6; color:#93A4BC">Every platform for one client, scoped to their assigned ad accounts.</p>
+        <div style="font-size:11.5px; font-weight:700; letter-spacing:0.11em; text-transform:uppercase; color:#5E7089">White label</div>
+      </div>
+      <div style="background:#0C1421; border:1px solid rgba(255,255,255,0.09); border-radius:14px; padding:26px 24px 28px" style-hover="border-color:rgba(75,149,240,0.55)">
+        <div style="display:flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:10px; background:rgba(75,149,240,0.14); margin-bottom:18px">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#4B95F0" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path></svg>
+        </div>
+        <h3 style="margin:0 0 8px; font-size:17px; font-weight:800">Campaign breakdown</h3>
+        <p style="margin:0 0 16px; font-size:14.5px; line-height:1.6; color:#93A4BC">Top campaigns ranked by spend and ROAS, with CPA on every line.</p>
+        <div style="font-size:11.5px; font-weight:700; letter-spacing:0.11em; text-transform:uppercase; color:#5E7089">Optimisation call</div>
+      </div>
+    </div>
+    <div style="display:grid; grid-template-columns:1.35fr 1fr; gap:24px; align-items:start">
+      <div style="border-radius:14px; overflow:hidden; background:#0B111C; border:1px solid rgba(255,255,255,0.12); box-shadow:0 30px 70px -40px rgba(0,0,0,0.85)">
+        <div style="display:flex; align-items:center; gap:7px; padding:11px 15px; background:#121B29; border-bottom:1px solid rgba(255,255,255,0.07)">
+          <span style="width:10px; height:10px; border-radius:50%; background:#FF5F57"></span>
+          <span style="width:10px; height:10px; border-radius:50%; background:#FEBC2E"></span>
+          <span style="width:10px; height:10px; border-radius:50%; background:#28C840"></span>
+          <span style="flex:1; display:flex; justify-content:center"><span style="padding:4px 16px; border-radius:6px; background:rgba(255,255,255,0.06); font-size:11.5px; font-weight:600; color:#7E90A8">app.kampalo.com/reports</span></span>
+          <span style="width:52px"></span>
+        </div>
+        <div data-shot="1" style="aspect-ratio:2.6/1; overflow:hidden">
+          <img src="uploads/Report_Build_Dark.png" alt="Report builder with report type, date range, data scope and PDF generation" style="display:block; width:100%; height:auto; will-change:transform">
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:24px">
+        <div style="background:#0C1421; border:1px solid rgba(255,255,255,0.09); border-radius:14px; padding:28px 28px 0; overflow:hidden">
+          <h3 style="margin:0 0 8px; font-size:18px; font-weight:800">Branding per client</h3>
+          <p style="margin:0 0 20px; font-size:14.5px; line-height:1.65; color:#93A4BC">Company name, three colours, light and dark logos and a centred footer line — saved against each brand client.</p>
+          <img src="uploads/Report_Branding_Dark.png" alt="Report branding settings with company name, primary, secondary and accent colours" style="display:block; width:100%; height:auto; border-radius:9px 9px 0 0; border:1px solid rgba(255,255,255,0.09); border-bottom:0">
+        </div>
+        <div style="background:#0C1421; border:1px solid rgba(255,255,255,0.09); border-radius:14px; padding:28px 28px 0; overflow:hidden">
+          <h3 style="margin:0 0 8px; font-size:18px; font-weight:800">Send it without you</h3>
+          <p style="margin:0 0 20px; font-size:14.5px; line-height:1.65; color:#93A4BC">Schedule any template and Kampalo generates and delivers it on time, every period.</p>
+          <img src="uploads/Report_Scheduler_Dark.png" alt="Report scheduler" style="display:block; width:100%; height:auto; border-radius:9px 9px 0 0; border:1px solid rgba(255,255,255,0.09); border-bottom:0">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1220px; margin:0 auto; padding:104px 32px 0">
+    <div style="display:grid; grid-template-columns:1.15fr 0.85fr; gap:60px; align-items:center">
+      <div style="border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,0.1); box-shadow:0 30px 70px -40px rgba(0,0,0,0.85)">
+        <img src="uploads/Connect_Dark.png" alt="Connect screen showing Google and Meta connections, scopes and connection quota" style="display:block; width:100%; height:auto">
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#4B95F0; margin-bottom:16px">Access &amp; permissions</div>
+        <h2 style="margin:0 0 18px; font-size:38px; line-height:1.14; letter-spacing:-0.03em; font-weight:800">We only request the access we need</h2>
+        <p style="margin:0 0 26px; font-size:17px; line-height:1.7; color:#93A4BC; text-wrap:pretty">One connection per provider covers its whole family — Ads, Analytics and Search Console under Google; Ads, Page Insights and Instagram under Meta. Token health, renewal dates and your connection quota stay visible.</p>
+        <div style="display:grid; gap:18px">
+          <div>
+            <div style="font-size:16px; font-weight:700; margin-bottom:4px">Read-only insight scopes</div>
+            <p style="margin:0; font-size:15px; line-height:1.6; color:#93A4BC">Organic insights use page access tokens with insight scopes, separate from ads data.</p>
+          </div>
+          <div>
+            <div style="font-size:16px; font-weight:700; margin-bottom:4px">Roles per workspace</div>
+            <p style="margin:0; font-size:15px; line-height:1.6; color:#93A4BC">Invite your team, assign brand clients, and keep each client's accounts scoped to them.</p>
+          </div>
+          <div>
+            <div style="font-size:16px; font-weight:700; margin-bottom:4px">Disconnect at any time</div>
+            <p style="margin:0; font-size:15px; line-height:1.6; color:#93A4BC">One click revokes a provider and stops the sync. Account deletion removes the workspace outright.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1220px; margin:0 auto; padding:104px 32px 0">
+    <div style="max-width:42em; margin-bottom:44px">
+      <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#4B95F0; margin-bottom:16px">Workspaces &amp; team</div>
+      <h2 style="margin:0 0 18px; font-size:38px; line-height:1.14; letter-spacing:-0.03em; font-weight:800">A workspace per client, one login for your team</h2>
+      <p style="margin:0; font-size:17px; line-height:1.7; color:#93A4BC; text-wrap:pretty">Switch between all clients, your own company and each brand client from the sidebar. Invite colleagues, set roles, and let each brand carry its own accounts, branding and report settings.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:1.25fr 1fr; gap:24px">
+      <div style="border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,0.1); box-shadow:0 30px 70px -40px rgba(0,0,0,0.85)">
+        <img src="uploads/Client_Dark.png" alt="Client workspace management" style="display:block; width:100%; height:auto">
+      </div>
+      <div style="border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,0.1); box-shadow:0 30px 70px -40px rgba(0,0,0,0.85)">
+        <img src="uploads/Team_Dark.png" alt="Team members with roles and invite control" style="display:block; width:100%; height:auto">
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" style="max-width:1220px; margin:0 auto; padding:104px 32px 0">
+    <div style="max-width:40em; margin-bottom:44px">
+      <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#4B95F0; margin-bottom:16px">Pricing</div>
+      <h2 style="margin:0 0 18px; font-size:40px; line-height:1.12; letter-spacing:-0.03em; font-weight:800">Priced by connections, not by seat</h2>
+      <p style="margin:0 0 14px; font-size:18px; line-height:1.65; color:#93A4BC">Every plan includes Kai, all six surfaces and unlimited reports.</p>
+      <p style="margin:0; font-size:14px; line-height:1.6; color:#5E7089">Figures below are placeholders pending your real price list.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:24px">
+      <div style="background:#0C1421; border:1px solid rgba(255,255,255,0.09); border-radius:16px; padding:34px 32px 36px; display:flex; flex-direction:column">
+        <h3 style="margin:0 0 6px; font-size:22px; font-weight:800">Basic</h3>
+        <p style="margin:0 0 22px; font-size:15px; line-height:1.6; color:#93A4BC">One business, one set of accounts.</p>
+        <div style="display:flex; align-items:baseline; gap:6px; margin-bottom:4px"><span style="font-size:40px; font-weight:800; letter-spacing:-0.03em">{{ priceBasic }}</span><span style="font-size:15px; color:#66788F">/ month</span></div>
+        <div style="font-size:14px; color:#66788F; margin-bottom:28px">Up to 15 platform connections</div>
+        <div style="display:grid; gap:11px; font-size:15px; color:#B6C7DA; margin-bottom:32px">
+          <div>Dashboard, Trends and KPI comparison</div>
+          <div>Google and Meta ads data</div>
+          <div>Kai, unlimited questions</div>
+          <div>PDF and CSV reports</div>
+        </div>
+        <a href="#cta" style="margin-top:auto; display:flex; align-items:center; justify-content:center; height:48px; border-radius:9px; border:1px solid rgba(255,255,255,0.2); color:#FFFFFF; font-size:15.5px; font-weight:700" style-hover="border-color:rgba(255,255,255,0.55); color:#FFFFFF">Start free trial</a>
+      </div>
+      <div style="background:linear-gradient(180deg, #10233A 0%, #0C1421 60%); border:1.5px solid rgba(75,149,240,0.5); border-radius:16px; padding:34px 32px 36px; display:flex; flex-direction:column; box-shadow:0 30px 70px -40px rgba(47,127,228,0.5)">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:6px">
+          <h3 style="margin:0; font-size:22px; font-weight:800">Agency</h3>
+          <span style="padding:5px 11px; border-radius:100px; background:rgba(75,149,240,0.18); font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#7FB2E8">Most chosen</span>
+        </div>
+        <p style="margin:0 0 22px; font-size:15px; line-height:1.6; color:#93A4BC">Many clients, white-labelled reporting.</p>
+        <div style="display:flex; align-items:baseline; gap:6px; margin-bottom:4px"><span style="font-size:40px; font-weight:800; letter-spacing:-0.03em">{{ priceAgency }}</span><span style="font-size:15px; color:#66788F">/ month</span></div>
+        <div style="font-size:14px; color:#66788F; margin-bottom:28px">Up to 60 platform connections</div>
+        <div style="display:grid; gap:11px; font-size:15px; color:#B6C7DA; margin-bottom:32px">
+          <div>Everything in Basic</div>
+          <div>Unlimited brand clients</div>
+          <div>Per-client report branding</div>
+          <div>Scheduled delivery</div>
+          <div>Analytics, Search Console and SEO Suite</div>
+        </div>
+        <a href="#cta" style="margin-top:auto; display:flex; align-items:center; justify-content:center; height:48px; border-radius:9px; background:#2F7FE4; color:#FFFFFF; font-size:15.5px; font-weight:700" style-hover="background:#4B95F0; color:#FFFFFF">Book a demo</a>
+      </div>
+      <div style="background:#0C1421; border:1px solid rgba(255,255,255,0.09); border-radius:16px; padding:34px 32px 36px; display:flex; flex-direction:column">
+        <h3 style="margin:0 0 6px; font-size:22px; font-weight:800">Enterprise</h3>
+        <p style="margin:0 0 22px; font-size:15px; line-height:1.6; color:#93A4BC">Large portfolios and internal teams.</p>
+        <div style="display:flex; align-items:baseline; gap:6px; margin-bottom:4px"><span style="font-size:40px; font-weight:800; letter-spacing:-0.03em">Custom</span></div>
+        <div style="font-size:14px; color:#66788F; margin-bottom:28px">Unlimited connection quota</div>
+        <div style="display:grid; gap:11px; font-size:15px; color:#B6C7DA; margin-bottom:32px">
+          <div>Everything in Agency</div>
+          <div>Role-based team access</div>
+          <div>Auto moderation rules</div>
+          <div>Onboarding and priority support</div>
+        </div>
+        <a href="#cta" style="margin-top:auto; display:flex; align-items:center; justify-content:center; height:48px; border-radius:9px; border:1px solid rgba(255,255,255,0.2); color:#FFFFFF; font-size:15.5px; font-weight:700" style-hover="border-color:rgba(255,255,255,0.55); color:#FFFFFF">Talk to sales</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1220px; margin:0 auto; padding:104px 32px 0">
+    <div style="display:grid; grid-template-columns:0.7fr 1.3fr; gap:60px">
+      <h2 style="margin:0; font-size:38px; line-height:1.14; letter-spacing:-0.03em; font-weight:800">Questions we get<br>before a demo</h2>
+      <div style="border-top:1px solid rgba(255,255,255,0.09)">
+        <details style="border-bottom:1px solid rgba(255,255,255,0.09)">
+          <summary style="display:flex; align-items:center; justify-content:space-between; gap:24px; padding:24px 0; font-size:18px; font-weight:700; color:#FFFFFF">How long does connecting take?
+            <span data-plus="1" style="flex-shrink:0; font-size:22px; font-weight:400; color:#66788F; transition:transform 0.18s ease">+</span>
+          </summary>
+          <p style="margin:0 0 24px; font-size:16px; line-height:1.7; color:#93A4BC; max-width:44em">One OAuth flow per provider. Google covers Ads, Analytics and Search Console; Meta covers Ads, Page Insights and Instagram. The first sync starts immediately and you can watch its progress on the Connect screen.</p>
+        </details>
+        <details style="border-bottom:1px solid rgba(255,255,255,0.09)">
+          <summary style="display:flex; align-items:center; justify-content:space-between; gap:24px; padding:24px 0; font-size:18px; font-weight:700; color:#FFFFFF">Does it handle multiple currencies?
+            <span data-plus="1" style="flex-shrink:0; font-size:22px; font-weight:400; color:#66788F; transition:transform 0.18s ease">+</span>
+          </summary>
+          <p style="margin:0 0 24px; font-size:16px; line-height:1.7; color:#93A4BC; max-width:44em">Yes. Each account keeps its own currency in cards and tables, and comparisons label the currency on every value rather than silently converting.</p>
+        </details>
+        <details style="border-bottom:1px solid rgba(255,255,255,0.09)">
+          <summary style="display:flex; align-items:center; justify-content:space-between; gap:24px; padding:24px 0; font-size:18px; font-weight:700; color:#FFFFFF">Can clients see their own data?
+            <span data-plus="1" style="flex-shrink:0; font-size:22px; font-weight:400; color:#66788F; transition:transform 0.18s ease">+</span>
+          </summary>
+          <p style="margin:0 0 24px; font-size:16px; line-height:1.7; color:#93A4BC; max-width:44em">Brand clients scope a workspace to the accounts assigned to them, with their own report branding. Most teams still send the branded PDF rather than a login.</p>
+        </details>
+        <details style="border-bottom:1px solid rgba(255,255,255,0.09)">
+          <summary style="display:flex; align-items:center; justify-content:space-between; gap:24px; padding:24px 0; font-size:18px; font-weight:700; color:#FFFFFF">What is Kai actually reading?
+            <span data-plus="1" style="flex-shrink:0; font-size:22px; font-weight:400; color:#66788F; transition:transform 0.18s ease">+</span>
+          </summary>
+          <p style="margin:0 0 24px; font-size:16px; line-height:1.7; color:#93A4BC; max-width:44em">Only the data already synced into your workspace for the period in view. It answers with the same figures the dashboard shows and names the campaigns and accounts behind them.</p>
+        </details>
+        <details style="border-bottom:1px solid rgba(255,255,255,0.09)">
+          <summary style="display:flex; align-items:center; justify-content:space-between; gap:24px; padding:24px 0; font-size:18px; font-weight:700; color:#FFFFFF">Is TikTok Ads supported?
+            <span data-plus="1" style="flex-shrink:0; font-size:22px; font-weight:400; color:#66788F; transition:transform 0.18s ease">+</span>
+          </summary>
+          <p style="margin:0 0 24px; font-size:16px; line-height:1.7; color:#93A4BC; max-width:44em">Not yet. It sits on the Connect screen as the next provider, alongside Google and Meta.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="cta" style="margin-top:104px; background:radial-gradient(100% 120% at 50% 100%, #12304F 0%, #0A1524 55%, #070C16 100%); border-top:1px solid rgba(255,255,255,0.08)">
+    <div style="max-width:1220px; margin:0 auto; padding:100px 32px; text-align:center">
+      <h2 style="margin:0 auto 18px; max-width:14em; font-size:46px; line-height:1.1; letter-spacing:-0.035em; font-weight:800; text-wrap:balance">See your own numbers in Kampalo</h2>
+      <p style="margin:0 auto 34px; max-width:32em; font-size:18px; line-height:1.65; color:#93A4BC">Connect one Google or Meta account and the dashboard fills in on the first sync. Bring the rest when you are ready.</p>
+      <div style="display:flex; align-items:center; justify-content:center; gap:14px; flex-wrap:wrap">
+        <a href="#cta" style="display:inline-flex; align-items:center; height:52px; padding:0 28px; border-radius:10px; background:#2F7FE4; color:#FFFFFF; font-size:16px; font-weight:700" style-hover="background:#4B95F0; color:#FFFFFF">Book a demo</a>
+        <a href="#pricing" style="display:inline-flex; align-items:center; height:52px; padding:0 26px; border-radius:10px; border:1px solid rgba(255,255,255,0.22); color:#FFFFFF; font-size:16px; font-weight:600" style-hover="border-color:rgba(255,255,255,0.55); color:#FFFFFF">See pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="border-top:1px solid rgba(255,255,255,0.08); background:#070C16">
+    <div style="max-width:1220px; margin:0 auto; padding:56px 32px 40px; display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px">
+      <div>
+        <div style="display:flex; align-items:center; gap:11px; margin-bottom:14px">
+          <svg viewBox="0 0 64 64" width="24" height="24" aria-hidden="true"><g fill="#FFFFFF"><path d="M8 8 H20 V22 L38 8 H58 L20 32 V34 L46 50 V58 L20 42 V56 H8 Z"></path><rect x="51" y="49" width="9" height="9" rx="2"></rect></g></svg>
+          <span style="font-size:18px; font-weight:800; letter-spacing:-0.02em">Kampalo</span>
+        </div>
+        <p style="margin:0; font-size:14.5px; line-height:1.65; color:#66788F; max-width:24em">Ask. Automate. Grow.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:11px; font-size:14.5px">
+        <div style="font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#5E7089; margin-bottom:4px">Product</div>
+        <a href="#platform" style="color:#93A4BC" style-hover="color:#FFFFFF">Platform</a>
+        <a href="#kai" style="color:#93A4BC" style-hover="color:#FFFFFF">Kai</a>
+        <a href="#reports" style="color:#93A4BC" style-hover="color:#FFFFFF">Reports</a>
+        <a href="#pricing" style="color:#93A4BC" style-hover="color:#FFFFFF">Pricing</a>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:11px; font-size:14.5px">
+        <div style="font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#5E7089; margin-bottom:4px">Integrations</div>
+        <a href="#top" style="color:#93A4BC" style-hover="color:#FFFFFF">Google Ads</a>
+        <a href="#top" style="color:#93A4BC" style-hover="color:#FFFFFF">Meta Ads</a>
+        <a href="#top" style="color:#93A4BC" style-hover="color:#FFFFFF">Analytics 4</a>
+        <a href="#top" style="color:#93A4BC" style-hover="color:#FFFFFF">Search Console</a>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:11px; font-size:14.5px">
+        <div style="font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#5E7089; margin-bottom:4px">Company</div>
+        <a href="#cta" style="color:#93A4BC" style-hover="color:#FFFFFF">Book a demo</a>
+        <a href="#cta" style="color:#93A4BC" style-hover="color:#FFFFFF">Contact</a>
+        <a href="#top" style="color:#93A4BC" style-hover="color:#FFFFFF">Privacy</a>
+        <a href="#top" style="color:#93A4BC" style-hover="color:#FFFFFF">Terms</a>
+      </div>
+    </div>
+    <div style="max-width:1220px; margin:0 auto; padding:0 32px 44px">
+      <div style="border-top:1px solid rgba(255,255,255,0.07); padding-top:22px; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap">
+        <span style="font-size:13.5px; color:#4E5F76">© 2026 Kampalo</span>
+        <span style="font-size:13.5px; color:#4E5F76">Built for agencies and in-house teams</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;priceBasic&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;$49&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Pricing&quot;},&quot;priceAgency&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;$199&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Pricing&quot;}}">
+class Component extends DCLogic {
+  state = { layout: "overview" };
+
+  tab(active) {
+    return "appearance:none; border:0; cursor:pointer; padding:0 18px; height:38px; border-radius:8px; font-family:inherit; font-size:14.5px; font-weight:700; letter-spacing:-0.01em; transition:background 0.15s ease, color 0.15s ease; " +
+      (active ? "background:#2F7FE4; color:#FFFFFF;" : "background:transparent; color:#93A4BC;");
+  }
+
+  componentDidMount() {
+    const order = ["overview", "focus", "compact"];
+    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const shots = Array.from(document.querySelectorAll("[data-shot]"));
+    const pin = document.querySelector("[data-pin]");
+    const onScroll = () => {
+      const vh = window.innerHeight;
+      shots.forEach(box => {
+        const img = box.querySelector("img");
+        if (!img) return;
+        const range = img.offsetHeight - box.clientHeight;
+        if (range <= 0) return;
+        const r = box.getBoundingClientRect();
+        let p = (vh - r.top) / (vh + r.height);
+        p = p < 0 ? 0 : p > 1 ? 1 : p;
+        img.style.transform = "translate3d(0," + (-p * range).toFixed(1) + "px,0)";
+      });
+      if (pin) {
+        const r = pin.getBoundingClientRect();
+        const span = pin.offsetHeight - vh;
+        if (span > 0) {
+          let p = -r.top / span;
+          p = p < 0 ? 0 : p > 0.999 ? 0.999 : p;
+          const next = order[Math.floor(p * order.length)];
+          if (!this.picked && next !== this.state.layout) this.setState({ layout: next });
+        }
+      }
+      this.ticking = false;
+    };
+    this.onScroll = () => {
+      if (this.ticking) return;
+      this.ticking = true;
+      window.requestAnimationFrame(onScroll);
+    };
+    if (!reduce) {
+      window.addEventListener("scroll", this.onScroll, { passive: true });
+      window.addEventListener("resize", this.onScroll);
+      onScroll();
+    }
+
+    const els = [];
+    document.querySelectorAll("section").forEach(sec => {
+      if (sec.id === "top" || sec.hasAttribute("data-pin")) return;
+      Array.from(sec.children).forEach(child => {
+        const disp = child.style && child.style.display ? child.style.display : "";
+        if (disp.indexOf("grid") > -1 && child.children.length > 1) {
+          Array.from(child.children).forEach(c => els.push(c));
+        } else {
+          els.push(child);
+        }
+      });
+    });
+    if (!("IntersectionObserver" in window)) return;
+    this.io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add("is-in"); this.io.unobserve(e.target); }
+      });
+    }, { rootMargin: "0px 0px -10% 0px", threshold: 0.06 });
+    els.forEach((el, i) => {
+      el.setAttribute("data-reveal", "");
+      el.style.transitionDelay = ((i % 4) * 80) + "ms";
+      this.io.observe(el);
+    });
+  }
+
+  componentWillUnmount() {
+    if (this.onScroll) {
+      window.removeEventListener("scroll", this.onScroll);
+      window.removeEventListener("resize", this.onScroll);
+    }
+    if (this.io) this.io.disconnect();
+  }
+
+  pick(layout) {
+    this.picked = true;
+    this.setState({ layout });
+  }
+
+  renderVals() {
+    const l = this.state.layout;
+    const notes = {
+      overview: "Overview — eight KPI cards, each with its own trend line, then the charts below.",
+      focus: "Focus — one hero metric at full width with the three you check next stacked beside it.",
+      compact: "Compact — every KPI on a single strip, charts immediately underneath."
+    };
+    const shot = (active, first) =>
+      (first ? "position:relative; " : "position:absolute; inset:0; ") +
+      "display:block; width:100%; height:auto; transition:opacity 0.4s ease; opacity:" + (active ? "1" : "0") + ";";
+
+    return {
+      shotOverview: shot(l === "overview", true),
+      shotFocus: shot(l === "focus", false),
+      shotCompact: shot(l === "compact", false),
+      layoutNote: notes[l],
+      tabOverview: this.tab(l === "overview"),
+      tabFocus: this.tab(l === "focus"),
+      tabCompact: this.tab(l === "compact"),
+      pickOverview: () => this.pick("overview"),
+      pickFocus: () => this.pick("focus"),
+      pickCompact: () => this.pick("compact"),
+      priceBasic: this.props.priceBasic ?? "$49",
+      priceAgency: this.props.priceAgency ?? "$199"
+    };
+  }
+}
+
+</script>
+</body>
+</html>

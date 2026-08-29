@@ -1,0 +1,13 @@
+---
+alwaysApply: true
+---
+# Coppice
+
+Read `COPPICE.md` at the repo root before any edit.
+
+- Keep the existing folder layout. Do not invent src/modules/ unless it already exists.
+- Do not add a second library for a job that already has a winner (UI, time, HTTP, DB, state).
+- Extend existing features; do not create sibling implementations.
+- Do not delete Django apps, migrations, management commands, admin, models, or login pages.
+- For CVEs: bump the listed version of the winning library. Do not add a replacement library.
+- Remove secrets from the repo.

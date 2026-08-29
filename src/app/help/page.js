@@ -76,7 +76,7 @@ export default function HelpCenter() {
   ];
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-900">
+    <div className="km-page">
       <JsonLd
         data={[
           breadcrumbSchema([
@@ -87,24 +87,24 @@ export default function HelpCenter() {
         ]}
       />
       <Header />
-      <main className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
+      <main className="km-main">
+        <div className="km-prose-wide">
           {/* Hero Section */}
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
               Help Center
             </h1>
-            <p className="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-[42rem] mx-auto">
               Quick answers for setup, integrations, analytics, billing, and Kai—so you can get back to optimizing campaigns.
             </p>
             
             {/* Search Bar */}
-            <div className="max-w-2xl mx-auto">
+            <div className="max-w-[42rem] mx-auto">
               <div className="relative">
                 <input
                   type="text"
                   placeholder="Search for help..."
-                  className="w-full px-6 py-4 pl-12 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#174A6E] focus:border-transparent"
+                  className="w-full rounded-xl border border-slate-300 bg-white px-[1.5rem] py-[1rem] pl-[3rem] text-slate-900 placeholder-slate-500 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#4B95F0] dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                 />
                 <svg
                   className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-400"
@@ -119,8 +119,8 @@ export default function HelpCenter() {
           </div>
 
           {/* Quick Links */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 max-w-4xl mx-auto">
-            <Link href="/documentation" className="bg-gradient-to-br from-[#174A6E] to-[#0B3049] rounded-xl p-6 text-white hover:shadow-lg transition-shadow">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 km-prose">
+            <Link href="/documentation" className="bg-gradient-to-br from-[#4B95F0] to-[#6D4AFF] rounded-xl p-6 text-white hover:shadow-lg transition-shadow">
               <div className="text-3xl mb-3">📚</div>
               <h3 className="text-xl font-semibold mb-2">Documentation</h3>
               <p className="text-white/80 text-sm">Complete guides and tutorials</p>
@@ -133,7 +133,7 @@ export default function HelpCenter() {
                 Reach Tekreign at{' '}
                 <a
                   href={`mailto:${TEKREIGN_CONTACT.contactEmail}`}
-                  className="text-[#174A6E] dark:text-blue-300 font-medium hover:underline"
+                  className="text-[var(--km-accent)] font-medium hover:underline"
                 >
                   {TEKREIGN_CONTACT.contactEmail}
                 </a>
@@ -141,14 +141,14 @@ export default function HelpCenter() {
               </p>
               <a
                 href={`mailto:${TEKREIGN_CONTACT.contactEmail}`}
-                className="mt-4 inline-block bg-[#174A6E] hover:bg-[#0f3451] text-white px-4 py-2 rounded-lg text-sm transition-colors"
+                className="km-btn-primary km-btn-sm mt-4"
               >
                 Send email
               </a>
             </div>
           </div>
 
-          <div className="max-w-4xl mx-auto mb-16 rounded-2xl border border-red-200 dark:border-red-900/50 bg-red-50/70 dark:bg-red-950/25 p-6 md:p-8">
+          <div className="km-prose mb-16 rounded-2xl border border-red-200 dark:border-red-900/50 bg-red-50/70 dark:bg-red-950/25 p-6 md:p-8">
             <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
               Disconnecting integrations or deleting your account
             </h2>
@@ -159,7 +159,7 @@ export default function HelpCenter() {
             </p>
             <Link
               href="/data-deletion"
-              className="inline-flex items-center text-sm font-semibold text-[#174A6E] dark:text-blue-300 hover:underline"
+              className="inline-flex items-center text-sm font-semibold text-[var(--km-accent)] hover:underline"
             >
               Read full data deletion &amp; disconnection instructions →
             </Link>
@@ -194,9 +194,9 @@ export default function HelpCenter() {
           </div>
 
           {/* Contact Support Section */}
-          <section className="mt-16 bg-gradient-to-r from-[#174A6E] to-[#0B3049] rounded-2xl p-8 md:p-12 text-center text-white">
+          <section className="mt-16 bg-gradient-to-r from-[#4B95F0] to-[#6D4AFF] rounded-2xl p-8 md:p-12 text-center text-white">
             <h2 className="text-3xl font-bold mb-4">Still Need Help?</h2>
-            <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-white/90 mb-8 max-w-[42rem] mx-auto">
               Our team is here to help you get the most out of Kampalo. Email{' '}
               <a
                 href={`mailto:${TEKREIGN_CONTACT.contactEmail}`}
@@ -209,13 +209,13 @@ export default function HelpCenter() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href={`mailto:${TEKREIGN_CONTACT.contactEmail}`}
-                className="bg-white hover:bg-slate-100 text-[#174A6E] px-8 py-3 rounded-xl font-semibold transition-colors"
+                className="inline-flex items-center justify-center rounded-xl bg-white px-[2rem] py-[0.75rem] font-semibold text-[var(--km-accent)] hover:bg-slate-100"
               >
                 Email {TEKREIGN_CONTACT.contactEmail}
               </a>
               <Link
                 href="/documentation"
-                className="bg-[#0f3451]/50 hover:bg-[#0f3451]/70 text-white border-2 border-white/30 px-8 py-3 rounded-xl font-semibold transition-colors"
+                className="inline-flex items-center justify-center rounded-xl border-2 border-white/30 bg-[#0f3451]/50 px-[2rem] py-[0.75rem] font-semibold text-white hover:bg-[#0f3451]/70"
               >
                 View Documentation
               </Link>

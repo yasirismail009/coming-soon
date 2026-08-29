@@ -1,190 +1,115 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { useTheme } from '@/contexts/ThemeContext';
 import { resolveDashboardImage } from '@/utils/dashboardScreenshots';
+import KaiMark from '@/components/KaiMark';
 import LaptopFrame from '@/components/LaptopFrame';
-
-const heroDashboards = [
-  { id: 'kai', alt: 'Kampalo Kai — AI marketing analyst' },
-  { id: 'overview', alt: 'Kampalo Dashboard — performance overview' },
-  { id: 'accountsCampaigns', alt: 'Kampalo Accounts & Campaigns' },
-  { id: 'organicInsights', alt: 'Kampalo Organic Insights' },
-];
 
 export default function Hero() {
   const { theme } = useTheme();
-  const [currentDashboard, setCurrentDashboard] = useState(0);
+  const spotRef = useRef(null);
+  const hostRef = useRef(null);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut',
-      },
-    },
-  };
-
-  // Auto-rotate dashboards every 4 seconds
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentDashboard((prev) => (prev + 1) % heroDashboards.length);
-    }, 4000);
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const host = hostRef.current;
+    const spot = spotRef.current;
+    if (!host || !spot || reduce) return;
 
-    return () => clearInterval(interval);
+    const onMove = (e) => {
+      const r = host.getBoundingClientRect();
+      spot.style.opacity = '1';
+      spot.style.transform = `translate3d(${e.clientX - r.left}px, ${e.clientY - r.top}px, 0) translate(-50%, -50%)`;
+    };
+    const onLeave = () => {
+      spot.style.opacity = '0';
+    };
+    host.addEventListener('mousemove', onMove);
+    host.addEventListener('mouseleave', onLeave);
+    return () => {
+      host.removeEventListener('mousemove', onMove);
+      host.removeEventListener('mouseleave', onLeave);
+    };
   }, []);
 
   return (
-    <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column - Text Content */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="text-center lg:text-left"
-          >
-          <motion.div
-            variants={itemVariants}
-            className="inline-flex items-center px-4 py-2 rounded-full bg-[#174A6E]/10 dark:bg-[#174A6E]/30 text-[#174A6E] dark:text-white text-sm font-medium mb-8"
-          >
-            <span className="mr-2 h-2 w-2 rounded-full bg-emerald-500 animate-pulse" aria-hidden />
-            Meet Kai — AI assistant for ads &amp; organic
-          </motion.div>
+    <section
+      id="top"
+      ref={hostRef}
+      className="relative overflow-hidden bg-[radial-gradient(130%_90%_at_50%_-20%,#c5d7ea_0%,#edf0f6_42%,#edf0f6_100%)] dark:bg-[radial-gradient(130%_90%_at_50%_-20%,#17395e_0%,#0a1526_42%,#05080f_100%)]"
+    >
+      <div
+        ref={spotRef}
+        aria-hidden
+        className="km-orb-spot top-0 left-0 opacity-0 transition-opacity duration-500"
+        style={{
+          background: 'radial-gradient(closest-side, rgba(109,74,255,0.28), rgba(109,74,255,0))',
+        }}
+      />
+      <div
+        aria-hidden
+        className="km-glow km-orb-wide top-[-18%] left-1/2 -translate-x-1/2"
+        style={{ background: 'radial-gradient(closest-side, var(--km-glow-blue), transparent)' }}
+      />
+      <div
+        aria-hidden
+        className="km-glow km-orb top-[-8%] right-[2%] w-[40%] max-w-[32.5rem]"
+        style={{
+          background: 'radial-gradient(closest-side, var(--km-glow-purple), transparent)',
+          animationDelay: '2s',
+        }}
+      />
 
-          <motion.h1
-            variants={itemVariants}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6 leading-tight"
-          >
-            <span className="block">Kampalo</span>
-            <motion.span
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              className="block bg-gradient-to-r from-[#174A6E] to-[#0B3049] dark:from-white dark:to-blue-200 bg-clip-text text-transparent"
-            >
-              See all your ads. Ask Kai what to scale.
-            </motion.span>
-          </motion.h1>
+      <div className="km-wrap relative py-[4.5rem] md:py-[6.5rem] text-center">
+        <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-[var(--km-border)] bg-white/50 dark:bg-white/5 px-[1.125rem] py-[0.4375rem] pl-2.5 text-[0.8125rem] font-semibold text-[var(--km-muted)] backdrop-blur-md">
+          <KaiMark size={17} />
+          Kai, your marketing analyst, is included on every plan
+          <span aria-hidden className="km-pulse h-1.5 w-1.5 rounded-full bg-[#34D399]" />
+        </div>
 
-          <motion.p
-            variants={itemVariants}
-            className="text-lg md:text-xl lg:text-2xl text-slate-600 dark:text-slate-300 mb-10 leading-relaxed"
-          >
-            Connect Google and Meta once. Then ask Kai—your AI assistant—about ROAS, spend, campaigns, and organic performance.
-          </motion.p>
+        <h1 className="mx-auto mb-6 max-w-[14em] km-display font-extrabold leading-[1.02] tracking-[-0.042em] text-balance">
+          Every ad account, in <span className="km-gradient-text">one dashboard</span>
+        </h1>
+        <p className="mx-auto mb-[2.375rem] max-w-[33em] text-[1.1875rem] leading-[1.62] text-[var(--km-muted)] text-pretty">
+          Kampalo unifies Google Ads, Meta Ads, Analytics, Search Console and organic social into a single workspace — spend, revenue and ROAS side by side, for every account you run.
+        </p>
+        <div className="mb-6 flex flex-wrap items-center justify-center gap-3.5">
+          <Link href="/contact" className="km-btn-primary">
+            Contact us
+          </Link>
+          <a href="#platform" className="km-btn-ghost">
+            See the platform
+          </a>
+        </div>
+        <div className="mb-[3.875rem] text-[0.78125rem] font-bold uppercase tracking-[0.18em] text-[var(--km-faint)]">
+          Ask. Automate. Grow.
+        </div>
 
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mb-12"
-          >
-            <motion.button
-              whileHover={{ scale: 1.05, boxShadow: '0 20px 25px -5px rgba(59, 130, 246, 0.4)' }}
-              whileTap={{ scale: 0.95 }}
-              className="w-full sm:w-auto bg-[#174A6E] hover:bg-[#0f3451] text-white px-8 py-4 rounded-xl font-semibold text-base transition-all shadow-lg shadow-[#174A6E]/25"
-            >
-              Start Free Trial
-            </motion.button>
-            <motion.a
-              href="#kai"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-full sm:w-auto inline-flex justify-center items-center bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-900 dark:text-white border border-slate-300 dark:border-slate-700 px-8 py-4 rounded-xl font-semibold text-base transition-all"
-            >
-              Meet Kai
-            </motion.a>
-          </motion.div>
-
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-wrap items-center justify-center lg:justify-start gap-6 lg:gap-8 text-sm md:text-base text-slate-600 dark:text-slate-400"
-          >
-            <div className="flex items-center">
-              <svg className="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              No Credit Card Required
-            </div>
-            <div className="flex items-center">
-              <svg className="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              14-Day Free Trial
-            </div>
-            <div className="flex items-center">
-              <svg className="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              Cancel Anytime
-            </div>
-          </motion.div>
-          </motion.div>
-
-          {/* Right Column - Single Laptop with Rotating Screens */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="hidden lg:block relative"
-          >
-            <LaptopFrame className="w-full max-w-2xl mx-auto">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={`${currentDashboard}-${theme}`}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.4, ease: 'easeInOut' }}
-                  className="absolute inset-0"
-                >
-                  <Image
-                    src={resolveDashboardImage(heroDashboards[currentDashboard].id, theme)}
-                    alt={heroDashboards[currentDashboard].alt}
-                    fill
-                    className="object-cover object-left-top"
-                    sizes="(max-width: 1024px) 0px, 672px"
-                    priority={currentDashboard === 0}
-                    quality={80}
-                  />
-                </motion.div>
-              </AnimatePresence>
+        <div className="km-float mx-auto max-w-[90%]">
+          <div className="relative rounded-[1.375rem] border border-white/40 bg-gradient-to-b from-white/40 to-white/10 p-3.5 shadow-[0_3.75rem_8.125rem_-2.5rem_rgba(15,23,42,0.35)] backdrop-blur-md dark:border-white/16 dark:from-white/14 dark:to-white/3 dark:shadow-[0_3.75rem_8.125rem_-2.5rem_rgba(0,0,0,0.95),0_0_7.5rem_rgba(75,149,240,0.22)]">
+            <LaptopFrame url="app.kampalo.com/dashboard">
+              <Image
+                src={resolveDashboardImage('overview', theme)}
+                alt="Kampalo dashboard showing ROAS, spend, revenue and conversions across Google and Meta"
+                fill
+                className="object-cover object-left-top"
+                sizes="(max-width: 1080px) 100vw, 1080px"
+                priority
+                quality={80}
+              />
+              <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+                <div className="km-sheen absolute top-0 bottom-0 w-2/5 bg-gradient-to-r from-transparent via-white/8 to-transparent" />
+              </div>
             </LaptopFrame>
-            
-            {/* Progress Indicators */}
-            <div className="flex justify-center gap-2 mt-6">
-              {heroDashboards.map((_, index) => (
-                <motion.div
-                  key={index}
-                  initial={false}
-                  animate={{
-                    width: currentDashboard === index ? '24px' : '8px',
-                    opacity: currentDashboard === index ? 1 : 0.4,
-                  }}
-                  transition={{ duration: 0.3 }}
-                  className={`h-2 rounded-full bg-[#174A6E] ${
-                    currentDashboard === index ? 'w-6' : 'w-2'
-                  }`}
-                />
-              ))}
-            </div>
-          </motion.div>
+          </div>
+          <div
+            aria-hidden
+            className="relative ml-[-9%] h-[0.9375rem] w-[118%] rounded-b-[0.875rem] bg-gradient-to-b from-[#c5ced9] to-[#9aa6b5] shadow-[0_1.5rem_2.5rem_-1.125rem_rgba(15,23,42,0.35)] dark:from-[#2B3646] dark:to-[#141B27] dark:shadow-[0_1.5rem_2.5rem_-1.125rem_rgba(0,0,0,0.9)]"
+          />
+          <div aria-hidden className="mx-auto h-[0.3125rem] w-[12%] rounded-b-md bg-[#c8d0db] dark:bg-[#0B1019]" />
         </div>
       </div>
     </section>

@@ -27,7 +27,7 @@ export default function DataDeletionScreenshot({ variant, caption }) {
 
   return (
     <figure className="not-prose my-8">
-      <p className="text-xs font-semibold uppercase tracking-wide text-[#174A6E] dark:text-blue-300 mb-3">
+      <p className="text-xs font-semibold uppercase tracking-wide text-[var(--km-accent)] mb-3">
         Where to find it in the app
       </p>
       <LaptopFrame className="w-full max-w-md sm:max-w-lg md:max-w-xl mx-auto">

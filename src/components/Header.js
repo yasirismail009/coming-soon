@@ -2,198 +2,141 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import Image from 'next/image';
+import Link from 'next/link';
 import { useTheme } from '@/contexts/ThemeContext';
-import { useRouter } from 'next/navigation';
+import BrandLogo from '@/components/BrandLogo';
+
+const APP_URL = 'https://app.kampalo.com';
+
+const nav = [
+  { href: '/#platform', label: 'Platform' },
+  { href: '/#kai', label: 'Kai' },
+  { href: '/#reports', label: 'Reports' },
+  { href: '/#pricing', label: 'Pricing' },
+];
 
 export default function Header() {
-  const router = useRouter();
   const { theme, toggleTheme } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  
-  // Default to light theme if not yet mounted
-  const currentTheme = theme || 'light';
+  const currentTheme = theme || 'dark';
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
-      className="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-b border-slate-200 dark:border-slate-800"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex items-center space-x-3"
-          >
-            <div className="h-10 w-auto flex items-center cursor-pointer" onClick={() => router.push('/')}>
-              <Image 
-                src="/assets/V3.svg" 
-                alt="KAMPALO Logo" 
-                width={120} 
-                height={22} 
-                className="h-8 w-auto dark:brightness-0 dark:invert"
-                priority
-              />
-            </div>
-          </motion.div>
+    <header className="sticky top-0 z-50 border-b border-[var(--km-border)] bg-[var(--km-header)] backdrop-blur-[1.125rem] saturate-150">
+      <div className="km-wrap flex h-[4.75rem] items-center justify-between gap-8">
+        <BrandLogo />
 
-          {/* Desktop Navigation */}
-          <motion.nav
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="hidden md:flex items-center space-x-6 lg:space-x-8"
-          >
-            <a href="/#features" className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">
-              Features
-            </a>
+        <nav className="hidden md:flex items-center gap-1.5 rounded-full border border-[var(--km-border)] bg-black/[0.03] dark:bg-white/[0.04] p-[0.3125rem] text-[0.90625rem] font-semibold">
+          {nav.map((item) => (
             <a
-              href="/kai"
-              className="inline-flex items-center gap-1.5 rounded-lg bg-[#174A6E]/10 dark:bg-[#174A6E]/25 text-[#174A6E] dark:text-blue-200 px-3 py-1.5 font-semibold hover:bg-[#174A6E]/15 dark:hover:bg-[#174A6E]/40 transition-colors"
+              key={item.href}
+              href={item.href}
+              className="rounded-full px-[1rem] py-[0.5rem] text-[var(--km-nav-idle)] hover:bg-black/[0.05] hover:text-[var(--km-ink)] dark:hover:bg-white/[0.07] dark:hover:text-white transition-colors"
             >
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" aria-hidden />
-              Kai AI
+              {item.label}
             </a>
-            <a href="/#platforms" className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">
-              Platforms
-            </a>
-            <a href="/#pricing" className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">
-              Pricing
-            </a>
-            <a
-              href="/contact"
-              className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
-            >
-              Contact
-            </a>
+          ))}
+        </nav>
 
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={toggleTheme}
-              className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
-              aria-label="Toggle theme"
-            >
-              {currentTheme === 'light' ? (
-                <svg className="w-5 h-5 text-slate-700 dark:text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                </svg>
-              ) : (
-                <svg className="w-5 h-5 text-slate-700 dark:text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                </svg>
-              )}
-            </motion.button>
-
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-[#174A6E] hover:bg-[#0f3451] text-white px-6 py-2.5 rounded-lg font-medium text-sm transition-colors"
-            >
-              Get Started
-            </motion.button>
-          </motion.nav>
-
-          {/* Mobile Menu Button */}
-          <div className="flex md:hidden items-center space-x-3">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={toggleTheme}
-              className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
-              aria-label="Toggle theme"
-            >
-              {currentTheme === 'light' ? (
-                <svg className="w-5 h-5 text-slate-700 dark:text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                </svg>
-              ) : (
-                <svg className="w-5 h-5 text-slate-700 dark:text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                </svg>
-              )}
-            </motion.button>
-            
-            <motion.button
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? (
-                <svg className="w-6 h-6 text-slate-700 dark:text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg className="w-6 h-6 text-slate-700 dark:text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              )}
-            </motion.button>
-          </div>
+        <div className="hidden md:flex items-center gap-4">
+          <button
+            type="button"
+            onClick={toggleTheme}
+            className="p-2 rounded-full text-[var(--km-nav-idle)] hover:text-[var(--km-ink)] hover:bg-black/[0.05] dark:hover:bg-white/[0.07] transition-colors"
+            aria-label="Toggle theme"
+          >
+            {currentTheme === 'light' ? (
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+              </svg>
+            ) : (
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+            )}
+          </button>
+          <a
+            href={APP_URL}
+            className="text-[0.90625rem] font-semibold text-[var(--km-nav-idle)] hover:text-[var(--km-ink)] transition-colors"
+          >
+            Sign in
+          </a>
+          <Link href="/contact" className="km-btn-primary km-btn-sm">
+            Contact us
+          </Link>
         </div>
 
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="md:hidden overflow-hidden"
-            >
-              <div className="py-4 space-y-3 border-t border-slate-200 dark:border-slate-800">
-                <a
-                  href="/#features"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block px-4 py-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors"
-                >
-                  Features
-                </a>
-                <a
-                  href="/kai"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block px-4 py-2 font-semibold text-[#174A6E] dark:text-blue-200 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors"
-                >
-                  Kai AI
-                </a>
-                <a
-                  href="/#platforms"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block px-4 py-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors"
-                >
-                  Platforms
-                </a>
-                <a
-                  href="/#pricing"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block px-4 py-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors"
-                >
-                  Pricing
-                </a>
-                <a
-                  href="/contact"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block px-4 py-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors"
-                >
-                  Contact
-                </a>
-                <motion.button
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full mx-4 bg-[#174A6E] hover:bg-[#0f3451] text-white px-6 py-2.5 rounded-lg font-medium text-sm transition-colors"
-                >
-                  Get Started
-                </motion.button>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <div className="flex md:hidden items-center gap-2">
+          <button
+            type="button"
+            onClick={toggleTheme}
+            className="p-2 rounded-full text-[var(--km-nav-idle)]"
+            aria-label="Toggle theme"
+          >
+            {currentTheme === 'light' ? (
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+              </svg>
+            ) : (
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+            )}
+          </button>
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-2 rounded-full text-[var(--km-ink)]"
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
+        </div>
       </div>
-    </motion.header>
+
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden overflow-hidden border-t border-[var(--km-border)]"
+          >
+            <div className="km-wrap py-[1rem] space-y-1">
+              {nav.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block rounded-xl px-[1rem] py-[0.625rem] text-[var(--km-muted)] hover:text-[var(--km-ink)] hover:bg-black/[0.04] dark:hover:bg-white/[0.05]"
+                >
+                  {item.label}
+                </a>
+              ))}
+              <a
+                href={APP_URL}
+                className="block rounded-xl px-[1rem] py-[0.625rem] text-[var(--km-muted)]"
+              >
+                Sign in
+              </a>
+              <Link
+                href="/contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="km-btn-primary km-btn-sm mt-2 w-full"
+              >
+                Contact us
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
   );
 }

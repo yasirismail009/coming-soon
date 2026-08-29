@@ -1,72 +1,31 @@
-'use client';
-
-import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export default function CTA() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut',
-      },
-    },
-  };
-
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-[#174A6E] to-[#0B3049] relative overflow-hidden">
-      <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:20px_20px]" />
-      <div className="max-w-4xl mx-auto text-center relative z-10">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
-        >
-          <motion.h2
-            variants={itemVariants}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 lg:mb-8"
-          >
-            Ready to ask Kai what to scale?
-          </motion.h2>
-          <motion.p
-            variants={itemVariants}
-            className="text-lg lg:text-xl text-white/90 mb-10 lg:mb-12 max-w-3xl mx-auto leading-relaxed"
-          >
-            Start a free trial of Kampalo. Connect Google and Meta, then ask your AI assistant about ROAS, spend, and campaigns—no credit card required.
-          </motion.p>
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <motion.button
-              whileHover={{ scale: 1.05, boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.3)' }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-white hover:bg-[#174A6E]/5 text-[#174A6E] px-8 py-4 lg:py-5 rounded-xl font-semibold text-base lg:text-lg transition-all shadow-lg"
-            >
-              Start Free Trial
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-[#0f3451]/50 hover:bg-[#0f3451]/70 text-white border-2 border-white/30 px-8 py-4 lg:py-5 rounded-xl font-semibold text-base lg:text-lg transition-all"
-            >
-              Schedule Demo
-            </motion.button>
-          </motion.div>
-        </motion.div>
+    <section
+      id="cta"
+      className="relative mt-28 overflow-hidden border-t border-[var(--km-border)] bg-[radial-gradient(110%_130%_at_50%_110%,#c5d7ea_0%,#edf0f6_50%,#edf0f6_100%)] dark:bg-[radial-gradient(110%_130%_at_50%_110%,#1b3e68_0%,#0c1526_50%,#05080f_100%)]"
+    >
+      <div
+        aria-hidden
+        className="km-glow km-orb bottom-[-25%] left-1/2 -translate-x-1/2"
+        style={{ background: 'radial-gradient(closest-side, rgba(109,74,255,0.34), transparent)' }}
+      />
+      <div className="km-wrap relative py-[5.5rem] text-center lg:py-[6.875rem]">
+        <h2 className="mx-auto mb-[1.125rem] max-w-[13em] km-h1 font-extrabold leading-[1.05] tracking-[-0.04em] text-balance">
+          See your own numbers in Kampalo
+        </h2>
+        <p className="mx-auto mb-9 max-w-[32em] text-[1.125rem] leading-[1.65] text-[var(--km-muted)]">
+          Connect one Google or Meta account and the dashboard fills in on the first sync. Bring the rest when you are ready.
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-3.5">
+          <Link href="/contact" className="km-btn-primary">
+            Contact us
+          </Link>
+          <a href="#pricing" className="km-btn-ghost">
+            See pricing
+          </a>
+        </div>
       </div>
     </section>
   );

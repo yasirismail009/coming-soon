@@ -11,10 +11,10 @@ export const metadata = pageMetadata({
 
 export default function Documentation() {
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-900">
+    <div className="km-page">
       <Header />
-      <main className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
+      <main className="km-main">
+        <div className="km-prose">
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
             Documentation
           </h1>
@@ -300,7 +300,7 @@ export default function Documentation() {
               <div className="space-y-6">
                 <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
                   <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">What is Kai?</h3>
-                  <p className="text-slate-600 dark:text-slate-300">Kai is Kampalo&apos;s AI marketing assistant. Ask plain-language questions about your Google Ads and Meta performance; Kai answers from your synced data and highlights which campaigns to scale. Learn more on the <a href="/kai" className="text-[#174A6E] dark:text-blue-300 font-medium hover:underline">Kai page</a>.</p>
+                  <p className="text-slate-600 dark:text-slate-300">Kai is Kampalo&apos;s AI marketing assistant. Ask plain-language questions about your Google Ads and Meta performance; Kai answers from your synced data and highlights which campaigns to scale. Learn more on the <a href="/kai" className="text-[var(--km-accent)] font-medium hover:underline">Kai page</a>.</p>
                 </div>
 
                 <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
@@ -320,7 +320,7 @@ export default function Documentation() {
 
                 <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
                   <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">What happens if I disconnect a platform?</h3>
-                  <p className="text-slate-600 dark:text-slate-300">Disconnecting an integration permanently deletes synced data for that connection—there is no recovery. See our <a href="/data-deletion" className="text-[#174A6E] dark:text-blue-300 font-medium hover:underline">data deletion instructions</a> before you disconnect.</p>
+                  <p className="text-slate-600 dark:text-slate-300">Disconnecting an integration permanently deletes synced data for that connection—there is no recovery. See our <a href="/data-deletion" className="text-[var(--km-accent)] font-medium hover:underline">data deletion instructions</a> before you disconnect.</p>
                 </div>
               </div>
             </section>

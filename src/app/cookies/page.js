@@ -12,10 +12,10 @@ export const metadata = pageMetadata({
 
 export default function CookiesPolicy() {
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-900">
+    <div className="km-page">
       <Header />
-      <main className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
+      <main className="km-main">
+        <div className="km-prose">
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
             Cookies Policy
           </h1>
@@ -30,7 +30,7 @@ export default function CookiesPolicy() {
                 This Cookies Policy explains how {TEKREIGN_CONTACT.productName}, operated by{' '}
                 {TEKREIGN_CONTACT.parentCompany} (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;), uses cookies and
                 similar tracking technologies on our website and platform. This policy should be read alongside our{' '}
-                <a href="/privacy" className="text-[#174A6E] dark:text-[#174A6E]/80 hover:underline">
+                <a href="/privacy" className="text-[var(--km-link)] hover:underline">
                   Privacy Policy
                 </a>
                 .
@@ -123,31 +123,31 @@ export default function CookiesPolicy() {
                 <table className="w-full border-collapse border border-slate-300 dark:border-slate-700">
                   <thead>
                     <tr className="bg-slate-100 dark:bg-slate-800">
-                      <th className="border border-slate-300 dark:border-slate-700 px-4 py-2 text-left text-slate-900 dark:text-white">Cookie Name</th>
-                      <th className="border border-slate-300 dark:border-slate-700 px-4 py-2 text-left text-slate-900 dark:text-white">Purpose</th>
-                      <th className="border border-slate-300 dark:border-slate-700 px-4 py-2 text-left text-slate-900 dark:text-white">Duration</th>
+                      <th className="border border-slate-300 dark:border-slate-700 px-[1rem] py-[0.5rem] text-left text-slate-900 dark:text-white">Cookie Name</th>
+                      <th className="border border-slate-300 dark:border-slate-700 px-[1rem] py-[0.5rem] text-left text-slate-900 dark:text-white">Purpose</th>
+                      <th className="border border-slate-300 dark:border-slate-700 px-[1rem] py-[0.5rem] text-left text-slate-900 dark:text-white">Duration</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td className="border border-slate-300 dark:border-slate-700 px-4 py-2 text-slate-600 dark:text-slate-300">auth_token</td>
-                      <td className="border border-slate-300 dark:border-slate-700 px-4 py-2 text-slate-600 dark:text-slate-300">Authentication and session management</td>
-                      <td className="border border-slate-300 dark:border-slate-700 px-4 py-2 text-slate-600 dark:text-slate-300">Session</td>
+                      <td className="border border-slate-300 dark:border-slate-700 px-[1rem] py-[0.5rem] text-slate-600 dark:text-slate-300">auth_token</td>
+                      <td className="border border-slate-300 dark:border-slate-700 px-[1rem] py-[0.5rem] text-slate-600 dark:text-slate-300">Authentication and session management</td>
+                      <td className="border border-slate-300 dark:border-slate-700 px-[1rem] py-[0.5rem] text-slate-600 dark:text-slate-300">Session</td>
                     </tr>
                     <tr>
-                      <td className="border border-slate-300 dark:border-slate-700 px-4 py-2 text-slate-600 dark:text-slate-300">theme_preference</td>
-                      <td className="border border-slate-300 dark:border-slate-700 px-4 py-2 text-slate-600 dark:text-slate-300">Stores light/dark mode preference</td>
-                      <td className="border border-slate-300 dark:border-slate-700 px-4 py-2 text-slate-600 dark:text-slate-300">1 year</td>
+                      <td className="border border-slate-300 dark:border-slate-700 px-[1rem] py-[0.5rem] text-slate-600 dark:text-slate-300">theme_preference</td>
+                      <td className="border border-slate-300 dark:border-slate-700 px-[1rem] py-[0.5rem] text-slate-600 dark:text-slate-300">Stores light/dark mode preference</td>
+                      <td className="border border-slate-300 dark:border-slate-700 px-[1rem] py-[0.5rem] text-slate-600 dark:text-slate-300">1 year</td>
                     </tr>
                     <tr>
-                      <td className="border border-slate-300 dark:border-slate-700 px-4 py-2 text-slate-600 dark:text-slate-300">_ga, _gid</td>
-                      <td className="border border-slate-300 dark:border-slate-700 px-4 py-2 text-slate-600 dark:text-slate-300">Google Analytics - website usage analytics</td>
-                      <td className="border border-slate-300 dark:border-slate-700 px-4 py-2 text-slate-600 dark:text-slate-300">2 years / 24 hours</td>
+                      <td className="border border-slate-300 dark:border-slate-700 px-[1rem] py-[0.5rem] text-slate-600 dark:text-slate-300">_ga, _gid</td>
+                      <td className="border border-slate-300 dark:border-slate-700 px-[1rem] py-[0.5rem] text-slate-600 dark:text-slate-300">Google Analytics - website usage analytics</td>
+                      <td className="border border-slate-300 dark:border-slate-700 px-[1rem] py-[0.5rem] text-slate-600 dark:text-slate-300">2 years / 24 hours</td>
                     </tr>
                     <tr>
-                      <td className="border border-slate-300 dark:border-slate-700 px-4 py-2 text-slate-600 dark:text-slate-300">dashboard_preferences</td>
-                      <td className="border border-slate-300 dark:border-slate-700 px-4 py-2 text-slate-600 dark:text-slate-300">Stores user dashboard layout preferences</td>
-                      <td className="border border-slate-300 dark:border-slate-700 px-4 py-2 text-slate-600 dark:text-slate-300">1 year</td>
+                      <td className="border border-slate-300 dark:border-slate-700 px-[1rem] py-[0.5rem] text-slate-600 dark:text-slate-300">dashboard_preferences</td>
+                      <td className="border border-slate-300 dark:border-slate-700 px-[1rem] py-[0.5rem] text-slate-600 dark:text-slate-300">Stores user dashboard layout preferences</td>
+                      <td className="border border-slate-300 dark:border-slate-700 px-[1rem] py-[0.5rem] text-slate-600 dark:text-slate-300">1 year</td>
                     </tr>
                   </tbody>
                 </table>
@@ -248,7 +248,7 @@ export default function CookiesPolicy() {
                   Email:{' '}
                   <a
                     href={`mailto:${TEKREIGN_CONTACT.contactEmail}`}
-                    className="text-[#174A6E] dark:text-[#174A6E]/80 hover:underline"
+                    className="text-[var(--km-link)] hover:underline"
                   >
                     {TEKREIGN_CONTACT.contactEmail}
                   </a>

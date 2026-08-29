@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "coppice": {
+      "command": "C:\\Users\\Pc Planet\\AppData\\Local\\Programs\\cursor\\Cursor.exe",
+      "args": [
+        "c:\\Users\\Pc Planet\\.cursor\\extensions\\muhammadyasirismail.coppice-0.1.20-universal\\out\\mcp.js"
+      ],
+      "env": {
+        "COPPICE_WORKSPACE": "e:\\Projects\\coming-soon"
+      }
+    }
+  }
+}

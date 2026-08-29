@@ -13,10 +13,10 @@ export const metadata = pageMetadata({
 
 export default function PrivacyPolicy() {
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-900">
+    <div className="km-page">
       <Header />
-      <main className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
+      <main className="km-main">
+        <div className="km-prose">
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
             Privacy Policy
           </h1>
@@ -80,7 +80,7 @@ export default function PrivacyPolicy() {
 
               <h3 className="text-xl font-semibold text-slate-900 dark:text-white mt-6 mb-3">2.4 Cookies and Tracking Technologies</h3>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                We use cookies, web beacons, and similar tracking technologies to enhance your experience. For more information, please see our <a href="/cookies" className="text-[#174A6E] dark:text-[#174A6E]/80 hover:underline">Cookies Policy</a>.
+                We use cookies, web beacons, and similar tracking technologies to enhance your experience. For more information, please see our <a href="/cookies" className="text-[var(--km-link)] hover:underline">Cookies Policy</a>.
               </p>
             </section>
 
@@ -165,7 +165,7 @@ export default function PrivacyPolicy() {
                 To exercise these rights, please contact us at{' '}
                 <a
                   href={`mailto:${TEKREIGN_CONTACT.contactEmail}`}
-                  className="text-[#174A6E] dark:text-[#174A6E]/80 hover:underline"
+                  className="text-[var(--km-link)] hover:underline"
                 >
                   {TEKREIGN_CONTACT.contactEmail}
                 </a>
@@ -205,7 +205,7 @@ export default function PrivacyPolicy() {
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mt-8 mb-4">11. Contact Us</h2>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
                 If you use the KAMPALO application, read our{' '}
-                <Link href="/data-deletion" className="text-[#174A6E] dark:text-[#174A6E]/80 hover:underline font-medium">
+                <Link href="/data-deletion" className="text-[var(--km-link)] hover:underline font-medium">
                   data deletion &amp; disconnection instructions
                 </Link>{' '}
                 for what happens when you disconnect integrations or delete your account—data is removed permanently and
@@ -226,7 +226,7 @@ export default function PrivacyPolicy() {
                   Email:{' '}
                   <a
                     href={`mailto:${TEKREIGN_CONTACT.contactEmail}`}
-                    className="text-[#174A6E] dark:text-[#174A6E]/80 hover:underline"
+                    className="text-[var(--km-link)] hover:underline"
                   >
                     {TEKREIGN_CONTACT.contactEmail}
                   </a>

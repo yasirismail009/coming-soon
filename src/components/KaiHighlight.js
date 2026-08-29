@@ -1,17 +1,15 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useTheme } from '@/contexts/ThemeContext';
 import { resolveDashboardImage } from '@/utils/dashboardScreenshots';
+import KaiMark from '@/components/KaiMark';
 import LaptopFrame from '@/components/LaptopFrame';
 
 const prompts = [
   'Which campaigns have the best ROAS?',
   'Compare Google vs Meta this month',
   'Where should I cut spend?',
-  'How are my Instagram posts performing?',
 ];
 
 export default function KaiHighlight() {
@@ -20,111 +18,42 @@ export default function KaiHighlight() {
   return (
     <section
       id="kai"
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0B3049] via-[#174A6E] to-[#0B3049] relative overflow-hidden"
+      className="relative mt-28 overflow-hidden border-y border-[var(--km-border)] bg-[radial-gradient(90%_120%_at_20%_0%,#ece6ff_0%,#edf0f6_45%,#edf0f6_100%)] dark:bg-[radial-gradient(90%_120%_at_20%_0%,#1b1246_0%,#0c0a22_45%,#05080f_100%)]"
     >
       <div
-        className="pointer-events-none absolute inset-0 opacity-30"
-        style={{
-          backgroundImage:
-            'radial-gradient(circle at 20% 20%, rgba(255,255,255,0.12), transparent 40%), radial-gradient(circle at 80% 60%, rgba(96,165,250,0.18), transparent 35%)',
-        }}
         aria-hidden
+        className="km-glow km-orb right-[-8%] bottom-[-20%]"
+        style={{ background: 'radial-gradient(closest-side, rgba(109,74,255,0.42), transparent)' }}
       />
-
-      <div className="max-w-7xl mx-auto relative">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12 lg:mb-14"
-        >
-          <p className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-semibold text-blue-100 mb-5">
-            <span className="h-2 w-2 rounded-full bg-emerald-300 animate-pulse" aria-hidden />
-            Meet Kai — your AI assistant
-          </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight max-w-3xl mx-auto">
-            Ask Kampalo what to scale next
+      <div className="km-wrap relative grid items-center gap-10 py-[4.5rem] lg:grid-cols-[0.85fr_1.15fr] lg:gap-[3.75rem] lg:py-[6.5rem]">
+        <div>
+          <KaiMark size={56} />
+          <h2 className="mt-[1.625rem] mb-[1.125rem] km-h2 font-extrabold leading-[1.08] tracking-[-0.035em]">
+            Ask Kai instead of building a pivot table
           </h2>
-          <p className="text-lg lg:text-xl text-white/85 leading-relaxed max-w-2xl mx-auto">
-            Kai answers plain-language questions from your synced Google Ads, Meta Ads, and Meta organic data—ROAS, spend, and what to optimize.
+          <p className="mb-7 text-[1.0625rem] leading-[1.7] text-[#6b5ea8] dark:text-[#B4A8E4] text-pretty">
+            Kai reads the same synced data the dashboard does. Ask which campaigns have the best ROAS, how Google compared to Meta this month, or where to cut spend — and get an answer with the numbers attached.
           </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.55 }}
-            className="lg:col-span-7"
-          >
-            <LaptopFrame>
-              <Image
-                src={resolveDashboardImage('kai', theme)}
-                alt="Kampalo Kai AI assistant"
-                fill
-                className="object-cover object-left-top"
-                sizes="(max-width: 1024px) 100vw, 60vw"
-                priority
-              />
-            </LaptopFrame>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.55, delay: 0.08 }}
-            className="lg:col-span-5 space-y-6"
-          >
-            <ul className="space-y-3 text-white/90">
-              <li className="flex gap-3">
-                <span className="mt-1.5 h-2 w-2 rounded-full bg-blue-200 shrink-0" aria-hidden />
-                <span>Plain-language questions—no spreadsheets required</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="mt-1.5 h-2 w-2 rounded-full bg-blue-200 shrink-0" aria-hidden />
-                <span>Grounded in your connected ads and organic data</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="mt-1.5 h-2 w-2 rounded-full bg-blue-200 shrink-0" aria-hidden />
-                <span>Chat history that stays with your workspace</span>
-              </li>
-            </ul>
-
-            <div>
-              <p className="text-blue-100 text-xs font-semibold uppercase tracking-wide mb-3">
-                Try asking
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {prompts.map((prompt) => (
-                  <span
-                    key={prompt}
-                    className="rounded-lg border border-white/15 bg-white/10 px-3 py-2 text-sm text-white/90"
-                  >
-                    {prompt}
-                  </span>
-                ))}
+          <div className="flex flex-col gap-[0.6875rem]">
+            {prompts.map((prompt) => (
+              <div
+                key={prompt}
+                className="rounded-full border border-[rgba(151,124,255,0.32)] bg-[rgba(109,74,255,0.12)] px-[1.25rem] py-[0.9375rem] text-[0.9375rem] font-semibold text-[#5b3fd6] dark:text-[#DDD6FA]"
+              >
+                {prompt}
               </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-3 pt-1">
-              <Link
-                href="/kai"
-                className="inline-flex justify-center items-center bg-white hover:bg-slate-100 text-[#174A6E] px-7 py-3.5 rounded-xl font-semibold transition-colors"
-              >
-                How Kai works
-              </Link>
-              <a
-                href="/#features"
-                className="inline-flex justify-center items-center border-2 border-white/40 hover:border-white text-white px-7 py-3.5 rounded-xl font-semibold transition-colors"
-              >
-                See all features
-              </a>
-            </div>
-          </motion.div>
+            ))}
+          </div>
         </div>
+        <LaptopFrame url="app.kampalo.com/kai" accent>
+          <Image
+            src={resolveDashboardImage('kai', theme)}
+            alt="Kai chat interface with suggested questions about ROAS and spend"
+            fill
+            className="object-cover object-left-top"
+            sizes="(max-width: 1024px) 100vw, 60vw"
+          />
+        </LaptopFrame>
       </div>
     </section>
   );

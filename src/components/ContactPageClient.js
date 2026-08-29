@@ -1,351 +1,325 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useTheme } from '@/contexts/ThemeContext';
-import { resolveDashboardImage } from '@/utils/dashboardScreenshots';
+import { useState } from 'react';
+import Link from 'next/link';
 import { sendEmailJs } from '@/utils/emailjsClient';
+import { TEKREIGN_CONTACT } from '@/constants/companyContact';
 
-const accent = '#174A6E';
+const topics = [
+  { id: 'sales', label: 'Pricing and plans' },
+  { id: 'migrate', label: 'Moving from another tool' },
+  { id: 'support', label: 'Product support' },
+  { id: 'partner', label: 'Partnerships' },
+];
 
-const services = [
+const faqs = [
   {
-    label: 'Product demo',
-    description: 'See Kampalo live or start a trial',
-    icon: (
-      <svg width="32" height="32" fill="none" viewBox="0 0 32 32" aria-hidden>
-        <circle cx="16" cy="16" r="16" fill={accent} />
-        <path
-          d="M16 8v8l6 3"
-          stroke="#fff"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
+    q: 'How quickly will someone reply?',
+    a: 'Within one business day, usually the same afternoon if you write before midday. Support enquiries from existing customers go to the front of the queue.',
   },
   {
-    label: 'Sales & enterprise',
-    description: 'Pricing, plans, and custom rollout',
-    icon: (
-      <svg width="32" height="32" fill="none" viewBox="0 0 32 32" aria-hidden>
-        <circle cx="16" cy="16" r="16" className="fill-slate-200 dark:fill-slate-600" />
-        <path
-          d="M10 20h12M16 12v8"
-          stroke={accent}
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
+    q: 'Can you help us migrate our reporting?',
+    a: 'Yes. Tell us which tool you are on and how many clients you report for. We will rebuild your templates against your connected accounts before you commit to a plan.',
   },
   {
-    label: 'Support & integrations',
-    description: 'Technical help and platform connections',
-    icon: (
-      <svg width="32" height="32" fill="none" viewBox="0 0 32 32" aria-hidden>
-        <circle cx="16" cy="16" r="16" className="fill-slate-200 dark:fill-slate-600" />
-        <rect x="12" y="12" width="8" height="8" rx="2" fill={accent} />
-      </svg>
-    ),
+    q: 'Do you offer custom pricing above 50 accounts?',
+    a: 'We do. Volume pricing, role-based team access and onboarding are handled case by case on the Enterprise plan.',
+  },
+  {
+    q: 'Where is our data stored?',
+    a: 'Provider tokens are encrypted at rest and you can revoke any connection from the Connect screen, which deletes the synced data for that account. See Privacy for details.',
   },
 ];
 
-const MARKETING_QUOTES = [
-  {
-    text: 'One dashboard finally showed us which channel actually drives revenue—not just clicks.',
-    attribution: 'Growth lead',
-    context: 'Multi-channel retail',
-  },
-  {
-    text: 'We stopped living in spreadsheets. Reporting went from hours to minutes every Monday.',
-    attribution: 'Marketing ops',
-    context: 'B2B SaaS',
-  },
-  {
-    text: 'Unified analytics means our agency and in-house team speak the same language on ROI.',
-    attribution: 'Performance marketing',
-    context: 'Agency partner',
-  },
-  {
-    text: 'When Google and Meta live in one place, budget decisions get a lot less noisy.',
-    attribution: 'CMO',
-    context: 'E-commerce',
-  },
-];
-
-const OFFICE_HOURS = 'Monday – Friday, 9:00 am – 6:00 pm (local time)';
-const CONTACT_BLURB =
-  'Questions about Kampalo, Google Ads or Meta connections, Kai, or enterprise plans? Tell us what you need—we will route your message to the right team.';
-
-const QUOTE_INTERVAL_MS = 6500;
+const fieldClass =
+  'h-[3.125rem] w-full rounded-xl border border-[var(--km-border)] bg-black/[0.03] px-[4%] text-[0.96875rem] text-[var(--km-ink)] outline-none transition-[border-color,box-shadow] placeholder:text-[var(--km-faint)] focus:border-[rgba(95,166,255,0.75)] focus:shadow-[0_0_0_0.25rem_rgba(75,149,240,0.16)] dark:bg-white/[0.04]';
 
 export default function ContactPageClient() {
-  const { theme } = useTheme();
-  const [selectedService, setSelectedService] = useState(0);
-  const [quoteIndex, setQuoteIndex] = useState(0);
   const [form, setForm] = useState({
-    firstName: '',
-    lastName: '',
+    name: '',
     email: '',
-    phone: '',
+    company: '',
+    accounts: '6-20',
+    topic: 'sales',
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
+  const [error, setError] = useState('');
+  const [sent, setSent] = useState(false);
 
   const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
   const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
   const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
   const emailJsReady = Boolean(serviceId && templateId && publicKey);
 
-  useEffect(() => {
-    const t = setInterval(() => {
-      setQuoteIndex((i) => (i + 1) % MARKETING_QUOTES.length);
-    }, QUOTE_INTERVAL_MS);
-    return () => clearInterval(t);
-  }, []);
-
-  const handleChange = (e) => {
+  const onChange = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!form.name.trim()) return setError('Please add your name.');
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email.trim())) {
+      return setError('Please add a valid work email.');
+    }
+    if (form.message.trim().length < 10) {
+      return setError('Please tell us a little more in the message.');
+    }
+
     if (!emailJsReady) {
-      setSubmitStatus({
-        type: 'error',
-        message:
-          'Contact form is not configured yet. Add NEXT_PUBLIC_EMAILJS_SERVICE_ID, NEXT_PUBLIC_EMAILJS_TEMPLATE_ID, and NEXT_PUBLIC_EMAILJS_PUBLIC_KEY to your environment.',
-      });
+      setError(
+        'Contact form is not configured yet. Add NEXT_PUBLIC_EMAILJS_SERVICE_ID, NEXT_PUBLIC_EMAILJS_TEMPLATE_ID, and NEXT_PUBLIC_EMAILJS_PUBLIC_KEY to your environment.'
+      );
       return;
     }
 
     setIsSubmitting(true);
-    setSubmitStatus({ type: '', message: '' });
+    setError('');
 
     try {
-      const templateParams = {
-        name: `${form.firstName} ${form.lastName}`.trim(),
-        email: form.email,
-        phone: form.phone || '—',
-        message: form.message,
-        service_type: services[selectedService].label,
-      };
-
+      const topicLabel = topics.find((t) => t.id === form.topic)?.label || form.topic;
       await sendEmailJs({
         serviceId,
         templateId,
         publicKey,
-        templateParams,
+        templateParams: {
+          name: form.name.trim(),
+          email: form.email.trim(),
+          phone: '—',
+          message: [
+            form.message.trim(),
+            '',
+            `Company: ${form.company || '—'}`,
+            `Ad accounts: ${form.accounts}`,
+            `Topic: ${topicLabel}`,
+          ].join('\n'),
+          service_type: topicLabel,
+        },
       });
-
-      setSubmitStatus({
-        type: 'success',
-        message: 'Thank you for your message. We will get back to you soon.',
-      });
-      setForm({ firstName: '', lastName: '', email: '', phone: '', message: '' });
-      setSelectedService(0);
+      setSent(true);
     } catch {
-      setSubmitStatus({
-        type: 'error',
-        message: 'Something went wrong sending your message. Please try again or email us directly.',
-      });
+      setError('Something went wrong sending your message. Please try again or email us directly.');
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const currentQuote = MARKETING_QUOTES[quoteIndex];
+  const firstName = form.name.split(' ')[0] || '';
 
   return (
-    <div className="bg-slate-50 dark:bg-slate-900 pt-28 pb-16 px-4 md:px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
-          {/* Contact form */}
-          <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-xl border border-slate-200 dark:border-slate-700 px-6 md:px-10 py-10 md:py-12">
-            <h1 className="text-2xl md:text-3xl font-bold mb-2 text-slate-900 dark:text-white leading-tight">
-              Talk to the Kampalo team
+    <>
+      <section className="relative overflow-hidden bg-[radial-gradient(130%_90%_at_50%_-20%,#c5d7ea_0%,#edf0f6_42%,#edf0f6_100%)] dark:bg-[radial-gradient(130%_90%_at_50%_-20%,#17395e_0%,#0a1526_42%,#05080f_100%)]">
+        <div
+          aria-hidden
+          className="km-glow km-orb-wide top-[-18%] left-1/2 -translate-x-1/2"
+          style={{ background: 'radial-gradient(closest-side, var(--km-glow-blue), transparent)' }}
+        />
+        <div className="km-wrap relative grid items-start gap-12 py-16 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16 lg:py-24">
+          <div>
+            <div className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-[var(--km-border)] bg-white/50 px-[1.125rem] py-[0.4375rem] text-[0.8125rem] font-semibold text-[var(--km-muted)] backdrop-blur-md dark:bg-white/5">
+              <span aria-hidden className="km-pulse h-1.5 w-1.5 rounded-full bg-[#34D399]" />
+              Replies within one business day
+            </div>
+            <h1 className="mb-5 km-h1 font-extrabold leading-[1.03] tracking-[-0.042em] text-balance">
+              Talk to the team behind <span className="km-gradient-text">Kampalo</span>
             </h1>
-            <p className="text-slate-600 dark:text-slate-300 mb-6 md:mb-8 text-sm md:text-base leading-relaxed">
-              {CONTACT_BLURB}
+            <p className="mb-10 max-w-[30em] text-[1.125rem] leading-[1.65] text-[var(--km-muted)] text-pretty">
+              Tell us how many accounts you run and what you report on today. We will come back with a straight answer on fit, pricing and what a migration looks like.
             </p>
 
-            <div className="mb-6 md:mb-8">
-              <div className="text-sm font-semibold mb-3 text-slate-900 dark:text-white">
-                What can we help you with?
+            <div className="mb-9 flex flex-col gap-3.5">
+              <div className="km-card flex items-start gap-4 px-[1.375rem] py-5">
+                <span className="flex h-[2.375rem] w-[2.375rem] shrink-0 items-center justify-center rounded-[0.6875rem] bg-[linear-gradient(135deg,#4B95F0,#6D4AFF)]">
+                  <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                    <rect x="2.5" y="4.5" width="19" height="15" rx="2.5" />
+                    <path d="M3 7l9 6 9-6" />
+                  </svg>
+                </span>
+                <div>
+                  <div className="mb-1 text-xs font-bold uppercase tracking-[0.12em] text-[var(--km-faint)]">Email</div>
+                  <a href={`mailto:${TEKREIGN_CONTACT.contactEmail}`} className="text-[1.03125rem] font-bold text-[var(--km-ink)] hover:text-[var(--km-link)]">
+                    {TEKREIGN_CONTACT.contactEmail}
+                  </a>
+                </div>
               </div>
-              <div className="flex flex-col sm:flex-row gap-3">
-                {services.map((service, idx) => {
-                  const active = selectedService === idx;
-                  return (
-                    <button
-                      key={service.label}
-                      type="button"
-                      className={`flex flex-row sm:flex-col items-center text-left sm:text-center border rounded-xl px-4 py-3 w-full sm:w-[9.5rem] transition-all duration-150 text-sm font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-800 ${
-                        active
-                          ? 'border-[#174A6E] bg-[#174A6E]/10 dark:bg-[#174A6E]/20 ring-2 ring-[#174A6E]/25 text-[#174A6E] dark:text-blue-200'
-                          : 'border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900/50 text-slate-700 dark:text-slate-200 hover:border-slate-300 dark:hover:border-slate-500'
-                      }`}
-                      onClick={() => setSelectedService(idx)}
-                      aria-pressed={active}
-                    >
-                      <span className="mr-3 sm:mr-0 sm:mb-2 flex shrink-0 items-center justify-center">
-                        {service.icon}
-                      </span>
-                      <span className="sm:mt-0">
-                        <span className="block font-semibold leading-snug">{service.label}</span>
-                        <span className="mt-0.5 block text-xs font-normal opacity-80 sm:hidden">
-                          {service.description}
-                        </span>
-                      </span>
-                    </button>
-                  );
-                })}
+              <div className="km-card flex items-start gap-4 px-[1.375rem] py-5">
+                <span className="flex h-[2.375rem] w-[2.375rem] shrink-0 items-center justify-center rounded-[0.6875rem] border border-[var(--km-border)] bg-black/[0.04] dark:bg-white/[0.08]">
+                  <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="#8CC0FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                    <path d="M12 21s7-6.1 7-11a7 7 0 10-14 0c0 4.9 7 11 7 11z" />
+                    <circle cx="12" cy="10" r="2.6" />
+                  </svg>
+                </span>
+                <div>
+                  <div className="mb-1 text-xs font-bold uppercase tracking-[0.12em] text-[var(--km-faint)]">Office</div>
+                  <div className="text-[1.03125rem] font-bold">{TEKREIGN_CONTACT.addressLine1}</div>
+                  <div className="mt-0.5 text-sm text-[var(--km-faint)]">{TEKREIGN_CONTACT.addressLine2}</div>
+                </div>
               </div>
-              <p className="hidden sm:block mt-2 text-xs text-slate-500 dark:text-slate-400">
-                {services[selectedService].description}
-              </p>
             </div>
 
-            <form className="space-y-4" onSubmit={handleSubmit} autoComplete="on">
-              <div className="flex flex-col sm:flex-row gap-3">
-                <input
-                  type="text"
-                  name="firstName"
-                  placeholder="First name"
-                  className="flex-1 border border-slate-200 dark:border-slate-600 rounded-lg px-4 py-2.5 text-sm focus:border-[#174A6E] focus:ring-1 focus:ring-[#174A6E] outline-none placeholder:text-slate-400 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white"
-                  value={form.firstName}
-                  onChange={handleChange}
-                  required
-                />
-                <input
-                  type="text"
-                  name="lastName"
-                  placeholder="Last name"
-                  className="flex-1 border border-slate-200 dark:border-slate-600 rounded-lg px-4 py-2.5 text-sm focus:border-[#174A6E] focus:ring-1 focus:ring-[#174A6E] outline-none placeholder:text-slate-400 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white"
-                  value={form.lastName}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              <input
-                type="email"
-                name="email"
-                placeholder="Work email"
-                className="w-full border border-slate-200 dark:border-slate-600 rounded-lg px-4 py-2.5 text-sm focus:border-[#174A6E] focus:ring-1 focus:ring-[#174A6E] outline-none placeholder:text-slate-400 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white"
-                value={form.email}
-                onChange={handleChange}
-                required
-              />
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Phone (optional)"
-                className="w-full border border-slate-200 dark:border-slate-600 rounded-lg px-4 py-2.5 text-sm focus:border-[#174A6E] focus:ring-1 focus:ring-[#174A6E] outline-none placeholder:text-slate-400 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white"
-                value={form.phone}
-                onChange={handleChange}
-              />
-              <textarea
-                name="message"
-                placeholder="How can we help?"
-                className="w-full border border-slate-200 dark:border-slate-600 rounded-lg px-4 py-2.5 text-sm focus:border-[#174A6E] focus:ring-1 focus:ring-[#174A6E] outline-none min-h-[100px] placeholder:text-slate-400 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white resize-y"
-                value={form.message}
-                onChange={handleChange}
-                required
-              />
-
-              {!emailJsReady && (
-                <p className="text-xs text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 rounded-lg px-3 py-2">
-                  EmailJS env vars are missing. Add them to <code className="font-mono">.env.local</code> to enable
-                  sending.
-                </p>
-              )}
-
-              {submitStatus.message ? (
-                <div
-                  className={`p-3 rounded-lg text-sm ${
-                    submitStatus.type === 'success'
-                      ? 'bg-green-50 dark:bg-green-950/40 text-green-800 dark:text-green-200 border border-green-200 dark:border-green-800'
-                      : 'bg-red-50 dark:bg-red-950/40 text-red-800 dark:text-red-200 border border-red-200 dark:border-red-800'
-                  }`}
-                >
-                  {submitStatus.message}
-                </div>
-              ) : null}
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className={`w-full bg-[#174A6E] hover:bg-[#0f3451] text-white font-bold rounded-xl py-3 mt-1 transition-colors text-base shadow-md tracking-wide ${
-                  isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
-                }`}
-              >
-                {isSubmitting ? 'Sending…' : 'Submit'}
-              </button>
-            </form>
+            <div className="flex flex-wrap items-center gap-3 text-[0.84375rem] text-[var(--km-faint)]">
+              <span>Prefer self-serve?</span>
+              <Link href="/help" className="font-bold text-[var(--km-link)]">
+                Visit the Help Center
+              </Link>
+            </div>
           </div>
 
-          {/* Product story: quotes + screenshots (parallel column) */}
-          <div className="flex flex-col gap-6 lg:sticky lg:top-28">
-            <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-lg border border-slate-200 dark:border-slate-700 p-6 md:p-8 overflow-hidden">
-              <p className="text-xs font-semibold uppercase tracking-wide text-[#174A6E] dark:text-blue-300 mb-4">
-                Why teams want unified ads analytics
-              </p>
-              <div className="relative min-h-[140px] md:min-h-[120px]">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={quoteIndex}
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -8 }}
-                    transition={{ duration: 0.35 }}
+          <div className="relative rounded-[1.625rem] bg-[linear-gradient(160deg,rgba(140,192,255,0.35),rgba(109,74,255,0.14)_45%,rgba(255,255,255,0.04))] p-[0.125rem]">
+            <div className="rounded-[1.5rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(237,240,246,0.98))] px-[1.75rem] py-8 shadow-[0_3.75rem_8.125rem_-3.125rem_rgba(15,23,42,0.35)] backdrop-blur-md dark:bg-[linear-gradient(180deg,rgba(16,24,40,0.96),rgba(8,13,24,0.98))] sm:px-[2.375rem] sm:py-[2.375rem]">
+              {sent ? (
+                <div className="px-[0.5rem] py-[2rem] text-center">
+                  <div
+                    aria-hidden
+                    className="mx-auto mb-[1.375rem] flex h-[3.875rem] w-[3.875rem] items-center justify-center rounded-full bg-[linear-gradient(135deg,#4B95F0,#6D4AFF)] shadow-[0_1.125rem_2.75rem_-0.875rem_rgba(109,74,255,0.9)]"
                   >
-                    <blockquote className="border-l-4 border-[#174A6E] pl-4 md:pl-5">
-                      <p className="text-lg md:text-xl text-slate-800 dark:text-slate-100 leading-relaxed font-medium">
-                        &ldquo;{currentQuote.text}&rdquo;
-                      </p>
-                      <footer className="mt-4 text-sm text-slate-500 dark:text-slate-400">
-                        <span className="font-semibold text-slate-700 dark:text-slate-300">
-                          {currentQuote.attribution}
-                        </span>
-                        <span className="text-slate-400 dark:text-slate-500"> · {currentQuote.context}</span>
-                      </footer>
-                    </blockquote>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-              <div className="flex gap-1.5 mt-6 justify-center" aria-hidden>
-                {MARKETING_QUOTES.map((_, i) => (
-                  <span
-                    key={i}
-                    className={`h-1.5 rounded-full transition-all duration-300 ${
-                      i === quoteIndex ? 'w-6 bg-[#174A6E]' : 'w-1.5 bg-slate-300 dark:bg-slate-600'
-                    }`}
-                  />
-                ))}
-              </div>
-            </div>
+                    <svg viewBox="0 0 24 24" width="27" height="27" fill="none" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M5 12.5l4.5 4.5L19 7.5" />
+                    </svg>
+                  </div>
+                  <h2 className="mb-3 text-[1.75rem] font-extrabold tracking-[-0.03em]">Message sent</h2>
+                  <p className="mx-auto mb-7 max-w-[26em] text-base leading-relaxed text-[var(--km-muted)]">
+                    Thanks {firstName}. Someone from the team will reply to {form.email} within one business day.
+                  </p>
+                  <button
+                    type="button"
+                    className="km-btn-ghost km-btn-sm"
+                    onClick={() => {
+                      setSent(false);
+                      setForm({ name: '', email: '', company: '', accounts: '6-20', topic: 'sales', message: '' });
+                    }}
+                  >
+                    Send another message
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit}>
+                  <h2 className="mb-2 text-2xl font-extrabold tracking-[-0.03em]">Send us a message</h2>
+                  <p className="mb-7 text-[0.9375rem] leading-relaxed text-[var(--km-muted)]">
+                    Fields marked with an asterisk are required.
+                  </p>
 
-         
+                  <div className="mb-[1.125rem] grid grid-cols-1 gap-[1.125rem] sm:grid-cols-2">
+                    <label className="flex flex-col gap-[0.5625rem]">
+                      <span className="text-[0.8125rem] font-bold tracking-[0.02em] text-[var(--km-muted)]">Full name *</span>
+                      <input name="name" value={form.name} onChange={onChange} placeholder="Alex Whitfield" className={fieldClass} required />
+                    </label>
+                    <label className="flex flex-col gap-[0.5625rem]">
+                      <span className="text-[0.8125rem] font-bold tracking-[0.02em] text-[var(--km-muted)]">Work email *</span>
+                      <input type="email" name="email" value={form.email} onChange={onChange} placeholder="alex@agency.com" className={fieldClass} required />
+                    </label>
+                  </div>
 
-            <div className="rounded-2xl bg-gradient-to-br from-[#174A6E] to-[#0B3049] px-6 py-5 text-white shadow-lg">
-              <div className="font-semibold text-sm mb-1">Office hours</div>
-              <div className="text-xs text-white/90 leading-relaxed mb-4">{OFFICE_HOURS}</div>
-              <div className="font-semibold text-sm mb-1">Help center</div>
-              <div className="text-xs text-white/90 leading-relaxed">
-                Prefer self-serve?{' '}
-                <a href="/help" className="underline underline-offset-2 font-medium hover:text-white">
-                  Visit Help Center
-                </a>
-              </div>
+                  <div className="mb-[1.125rem] grid grid-cols-1 gap-[1.125rem] sm:grid-cols-2">
+                    <label className="flex flex-col gap-[0.5625rem]">
+                      <span className="text-[0.8125rem] font-bold tracking-[0.02em] text-[var(--km-muted)]">Company</span>
+                      <input name="company" value={form.company} onChange={onChange} placeholder="Northline Media" className={fieldClass} />
+                    </label>
+                    <label className="flex flex-col gap-[0.5625rem]">
+                      <span className="text-[0.8125rem] font-bold tracking-[0.02em] text-[var(--km-muted)]">Ad accounts you manage</span>
+                      <select name="accounts" value={form.accounts} onChange={onChange} className={`${fieldClass} cursor-pointer`}>
+                        <option value="1-5">1 to 5</option>
+                        <option value="6-20">6 to 20</option>
+                        <option value="21-50">21 to 50</option>
+                        <option value="50+">More than 50</option>
+                      </select>
+                    </label>
+                  </div>
+
+                  <div className="mb-5">
+                    <div className="mb-[0.6875rem] text-[0.8125rem] font-bold tracking-[0.02em] text-[var(--km-muted)]">What is this about?</div>
+                    <div className="flex flex-wrap gap-[0.5625rem]">
+                      {topics.map((topic) => (
+                        <button
+                          key={topic.id}
+                          type="button"
+                          onClick={() => setForm((prev) => ({ ...prev, topic: topic.id }))}
+                          className={`h-[2.375rem] rounded-full px-[1rem] text-sm font-semibold transition-colors ${
+                            form.topic === topic.id ? 'km-pill is-on' : 'km-pill border border-[var(--km-border)]'
+                          }`}
+                        >
+                          {topic.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <label className="mb-5 flex flex-col gap-[0.5625rem]">
+                    <span className="text-[0.8125rem] font-bold tracking-[0.02em] text-[var(--km-muted)]">Message *</span>
+                    <textarea
+                      name="message"
+                      rows={5}
+                      value={form.message}
+                      onChange={onChange}
+                      placeholder="We run 14 client accounts across Google and Meta and rebuild the same reports every month."
+                      className="w-full resize-y rounded-xl border border-[var(--km-border)] bg-black/[0.03] px-[4%] py-[0.875rem] text-[0.96875rem] leading-relaxed text-[var(--km-ink)] outline-none placeholder:text-[var(--km-faint)] focus:border-[rgba(95,166,255,0.75)] focus:shadow-[0_0_0_0.25rem_rgba(75,149,240,0.16)] dark:bg-white/[0.04]"
+                      required
+                    />
+                  </label>
+
+                  {error ? (
+                    <div className="mb-[1.125rem] rounded-xl border border-[rgba(255,95,87,0.35)] bg-[rgba(255,95,87,0.1)] px-[1rem] py-[0.75rem] text-sm font-semibold text-[#b42318] dark:text-[#FFB4AE]">
+                      {error}
+                    </div>
+                  ) : null}
+
+                  <button type="submit" disabled={isSubmitting} className="km-btn-primary w-full disabled:opacity-70">
+                    {isSubmitting ? 'Sending…' : 'Send message'}
+                  </button>
+                  <p className="mt-4 text-center text-[0.8125rem] leading-relaxed text-[var(--km-faint)]">
+                    We use your details to answer this enquiry only. No newsletter, no sharing.
+                  </p>
+                </form>
+              )}
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+
+      <section className="km-wrap pt-24">
+        <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:gap-[3.75rem]">
+          <h2 className="km-h2 m-0">
+            Before you
+            <br />
+            write in
+          </h2>
+          <div className="border-t border-[var(--km-border)]">
+            {faqs.map((item) => (
+              <details key={item.q} className="group border-b border-[var(--km-border)]">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 text-[1.125rem] font-bold [&::-webkit-details-marker]:hidden">
+                  {item.q}
+                  <span className="shrink-0 text-[1.375rem] font-normal text-[var(--km-faint)] transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <p className="mb-6 max-w-[44em] text-base leading-[1.7] text-[var(--km-muted)]">{item.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="relative mt-[6.5rem] overflow-hidden border-t border-[var(--km-border)] bg-[radial-gradient(110%_130%_at_50%_110%,#c5d7ea_0%,#edf0f6_50%,#edf0f6_100%)] dark:bg-[radial-gradient(110%_130%_at_50%_110%,#1b3e68_0%,#0c1526_50%,#05080f_100%)]">
+        <div
+          aria-hidden
+          className="km-glow km-orb bottom-[-25%] left-1/2 -translate-x-1/2"
+          style={{ background: 'radial-gradient(closest-side, rgba(109,74,255,0.34), transparent)' }}
+        />
+        <div className="km-wrap relative py-24 text-center">
+          <h2 className="mx-auto mb-[1.125rem] max-w-[13em] km-h2 font-extrabold leading-[1.06] tracking-[-0.04em] text-balance">
+            Would rather see it first?
+          </h2>
+          <p className="mx-auto mb-[2.125rem] max-w-[32em] text-[1.125rem] leading-[1.65] text-[var(--km-muted)]">
+            The platform pages walk through the dashboard, Kai and the report builder with real screens.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3.5">
+            <Link href="/#platform" className="km-btn-primary">
+              See the platform
+            </Link>
+            <Link href="/#pricing" className="km-btn-ghost">
+              See pricing
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

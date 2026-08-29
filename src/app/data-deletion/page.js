@@ -14,10 +14,10 @@ export const metadata = pageMetadata({
 
 export default function DataDeletionInstructionsPage() {
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-900">
+    <div className="km-page">
       <Header />
-      <main className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
+      <main className="km-main">
+        <div className="km-prose">
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
             Data deletion &amp; disconnection instructions
           </h1>
@@ -114,7 +114,7 @@ export default function DataDeletionInstructionsPage() {
                 A small subset of information may be retained where required by law (for example billing or tax records,
                 or security logs), only for as long as legally necessary. That retention is described in general terms in
                 our{' '}
-                <Link href="/privacy" className="text-[#174A6E] dark:text-blue-300 hover:underline font-medium">
+                <Link href="/privacy" className="text-[var(--km-accent)] hover:underline font-medium">
                   Privacy Policy
                 </Link>
                 .
@@ -138,7 +138,7 @@ export default function DataDeletionInstructionsPage() {
                   Email:{' '}
                   <a
                     href={`mailto:${TEKREIGN_CONTACT.contactEmail}`}
-                    className="text-[#174A6E] dark:text-blue-300 hover:underline font-medium"
+                    className="text-[var(--km-accent)] hover:underline font-medium"
                   >
                     {TEKREIGN_CONTACT.contactEmail}
                   </a>
@@ -150,7 +150,7 @@ export default function DataDeletionInstructionsPage() {
             </section>
 
             <p className="text-sm text-slate-500 dark:text-slate-400">
-              <Link href="/help" className="text-[#174A6E] dark:text-blue-300 hover:underline">
+              <Link href="/help" className="text-[var(--km-accent)] hover:underline">
                 ← Back to Help Center
               </Link>
             </p>

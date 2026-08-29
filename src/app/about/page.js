@@ -14,18 +14,18 @@ const TEKREIGN_URL = 'https://tekreign.com';
 
 export default function AboutUs() {
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-900">
+    <div className="km-page">
       <Header />
-      <main className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
+      <main className="km-main">
+        <div className="km-prose">
           <div className="text-center mb-16">
-            <p className="text-sm font-semibold uppercase tracking-wide text-[#174A6E] dark:text-blue-300 mb-3">
+            <p className="text-sm font-semibold uppercase tracking-wide text-[var(--km-accent)] mb-3">
               About us
             </p>
             <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">
               Tekreign &amp; Kampalo
             </h1>
-            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-[48rem] mx-auto leading-relaxed">
               We are a software engineering team built for innovation—including{' '}
               <strong className="text-slate-800 dark:text-slate-200">Kampalo</strong>, our AI marketing
               analytics platform for teams that run Google Ads and Meta together.
@@ -33,7 +33,7 @@ export default function AboutUs() {
           </div>
 
           <section className="mb-16">
-            <div className="bg-gradient-to-br from-[#174A6E] to-[#0B3049] rounded-2xl p-8 md:p-12 text-white">
+            <div className="bg-gradient-to-br from-[#4B95F0] to-[#6D4AFF] rounded-2xl p-8 md:p-12 text-white">
               <h2 className="text-3xl font-bold mb-6">Who we are</h2>
               <p className="text-lg text-white/90 leading-relaxed mb-4">
                 Tekreign brings together engineers who care about craft, clarity, and outcomes. We design and deliver
@@ -61,7 +61,7 @@ export default function AboutUs() {
 
           <section className="mb-16">
             <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">Kampalo vision</h2>
-            <p className="text-sm font-medium text-[#174A6E] dark:text-blue-300 mb-6 uppercase tracking-wide">
+            <p className="text-sm font-medium text-[var(--km-accent)] mb-6 uppercase tracking-wide">
               Marketing platform
             </p>
             <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
@@ -104,8 +104,8 @@ export default function AboutUs() {
             </div>
             <p className="text-center mt-8">
               <Link
-                href="/#features"
-                className="text-[#174A6E] dark:text-blue-300 font-semibold hover:underline underline-offset-4"
+                href="/#platform"
+                className="text-[var(--km-accent)] font-semibold hover:underline underline-offset-4"
               >
                 Explore Kampalo on the homepage
               </Link>
@@ -161,13 +161,13 @@ export default function AboutUs() {
                 href={TEKREIGN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex justify-center items-center bg-[#174A6E] hover:bg-[#0f3451] text-white px-8 py-3 rounded-xl font-semibold transition-colors"
+                className="km-btn-primary"
               >
                 Visit tekreign.com
               </a>
               <Link
                 href="/"
-                className="inline-flex justify-center items-center bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-900 dark:text-white border border-slate-300 dark:border-slate-600 px-8 py-3 rounded-xl font-semibold transition-colors"
+                className="km-btn-ghost"
               >
                 Back to home
               </Link>

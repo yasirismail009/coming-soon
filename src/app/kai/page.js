@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import JsonLd from '@/components/JsonLd';
 import Link from 'next/link';
+import KaiMark from '@/components/KaiMark';
 import { pageMetadata } from '@/lib/site';
 import {
   breadcrumbSchema,
@@ -52,7 +53,7 @@ const specialtyAreas = [
 
 export default function KaiPage() {
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-900">
+    <div className="km-page">
       <JsonLd
         data={[
           breadcrumbSchema([
@@ -63,11 +64,10 @@ export default function KaiPage() {
         ]}
       />
       <Header />
-      <main className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-sm font-semibold uppercase tracking-wide text-[#174A6E] dark:text-blue-300 mb-3">
-            Kampalo Kai
-          </p>
+      <main className="km-main">
+        <div className="km-prose">
+          <KaiMark size={40} className="mb-4" />
+          <p className="km-kicker">Kampalo Kai</p>
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">
             Ask Kai which campaigns to scale
           </h1>
@@ -77,7 +77,7 @@ export default function KaiPage() {
             already connected to your workspace.
           </p>
 
-          <section className="mb-16 rounded-2xl bg-gradient-to-br from-[#174A6E] to-[#0B3049] p-8 md:p-10 text-white">
+          <section className="mb-16 rounded-2xl bg-gradient-to-br from-[#4B95F0] to-[#6D4AFF] p-8 md:p-10 text-white">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">Built for marketers, not prompt engineers</h2>
             <p className="text-lg text-white/90 leading-relaxed mb-4">
               Kai does not invent numbers. It reads your synced Kampalo stats, compares campaigns with clear
@@ -98,7 +98,7 @@ export default function KaiPage() {
                   key={step.title}
                   className="flex gap-5 border border-slate-200 dark:border-slate-700 rounded-xl p-6 bg-slate-50/80 dark:bg-slate-800/50"
                 >
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#174A6E] text-white font-bold">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#6D4AFF] text-white font-bold">
                     {index + 1}
                   </span>
                   <div>
@@ -144,13 +144,13 @@ export default function KaiPage() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/#pricing"
-                className="inline-flex justify-center bg-[#174A6E] hover:bg-[#0f3451] text-white px-7 py-3 rounded-xl font-semibold transition-colors"
+                className="km-btn-primary"
               >
                 Start free trial
               </Link>
               <Link
                 href="/compare"
-                className="inline-flex justify-center border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white px-7 py-3 rounded-xl font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                className="km-btn-ghost"
               >
                 Compare Google Ads &amp; Meta
               </Link>
