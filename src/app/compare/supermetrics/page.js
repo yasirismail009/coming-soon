@@ -83,8 +83,8 @@ export default function SupermetricsComparePage() {
           <a href="/#pricing" className="km-btn-primary">
             See Kampalo plans
           </a>
-          <Link href="/kai/mcp" className="km-btn-ghost">
-            Kai and MCP
+          <Link href="/kai/grok-bot" className="km-btn-ghost">
+            Grok Bot automation
           </Link>
         </div>
       </section>

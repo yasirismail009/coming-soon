@@ -50,10 +50,13 @@ export function softwareApplicationSchema() {
     description:
       'Kampalo is AI-powered marketing analytics for Google Ads and Meta—one dashboard plus Kai, an assistant that recommends which campaigns to scale based on your synced performance data.',
     offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'USD',
-      description: 'Free plan available; Premium and Enterprise paid tiers',
+      '@type': 'AggregateOffer',
+      lowPrice: '0',
+      highPrice: '40',
+      priceCurrency: 'GBP',
+      offerCount: '3',
+      description:
+        'Free £0; Individual Starter £8/month or £80/year; Enterprise Basic £40/month or £400/year. Annual billing is two months free.',
     },
     creator: { '@id': `${SITE_URL}/#organization` },
     featureList: [
@@ -130,7 +133,7 @@ export const HELP_FAQS = [
   {
     question: 'What is Kai?',
     answer:
-      'Kai is Kampalo’s AI marketing assistant. You ask questions in plain language about your Google Ads and Meta performance; Kai answers from your synced data and highlights which campaigns win on ROAS, CTR, and CPC.',
+      'Kai is Kampalo’s AI marketing assistant on Starter and Basic (not the Free plan). You ask questions in plain language about Google Ads, Meta, GA4, organic Facebook and Instagram insights, and SEO; Kai answers from your synced data and highlights which campaigns win on ROAS, CTR, and CPC.',
   },
   {
     question: 'Does Kai call Google or Meta live during chat?',
@@ -153,9 +156,11 @@ export const KAI_FAQS = [
   {
     question: 'Can developers connect Kai outside the chat screen?',
     answer:
-      'Yes. Teams building custom workflows can use our developer integrations (MCP) to access the same marketing tools Kai uses inside the product.',
+      'In-app Kai is read-only. For briefs and automations (confirmed pauses, alerts, ROAS rules, report JSON) use the Grok Bot / Cursor plugin over MCP. See the Grok Bot page.',
   },
 ];
+
+export { GROK_BOT_FAQS } from '@/lib/grokBot';
 
 export const COMPARE_FAQS = [
   {
@@ -254,17 +259,17 @@ export const MCP_FAQS = [
   {
     question: 'What is Kampalo MCP?',
     answer:
-      'MCP (Model Context Protocol) lets developer tools such as Claude or Cursor call the same marketing tools Kai uses inside Kampalo, against your already-synced workspace data.',
+      'MCP (Model Context Protocol) is how Grok Bot, Cursor, and Claude reach your Kampalo workspace. Read tools use the same synced Google Ads, Meta, GA4, organic, and SEO snapshot. Write tools can propose and confirm pauses, manage alert and automation rules, and generate report JSON.',
   },
   {
     question: 'Does MCP query Google Ads live?',
     answer:
-      'No. Like Kai chat, MCP tools read stats already synced into Kampalo. Refresh integrations in the app when you need a newer snapshot.',
+      'No. Like Kai chat, MCP tools read stats already synced into Kampalo. Refresh integrations in the app when you need a newer snapshot. Pause confirms still go through Kampalo to Google or Meta after you approve.',
   },
   {
     question: 'Who is MCP for?',
     answer:
-      'Teams that want Kai-style answers inside their own agent workflow. Marketers who only need chat should use Kai in the Kampalo app—no MCP setup required.',
+      'Teams that work in Grok Bot or Cursor and want briefs plus automations outside the Kampalo chat screen. Marketers who only need questions should use Kai in the app—Kai does not pause campaigns.',
   },
 ];
 

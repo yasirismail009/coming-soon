@@ -138,8 +138,12 @@ export default function KaiPage() {
             </h2>
             <p className="text-lg text-slate-600 dark:text-slate-300 mb-6">
               Chat with Kai inside Kampalo—including streaming replies and saved conversations—alongside
-              dashboards for trends and platform comparisons. Teams that build custom workflows can also
-              connect through our developer integrations (
+              dashboards for trends and platform comparisons. Kai does not pause campaigns. Teams that want
+              briefs plus automations use the{' '}
+              <Link href="/kai/grok-bot" className="text-[var(--km-link)] underline">
+                Grok Bot plugin
+              </Link>{' '}
+              (
               <Link href="/kai/mcp" className="text-[var(--km-link)] underline">
                 MCP
               </Link>

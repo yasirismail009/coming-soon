@@ -7,6 +7,7 @@ import Features from '@/components/Features';
 import DashboardShowcase from '@/components/DashboardShowcase';
 import ProductTour, { ReportsTour } from '@/components/ProductTour';
 import KaiHighlight from '@/components/KaiHighlight';
+import GrokBotHighlight from '@/components/GrokBotHighlight';
 import Pricing from '@/components/Pricing';
 import Benefits from '@/components/Benefits';
 import CTA from '@/components/CTA';
@@ -34,6 +35,7 @@ export default function Home() {
       <DashboardShowcase />
       <ProductTour />
       <KaiHighlight />
+      <GrokBotHighlight />
       <ReportsTour />
       <Pricing />
       <Benefits />

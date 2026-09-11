@@ -74,6 +74,10 @@ export default function Documentation() {
                 <a href="/kai/mcp" className="text-[var(--km-accent)] font-medium hover:underline">
                   Kai MCP
                 </a>
+                {' · '}
+                <a href="/kai/grok-bot" className="text-[var(--km-accent)] font-medium hover:underline">
+                  Grok Bot automation
+                </a>
                 .
               </p>
               
@@ -145,7 +149,7 @@ export default function Documentation() {
                   <ul className="list-disc pl-6 space-y-2 text-slate-600 dark:text-slate-300">
                     <li><strong>Dashboard:</strong> Overall stats across connected accounts</li>
                     <li><strong>Trends:</strong> Overall trends over your selected date range</li>
-                    <li><strong>KPI Comparison:</strong> Side-by-side comparison (enterprise)</li>
+                    <li><strong>KPI Comparison:</strong> Side-by-side comparison (Starter and Basic)</li>
                     <li><strong>Accounts &amp; Campaigns:</strong> Google Ads, Search Ads 360, and Meta detail with breakdowns</li>
                     <li><strong>Google Analytics:</strong> GA4 home, reports, and Drive online sales views</li>
                   </ul>
@@ -233,7 +237,7 @@ export default function Documentation() {
                 <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
                   <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">Cross-Platform Comparison</h3>
                   <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                    Compare performance metrics across accounts and campaigns (enterprise):
+                    Compare performance metrics across accounts and campaigns (Starter and Basic):
                   </p>
                   <ul className="list-disc pl-6 space-y-2 text-slate-600 dark:text-slate-300">
                     <li>Side-by-side comparison of ROI, CPA, and CTR</li>
@@ -246,7 +250,7 @@ export default function Documentation() {
                 <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
                   <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">API Access</h3>
                   <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                    Available for Premium and Enterprise plans. Pull analytics programmatically:
+                    Available on Starter and Basic. Pull analytics programmatically:
                   </p>
                   <ul className="list-disc pl-6 space-y-2 text-slate-600 dark:text-slate-300">
                     <li>Generate API keys from Settings → API Access</li>
@@ -254,6 +258,30 @@ export default function Documentation() {
                     <li>Optionally configure webhooks for update notifications</li>
                     <li>Bring Kampalo data into your own tools and workflows</li>
                   </ul>
+                </div>
+
+                <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
+                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">Grok Bot automation</h3>
+                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                    Starter and Basic. In-app Kai is read-only. The Grok Bot / Cursor plugin uses MCP to:
+                  </p>
+                  <ul className="list-disc pl-6 space-y-2 text-slate-600 dark:text-slate-300">
+                    <li>Brief Google vs Meta, GA4, SEO, and organic Facebook / Instagram from synced data</li>
+                    <li>Propose a campaign pause, then confirm it only after you agree</li>
+                    <li>Create ads and SEO alerts, and dry-run ROAS auto-pause rules</li>
+                    <li>Generate performance report JSON (PDF stays in the app)</li>
+                  </ul>
+                  <p className="mt-4 text-slate-600 dark:text-slate-300">
+                    Details:{' '}
+                    <a href="/kai/grok-bot" className="text-[var(--km-accent)] font-medium hover:underline">
+                      Grok Bot
+                    </a>
+                    {' · '}
+                    <a href="/kai/mcp" className="text-[var(--km-accent)] font-medium hover:underline">
+                      MCP
+                    </a>
+                    .
+                  </p>
                 </div>
               </div>
             </section>
@@ -325,7 +353,7 @@ export default function Documentation() {
 
                 <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
                   <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">Can I export my data?</h3>
-                  <p className="text-slate-600 dark:text-slate-300">Yes, you can export reports in CSV, Excel, or PDF formats from any report view. Premium and Enterprise plans also offer API access for programmatic data retrieval.</p>
+                  <p className="text-slate-600 dark:text-slate-300">Yes, you can export reports in CSV, Excel, or PDF formats from any report view. Starter and Basic also include API access for programmatic data retrieval.</p>
                 </div>
 
                 <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">

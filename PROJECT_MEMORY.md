@@ -14,6 +14,7 @@ Source of truth for marketing. Translate to buyer language on pages; keep jargon
 - Roles: Admin / Manager / Marketer / Client User / Visitor
 - Multi-client org (agency home + brand clients); brand scoping per client
 - Subscriptions / plan feature gates (Ads, Search Console, GA4, etc.)
+- Public pricing (GBP): Free £0; Individual Starter £8/mo or £80/yr; Enterprise Basic £40/mo or £400/yr. Catalog: `src/lib/plans.js`. **Kai, Grok Bot, and MCP server are Starter/Basic only, not Free.** Surfaces on all plans: Google Ads, Meta Ads, GA4, Organic Insights (Facebook + Instagram), SEO analysis.
 
 ### Google
 - Google Ads + SA360: OAuth, customers, campaigns, insights, campaign-detail by campaign
@@ -51,7 +52,7 @@ Kai → Dashboard → Trends → KPI Comparison → Accounts & Campaigns → Goo
 - Legal/policy pages may keep **KAMPALO** as product legal name.
 - Prefer buyer language: “AI assistant”, “synced data”, “which campaigns to scale”.
 - Avoid on marketing pages: supervisor, suite IDs, LangGraph, OmniRoute, Celery, deterministic, namespaced tools, WebSocket, JWT, X-Client-Id.
-- MCP only as brief “developer integrations” mention.
+- MCP only as brief “developer integrations” mention on unrelated pages. Grok Bot automation lives on `/kai/grok-bot` and `/kai/mcp`.
 - Prefer **synced** over **real-time**; Google + Meta are live; TikTok/LinkedIn/Shopify/Apple are **roadmap**.
 - SA360 OK as “Search Ads 360” for agency buyers; keep light.
 - Disconnect deletes synced data (align docs with `/data-deletion`).
@@ -62,12 +63,13 @@ Kai → Dashboard → Trends → KPI Comparison → Accounts & Campaigns → Goo
 ## Differentiator — Kai (product truth)
 - AI marketer agent over synced Google/Meta ads + Meta organic; market as plain-language Q&A.
 - Hybrid: tools → findings → consistent ROAS/CTR/CPC rankings.
-- Pages: `/kai`, homepage `#kai` (`KaiHighlight`), help/docs FAQs.
+- Pages: `/kai`, homepage `#kai` (`KaiHighlight`), `/kai/grok-bot` (Grok Bot / Cursor automations — confirmed pauses, alerts, ROAS rules), help/docs FAQs.
+- In-app Kai is read-only. Live pause / alert / rule writes go through Grok Bot MCP (`automate_*`), not the chat screen.
 
 ## Architecture (this site)
-- Routes: `/`, `/kai`, `/compare`, `/about`, `/contact`, `/documentation`, `/help`, `/privacy`, `/terms`, `/cookies`, `/data-deletion`.
+- Routes: `/`, `/kai`, `/kai/mcp`, `/kai/grok-bot`, `/compare`, `/about`, `/contact`, `/documentation`, `/help`, `/privacy`, `/terms`, `/cookies`, `/data-deletion`.
 - SEO: `src/lib/site.js`, `src/lib/structuredData.js`, `JsonLd`, `robots.js`, `sitemap.js`, `public/og-image.png`.
 - Env: `NEXT_PUBLIC_SITE_URL`, optional `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`.
 
-- Homepage order: Hero → **KaiHighlight** → Platforms → Features → Showcase…
+- Homepage order: Hero → Platforms → Features → Showcase → **KaiHighlight** → **GrokBotHighlight** (`#automate`) → Reports → Pricing…
 - Kai is the lead product story: hero badge/CTA, nav “Kai AI” pill, dedicated section with live screenshot + prompt chips.

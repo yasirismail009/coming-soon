@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import AppLink from '@/components/AppLink';
 import SeoPageShell from '@/components/SeoPageShell';
 import KaiMark from '@/components/KaiMark';
 import { pageMetadata } from '@/lib/site';
@@ -7,11 +7,12 @@ import {
   faqSchema,
   MCP_FAQS,
 } from '@/lib/structuredData';
+import { GROK_BOT_MCP_URL } from '@/lib/grokBot';
 
 export const metadata = pageMetadata({
-  title: 'Kai MCP — Ask Claude About Google Ads & Meta',
+  title: 'Kampalo MCP — Grok Bot, Cursor & Claude',
   description:
-    'Connect Kampalo to Claude, Cursor, or any MCP client. Tools read the same synced Google Ads and Meta stats Kai uses in-app—not a live Ads API scrape.',
+    'Connect Grok Bot, Cursor, or Claude to Kampalo MCP. Read synced Google Ads, Meta, GA4, and SEO data. Automate pauses (with confirm), alerts, and report JSON. In-app Kai stays read-only.',
   path: '/kai/mcp',
 });
 
@@ -30,13 +31,26 @@ export default function KaiMcpPage() {
       <KaiMark size={40} className="mb-4" />
       <p className="km-kicker">Developer integrations</p>
       <h1 className="km-h1 mb-6 text-[var(--km-ink)]">
-        Ask Claude about your ads—on Kampalo’s snapshot
+        MCP for Grok Bot, Cursor, and Claude
       </h1>
       <p className="km-lead mb-12">
-        MCP (Model Context Protocol) exposes the same marketing tools Kai uses inside Kampalo.
-        Your agent asks about Google Ads and Meta; answers come from workspace data you already
-        synced, with the same ROAS, CTR, and CPC ranking rules.
+        MCP (Model Context Protocol) is the pipe. Grok Bot uses it to brief your ads and to run
+        Kampalo automations. Answers come from workspace data you already synced — not a live Ads
+        API scrape.
       </p>
+
+      <section className="mb-16">
+        <h2 className="km-h2">Read and act</h2>
+        <p className="mb-4 text-lg leading-relaxed text-[var(--km-muted)]">
+          Read tools cover Google Ads, Meta Ads, GA4, Search Console / SEO, and organic Facebook /
+          Instagram. Write tools (Grok Bot plugin) can propose a pause, confirm it, manage ads and
+          SEO alerts, save ROAS rules, and generate report JSON.
+        </p>
+        <p className="text-lg leading-relaxed text-[var(--km-muted)]">
+          In-app Kai stays read-only. Live pause still needs your confirm. Endpoint:{' '}
+          <code className="text-[0.95em]">{GROK_BOT_MCP_URL}</code> — not <code className="text-[0.95em]">/api</code>.
+        </p>
+      </section>
 
       <section className="mb-16">
         <h2 className="km-h2">Why not a raw Google Ads MCP?</h2>
@@ -51,30 +65,26 @@ export default function KaiMcpPage() {
       <section className="mb-16">
         <h2 className="km-h2">Who should use it</h2>
         <ul className="list-disc space-y-3 pl-6 text-lg text-[var(--km-muted)]">
-          <li>Teams that already work in Claude, Cursor, or another MCP client</li>
-          <li>Custom workflows that need Kai-style answers outside the Kampalo chat screen</li>
-          <li>Not required for marketers who only use Kai in the app</li>
+          <li>Teams that already work in Grok Bot, Cursor, or another MCP client</li>
+          <li>Operators who want briefs plus confirmed pauses and alerts outside the Kampalo chat screen</li>
+          <li>Not required if you only ask Kai in the app</li>
         </ul>
       </section>
 
       <section className="mb-16">
         <h2 className="km-h2">What it will not do</h2>
         <p className="mb-6 text-lg leading-relaxed text-[var(--km-muted)]">
-          MCP does not open a live Google or Meta session while you type. It does not pause
-          campaigns from chat. Refresh connections in Kampalo when you need a newer extract.
-          Setup details live in{' '}
-          <Link href="/documentation" className="text-[var(--km-link)] underline">
-            documentation
-          </Link>
-          .
+          MCP does not open a live Google or Meta session while you type. It does not change
+          budgets, create campaigns, or write Shopify/TikTok. Pause without a proposal plus your
+          confirm is refused. Refresh connections in Kampalo when you need a newer extract.
         </p>
         <div className="flex flex-col gap-4 sm:flex-row">
-          <Link href="/kai" className="km-btn-primary">
+          <AppLink href="/kai/grok-bot" className="km-btn-primary">
+            Grok Bot automation
+          </AppLink>
+          <AppLink href="/kai" className="km-btn-ghost">
             Use Kai in the app
-          </Link>
-          <Link href="/contact" className="km-btn-ghost">
-            Ask about MCP access
-          </Link>
+          </AppLink>
         </div>
       </section>
 

@@ -10,6 +10,7 @@ export const INDEXABLE_ROUTES = [
   { path: '/', priority: 1, changeFrequency: 'weekly' },
   { path: '/kai', priority: 0.9, changeFrequency: 'weekly' },
   { path: '/kai/mcp', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/kai/grok-bot', priority: 0.85, changeFrequency: 'monthly' },
   { path: '/google-ads-meta-dashboard', priority: 0.9, changeFrequency: 'weekly' },
   { path: '/compare', priority: 0.85, changeFrequency: 'monthly' },
   { path: '/compare/agencyanalytics', priority: 0.75, changeFrequency: 'monthly' },

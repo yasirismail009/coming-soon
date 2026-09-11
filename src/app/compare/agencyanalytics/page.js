@@ -20,7 +20,7 @@ const rows = [
   ['SEO / rank tracking', 'Search Console + on-page audits you already own', 'Native SEO rank tracking and site audits'],
   ['AI', 'Kai answers from synced Kampalo stats', 'Ask AI / AI Tracker across client accounts'],
   ['Client delivery', 'Branded PDF/CSV per client, scheduled', 'White-label portal, live dashboards, tasks'],
-  ['Pricing model', 'By platform connections; free plan includes Kai', 'Typically campaign- or client-based agency plans'],
+  ['Pricing model', 'GBP, by platform connections — Free, Starter £8/mo, Basic £40/mo', 'Typically campaign- or client-based agency plans'],
 ];
 
 export default function AgencyAnalyticsComparePage() {

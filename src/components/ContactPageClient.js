@@ -22,8 +22,8 @@ const faqs = [
     a: 'Yes. Tell us which tool you are on and how many clients you report for. We will rebuild your templates against your connected accounts before you commit to a plan.',
   },
   {
-    q: 'Do you offer custom pricing above 50 accounts?',
-    a: 'We do. Volume pricing, role-based team access and onboarding are handled case by case on the Enterprise plan.',
+    q: 'Do you offer custom pricing above the published plans?',
+    a: 'Published plans are Free, Individual Starter (£8/month) and Enterprise Basic (£40/month, up to 4 brand clients). If you need more than 30 connections or more brand clients, write to us and we will talk through fit.',
   },
   {
     q: 'Where is our data stored?',

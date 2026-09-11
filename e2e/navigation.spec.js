@@ -55,6 +55,20 @@ test.describe('in-app navigation', () => {
     await page.getByRole('link', { name: 'Start free trial' }).click();
     await expect(page).toHaveURL(/\/#pricing/);
     await expect(page.locator('#pricing')).toBeInViewport();
+    await expect(page.locator('#pricing')).toContainText('£8');
+    await expect(page.locator('#pricing')).toContainText('£40');
+    await expect(page.locator('#pricing')).toContainText('Starter');
+    await expect(page.locator('#pricing')).toContainText('Basic');
+    await expect(page.locator('#pricing')).not.toContainText('$3');
+  });
+
+  test('footer Grok Bot opens automation page', async ({ page }) => {
+    await page.goto('/');
+    await page.getByRole('contentinfo').getByRole('link', { name: 'Grok Bot' }).click();
+    await expect(page).toHaveURL(/\/kai\/grok-bot$/);
+    await expect(page.getByRole('heading', { level: 1, name: /Automate Kampalo from Grok Bot/i })).toBeVisible();
+    await expect(page.locator('main')).toContainText('Propose a pause');
+    await expect(page.locator('main')).toContainText('Change budgets or create campaigns');
   });
 
   test('integrations hub opens Google Ads and Meta pages', async ({ page }) => {

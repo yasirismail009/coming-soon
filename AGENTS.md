@@ -23,7 +23,7 @@ Layout and type use `%` (widths, gutters, decorative orbs) and `rem` (type, spac
 
 ## Routes
 
-`/`, `/kai`, `/kai/mcp`, `/google-ads-meta-dashboard`, `/compare`, `/compare/agencyanalytics`, `/compare/supermetrics`, `/integrations`, `/integrations/google-ads`, `/integrations/meta`, `/blog`, `/blog/google-ads-vs-meta`, `/about`, `/contact`, `/documentation`, `/help`, `/data-deletion`, `/privacy`, `/terms`, `/cookies`.
+`/`, `/kai`, `/kai/mcp`, `/kai/grok-bot`, `/google-ads-meta-dashboard`, `/compare`, `/compare/agencyanalytics`, `/compare/supermetrics`, `/integrations`, `/integrations/google-ads`, `/integrations/meta`, `/blog`, `/blog/google-ads-vs-meta`, `/about`, `/contact`, `/documentation`, `/help`, `/data-deletion`, `/privacy`, `/terms`, `/cookies`.
 
 SEO landers share `SeoPageShell`, `pageMetadata`, sitemap via `INDEXABLE_ROUTES`, and FAQ/Article JSON-LD in `src/lib/structuredData.js`. Do not add a second blog engine or CMS.
 
@@ -36,3 +36,14 @@ Contact form sends via EmailJS (`src/utils/emailjsClient.js`). Parent company co
 - Add a second CSS/UI library
 - Delete existing apps, admin, or legal pages
 - Recolor the K mark outside the identity palette
+
+## Pricing catalog (GBP)
+
+Source of truth for the marketing site: `src/lib/plans.js` (must match backend `create_subscription_plans.py`).
+
+- Free £0 — 1 connection, 1 campaign. Surfaces: Google Ads, Meta Ads, GA4, organic Facebook/Instagram, SEO analysis. **Kai, Grok Bot, and MCP are not on Free.**
+- Individual **Starter** £8/month or £80/year — 10 connections, one workspace, **includes Kai, Grok Bot, and MCP server**
+- Enterprise **Basic** £40/month or £400/year — 30 connections, up to 4 brand clients, white-label, **includes Kai, Grok Bot, and MCP server**
+- Annual = two months free. Google Ads + GA4 + Search Console = one connection; Meta ads + Page + IG = one.
+- Grok Bot / Cursor automations: `/kai/grok-bot` (in-app Kai is read-only; confirmed pauses, alerts, ROAS rules via MCP).
+

@@ -96,7 +96,7 @@ export default function TermsAndConditions() {
               
               <h3 className="text-xl font-semibold text-slate-900 dark:text-white mt-6 mb-3">5.1 Subscription Tiers</h3>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                KAMPALO offers various subscription plans with different features and limitations. You may upgrade, downgrade, or cancel your subscription at any time through your account settings.
+                KAMPALO offers Free, Individual Starter, and Enterprise Basic plans, billed in GBP on a monthly or yearly cycle. Features and connection limits differ by plan and are described on the pricing page. You may upgrade, downgrade, or cancel through your account settings.
               </p>
 
               <h3 className="text-xl font-semibold text-slate-900 dark:text-white mt-6 mb-3">5.2 Payment Terms</h3>

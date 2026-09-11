@@ -65,7 +65,7 @@ export default function Hero() {
       <div className="km-wrap relative py-[4.5rem] md:py-[6.5rem] text-center">
         <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-[var(--km-border)] bg-white/50 dark:bg-white/5 px-[1.125rem] py-[0.4375rem] pl-2.5 text-[0.8125rem] font-semibold text-[var(--km-muted)] backdrop-blur-md">
           <KaiMark size={17} />
-          Kai, your marketing analyst, is included on every plan
+          Kai, your marketing analyst — on Starter and Basic
           <span aria-hidden className="km-pulse h-1.5 w-1.5 rounded-full bg-[#34D399]" />
         </div>
 

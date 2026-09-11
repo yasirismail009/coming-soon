@@ -18,7 +18,7 @@ const steps = [
   'Open Connect (or Settings → Connections) in the Kampalo app.',
   'Choose Google and sign in with an account that can access Ads.',
   'Approve the scopes Kampalo requests. Do not grant more than the app asks for.',
-  'Select accounts within your plan limits, or auto-include them on Enterprise.',
+  'Select accounts within your plan limits. Individual Starter is one workspace; Enterprise Basic covers up to four brand clients.',
   'Wait for the first sync. Kai and the dashboard read this snapshot—not a live Ads API session.',
 ];
 
