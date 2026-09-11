@@ -73,23 +73,31 @@ export default function GoogleAdsMetaDashboardPage() {
         </ul>
       </section>
 
-      <section className="mb-16">
-        <h2 className="km-h2">Not Looker Studio, not a spreadsheet</h2>
-        <p className="mb-6 text-lg leading-relaxed text-[var(--km-muted)]">
-          Looker Studio plus a paid connector works if someone on the team already maintains the
-          report. Kampalo is for operators who want the comparison without building the dashboard
-          first. If you already warehouse dozens of sources, keep that stack and use Kampalo for
-          Google-versus-Meta decisions.
-        </p>
-        <div className="flex flex-col gap-4 sm:flex-row">
-          <a href="/#pricing" className="km-btn-primary">
-            See pricing
-          </a>
-          <Link href="/compare" className="km-btn-ghost">
-            How platform compare works
-          </Link>
-        </div>
-      </section>
+          <section className="mb-16">
+            <h2 className="km-h2">Not Looker Studio, not a spreadsheet</h2>
+            <p className="mb-6 text-lg leading-relaxed text-[var(--km-muted)]">
+              Looker Studio plus a paid connector works if someone on the team already maintains the
+              report. Kampalo is for operators who want the comparison without building the dashboard
+              first. If you already warehouse dozens of sources, keep that stack and use Kampalo for
+              Google-versus-Meta decisions. Full write-up:{' '}
+              <Link href="/compare/looker-studio" className="text-[var(--km-link)] underline">
+                Kampalo vs Looker Studio
+              </Link>
+              {' '}and the{' '}
+              <Link href="/blog/google-ads-meta-dashboard-alternatives" className="text-[var(--km-link)] underline">
+                2026 dashboard roundup
+              </Link>
+              .
+            </p>
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <a href="/#pricing" className="km-btn-primary">
+                See pricing
+              </a>
+              <Link href="/alternatives" className="km-btn-ghost">
+                Tool alternatives
+              </Link>
+            </div>
+          </section>
 
       <section className="mb-8">
         <h2 className="km-h2">FAQ</h2>

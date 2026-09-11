@@ -1,1 +1,26 @@
-{"name":"Kampalo","short_name":"Kampalo","description":"AI-powered marketing analytics and Kai AI agent for Google Ads and Meta.","icons":[{"src":"/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#05080F","background_color":"#05080F","display":"standalone","start_url":"/"}
+{
+  "name": "Kampalo",
+  "short_name": "Kampalo",
+  "id": "/",
+  "lang": "en-GB",
+  "dir": "ltr",
+  "description": "Google Ads and Meta in one dashboard, plus Kai — an AI assistant on your synced campaign data.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#05080F",
+  "theme_color": "#05080F",
+  "categories": ["business", "productivity"],
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

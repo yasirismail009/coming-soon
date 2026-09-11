@@ -2,10 +2,10 @@ import CompareToolPage, { compareToolMetadata } from '@/components/CompareToolPa
 import { getToolComparison } from '@/lib/competitors';
 import { FAQ_BY_EXPORT } from '@/lib/structuredData';
 
-const tool = getToolComparison('agencyanalytics');
+const tool = getToolComparison('dashthis');
 
 export const metadata = compareToolMetadata(tool);
 
-export default function AgencyAnalyticsComparePage() {
+export default function DashThisComparePage() {
   return <CompareToolPage tool={tool} faqs={FAQ_BY_EXPORT[tool.faqExport]} />;
 }

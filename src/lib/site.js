@@ -6,29 +6,56 @@ export const SITE_URL = (
 export const SITE_NAME = 'Kampalo';
 export const SITE_NAME_DISPLAY = 'Kampalo';
 
-export const INDEXABLE_ROUTES = [
-  { path: '/', priority: 1, changeFrequency: 'weekly' },
-  { path: '/kai', priority: 0.9, changeFrequency: 'weekly' },
-  { path: '/kai/mcp', priority: 0.8, changeFrequency: 'monthly' },
-  { path: '/kai/grok-bot', priority: 0.85, changeFrequency: 'monthly' },
-  { path: '/google-ads-meta-dashboard', priority: 0.9, changeFrequency: 'weekly' },
-  { path: '/compare', priority: 0.85, changeFrequency: 'monthly' },
-  { path: '/compare/agencyanalytics', priority: 0.75, changeFrequency: 'monthly' },
-  { path: '/compare/supermetrics', priority: 0.75, changeFrequency: 'monthly' },
-  { path: '/integrations', priority: 0.8, changeFrequency: 'monthly' },
-  { path: '/integrations/google-ads', priority: 0.85, changeFrequency: 'monthly' },
-  { path: '/integrations/meta', priority: 0.85, changeFrequency: 'monthly' },
-  { path: '/blog', priority: 0.7, changeFrequency: 'weekly' },
-  { path: '/blog/google-ads-vs-meta', priority: 0.8, changeFrequency: 'monthly' },
-  { path: '/about', priority: 0.7, changeFrequency: 'monthly' },
-  { path: '/contact', priority: 0.7, changeFrequency: 'monthly' },
-  { path: '/documentation', priority: 0.8, changeFrequency: 'weekly' },
-  { path: '/help', priority: 0.8, changeFrequency: 'weekly' },
-  { path: '/data-deletion', priority: 0.4, changeFrequency: 'yearly' },
-  { path: '/privacy', priority: 0.3, changeFrequency: 'yearly' },
-  { path: '/terms', priority: 0.3, changeFrequency: 'yearly' },
-  { path: '/cookies', priority: 0.3, changeFrequency: 'yearly' },
+export const SITEMAP_GROUPS = [
+  'Product',
+  'Alternatives',
+  'Integrations',
+  'Resources',
+  'Company',
+  'Legal',
 ];
+
+export const INDEXABLE_ROUTES = [
+  { path: '/', title: 'Home', group: 'Product', priority: 1, changeFrequency: 'weekly' },
+  { path: '/kai', title: 'Kai AI assistant', group: 'Product', priority: 0.9, changeFrequency: 'weekly' },
+  { path: '/kai/mcp', title: 'Kai MCP', group: 'Product', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/kai/grok-bot', title: 'Grok Bot automation', group: 'Product', priority: 0.85, changeFrequency: 'monthly' },
+  { path: '/google-ads-meta-dashboard', title: 'Google Ads and Meta dashboard', group: 'Product', priority: 0.9, changeFrequency: 'weekly' },
+  { path: '/compare', title: 'Compare Google Ads vs Meta', group: 'Product', priority: 0.85, changeFrequency: 'monthly' },
+  { path: '/alternatives', title: 'Tool alternatives', group: 'Alternatives', priority: 0.9, changeFrequency: 'monthly' },
+  { path: '/compare/agencyanalytics', title: 'Kampalo vs AgencyAnalytics', group: 'Alternatives', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/compare/supermetrics', title: 'Kampalo vs Supermetrics', group: 'Alternatives', priority: 0.75, changeFrequency: 'monthly' },
+  { path: '/compare/databox', title: 'Kampalo vs Databox', group: 'Alternatives', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/compare/dashthis', title: 'Kampalo vs DashThis', group: 'Alternatives', priority: 0.75, changeFrequency: 'monthly' },
+  { path: '/compare/whatagraph', title: 'Kampalo vs Whatagraph', group: 'Alternatives', priority: 0.75, changeFrequency: 'monthly' },
+  { path: '/compare/looker-studio', title: 'Kampalo vs Looker Studio', group: 'Alternatives', priority: 0.85, changeFrequency: 'monthly' },
+  { path: '/integrations', title: 'Integrations', group: 'Integrations', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/integrations/google-ads', title: 'Google Ads', group: 'Integrations', priority: 0.85, changeFrequency: 'monthly' },
+  { path: '/integrations/meta', title: 'Meta Ads', group: 'Integrations', priority: 0.85, changeFrequency: 'monthly' },
+  { path: '/integrations/ga4', title: 'Google Analytics 4', group: 'Integrations', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/integrations/search-console', title: 'Search Console', group: 'Integrations', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/blog', title: 'Blog', group: 'Resources', priority: 0.75, changeFrequency: 'weekly' },
+  { path: '/blog/google-ads-meta-dashboard-alternatives', title: 'Best Google Ads and Meta dashboards in 2026', group: 'Resources', priority: 0.85, changeFrequency: 'monthly', lastModified: '2026-09-11' },
+  { path: '/blog/google-ads-vs-meta', title: 'Google Ads vs Meta Ads', group: 'Resources', priority: 0.8, changeFrequency: 'monthly', lastModified: '2026-08-29' },
+  { path: '/documentation', title: 'Documentation', group: 'Resources', priority: 0.8, changeFrequency: 'weekly' },
+  { path: '/help', title: 'Help Center', group: 'Resources', priority: 0.8, changeFrequency: 'weekly' },
+  { path: '/about', title: 'About', group: 'Company', priority: 0.7, changeFrequency: 'monthly' },
+  { path: '/contact', title: 'Contact', group: 'Company', priority: 0.7, changeFrequency: 'monthly' },
+  { path: '/sitemap', title: 'Sitemap', group: 'Company', priority: 0.4, changeFrequency: 'weekly' },
+  { path: '/data-deletion', title: 'Data deletion', group: 'Legal', priority: 0.4, changeFrequency: 'yearly' },
+  { path: '/privacy', title: 'Privacy', group: 'Legal', priority: 0.3, changeFrequency: 'yearly' },
+  { path: '/terms', title: 'Terms', group: 'Legal', priority: 0.3, changeFrequency: 'yearly' },
+  { path: '/cookies', title: 'Cookies', group: 'Legal', priority: 0.3, changeFrequency: 'yearly' },
+];
+
+export const DEFAULT_LASTMOD = '2026-09-11';
+
+export function groupedIndexableRoutes() {
+  return SITEMAP_GROUPS.map((group) => ({
+    group,
+    routes: INDEXABLE_ROUTES.filter((route) => route.group === group),
+  })).filter((item) => item.routes.length);
+}
 
 export function absoluteUrl(path = '/') {
   if (!path || path === '/') return SITE_URL;
@@ -41,6 +68,7 @@ export function pageMetadata({
   path = '/',
   ogImage = '/og-image.png',
   type = 'website',
+  publishedTime,
 }) {
   const url = absoluteUrl(path);
   const ogTitle =
@@ -53,6 +81,9 @@ export function pageMetadata({
     description,
     alternates: {
       canonical: path === '/' ? SITE_URL : absoluteUrl(path),
+      types: {
+        'application/rss+xml': `${SITE_URL}/blog/rss.xml`,
+      },
     },
     openGraph: {
       title: ogTitle,
@@ -64,11 +95,12 @@ export function pageMetadata({
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: `${SITE_NAME_DISPLAY} — AI-powered marketing analytics`,
+          alt: `${SITE_NAME_DISPLAY} — Google Ads and Meta dashboard`,
         },
       ],
-      locale: 'en_US',
+      locale: 'en_GB',
       type,
+      ...(publishedTime ? { publishedTime } : {}),
     },
     twitter: {
       card: 'summary_large_image',

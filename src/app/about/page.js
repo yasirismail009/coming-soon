@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
 import { pageMetadata } from '@/lib/site';
+import { TEKREIGN_CONTACT } from '@/constants/companyContact';
 
 export const metadata = pageMetadata({
   title: 'About Tekreign & Kampalo',
@@ -148,6 +149,29 @@ export default function AboutUs() {
                 </p>
               </div>
             </div>
+          </section>
+
+          <section className="mb-16 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50/80 dark:bg-slate-800/50 p-8 md:p-10">
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Contact</h2>
+            <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+              Kampalo is a product of Tekreign. Use this listing for citations and directories:
+            </p>
+            <address className="not-italic text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+              <strong className="text-slate-900 dark:text-white">Kampalo</strong>
+              <br />
+              {TEKREIGN_CONTACT.parentCompany}
+              <br />
+              {TEKREIGN_CONTACT.addressLine1}
+              <br />
+              {TEKREIGN_CONTACT.addressLine2}
+              <br />
+              <a
+                href={`mailto:${TEKREIGN_CONTACT.contactEmail}`}
+                className="text-[var(--km-link)] underline"
+              >
+                {TEKREIGN_CONTACT.contactEmail}
+              </a>
+            </address>
           </section>
 
           <section className="mb-16 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50/80 dark:bg-slate-800/50 p-8 md:p-10">

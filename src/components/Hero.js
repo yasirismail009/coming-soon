@@ -69,8 +69,8 @@ export default function Hero() {
           <span aria-hidden className="km-pulse h-1.5 w-1.5 rounded-full bg-[#34D399]" />
         </div>
 
-        <h1 className="mx-auto mb-6 max-w-[14em] km-display font-extrabold leading-[1.02] tracking-[-0.042em] text-balance">
-          Every ad account, in <span className="km-gradient-text">one dashboard</span>
+        <h1 className="mx-auto mb-6 max-w-[16em] km-display font-extrabold leading-[1.02] tracking-[-0.042em] text-balance">
+          Google Ads and Meta, in <span className="km-gradient-text">one dashboard</span>
         </h1>
         <p className="mx-auto mb-[2.375rem] max-w-[33em] text-[1.1875rem] leading-[1.62] text-[var(--km-muted)] text-pretty">
           Kampalo unifies Google Ads, Meta Ads, Analytics, Search Console and organic social into a single workspace — spend, revenue and ROAS side by side, for every account you run.

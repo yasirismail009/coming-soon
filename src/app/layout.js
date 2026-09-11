@@ -30,12 +30,13 @@ export const metadata = {
   description:
     "Kampalo unifies Google Ads and Meta in one dashboard. Ask Kai, our AI assistant, which campaigns to scale based on your synced performance data.",
   keywords: [
-    "AI marketing analytics",
     "Google Ads Meta dashboard",
+    "AgencyAnalytics alternative",
+    "Looker Studio alternative",
+    "Databox alternative",
+    "AI marketing analytics",
     "cross-platform ROAS",
-    "AI marketing assistant",
     "Kampalo Kai",
-    "unified ads analytics",
   ],
   authors: [{ name: "Kampalo" }],
   creator: "Kampalo",
@@ -55,7 +56,7 @@ export const metadata = {
         alt: "Kampalo — AI marketing analytics for Google Ads and Meta",
       },
     ],
-    locale: "en_US",
+    locale: "en_GB",
     type: "website",
   },
   twitter: {
@@ -103,12 +104,29 @@ export const metadata = {
     ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
       ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
       : {}),
+    ...(process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+      ? { other: { 'msvalidate.01': process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION } }
+      : {}),
   },
+  applicationName: "Kampalo",
+  category: "business",
+  formatDetection: {
+    telephone: false,
+    email: false,
+    address: false,
+  },
+};
+
+export const viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#edf0f6" },
+    { media: "(prefers-color-scheme: dark)", color: "#05080F" },
+  ],
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en-GB" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
         <Script

@@ -71,6 +71,34 @@ test.describe('in-app navigation', () => {
     await expect(page.locator('main')).toContainText('Change budgets or create campaigns');
   });
 
+  test('footer Tool alternatives opens vendor comparisons', async ({ page }) => {
+    await page.goto('/');
+    await page.getByRole('contentinfo').getByRole('link', { name: 'Tool alternatives' }).click();
+    await expect(page).toHaveURL(/\/alternatives$/);
+    await expect(
+      page.getByRole('heading', { level: 1, name: /Kampalo as an alternative/i }),
+    ).toBeVisible();
+    await page.getByRole('link', { name: 'Kampalo vs Looker Studio' }).first().click();
+    await expect(page).toHaveURL(/\/compare\/looker-studio$/);
+    await expect(page.getByRole('heading', { name: 'Kampalo vs Looker Studio' })).toBeVisible();
+  });
+
+  test('blog lists the dashboard alternatives roundup', async ({ page }) => {
+    await page.goto('/blog');
+    await page.getByRole('link', { name: /Best Google Ads and Meta dashboards/i }).click();
+    await expect(page).toHaveURL(/\/blog\/google-ads-meta-dashboard-alternatives$/);
+    await expect(page.getByRole('heading', { level: 1 })).toContainText(/Best Google Ads and Meta dashboards/i);
+  });
+
+  test('footer Sitemap opens the HTML index', async ({ page }) => {
+    await page.goto('/');
+    await page.getByRole('contentinfo').getByRole('link', { name: 'Sitemap', exact: true }).click();
+    await expect(page).toHaveURL(/\/sitemap$/);
+    await expect(page.getByRole('heading', { level: 1, name: 'Sitemap' })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'XML sitemap' })).toHaveAttribute('href', '/sitemap.xml');
+    await expect(page.getByRole('link', { name: 'Home' }).first()).toBeVisible();
+  });
+
   test('integrations hub opens Google Ads and Meta pages', async ({ page }) => {
     await page.goto('/integrations');
     await page.getByRole('link', { name: /Google Ads/i }).first().click();

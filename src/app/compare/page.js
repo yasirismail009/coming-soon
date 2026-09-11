@@ -113,7 +113,12 @@ export default function ComparePage() {
               Comparing tools, not just platforms
             </h2>
             <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
-              Need Google versus Meta inside Kampalo? You are on that page. Choosing a vendor?
+              Need Google versus Meta inside Kampalo? You are on that page. Choosing a vendor? Start
+              with the{' '}
+              <a href="/alternatives" className="text-[var(--km-link)] underline">
+                alternatives hub
+              </a>{' '}
+              or a direct comparison:
             </p>
             <ul className="list-disc pl-6 space-y-3 text-lg text-slate-600 dark:text-slate-300">
               <li>
@@ -123,10 +128,34 @@ export default function ComparePage() {
                 {' — '}client reporting suite versus a Google + Meta workspace
               </li>
               <li>
+                <a href="/compare/databox" className="text-[var(--km-link)] underline">
+                  Kampalo vs Databox
+                </a>
+                {' — '}operator ads workspace versus a KPI wall
+              </li>
+              <li>
+                <a href="/compare/dashthis" className="text-[var(--km-link)] underline">
+                  Kampalo vs DashThis
+                </a>
+                {' — '}decision workspace versus template reports
+              </li>
+              <li>
+                <a href="/compare/whatagraph" className="text-[var(--km-link)] underline">
+                  Kampalo vs Whatagraph
+                </a>
+                {' — '}two-channel UI versus blended visual reports
+              </li>
+              <li>
                 <a href="/compare/supermetrics" className="text-[var(--km-link)] underline">
                   Kampalo vs Supermetrics
                 </a>
                 {' — '}product dashboard versus a data pipeline
+              </li>
+              <li>
+                <a href="/compare/looker-studio" className="text-[var(--km-link)] underline">
+                  Kampalo vs Looker Studio
+                </a>
+                {' — '}product dashboard versus a DIY canvas
               </li>
               <li>
                 <a href="/blog/google-ads-vs-meta" className="text-[var(--km-link)] underline">

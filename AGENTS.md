@@ -23,9 +23,9 @@ Layout and type use `%` (widths, gutters, decorative orbs) and `rem` (type, spac
 
 ## Routes
 
-`/`, `/kai`, `/kai/mcp`, `/kai/grok-bot`, `/google-ads-meta-dashboard`, `/compare`, `/compare/agencyanalytics`, `/compare/supermetrics`, `/integrations`, `/integrations/google-ads`, `/integrations/meta`, `/blog`, `/blog/google-ads-vs-meta`, `/about`, `/contact`, `/documentation`, `/help`, `/data-deletion`, `/privacy`, `/terms`, `/cookies`.
+`/`, `/kai`, `/kai/mcp`, `/kai/grok-bot`, `/google-ads-meta-dashboard`, `/compare`, `/compare/agencyanalytics`, `/compare/supermetrics`, `/compare/databox`, `/compare/dashthis`, `/compare/whatagraph`, `/compare/looker-studio`, `/alternatives`, `/integrations`, `/integrations/google-ads`, `/integrations/meta`, `/integrations/ga4`, `/integrations/search-console`, `/blog`, `/blog/google-ads-vs-meta`, `/blog/google-ads-meta-dashboard-alternatives`, `/about`, `/contact`, `/sitemap`, `/documentation`, `/help`, `/data-deletion`, `/privacy`, `/terms`, `/cookies`.
 
-SEO landers share `SeoPageShell`, `pageMetadata`, sitemap via `INDEXABLE_ROUTES`, and FAQ/Article JSON-LD in `src/lib/structuredData.js`. Do not add a second blog engine or CMS.
+SEO landers share `SeoPageShell`, `pageMetadata`, XML sitemap at `/sitemap.xml` (`src/app/sitemap.js` + `INDEXABLE_ROUTES`), HTML sitemap at `/sitemap`, and FAQ/Article JSON-LD in `src/lib/structuredData.js`. Vendor comparisons live in `src/lib/competitors.js` and `CompareToolPage`. Blog catalog is `src/lib/blog.js` (no CMS). Discovery files: `/robots.txt`, `/llms.txt`, `/humans.txt`, `/blog/rss.xml`. Do not add a second blog engine or CMS.
 
 Hash URLs (`/#pricing`) and header/footer CTAs must use a real `<a>` / `AppLink`, not `next/link` — Link has dropped hashes and swallowed homepage clicks. Homepage uses `HashScroll`. E2E: Playwright in `e2e/` (`pnpm test:e2e`).
 

@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import SeoPageShell from '@/components/SeoPageShell';
 import { pageMetadata } from '@/lib/site';
-import { breadcrumbSchema } from '@/lib/structuredData';
+import { breadcrumbSchema, itemListSchema } from '@/lib/structuredData';
 
 export const metadata = pageMetadata({
-  title: 'Integrations — Google Ads, Meta, GA4',
+  title: 'Integrations — Google Ads, Meta, GA4, Search Console',
   description:
     'Connect Google Ads, Meta Ads, GA4, and Search Console to Kampalo. One sign-in per provider. Kai reads the same synced data.',
   path: '/integrations',
@@ -21,15 +21,31 @@ const items = [
     title: 'Meta Ads',
     body: 'Facebook and Instagram ads, with Page and Instagram insights kept off paid ROAS.',
   },
+  {
+    href: '/integrations/ga4',
+    title: 'Google Analytics 4',
+    body: 'Acquisition and on-site context beside paid Google and Meta—not mixed into ads ROAS.',
+  },
+  {
+    href: '/integrations/search-console',
+    title: 'Search Console',
+    body: 'Queries and pages in the SEO suite, on the same Google connection as Ads.',
+  },
 ];
 
 export default function IntegrationsIndexPage() {
   return (
     <SeoPageShell
-      jsonLd={breadcrumbSchema([
-        { name: 'Home', path: '/' },
-        { name: 'Integrations', path: '/integrations' },
-      ])}
+      jsonLd={[
+        breadcrumbSchema([
+          { name: 'Home', path: '/' },
+          { name: 'Integrations', path: '/integrations' },
+        ]),
+        itemListSchema(
+          'Kampalo integrations',
+          items.map((item) => ({ name: item.title, path: item.href })),
+        ),
+      ]}
     >
       <p className="km-kicker">Connections</p>
       <h1 className="km-h1 mb-6 text-[var(--km-ink)]">Kampalo integrations</h1>

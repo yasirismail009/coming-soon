@@ -67,9 +67,10 @@ Kai → Dashboard → Trends → KPI Comparison → Accounts & Campaigns → Goo
 - In-app Kai is read-only. Live pause / alert / rule writes go through Grok Bot MCP (`automate_*`), not the chat screen.
 
 ## Architecture (this site)
-- Routes: `/`, `/kai`, `/kai/mcp`, `/kai/grok-bot`, `/compare`, `/about`, `/contact`, `/documentation`, `/help`, `/privacy`, `/terms`, `/cookies`, `/data-deletion`.
-- SEO: `src/lib/site.js`, `src/lib/structuredData.js`, `JsonLd`, `robots.js`, `sitemap.js`, `public/og-image.png`.
-- Env: `NEXT_PUBLIC_SITE_URL`, optional `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`.
+- Routes: `/`, `/kai`, `/kai/mcp`, `/kai/grok-bot`, `/compare`, `/alternatives`, `/about`, `/contact`, `/documentation`, `/help`, `/privacy`, `/terms`, `/cookies`, `/data-deletion`.
+- SEO: `src/lib/site.js`, `src/lib/structuredData.js`, `src/lib/competitors.js`, `src/lib/blog.js`, `JsonLd`, `robots.js`, `sitemap.js`, HTML `/sitemap`, `/llms.txt`, `/humans.txt`, `/blog/rss.xml`, `public/og-image.png`.
+- Env: `NEXT_PUBLIC_SITE_URL`, optional `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`, optional `NEXT_PUBLIC_BING_SITE_VERIFICATION`.
 
-- Homepage order: Hero → Platforms → Features → Showcase → **KaiHighlight** → **GrokBotHighlight** (`#automate`) → Reports → Pricing…
+- Homepage order: Hero → Platforms → Features → Showcase → **KaiHighlight** → **GrokBotHighlight** (`#automate`) → Reports → Pricing → **AlternativesStrip** → FAQ…
 - Kai is the lead product story: hero badge/CTA, nav “Kai AI” pill, dedicated section with live screenshot + prompt chips.
+- Competitor SEO (2026-09-11): honest vs pages for AgencyAnalytics, Supermetrics, Databox, DashThis, Whatagraph, Looker Studio. Kampalo’s lane is Google + Meta operators + Kai — not 80-source portals or ETL. Roundup: `/blog/google-ads-meta-dashboard-alternatives`.

@@ -8,6 +8,7 @@ const footerLinks = {
     { name: 'Reports', href: '/#reports' },
     { name: 'Pricing', href: '/#pricing' },
     { name: 'Compare platforms', href: '/compare' },
+    { name: 'Tool alternatives', href: '/alternatives' },
     { name: 'Google + Meta dashboard', href: '/google-ads-meta-dashboard' },
     { name: 'Kai MCP', href: '/kai/mcp' },
     { name: 'Grok Bot', href: '/kai/grok-bot' },
@@ -16,8 +17,8 @@ const footerLinks = {
     { name: 'All integrations', href: '/integrations' },
     { name: 'Google Ads', href: '/integrations/google-ads' },
     { name: 'Meta Ads', href: '/integrations/meta' },
-    { name: 'Analytics 4', href: '/#platform' },
-    { name: 'Search Console', href: '/#platform' },
+    { name: 'Analytics 4', href: '/integrations/ga4' },
+    { name: 'Search Console', href: '/integrations/search-console' },
   ],
   company: [
     { name: 'About us', href: '/about' },
@@ -32,6 +33,7 @@ const footerLinks = {
     { name: 'Terms', href: '/terms' },
     { name: 'Cookies', href: '/cookies' },
     { name: 'Data deletion', href: '/data-deletion' },
+    { name: 'Sitemap', href: '/sitemap' },
   ],
 };
 

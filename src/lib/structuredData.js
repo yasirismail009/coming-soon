@@ -23,6 +23,20 @@ export function organizationSchema() {
       url: 'https://tekreign.com',
     },
     sameAs: ['https://tekreign.com'],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      email: TEKREIGN_CONTACT.contactEmail,
+      contactType: 'customer support',
+      url: absoluteUrl('/contact'),
+    },
+    knowsAbout: [
+      'Google Ads reporting',
+      'Meta Ads reporting',
+      'marketing analytics',
+      'ROAS',
+      'GA4',
+      'Google Search Console',
+    ],
   };
 }
 
@@ -34,7 +48,7 @@ export function websiteSchema() {
     name: SITE_NAME_DISPLAY,
     url: SITE_URL,
     publisher: { '@id': `${SITE_URL}/#organization` },
-    inLanguage: 'en-US',
+    inLanguage: 'en-GB',
   };
 }
 
@@ -59,11 +73,15 @@ export function softwareApplicationSchema() {
         'Free £0; Individual Starter £8/month or £80/year; Enterprise Basic £40/month or £400/year. Annual billing is two months free.',
     },
     creator: { '@id': `${SITE_URL}/#organization` },
+    screenshot: absoluteUrl('/og-image.png'),
     featureList: [
       'Unified Google Ads and Meta Ads dashboard',
       'Cross-platform ROAS, ROI, CPA, and CTR tracking',
       'Kai AI assistant for campaign recommendations',
       'Clear rankings for ROAS, CTR, and CPC winners',
+      'GA4 and Search Console beside paid ads',
+      'Organic Facebook and Instagram insights',
+      'Branded and scheduled reports',
       'Secure account connections with OAuth',
     ],
   };
@@ -82,7 +100,7 @@ export function breadcrumbSchema(items) {
   };
 }
 
-export function articleSchema({ title, description, path, datePublished }) {
+export function articleSchema({ title, description, path, datePublished, dateModified }) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -90,12 +108,26 @@ export function articleSchema({ title, description, path, datePublished }) {
     description,
     url: absoluteUrl(path),
     datePublished,
-    dateModified: datePublished,
+    dateModified: dateModified || datePublished,
     author: { '@id': `${SITE_URL}/#organization` },
     publisher: { '@id': `${SITE_URL}/#organization` },
     image: absoluteUrl('/og-image.png'),
     mainEntityOfPage: absoluteUrl(path),
-    inLanguage: 'en-US',
+    inLanguage: 'en-GB',
+  };
+}
+
+export function itemListSchema(name, items) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name,
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      url: absoluteUrl(item.path),
+    })),
   };
 }
 
@@ -285,3 +317,144 @@ export const GOOGLE_VS_META_FAQS = [
       'Start from blended and per-platform ROAS on the same date range, then move spend toward the campaigns that win on your ranking rules—not last month’s habit.',
   },
 ];
+
+export const HOME_FAQS = [
+  {
+    question: 'How long does connecting take?',
+    answer:
+      'One OAuth flow per provider. Google covers Ads, Analytics and Search Console; Meta covers Ads, Page Insights and Instagram. The first sync starts immediately and you can watch its progress on the Connect screen.',
+  },
+  {
+    question: 'Does Kampalo handle multiple currencies?',
+    answer:
+      'Yes. Each account keeps its own currency in cards and tables, and comparisons label the currency on every value rather than silently converting.',
+  },
+  {
+    question: 'Can clients see their own data?',
+    answer:
+      'Brand clients scope a workspace to the accounts assigned to them, with their own report branding. Most teams still send the branded PDF rather than a login.',
+  },
+  {
+    question: 'What is Kai actually reading?',
+    answer:
+      'Only the data already synced into your workspace for the period in view. It answers with the same figures the dashboard shows and names the campaigns and accounts behind them.',
+  },
+  {
+    question: 'Is TikTok Ads supported?',
+    answer:
+      'Not yet. It sits on the Connect screen as the next provider, alongside Google and Meta.',
+  },
+];
+
+export const DATABOX_FAQS = [
+  {
+    question: 'Is Kampalo a Databox alternative?',
+    answer:
+      'It can be if you mainly need Google Ads and Meta compared in one product, plus Kai. Databox is stronger if you want a live KPI wall across marketing, CRM, and finance with goals and benchmarks.',
+  },
+  {
+    question: 'Does Kampalo have goal tracking like Databox?',
+    answer:
+      'Kampalo ranks campaigns on ROAS, CTR, and CPC from your synced data. It is not a general OKR or TV-dashboard product.',
+  },
+];
+
+export const DASHTHIS_FAQS = [
+  {
+    question: 'Is Kampalo a DashThis alternative?',
+    answer:
+      'It can be if the report is secondary to deciding Google versus Meta. DashThis is stronger if the product you sell is a template-based client PDF across many sources.',
+  },
+  {
+    question: 'Does Kampalo send scheduled client reports?',
+    answer:
+      'Yes. Branded PDFs and CSVs can go out on a schedule with the client’s colours, logo, and footer. Kampalo is still an operator workspace, not a widget-first reporting layer.',
+  },
+];
+
+export const WHATAGRAPH_FAQS = [
+  {
+    question: 'Is Kampalo a Whatagraph alternative?',
+    answer:
+      'Only for a narrower, cheaper job: Google Ads and Meta in one UI, with Kai. Whatagraph is stronger if you need designed, blended reports across dozens of sources at agency scale.',
+  },
+  {
+    question: 'Can Kampalo blend custom metrics across 50 sources?',
+    answer:
+      'No. Kampalo syncs Google Ads, Meta, GA4, Search Console, and organic Meta. It does not replace a multi-source blending and visualisation platform.',
+  },
+];
+
+export const LOOKER_STUDIO_FAQS = [
+  {
+    question: 'Is Kampalo a Looker Studio alternative?',
+    answer:
+      'For teams that only need Google + Meta in a product UI, yes. Keep Looker Studio if an analyst already maintains custom boards or you warehouse many sources.',
+  },
+  {
+    question: 'Is Looker Studio free and Kampalo paid?',
+    answer:
+      'Looker Studio’s canvas is free; Meta and many connectors are not, and someone has to maintain the report. Kampalo has a Free plan, then Starter at £8/month with Kai.',
+  },
+];
+
+export const ALTERNATIVES_FAQS = [
+  {
+    question: 'What is Kampalo an alternative to?',
+    answer:
+      'Kampalo is an alternative when the job is Google Ads and Meta in one dashboard, plus an assistant on those numbers. It is not a drop-in for 80-source client portals, warehouses, or TV KPI walls.',
+  },
+  {
+    question: 'Which tool should I pick if I only run Google and Meta?',
+    answer:
+      'Start with Kampalo if you want a product UI and Kai. Keep Looker Studio if you already have a report you trust. Add AgencyAnalytics, DashThis, or Whatagraph if client reporting across many sources is the product you sell.',
+  },
+];
+
+export const DASHBOARD_ALTERNATIVES_FAQS = [
+  {
+    question: 'What is the best Google Ads and Meta dashboard in 2026?',
+    answer:
+      'The best tool is the one that matches the job. Kampalo if operators need Google versus Meta plus Kai. AgencyAnalytics or Whatagraph if the deliverable is a multi-source client report. Looker Studio if you will maintain the canvas. Databox if the job is a KPI wall.',
+  },
+  {
+    question: 'Do I need 80 integrations to compare Google and Meta?',
+    answer:
+      'No. Connector count is a proxy for a different product (agency reporting or ETL). Two native connections and consistent ROAS, CTR, and CPA are enough for the weekly budget decision.',
+  },
+];
+
+export const GA4_FAQS = [
+  {
+    question: 'Does Kampalo include GA4 with Google Ads?',
+    answer:
+      'Yes. One Google sign-in can cover Google Ads, Search Ads 360, GA4, and Search Console, and that family counts as one platform connection on the plan.',
+  },
+  {
+    question: 'Does Kai read GA4 as well as ads?',
+    answer:
+      'Kai can use GA4 stats that are already synced into the workspace. Refresh the Google connection when you need a newer snapshot.',
+  },
+];
+
+export const SEARCH_CONSOLE_FAQS = [
+  {
+    question: 'How does Search Console show up in Kampalo?',
+    answer:
+      'Search Console performance sits next to the SEO suite: queries, pages, and indexing context beside paid Google Ads—not as a separate product.',
+  },
+  {
+    question: 'Is Kampalo a rank tracker like AgencyAnalytics?',
+    answer:
+      'No. Kampalo uses Search Console and on-page audits on properties you already own. It does not sell independent SERP rank tracking across thousands of keywords.',
+  },
+];
+
+export const FAQ_BY_EXPORT = {
+  AGENCYANALYTICS_FAQS,
+  SUPERMETRICS_FAQS,
+  DATABOX_FAQS,
+  DASHTHIS_FAQS,
+  WHATAGRAPH_FAQS,
+  LOOKER_STUDIO_FAQS,
+};

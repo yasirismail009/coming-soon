@@ -19,6 +19,7 @@ export const metadata = pageMetadata({
   description: DESCRIPTION,
   path: PATH,
   type: 'article',
+  publishedTime: PUBLISHED,
 });
 
 export default function GoogleAdsVsMetaGuidePage() {
