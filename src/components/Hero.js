@@ -65,15 +65,15 @@ export default function Hero() {
       <div className="km-wrap relative py-[4.5rem] md:py-[6.5rem] text-center">
         <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-[var(--km-border)] bg-white/50 dark:bg-white/5 px-[1.125rem] py-[0.4375rem] pl-2.5 text-[0.8125rem] font-semibold text-[var(--km-muted)] backdrop-blur-md">
           <KaiMark size={17} />
-          Kai, your marketing analyst — on Starter and Basic
+          Kai proposes. You confirm — on Starter and Enterprise
           <span aria-hidden className="km-pulse h-1.5 w-1.5 rounded-full bg-[#34D399]" />
         </div>
 
         <h1 className="mx-auto mb-6 max-w-[16em] km-display font-extrabold leading-[1.02] tracking-[-0.042em] text-balance">
-          Google Ads and Meta, in <span className="km-gradient-text">one dashboard</span>
+          Google, Meta, and Shopify, in <span className="km-gradient-text">one dashboard</span>
         </h1>
         <p className="mx-auto mb-[2.375rem] max-w-[33em] text-[1.1875rem] leading-[1.62] text-[var(--km-muted)] text-pretty">
-          Kampalo unifies Google Ads, Meta Ads, Analytics, Search Console and organic social into a single workspace — spend, revenue and ROAS side by side, for every account you run.
+          Kampalo unifies Google Ads, Meta Ads, Shopify, Analytics and Search Console — spend, store revenue and ROAS side by side. Grok Bot can propose a pause; live ads stay on until you confirm.
         </p>
         <div className="mb-6 flex flex-wrap items-center justify-center gap-3.5">
           <a href="/contact" className="km-btn-primary">
@@ -92,7 +92,7 @@ export default function Hero() {
             <LaptopFrame url="app.kampalo.com/dashboard">
               <Image
                 src={resolveDashboardImage('overview', theme)}
-                alt="Kampalo dashboard showing ROAS, spend, revenue and conversions across Google and Meta"
+                alt="Kampalo dashboard showing ROAS, spend, revenue and conversions across Google, Meta and Shopify"
                 fill
                 className="object-cover object-left-top"
                 sizes="(max-width: 1080px) 100vw, 1080px"

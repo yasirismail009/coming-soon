@@ -71,18 +71,24 @@ export default function DataDeletionInstructionsPage() {
 
             <section className="mb-10">
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mt-8 mb-4">
-                2. Deleting your account (App settings — Danger Zone)
+                2. Deleting your account (Settings — Preferences)
               </h2>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                In <strong className="text-slate-900 dark:text-white">Settings</strong> (gear icon in the app header), the{' '}
-                <strong className="text-slate-900 dark:text-white">Danger Zone</strong> includes account deletion. If you
-                choose <strong className="text-slate-900 dark:text-white">Delete account</strong> and complete any
-                confirmation steps, the following applies to your KAMPALO workspace:
+                In the app sidebar, open <strong className="text-slate-900 dark:text-white">Settings</strong> from the
+                account popover, then choose the <strong className="text-slate-900 dark:text-white">Preferences</strong>{' '}
+                tab. Workspace <strong className="text-slate-900 dark:text-white">admins</strong> see a{' '}
+                <strong className="text-slate-900 dark:text-white">Danger Zone</strong>. Team members do not.
+              </p>
+              <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                Individual admins use <strong className="text-slate-900 dark:text-white">Delete account</strong> to
+                remove themselves and the whole tenant. Enterprise admins use{' '}
+                <strong className="text-slate-900 dark:text-white">Delete workspace</strong> to remove the agency home
+                and every brand. You must type DELETE and re-enter your password. After confirmation:
               </p>
 
               <DataDeletionScreenshot
                 variant="accountDeletion"
-                caption="Open Settings from the header, choose Security (or your account area), then review the Danger Zone before Delete account."
+                caption="Open Settings from the account popover, choose Preferences, then review the Danger Zone before Delete account or Delete workspace."
               />
 
               <ul className="list-disc pl-6 mb-4 text-slate-600 dark:text-slate-300 space-y-2">

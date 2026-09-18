@@ -23,7 +23,7 @@ Layout and type use `%` (widths, gutters, decorative orbs) and `rem` (type, spac
 
 ## Routes
 
-`/`, `/kai`, `/kai/mcp`, `/kai/grok-bot`, `/google-ads-meta-dashboard`, `/compare`, `/compare/agencyanalytics`, `/compare/supermetrics`, `/compare/databox`, `/compare/dashthis`, `/compare/whatagraph`, `/compare/looker-studio`, `/alternatives`, `/integrations`, `/integrations/google-ads`, `/integrations/meta`, `/integrations/ga4`, `/integrations/search-console`, `/blog`, `/blog/google-ads-vs-meta`, `/blog/google-ads-meta-dashboard-alternatives`, `/about`, `/contact`, `/sitemap`, `/documentation`, `/help`, `/data-deletion`, `/privacy`, `/terms`, `/cookies`.
+`/`, `/kai`, `/kai/mcp`, `/kai/grok-bot`, `/google-ads-meta-dashboard`, `/compare`, `/compare/agencyanalytics`, `/compare/supermetrics`, `/compare/databox`, `/compare/dashthis`, `/compare/whatagraph`, `/compare/looker-studio`, `/alternatives`, `/integrations`, `/integrations/google-ads`, `/integrations/meta`, `/integrations/ga4`, `/integrations/search-console`, `/integrations/shopify`, `/blog`, `/blog/google-ads-vs-meta`, `/blog/google-ads-meta-dashboard-alternatives`, `/about`, `/contact`, `/sitemap`, `/documentation`, `/help`, `/data-deletion`, `/privacy`, `/terms`, `/cookies`.
 
 SEO landers share `SeoPageShell`, `pageMetadata`, XML sitemap at `/sitemap.xml` (`src/app/sitemap.js` + `INDEXABLE_ROUTES`), HTML sitemap at `/sitemap`, and FAQ/Article JSON-LD in `src/lib/structuredData.js`. Vendor comparisons live in `src/lib/competitors.js` and `CompareToolPage`. Blog catalog is `src/lib/blog.js` (no CMS). Discovery files: `/robots.txt`, `/llms.txt`, `/humans.txt`, `/blog/rss.xml`. Do not add a second blog engine or CMS.
 
@@ -41,9 +41,11 @@ Contact form sends via EmailJS (`src/utils/emailjsClient.js`). Parent company co
 
 Source of truth for the marketing site: `src/lib/plans.js` (must match backend `create_subscription_plans.py`).
 
-- Free £0 — 1 connection, 1 campaign. Surfaces: Google Ads, Meta Ads, GA4, organic Facebook/Instagram, SEO analysis. **Kai, Grok Bot, and MCP are not on Free.**
-- Individual **Starter** £8/month or £80/year — 10 connections, one workspace, **includes Kai, Grok Bot, and MCP server**
-- Enterprise **Basic** £40/month or £400/year — 30 connections, up to 4 brand clients, white-label, **includes Kai, Grok Bot, and MCP server**
-- Annual = two months free. Google Ads + GA4 + Search Console = one connection; Meta ads + Page + IG = one.
+- Free £0 — 1 integration slot, 1 campaign. Surfaces: Google Ads, GA4, SEO, Meta Ads, Meta Organic, Shopify. **No included Kai.** Grok Bot and MCP are not on Free. Anyone can buy Kai tokens (**£3.50 / 500,000**) from Settings → Plan.
+- Individual **Starter** £8/month or £80/year — **4 integration slots**, one workspace, **includes Kai (100k tokens/month; 150k on annual), Grok Bot, and MCP server**. Extra Kai: **£3.50 / 500k** anytime.
+- Enterprise **£40/month or £400/year** — **16 integration slots**, up to 4 brand clients, white-label, **includes Kai (500k tokens/month; 600k on annual), Grok Bot, and MCP server**. Extra Kai: **£3.50 / 500k** anytime. `plan_type` stays `basic` for Stripe.
+- Annual = two months free. Slots are pooled: each Google Ads / Meta Ads account, each Shopify store, and each TikTok advertiser is 1; GA4 and SEO are 1 per Gmail; Meta Organic is 1 per Meta login.
+- Named pillars: Google, Meta, and Shopify. TikTok Ads stays “soon” (not shipping).
+- Homepage pitch: Kai/Grok Bot propose; live ads stay on until the operator confirms. Do not put unsourced competitor-user claims on the homepage. No `/compare/madgicx` unless sourced like the other vs pages.
 - Grok Bot / Cursor automations: `/kai/grok-bot` (in-app Kai is read-only; confirmed pauses, alerts, ROAS rules via MCP).
 

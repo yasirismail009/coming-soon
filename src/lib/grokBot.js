@@ -5,7 +5,7 @@ export const GROK_BOT_FAQS = [
   {
     question: 'What is the Kampalo Grok Bot plugin?',
     answer:
-      'It lets Grok Bot (and Cursor) read your synced Kampalo workspace and run automations Kampalo already supports: campaign pause proposals, ads and SEO alerts, ROAS pause rules, and performance report JSON. Starter and Basic only — not Free.',
+      'It lets Grok Bot (and Cursor) read your synced Kampalo workspace and run automations Kampalo already supports: campaign pause proposals, ads and SEO alerts, ROAS pause rules, and performance report JSON. Starter and Enterprise only — not Free.',
   },
   {
     question: 'Can Grok Bot pause live campaigns?',

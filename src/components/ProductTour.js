@@ -55,12 +55,12 @@ export default function ProductTour() {
           <div className="km-kicker">Trends</div>
           <h2 className="km-h2">Nine metrics, one glance, any window</h2>
           <p className="km-lead">
-            Revenue, spend, ROAS, conversions, impressions, clicks, CTR, CPC and CPA each carry their own sparkline. Filter to Google or Meta and the whole board re-reads for that platform.
+            Revenue, spend, ROAS, conversions, impressions, clicks, CTR, CPC and CPA each carry their own sparkline. Filter to Google, Meta or Shopify and the whole board re-reads for that platform.
           </p>
         </div>
         <Framed
           id="trends"
-          url="app.kampalo.com/trends"
+          url="app.kampalo.com/dashboard"
           alt="Trends view with sparkline cards for revenue, spend, ROAS, conversions and more"
         />
       </section>
@@ -181,6 +181,26 @@ export default function ProductTour() {
           </div>
           <div className="overflow-hidden rounded-2xl border border-[var(--km-border)]">
             <Shot id="organicInsights" alt="Organic insights showing Facebook Pages and Instagram connection status and metrics" />
+          </div>
+        </div>
+      </section>
+
+      <section className="km-wrap pt-28">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-[3.75rem]">
+          <div className="overflow-hidden rounded-2xl border border-[var(--km-border)] shadow-[0_2.5rem_5rem_-2.1875rem_rgba(0,0,0,0.35)] dark:shadow-[0_2.5rem_5rem_-2.1875rem_rgba(0,0,0,0.9)]">
+            <Shot id="connect" alt="Connect screen with Google, Meta and Shopify suite cards" />
+          </div>
+          <div>
+            <div className="km-kicker">Connect</div>
+            <h2 className="km-h2">Google, Meta, Shopify — one login each</h2>
+            <p className="km-lead mb-[1.625rem]">
+              Google Ads, Analytics and Search Console share one Google sign-in. Meta ads, Page and Instagram share one Meta sign-in. Shopify is its own shop login. TikTok Ads is next.
+            </p>
+            <div className="grid gap-4">
+              <Check>One OAuth flow per provider — we only request the access we need</Check>
+              <Check>Store revenue sits beside ads; paid ROAS stays paid</Check>
+              <Check>Refresh in the app when you want a newer snapshot</Check>
+            </div>
           </div>
         </div>
       </section>

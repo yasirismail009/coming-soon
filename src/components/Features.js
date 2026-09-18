@@ -15,7 +15,7 @@ const surfaces = [
   {
     title: 'Trends',
     body: 'Revenue, spend, ROAS, CTR and CPA as sparklines across any window, so you can see what is rising, falling or flat.',
-    more: 'Filter to Google or Meta and the whole board re-reads for that platform.',
+    more: 'Filter to Google, Meta or Shopify and the whole board re-reads for that platform.',
     icon: (
       <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="#8CC0FF" strokeWidth="1.7" strokeLinecap="round" aria-hidden>
         <path d="M4 20V10M10 20V4M16 20v-7M22 20H2" />
@@ -54,6 +54,16 @@ const surfaces = [
     ),
   },
   {
+    title: 'Shopify',
+    body: 'Products, orders, customers and store analytics from one shop login, beside Google and Meta — not mixed into paid ROAS.',
+    more: 'Open the Shopify hub or read blended ROI when you ask for it.',
+    icon: (
+      <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="#8CC0FF" strokeWidth="1.7" strokeLinecap="round" aria-hidden>
+        <path d="M4 8h16l-1.5 10.5A2 2 0 0116.5 20h-9a2 2 0 01-2-1.5L4 8zM8 8V6a4 4 0 018 0v2" />
+      </svg>
+    ),
+  },
+  {
     title: 'Reports',
     body: 'Branded PDFs and CSVs per client, built from four report types and sent on a schedule you set once.',
     more: "Your client's colours, logo and footer on every page.",
@@ -70,7 +80,7 @@ export default function Features() {
     <section id="platform" className="km-wrap pt-28">
       <div className="mb-[3.25rem] max-w-[42em]">
         <div className="km-kicker">The platform</div>
-        <h2 className="km-h2">Six surfaces, one source of numbers</h2>
+        <h2 className="km-h2">Seven surfaces, one source of numbers</h2>
         <p className="km-lead">
           Every view reads from the same synced data, so the ROAS on a client report matches the ROAS in the dashboard and the one Kai quotes back to you.
         </p>

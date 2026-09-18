@@ -14,11 +14,11 @@ export default function GrokBotHighlight() {
       <div className="km-card relative overflow-hidden px-[2rem] py-[2.5rem] md:px-[2.75rem] md:py-[3.25rem]">
         <KaiMark size={48} className="mb-5" />
         <p className="km-kicker">Grok Bot</p>
-        <h2 className="km-h2 mb-4">Automate from Grok Bot — Kai stays read-only in the app</h2>
+        <h2 className="km-h2 mb-4">Automate with your sign-off — Kai stays read-only in the app</h2>
         <p className="km-lead mb-8 max-w-[40em]">
           The Kampalo plugin for Grok Bot and Cursor uses the MCP server on your synced workspace. It
           can brief performance, then propose pauses, confirm them, set alerts, and save ROAS rules.
-          Starter and Basic — not Free.
+          Live ads stay on until you confirm. Starter and Enterprise — not Free.
         </p>
         <ul className="mb-9 grid list-none grid-cols-1 gap-[0.75rem] p-0 md:grid-cols-2">
           {jobs.map((job) => (

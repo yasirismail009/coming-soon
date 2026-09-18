@@ -57,14 +57,19 @@ export default function PrivacyPolicy() {
 
               <h3 className="text-xl font-semibold text-slate-900 dark:text-white mt-6 mb-3">2.2 Platform Integration Data</h3>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                To provide our services, we access data from connected advertising platforms including:
+                To provide our services, we access data from platforms you connect, which may include:
               </p>
               <ul className="list-disc pl-6 mb-4 text-slate-600 dark:text-slate-300 space-y-2">
-                <li>Google Ads account data, campaigns, and performance metrics</li>
-                <li>Meta (Facebook/Instagram) Ads account data and campaign information</li>
-                <li>TikTok Ads, Shopify Ads, LinkedIn Ads, and Apple Search Ads data</li>
-                <li>Ad performance metrics, impressions, clicks, conversions, and spend data</li>
+                <li>Google Ads campaigns, customers, and performance metrics</li>
+                <li>Google Search Console (SEO) and Google Analytics 4 (GA4) data you authorize</li>
+                <li>Meta Ads account, campaign, and creative data, plus Meta Organic (Pages and Instagram) if enabled</li>
+                <li>Shopify store catalog, orders, and commerce metrics when Shopify is enabled for your workspace</li>
+                <li>Ad performance metrics such as impressions, clicks, conversions, spend, and related identifiers</li>
               </ul>
+              <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                We store a copy of synced marketing data in our database so dashboards can load without calling live
+                provider APIs on every view. TikTok remains a roadmap integration and is not a shipping product.
+              </p>
 
               <h3 className="text-xl font-semibold text-slate-900 dark:text-white mt-6 mb-3">2.3 Usage Data</h3>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
@@ -96,7 +101,8 @@ export default function PrivacyPolicy() {
                 <li>To generate analytics reports and insights</li>
                 <li>To send you service-related notifications and updates</li>
                 <li>To respond to your inquiries and provide customer support</li>
-                <li>To detect, prevent, and address technical issues and security threats</li>
+                <li>To detect, prevent, and address technical issues, abuse, and security threats (including login lockout after repeated failed sign-ins)</li>
+                <li>To process payments and detect payment fraud through our payment processor (Stripe), including 3-D Secure where Stripe requests it</li>
                 <li>To comply with legal obligations and enforce our terms</li>
                 <li>To send marketing communications (with your consent)</li>
               </ul>
@@ -114,9 +120,12 @@ export default function PrivacyPolicy() {
               </p>
               <ul className="list-disc pl-6 mb-4 text-slate-600 dark:text-slate-300 space-y-2">
                 <li>Cloud hosting and infrastructure providers</li>
-                <li>Payment processors</li>
+                <li>
+                  Payment processing (Stripe). Card numbers are collected on Stripe-hosted Checkout; we store only
+                  limited card-on-file details such as brand and last four digits when you add a card
+                </li>
                 <li>Email and communication services</li>
-                <li>Analytics and monitoring tools</li>
+                <li>Connected advertising platforms you authorize (Google, Meta, and Shopify when enabled)</li>
               </ul>
 
               <h3 className="text-xl font-semibold text-slate-900 dark:text-white mt-6 mb-3">4.2 Legal Requirements</h3>
@@ -133,14 +142,16 @@ export default function PrivacyPolicy() {
             <section className="mb-8">
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mt-8 mb-4">5. Data Security</h2>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                We implement industry-standard security measures to protect your information, including:
+                We implement security measures appropriate to a B2B SaaS product, including:
               </p>
               <ul className="list-disc pl-6 mb-4 text-slate-600 dark:text-slate-300 space-y-2">
-                <li>Encryption of data in transit and at rest</li>
-                <li>Secure authentication and access controls</li>
-                <li>Regular security audits and vulnerability assessments</li>
-                <li>OAuth 2.0 and secure API connections for platform integrations</li>
-                <li>Employee training on data protection best practices</li>
+                <li>Encryption of data in transit (HTTPS) and access controls by role inside each workspace</li>
+                <li>OAuth 2.0 for Google, Meta, and other platform connections you authorize</li>
+                <li>Session tokens that can be invalidated on logout (refresh-token blacklist)</li>
+                <li>Server-side login lockout after repeated failed sign-in attempts from the same email or IP</li>
+                <li>Security HTTP headers (including Content-Security-Policy and Permissions-Policy) on the application and marketing site</li>
+                <li>Stripe-hosted Checkout with 3-D Secure when Stripe requests it; payment-fraud rules are configured in Stripe Radar on our Stripe account</li>
+                <li>Automated code and dependency scanning in our development pipeline (this is not a substitute for a third-party penetration test)</li>
               </ul>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
                 However, no method of transmission over the Internet or electronic storage is 100% secure. While we strive to protect your information, we cannot guarantee absolute security.
@@ -155,28 +166,61 @@ export default function PrivacyPolicy() {
               <ul className="list-disc pl-6 mb-4 text-slate-600 dark:text-slate-300 space-y-2">
                 <li><strong>Access:</strong> Request access to your personal information</li>
                 <li><strong>Correction:</strong> Request correction of inaccurate or incomplete data</li>
-                <li><strong>Deletion:</strong> Request deletion of your personal information</li>
+                <li><strong>Deletion:</strong> Request deletion of your personal information (right to erasure)</li>
                 <li><strong>Portability:</strong> Request a copy of your data in a portable format</li>
                 <li><strong>Opt-out:</strong> Opt-out of marketing communications</li>
                 <li><strong>Objection:</strong> Object to certain processing activities</li>
                 <li><strong>Restriction:</strong> Request restriction of processing</li>
               </ul>
+              <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                <strong className="text-slate-900 dark:text-white">Deletion in the app.</strong> Workspace{' '}
+                <strong className="text-slate-900 dark:text-white">administrators</strong> can permanently delete stored
+                data from <strong className="text-slate-900 dark:text-white">Settings → Preferences</strong> (Danger
+                Zone). You must type DELETE and re-enter your password:
+              </p>
+              <ul className="list-disc pl-6 mb-4 text-slate-600 dark:text-slate-300 space-y-2">
+                <li>
+                  <strong>Individual:</strong> Delete account removes the admin, the tenant, and all synced marketing
+                  data we store for that workspace
+                </li>
+                <li>
+                  <strong>Enterprise:</strong> Delete workspace removes the agency home, every brand client, teammates,
+                  and synced data for that organization
+                </li>
+                <li>Team members (non-admins) cannot delete the workspace from the app</li>
+                <li>
+                  Disconnecting an integration on the Integrations page permanently deletes the Kampalo copy of that
+                  connection&apos;s data (your accounts at Google, Meta, or Shopify are not deleted)
+                </li>
+              </ul>
+              <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                Step-by-step instructions are on our{' '}
+                <Link href="/data-deletion" className="text-[var(--km-link)] hover:underline font-medium">
+                  data deletion &amp; disconnection
+                </Link>{' '}
+                page. Deletion cannot be undone from Kampalo.
+              </p>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                To exercise these rights, please contact us at{' '}
+                To exercise access, correction, portability, or other rights, or if you are not an admin, contact us at{' '}
                 <a
                   href={`mailto:${TEKREIGN_CONTACT.contactEmail}`}
                   className="text-[var(--km-link)] hover:underline"
                 >
                   {TEKREIGN_CONTACT.contactEmail}
                 </a>
-                .
+                . We may need to verify your identity before we act.
               </p>
             </section>
 
             <section className="mb-8">
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mt-8 mb-4">7. Data Retention</h2>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                We retain your personal information for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law. When you delete your account, we will delete or anonymize your personal information, except where we are required to retain it for legal or regulatory purposes.
+                We retain your personal information and synced marketing data for as long as your workspace remains
+                active, unless a longer period is required or permitted by law. When an admin deletes the account or
+                workspace, we permanently delete the Kampalo-stored copy of that data, including connections, tokens, and
+                synced analytics. We may still retain a limited subset where the law requires it (for example billing,
+                tax, or security logs) only for as long as necessary. Stripe may retain payment records under its own
+                policies even after we cancel the subscription.
               </p>
             </section>
 

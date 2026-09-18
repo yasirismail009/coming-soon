@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Link from 'next/link';
 import { TEKREIGN_CONTACT } from '@/constants/companyContact';
 import { pageMetadata } from '@/lib/site';
 
@@ -42,11 +43,10 @@ export default function TermsAndConditions() {
                 KAMPALO is a unified marketing analytics and campaign management platform that allows you to:
               </p>
               <ul className="list-disc pl-6 mb-4 text-slate-600 dark:text-slate-300 space-y-2">
-                <li>Connect and manage multiple advertising platform accounts (Google Ads, Meta Ads, TikTok, Shopify, LinkedIn, Apple Search Ads)</li>
-                <li>Monitor and analyze advertising campaign performance across platforms</li>
-                <li>Generate unified analytics reports and insights</li>
-                <li>Compare performance metrics across different advertising platforms</li>
-                <li>Access advanced analytics features and custom reporting tools</li>
+                <li>Connect Google Ads, Search Console, GA4, Meta Ads, Meta Organic, and Shopify (when enabled) to one workspace</li>
+                <li>Monitor and analyze advertising and organic performance from data we sync into Kampalo</li>
+                <li>Generate reports and use Kai, the in-app assistant, over the same synced tools</li>
+                <li>Compare Google vs Meta performance metrics on eligible plans</li>
               </ul>
             </section>
 
@@ -68,10 +68,32 @@ export default function TermsAndConditions() {
                 <li>Not share your account credentials with third parties</li>
                 <li>Ensure all account information remains accurate and up-to-date</li>
               </ul>
-
-              <h3 className="text-xl font-semibold text-slate-900 dark:text-white mt-6 mb-3">3.3 Account Termination</h3>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                We reserve the right to suspend or terminate your account at any time for violations of these Terms or for any reason we deem necessary to protect the integrity of the Service.
+                We may temporarily lock sign-in after repeated failed attempts from the same email address or IP
+                address. Logging out invalidates the refresh token we issued for that session. You remain responsible
+                for activity that occurs before you notify us of a compromise.
+              </p>
+
+              <h3 className="text-xl font-semibold text-slate-900 dark:text-white mt-6 mb-3">3.3 Account Termination and Deletion</h3>
+              <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                We reserve the right to suspend or terminate your account at any time for violations of these Terms or
+                to protect the integrity of the Service.
+              </p>
+              <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                You may close the workspace yourself if you are an <strong className="text-slate-900 dark:text-white">admin</strong>.
+                In the app, open <strong className="text-slate-900 dark:text-white">Settings → Preferences</strong> and
+                use the Danger Zone. Individual admins delete the account and tenant. Enterprise admins delete the whole
+                workspace (agency home and brands). You must type DELETE and confirm with your password. This is
+                permanent: integrations, synced analytics, teammates, and access are removed and cannot be restored from
+                Kampalo. Non-admins cannot delete the workspace. Step-by-step copy is on our{' '}
+                <Link href="/data-deletion" className="text-[var(--km-link)] hover:underline font-medium">
+                  data deletion
+                </Link>{' '}
+                page. Our{' '}
+                <Link href="/privacy" className="text-[var(--km-link)] hover:underline font-medium">
+                  Privacy Policy
+                </Link>{' '}
+                describes what may still be retained for legal or payment-processor reasons.
               </p>
             </section>
 
@@ -85,6 +107,10 @@ export default function TermsAndConditions() {
                 <li>You represent that you have the authority to authorize such access</li>
                 <li>You agree to comply with the terms of service of all connected platforms</li>
                 <li>You understand that changes to third-party platform APIs may affect Service functionality</li>
+                <li>
+                  Disconnecting an integration permanently deletes the Kampalo copy of that connection&apos;s data.
+                  There is no recovery from Kampalo. Your accounts at the provider are not deleted by that action
+                </li>
               </ul>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
                 We are not responsible for the availability, accuracy, or content of third-party services. Your use of third-party services is subject to their respective terms and conditions.
@@ -96,7 +122,7 @@ export default function TermsAndConditions() {
               
               <h3 className="text-xl font-semibold text-slate-900 dark:text-white mt-6 mb-3">5.1 Subscription Tiers</h3>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                KAMPALO offers Free, Individual Starter, and Enterprise Basic plans, billed in GBP on a monthly or yearly cycle. Features and connection limits differ by plan and are described on the pricing page. You may upgrade, downgrade, or cancel through your account settings.
+                KAMPALO offers Free, Individual Starter, and Enterprise plans, billed in GBP on a monthly or yearly cycle. Features and slot limits differ by plan and are described on the pricing page. You may upgrade, downgrade, or cancel through your account settings.
               </p>
 
               <h3 className="text-xl font-semibold text-slate-900 dark:text-white mt-6 mb-3">5.2 Payment Terms</h3>
@@ -104,9 +130,10 @@ export default function TermsAndConditions() {
                 By subscribing to a paid plan, you agree to:
               </p>
               <ul className="list-disc pl-6 mb-4 text-slate-600 dark:text-slate-300 space-y-2">
-                <li>Pay all fees associated with your selected subscription plan</li>
-                <li>Provide accurate and complete billing information</li>
-                <li>Authorize us to charge your payment method for subscription fees</li>
+                <li>Pay all fees associated with your selected subscription plan (GBP)</li>
+                <li>Provide accurate and complete billing information through Stripe-hosted Checkout</li>
+                <li>Authorize Stripe to charge your payment method for subscription fees and eligible one-time purchases (such as Kai token packs)</li>
+                <li>Complete additional authentication (for example 3-D Secure) when Stripe requests it</li>
                 <li>Understand that subscription fees are charged in advance on a monthly or yearly basis</li>
               </ul>
 
@@ -162,9 +189,19 @@ export default function TermsAndConditions() {
                 While we strive to ensure data accuracy, we do not guarantee that all data displayed is error-free or up-to-date. Data is retrieved from third-party platforms and may be subject to delays, inaccuracies, or API limitations.
               </p>
 
-              <h3 className="text-xl font-semibold text-slate-900 dark:text-white mt-6 mb-3">8.3 Data Backup</h3>
+              <h3 className="text-xl font-semibold text-slate-900 dark:text-white mt-6 mb-3">8.3 Data Backup and Deletion</h3>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                You are responsible for maintaining backups of your data. We are not liable for any loss of data, and we recommend exporting important data regularly.
+                You are responsible for maintaining any copies of data you need outside Kampalo. We do not offer
+                restoration after you disconnect an integration or an admin deletes the account or workspace. Export
+                anything you must keep before those actions. Details are in the{' '}
+                <Link href="/privacy" className="text-[var(--km-link)] hover:underline font-medium">
+                  Privacy Policy
+                </Link>{' '}
+                and{' '}
+                <Link href="/data-deletion" className="text-[var(--km-link)] hover:underline font-medium">
+                  data deletion instructions
+                </Link>
+                .
               </p>
             </section>
 
@@ -214,7 +251,10 @@ export default function TermsAndConditions() {
             <section className="mb-8">
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mt-8 mb-4">13. Termination</h2>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                You may terminate your account at any time by canceling your subscription and deleting your account through the Service settings.
+                You may terminate your account at any time. Canceling a subscription stops future charges but does not
+                by itself erase stored marketing data. To delete the Kampalo copy of that data, an admin must complete
+                Delete account or Delete workspace in Settings → Preferences (Danger Zone), as described in section 3.3.
+                Team members who leave the workspace should ask an admin; they cannot erase the organization themselves.
               </p>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
                 We may terminate or suspend your account immediately, without prior notice, if you breach these Terms or engage in any conduct we deem harmful to the Service or other users.
@@ -227,10 +267,14 @@ export default function TermsAndConditions() {
             <section className="mb-8">
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mt-8 mb-4">14. Governing Law and Dispute Resolution</h2>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                These Terms shall be governed by and construed in accordance with the laws of [Your Jurisdiction], without regard to its conflict of law provisions.
+                These Terms shall be governed by and construed in accordance with the laws of Pakistan, without regard
+                to its conflict of law provisions. {TEKREIGN_CONTACT.parentCompany} operates {TEKREIGN_CONTACT.productName}{' '}
+                from {TEKREIGN_CONTACT.addressLine2}.
               </p>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                Any disputes arising out of or relating to these Terms or the Service shall be resolved through binding arbitration in accordance with the rules of [Arbitration Organization], except where prohibited by law.
+                Any dispute arising out of or relating to these Terms or the Service shall be submitted to the courts of
+                Islamabad, Pakistan, except where applicable consumer or data-protection law gives you a right to bring
+                proceedings in another venue.
               </p>
             </section>
 
@@ -244,7 +288,11 @@ export default function TermsAndConditions() {
             <section className="mb-8">
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mt-8 mb-4">16. Contact Information</h2>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                If you have any questions about these Terms, please contact us:
+                If you have any questions about these Terms, privacy, or account deletion, please contact us or read our{' '}
+                <Link href="/privacy" className="text-[var(--km-link)] hover:underline font-medium">
+                  Privacy Policy
+                </Link>
+                .
               </p>
               <div className="bg-slate-100 dark:bg-slate-800 p-6 rounded-lg">
                 <p className="text-slate-900 dark:text-white font-semibold mb-1">

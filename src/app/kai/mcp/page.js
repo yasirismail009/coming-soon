@@ -12,7 +12,7 @@ import { GROK_BOT_MCP_URL } from '@/lib/grokBot';
 export const metadata = pageMetadata({
   title: 'Kampalo MCP — Grok Bot, Cursor & Claude',
   description:
-    'Connect Grok Bot, Cursor, or Claude to Kampalo MCP. Read synced Google Ads, Meta, GA4, and SEO data. Automate pauses (with confirm), alerts, and report JSON. In-app Kai stays read-only.',
+    'Connect Grok Bot, Cursor, or Claude to Kampalo MCP. Read synced ads and Shopify data. Automate pauses with your confirm. In-app Kai stays read-only.',
   path: '/kai/mcp',
 });
 
@@ -35,8 +35,8 @@ export default function KaiMcpPage() {
       </h1>
       <p className="km-lead mb-12">
         MCP (Model Context Protocol) is the pipe. Grok Bot uses it to brief your ads and to run
-        Kampalo automations. Answers come from workspace data you already synced — not a live Ads
-        API scrape.
+        Kampalo automations with your sign-off. Answers come from workspace data you already
+        synced — not a live Ads API scrape. Live pauses wait until you confirm.
       </p>
 
       <section className="mb-16">

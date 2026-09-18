@@ -8,6 +8,7 @@ const items = [
   { label: 'Search Console' },
   { label: 'Instagram' },
   { label: 'Facebook Pages' },
+  { label: 'Shopify' },
   { label: 'TikTok Ads soon', soon: true },
 ];
 

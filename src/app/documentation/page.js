@@ -5,7 +5,7 @@ import { pageMetadata } from '@/lib/site';
 export const metadata = pageMetadata({
   title: 'Documentation',
   description:
-    'Learn Kampalo: connect Google and Meta once, use dashboards and Kai, run SEO audits, and schedule branded reports.',
+    'Learn Kampalo: connect Google, Meta, and Shopify once each, use dashboards and Kai, run SEO audits, and schedule branded reports.',
   path: '/documentation',
 });
 
@@ -19,7 +19,7 @@ export default function Documentation() {
             Documentation
           </h1>
           <p className="text-lg text-slate-600 dark:text-slate-400 mb-12">
-            Connect once, explore dashboards and Kai, then use SEO, organic Meta, and branded reports—step by step.
+            Connect Google, Meta, or Shopify, explore dashboards and Kai, then use SEO, organic Meta, and branded reports—step by step.
           </p>
 
           <div className="space-y-12">
@@ -71,6 +71,10 @@ export default function Documentation() {
                   Meta Ads
                 </a>
                 {' · '}
+                <a href="/integrations/shopify" className="text-[var(--km-accent)] font-medium hover:underline">
+                  Shopify
+                </a>
+                {' · '}
                 <a href="/kai/mcp" className="text-[var(--km-accent)] font-medium hover:underline">
                   Kai MCP
                 </a>
@@ -112,18 +116,31 @@ export default function Documentation() {
                 </div>
 
                 <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
+                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">Connecting Shopify</h3>
+                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                    One shop login covers products, orders, customers, and store analytics:
+                  </p>
+                  <ol className="list-decimal pl-6 space-y-2 text-slate-600 dark:text-slate-300">
+                    <li>Go to Connect (or Settings → Connections)</li>
+                    <li>Click Connect Shopify and enter your shop domain</li>
+                    <li>Sign in and approve the scopes Kampalo requests</li>
+                    <li>Wait for the first sync, then open the Shopify hub</li>
+                    <li>Store revenue sits beside Google and Meta spend — it is not mixed into paid ROAS</li>
+                  </ol>
+                </div>
+
+                <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
                   <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">Other platforms (roadmap)</h3>
                   <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                    Google Ads and Meta are available today. We are also planning connections for:
+                    Google, Meta, and Shopify are available today. We are also planning connections for:
                   </p>
                   <ul className="list-disc pl-6 space-y-2 text-slate-600 dark:text-slate-300">
                     <li><strong>TikTok Ads</strong></li>
                     <li><strong>LinkedIn Ads</strong></li>
-                    <li><strong>Shopify</strong> advertising signals</li>
                     <li><strong>Apple Search Ads</strong></li>
                   </ul>
                   <p className="text-slate-600 dark:text-slate-300 leading-relaxed mt-4">
-                    When a platform launches, the connection flow will match Google and Meta: Integrations → select the platform → secure sign-in → choose accounts → wait for the first sync.
+                    When a platform launches, the connection flow will match Google, Meta, and Shopify: Connect → select the platform → secure sign-in → choose accounts → wait for the first sync.
                   </p>
                 </div>
 
@@ -144,12 +161,11 @@ export default function Documentation() {
                 <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
                   <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">Understanding the Unified Dashboard</h3>
                   <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                    Kampalo includes overview, trends, and KPI views across connected accounts:
+                    Kampalo includes dashboard, trends, and KPI views across connected accounts:
                   </p>
                   <ul className="list-disc pl-6 space-y-2 text-slate-600 dark:text-slate-300">
-                    <li><strong>Dashboard:</strong> Overall stats across connected accounts</li>
-                    <li><strong>Trends:</strong> Overall trends over your selected date range</li>
-                    <li><strong>KPI Comparison:</strong> Side-by-side comparison (Starter and Basic)</li>
+                    <li><strong>Dashboard:</strong> Overall trends (revenue, spend, ROAS, and more) plus campaigns across connected accounts</li>
+                    <li><strong>KPI Comparison:</strong> Side-by-side comparison (Starter and Enterprise)</li>
                     <li><strong>Accounts &amp; Campaigns:</strong> Google Ads, Search Ads 360, and Meta detail with breakdowns</li>
                     <li><strong>Google Analytics:</strong> GA4 home, reports, and Drive online sales views</li>
                   </ul>
@@ -237,7 +253,7 @@ export default function Documentation() {
                 <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
                   <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">Cross-Platform Comparison</h3>
                   <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                    Compare performance metrics across accounts and campaigns (Starter and Basic):
+                    Compare performance metrics across accounts and campaigns (Starter and Enterprise):
                   </p>
                   <ul className="list-disc pl-6 space-y-2 text-slate-600 dark:text-slate-300">
                     <li>Side-by-side comparison of ROI, CPA, and CTR</li>
@@ -250,7 +266,7 @@ export default function Documentation() {
                 <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
                   <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">API Access</h3>
                   <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                    Available on Starter and Basic. Pull analytics programmatically:
+                    Available on Starter and Enterprise. Pull analytics programmatically:
                   </p>
                   <ul className="list-disc pl-6 space-y-2 text-slate-600 dark:text-slate-300">
                     <li>Generate API keys from Settings → API Access</li>
@@ -263,7 +279,7 @@ export default function Documentation() {
                 <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
                   <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">Grok Bot automation</h3>
                   <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                    Starter and Basic. In-app Kai is read-only. The Grok Bot / Cursor plugin uses MCP to:
+                    Starter and Enterprise. In-app Kai is read-only. The Grok Bot / Cursor plugin uses MCP to:
                   </p>
                   <ul className="list-disc pl-6 space-y-2 text-slate-600 dark:text-slate-300">
                     <li>Brief Google vs Meta, GA4, SEO, and organic Facebook / Instagram from synced data</li>
@@ -353,7 +369,7 @@ export default function Documentation() {
 
                 <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
                   <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">Can I export my data?</h3>
-                  <p className="text-slate-600 dark:text-slate-300">Yes, you can export reports in CSV, Excel, or PDF formats from any report view. Starter and Basic also include API access for programmatic data retrieval.</p>
+                  <p className="text-slate-600 dark:text-slate-300">Yes, you can export reports in CSV, Excel, or PDF formats from any report view. Starter and Enterprise also include API access for programmatic data retrieval.</p>
                 </div>
 
                 <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">

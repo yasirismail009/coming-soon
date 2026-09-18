@@ -9,7 +9,7 @@ import { breadcrumbSchema, faqSchema, HELP_FAQS } from '@/lib/structuredData';
 export const metadata = pageMetadata({
   title: 'Help Center',
   description:
-    'Get help with Kampalo: account setup, Google Ads and Meta connections, billing, troubleshooting, and Kai.',
+    'Get help with Kampalo: account setup, Google Ads, Meta, and Shopify connections, billing, troubleshooting, and Kai.',
   path: '/help',
 });
 
@@ -20,7 +20,7 @@ export default function HelpCenter() {
       icon: '🚀',
       topics: [
         { question: 'How do I create an account?', answer: 'Click "Start Free Trial" on our homepage, enter your email, verify it, and complete your profile.' },
-        { question: 'What subscription plan should I choose?', answer: 'Start on Free (one platform connection) to explore Google Ads, Meta, GA4, organic insights, and SEO analysis. Kai is not on Free. Individual Starter is £8/month or £80/year and includes Kai for a single workspace (10 connections). Enterprise Basic is £40/month or £400/year for agencies — Kai, up to 4 brand clients, and 30 connections. Billing is in GBP.' },
+        { question: 'What subscription plan should I choose?', answer: 'Start on Free (one integration slot) to explore Google Ads, GA4, SEO, Meta Ads, Meta Organic, and Shopify. Kai is not on Free. Individual Starter is £8/month or £80/year and includes Kai for a single workspace (4 slots). Enterprise is £40/month or £400/year for agencies — Kai, up to 4 brand clients, and 16 slots. Billing is in GBP.' },
         { question: 'How long does setup take?', answer: 'Account setup takes less than 5 minutes. Platform connections typically take 2-5 minutes per integration.' },
       ],
     },
@@ -29,8 +29,9 @@ export default function HelpCenter() {
       icon: '🔌',
       topics: [
         { question: 'How do I connect my Google Ads account?', answer: 'Go to Settings → Integrations, click "Connect Google Ads", sign in with your Google account, and authorize access. Select the accounts you want to connect.' },
+        { question: 'How do I connect Shopify?', answer: 'Go to Connect, choose Shopify, enter your shop domain, and sign in. One shop login covers products, orders, customers, and store analytics. Shopify is its own platform connection — not folded into Google or Meta.' },
         { question: 'Why is my Meta Ads connection failing?', answer: 'Ensure you have admin access to the ad account, try disconnecting and reconnecting, or check that your Facebook account permissions are correct.' },
-        { question: 'Can I connect multiple accounts from the same platform?', answer: 'Yes. Free includes one connection. Starter allows up to 10 platform connections; Basic allows up to 30. Google Ads + GA4 + Search Console count as one connection; Meta ads + Page + Instagram count as one.' },
+        { question: 'Can I connect multiple accounts from the same platform?', answer: 'Yes. Free includes one slot. Starter allows 4 shared slots; Enterprise allows 16. Each Google Ads or Meta Ads account uses one slot. GA4 and SEO each use one slot per Gmail (all properties/sites included). Meta Organic uses one slot per Meta login. Each Shopify store uses one slot. You can connect more than one Gmail.' },
         { question: 'How do I refresh data from connected platforms?', answer: 'Click the "Refresh" button next to any connected platform in Settings → Integrations, or wait for automatic sync every 4-6 hours.' },
       ],
     },
@@ -48,9 +49,9 @@ export default function HelpCenter() {
       title: 'Kai AI Assistant',
       icon: '🤖',
       topics: [
-        { question: 'What is Kai?', answer: 'Kai is Kampalo’s AI marketing assistant on Starter and Basic (not Free). Ask questions in plain language about Google Ads, Meta, GA4, organic Facebook/Instagram insights, and SEO; Kai answers from your synced data and highlights which campaigns to scale. Kai does not pause live campaigns.' },
+        { question: 'What is Kai?', answer: 'Kai is Kampalo’s AI marketing assistant on Starter and Enterprise (not Free). Ask questions in plain language about Google Ads, Meta, Shopify, GA4, organic Facebook/Instagram insights, and SEO; Kai answers from your synced data and highlights which campaigns to scale. Kai does not pause live campaigns.' },
         { question: 'Does Kai call Google or Meta live in chat?', answer: 'No. Kai uses campaign stats already synced into Kampalo. Refresh integrations in the app when you need newer numbers.' },
-        { question: 'Can Grok Bot automate Kampalo?', answer: 'Yes, on Starter and Basic. The Grok Bot / Cursor plugin can brief synced data, propose a campaign pause, confirm it after you agree, set ads and SEO alerts, save dry-run ROAS rules, and generate report JSON. It does not change budgets or create campaigns. See the Grok Bot page.' },
+        { question: 'Can Grok Bot automate Kampalo?', answer: 'Yes, on Starter and Enterprise. The Grok Bot / Cursor plugin can brief synced data, propose a campaign pause, confirm it after you agree, set ads and SEO alerts, save dry-run ROAS rules, and generate report JSON. It does not change budgets or create campaigns. See the Grok Bot page.' },
         { question: 'Where can I learn more about Kai?', answer: 'Visit the Kai product page for how questions work, what data Kai can see, and how it fits with your dashboards.' },
       ],
     },
@@ -58,10 +59,10 @@ export default function HelpCenter() {
       title: 'Account & Billing',
       icon: '💳',
       topics: [
-        { question: 'How do I upgrade my plan?', answer: 'Go to Settings → Plan, choose Starter or Basic and monthly or yearly, then complete Stripe Checkout. Changes apply after payment confirms.' },
+        { question: 'How do I upgrade my plan?', answer: 'Go to Settings → Plan, choose Starter or Enterprise and monthly or yearly, then complete Stripe Checkout. Changes apply after payment confirms.' },
         { question: 'Can I cancel my subscription anytime?', answer: 'Yes. Cancel from Settings → Plan. Access stays until the end of the paid period; Stripe does not charge the next cycle.' },
         { question: 'Do you offer refunds?', answer: 'Refunds are handled on a case-by-case basis. Contact our support team to discuss your situation.' },
-        { question: 'What payment methods do you accept?', answer: 'Paid plans are billed in GBP through Stripe Checkout (major cards). You can switch monthly or yearly, and cancel at period end from Settings → Plan.' },
+        { question: 'What payment methods do you accept?', answer: 'Paid plans are billed in GBP through Stripe Checkout (major cards). Add or replace the card on file, and download invoices, from Settings → Invoices & cards. You can switch monthly or yearly, and cancel at period end from Settings → Plan.' },
       ],
     },
     {
@@ -155,8 +156,8 @@ export default function HelpCenter() {
             </h2>
             <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
             In the Kampalo app, disconnecting an integration permanently deletes synced data for that connection—there is
-              no recovery. Deleting your account from Settings removes all integrations, connections, and stored
-              analytics forever.
+              no recovery. Admins can permanently delete an Individual account or an Enterprise workspace from Settings
+              → Preferences (Danger Zone). Team members cannot.
             </p>
             <Link
               href="/data-deletion"

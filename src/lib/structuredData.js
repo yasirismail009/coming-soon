@@ -32,6 +32,7 @@ export function organizationSchema() {
     knowsAbout: [
       'Google Ads reporting',
       'Meta Ads reporting',
+      'Shopify store analytics',
       'marketing analytics',
       'ROAS',
       'GA4',
@@ -62,7 +63,7 @@ export function softwareApplicationSchema() {
     operatingSystem: 'Web',
     url: SITE_URL,
     description:
-      'Kampalo is AI-powered marketing analytics for Google Ads and Meta—one dashboard plus Kai, an assistant that recommends which campaigns to scale based on your synced performance data.',
+      'Kampalo is AI-powered marketing analytics for Google Ads, Meta, and Shopify—one dashboard plus Kai, an assistant that proposes what to scale from synced data. Live pauses wait for your confirm.',
     offers: {
       '@type': 'AggregateOffer',
       lowPrice: '0',
@@ -70,17 +71,18 @@ export function softwareApplicationSchema() {
       priceCurrency: 'GBP',
       offerCount: '3',
       description:
-        'Free £0; Individual Starter £8/month or £80/year; Enterprise Basic £40/month or £400/year. Annual billing is two months free.',
+        'Free £0; Individual Starter £8/month or £80/year; Enterprise £40/month or £400/year. Annual billing is two months free.',
     },
     creator: { '@id': `${SITE_URL}/#organization` },
     screenshot: absoluteUrl('/og-image.png'),
     featureList: [
-      'Unified Google Ads and Meta Ads dashboard',
+      'Unified Google Ads, Meta Ads, and Shopify dashboard',
       'Cross-platform ROAS, ROI, CPA, and CTR tracking',
-      'Kai AI assistant for campaign recommendations',
+      'Kai AI assistant — proposes; you confirm before live pauses',
       'Clear rankings for ROAS, CTR, and CPC winners',
       'GA4 and Search Console beside paid ads',
       'Organic Facebook and Instagram insights',
+      'Shopify products, orders, and store analytics',
       'Branded and scheduled reports',
       'Secure account connections with OAuth',
     ],
@@ -165,7 +167,7 @@ export const HELP_FAQS = [
   {
     question: 'What is Kai?',
     answer:
-      'Kai is Kampalo’s AI marketing assistant on Starter and Basic (not the Free plan). You ask questions in plain language about Google Ads, Meta, GA4, organic Facebook and Instagram insights, and SEO; Kai answers from your synced data and highlights which campaigns win on ROAS, CTR, and CPC.',
+      'Kai is Kampalo’s AI marketing assistant on Starter and Enterprise (not the Free plan). You ask questions in plain language about Google Ads, Meta, Shopify, GA4, organic Facebook and Instagram insights, and SEO; Kai answers from your synced data and highlights which campaigns win on ROAS, CTR, and CPC. Kai does not pause live campaigns.',
   },
   {
     question: 'Does Kai call Google or Meta live during chat?',
@@ -178,12 +180,17 @@ export const KAI_FAQS = [
   {
     question: 'How does Kai answer marketing questions?',
     answer:
-      'You ask in plain language. Kai looks at the relevant parts of your synced Google Ads, Meta, and analytics data, then ranks clear winners using ROAS, CTR, and CPC so you know what to scale.',
+      'You ask in plain language. Kai looks at the relevant parts of your synced Google Ads, Meta, Shopify, and analytics data, then ranks clear winners using ROAS, CTR, and CPC so you know what to scale.',
   },
   {
     question: 'What data can Kai access?',
     answer:
       'Kai can only use campaign and account stats already connected and synced in your Kampalo workspace. It does not open live Google or Meta API sessions while you chat.',
+  },
+  {
+    question: 'Does Kai pause campaigns on its own?',
+    answer:
+      'No. In-app Kai is read-only. Grok Bot can propose a pause from campaigns already selected in Kampalo. Live ads stay on until you explicitly confirm. That sign-off is the product, not a footnote.',
   },
   {
     question: 'Can developers connect Kai outside the chat screen?',
@@ -261,6 +268,24 @@ export const META_ADS_FAQS = [
   },
 ];
 
+export const SHOPIFY_FAQS = [
+  {
+    question: 'How do I connect Shopify to Kampalo?',
+    answer:
+      'Open Connect, choose Shopify, enter your shop domain, and sign in. One shop login covers products, orders, customers, and store analytics. Marketing events need that extra scope on the shop.',
+  },
+  {
+    question: 'Does Kampalo mix Shopify revenue into paid ROAS?',
+    answer:
+      'No. Paid Google and Meta ROAS stay on ads numbers. Store revenue sits beside spend so you can read blended ROI when you ask for it — it is not folded into campaign ROAS.',
+  },
+  {
+    question: 'Can Kai write to my Shopify store?',
+    answer:
+      'No. In-app Kai is read-only. Grok Bot / MCP does not write Shopify either. Kampalo syncs the shop; it does not change products, orders, or themes.',
+  },
+];
+
 export const AGENCYANALYTICS_FAQS = [
   {
     question: 'Is Kampalo an AgencyAnalytics alternative?',
@@ -322,7 +347,7 @@ export const HOME_FAQS = [
   {
     question: 'How long does connecting take?',
     answer:
-      'One OAuth flow per provider. Google covers Ads, Analytics and Search Console; Meta covers Ads, Page Insights and Instagram. The first sync starts immediately and you can watch its progress on the Connect screen.',
+      'One OAuth flow per provider. Google covers Ads, Analytics and Search Console; Meta covers Ads, Page Insights and Instagram; Shopify is its own shop login. The first sync starts immediately and you can watch its progress on the Connect screen.',
   },
   {
     question: 'Does Kampalo handle multiple currencies?',
@@ -340,9 +365,14 @@ export const HOME_FAQS = [
       'Only the data already synced into your workspace for the period in view. It answers with the same figures the dashboard shows and names the campaigns and accounts behind them.',
   },
   {
+    question: 'Does Kai pause campaigns by itself?',
+    answer:
+      'No. In-app Kai is read-only. Grok Bot can propose a pause from campaigns already in Kampalo. Live ads stay on until you confirm. That two-step sign-off is on purpose.',
+  },
+  {
     question: 'Is TikTok Ads supported?',
     answer:
-      'Not yet. It sits on the Connect screen as the next provider, alongside Google and Meta.',
+      'Not yet. It sits on the Connect screen as the next provider, alongside Google, Meta, and Shopify.',
   },
 ];
 
@@ -428,7 +458,7 @@ export const GA4_FAQS = [
   {
     question: 'Does Kampalo include GA4 with Google Ads?',
     answer:
-      'Yes. One Google sign-in can cover Google Ads, Search Ads 360, GA4, and Search Console, and that family counts as one platform connection on the plan.',
+      'Yes. One Google sign-in can cover Google Ads, GA4, and Search Console, but each product uses its own slot: selected Ads accounts each count, and GA4 and SEO each count once per Gmail.',
   },
   {
     question: 'Does Kai read GA4 as well as ads?',

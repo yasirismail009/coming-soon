@@ -14,7 +14,7 @@ export const metadata = pageMetadata({
 const steps = [
   'Open Connect and choose Google with an account that can access Analytics.',
   'Approve the GA4 scopes Kampalo requests. The same sign-in can include Ads and Search Console.',
-  'Select the properties your plan allows. This Google family counts as one platform connection.',
+  'Select the properties you need. GA4 uses one slot per Gmail (all properties). Google Ads accounts are extra slots.',
   'Wait for the first sync. Kai and the dashboard read this snapshot—not a live GA4 session while you chat.',
 ];
 

@@ -144,9 +144,9 @@ export default function DashboardAlternativesGuidePage() {
           <li>Price shape: per connection, per client, per source credit, or “free plus labour.”</li>
         </ul>
         <p>
-          Kampalo prices in GBP by platform connections (Free, Starter £8/month, Basic £40/month).
-          Google Ads + GA4 + Search Console count as one connection; Meta ads + Page + Instagram
-          count as one. That is cheap for two channels and the wrong model if you need eighty.
+          Kampalo prices in GBP by integration slots (Free, Starter £8/month, Enterprise £40/month).
+          Each Google Ads or Meta Ads account, Shopify store, and Gmail-level GA4 or SEO grant uses
+          one shared slot. That is cheap for mixed channels and the wrong model if you need eighty sources.
         </p>
       </section>
 

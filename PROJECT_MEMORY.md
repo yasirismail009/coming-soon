@@ -1,9 +1,9 @@
 # Kampalo Marketing Site — Project Memory
 
 ## Product
-- **Kampalo**: AI marketing analytics for Google Ads and Meta—one dashboard plus **Kai** (AI assistant).
+- **Kampalo**: AI marketing analytics for Google Ads, Meta, and Shopify—one dashboard plus **Kai** (AI assistant that proposes; you confirm).
 - Parent company: **Tekreign** (`tekreign.com`).
-- Positioning: outcome-led (“see all your ads / know what to scale”), not jargon-led.
+- Positioning: outcome-led (“see all your ads / know what to scale”), not jargon-led. Lead with **propose, then you confirm** — not unsupervised optimization.
 - This repo is the **Next.js 15 marketing site** (`kampalo.com`), not the app backend.
 
 ## Product feature inventory (shipped — 2026-07-24)
@@ -14,7 +14,7 @@ Source of truth for marketing. Translate to buyer language on pages; keep jargon
 - Roles: Admin / Manager / Marketer / Client User / Visitor
 - Multi-client org (agency home + brand clients); brand scoping per client
 - Subscriptions / plan feature gates (Ads, Search Console, GA4, etc.)
-- Public pricing (GBP): Free £0; Individual Starter £8/mo or £80/yr; Enterprise Basic £40/mo or £400/yr. Catalog: `src/lib/plans.js`. **Kai, Grok Bot, and MCP server are Starter/Basic only, not Free.** Surfaces on all plans: Google Ads, Meta Ads, GA4, Organic Insights (Facebook + Instagram), SEO analysis.
+- Public pricing (GBP): Free £0; Individual Starter £8/mo or £80/yr; Enterprise £40/mo or £400/yr. Catalog: `src/lib/plans.js`. **Kai, Grok Bot, and MCP server are Starter/Enterprise only, not Free.** Surfaces: Google Ads, GA4, SEO, Meta Ads, Meta Organic, Shopify. Pooled slots: Starter 4 / Enterprise 16.
 
 ### Google
 - Google Ads + SA360: OAuth, customers, campaigns, insights, campaign-detail by campaign
@@ -29,14 +29,19 @@ Source of truth for marketing. Translate to buyer language on pages; keep jargon
 - Toxicity scoring + auto comment moderation
 - Pixel / Conversions API endpoints (no durable outbox yet—do not oversell reliability on marketing)
 
+### Shopify
+- Live Connect suite (one shop OAuth) + in-app `/shopify` hub: products, orders, customers, analytics, marketing events
+- Own platform connection (not folded into Google or Meta). Marketing names it as a pillar; MCP still has **no Shopify write tools**
+- Do not mix store revenue into paid ads ROAS unless the product shows blended ROI explicitly
+
 ### Platform hub
 - Unified dashboard, connections, campaigns, overall stats, overall trends
 - Reports + schedules (brand / client / user scopes; Google Ads, Meta Ads, GA4, GSC, Meta organic)
 - Notifications (user-scoped, sync events)
-- **Kai** AI marketer agent: durable chat; tools over ads + Meta organic (internally LangGraph / OmniRoute—never name on marketing)
+- **Kai** AI marketer agent: durable chat; tools over ads + Meta organic (internally LangGraph / Grok + Gemini—never name on marketing)
 
 ### In-app navigation (exact labels)
-Kai → Dashboard → Trends → KPI Comparison → Accounts & Campaigns → Google Analytics → SEO Suite → Organic Insights → Reports → Connect
+Kai → Dashboard → Trends → KPI Comparison → Accounts & Campaigns → Google Analytics → SEO Suite → Organic Insights → Shopify → Reports → Connect
 (+ Ask Kai CTA; Settings via gear). Screenshots are **full product UI** (sidebar + page), light/dark pairs.
 
 ## Screenshot assets (`public/assets/`)
@@ -51,9 +56,10 @@ Kai → Dashboard → Trends → KPI Comparison → Accounts & Campaigns → Goo
 - Marketing UI brand casing: **Kampalo** (logo asset may still read KAMPALO).
 - Legal/policy pages may keep **KAMPALO** as product legal name.
 - Prefer buyer language: “AI assistant”, “synced data”, “which campaigns to scale”.
-- Avoid on marketing pages: supervisor, suite IDs, LangGraph, OmniRoute, Celery, deterministic, namespaced tools, WebSocket, JWT, X-Client-Id.
+- Avoid on marketing pages: supervisor, suite IDs, LangGraph, Grok API keys, Celery, deterministic, namespaced tools, WebSocket, JWT, X-Client-Id.
 - MCP only as brief “developer integrations” mention on unrelated pages. Grok Bot automation lives on `/kai/grok-bot` and `/kai/mcp`.
-- Prefer **synced** over **real-time**; Google + Meta are live; TikTok/LinkedIn/Shopify/Apple are **roadmap**.
+- Prefer **synced** over **real-time**; Google, Meta, and Shopify are live; TikTok/LinkedIn/Apple are **roadmap**.
+- Do not invent unsourced competitor-user complaints (including Madgicx). Contrast philosophy: AI proposes, the operator confirms.
 - SA360 OK as “Search Ads 360” for agency buyers; keep light.
 - Disconnect deletes synced data (align docs with `/data-deletion`).
 - One strong AI mention per viewport; unique meta per URL.
@@ -63,14 +69,15 @@ Kai → Dashboard → Trends → KPI Comparison → Accounts & Campaigns → Goo
 ## Differentiator — Kai (product truth)
 - AI marketer agent over synced Google/Meta ads + Meta organic; market as plain-language Q&A.
 - Hybrid: tools → findings → consistent ROAS/CTR/CPC rankings.
-- Pages: `/kai`, homepage `#kai` (`KaiHighlight`), `/kai/grok-bot` (Grok Bot / Cursor automations — confirmed pauses, alerts, ROAS rules), help/docs FAQs.
+- Homepage + `#kai` + `#automate`: **Kai proposes, you confirm.** In-app Kai stays read-only; Grok Bot pauses are two-step.
+- Pages: `/kai`, homepage `#kai` (`KaiHighlight`), `/kai/grok-bot` (Grok Bot / Cursor automations — confirmed pauses, alerts, ROAS rules), `/integrations/shopify`, help/docs FAQs.
 - In-app Kai is read-only. Live pause / alert / rule writes go through Grok Bot MCP (`automate_*`), not the chat screen.
 
 ## Architecture (this site)
-- Routes: `/`, `/kai`, `/kai/mcp`, `/kai/grok-bot`, `/compare`, `/alternatives`, `/about`, `/contact`, `/documentation`, `/help`, `/privacy`, `/terms`, `/cookies`, `/data-deletion`.
+- Routes: `/`, `/kai`, `/kai/mcp`, `/kai/grok-bot`, `/compare`, `/alternatives`, `/integrations`, `/integrations/shopify`, `/about`, `/contact`, `/documentation`, `/help`, `/privacy`, `/terms`, `/cookies`, `/data-deletion`.
 - SEO: `src/lib/site.js`, `src/lib/structuredData.js`, `src/lib/competitors.js`, `src/lib/blog.js`, `JsonLd`, `robots.js`, `sitemap.js`, HTML `/sitemap`, `/llms.txt`, `/humans.txt`, `/blog/rss.xml`, `public/og-image.png`.
 - Env: `NEXT_PUBLIC_SITE_URL`, optional `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`, optional `NEXT_PUBLIC_BING_SITE_VERIFICATION`.
 
 - Homepage order: Hero → Platforms → Features → Showcase → **KaiHighlight** → **GrokBotHighlight** (`#automate`) → Reports → Pricing → **AlternativesStrip** → FAQ…
 - Kai is the lead product story: hero badge/CTA, nav “Kai AI” pill, dedicated section with live screenshot + prompt chips.
-- Competitor SEO (2026-09-11): honest vs pages for AgencyAnalytics, Supermetrics, Databox, DashThis, Whatagraph, Looker Studio. Kampalo’s lane is Google + Meta operators + Kai — not 80-source portals or ETL. Roundup: `/blog/google-ads-meta-dashboard-alternatives`.
+- Competitor SEO (2026-09-11): honest vs pages for AgencyAnalytics, Supermetrics, Databox, DashThis, Whatagraph, Looker Studio. Kampalo’s lane is Google + Meta (+ Shopify commerce) operators + Kai with sign-off — not 80-source portals or ETL. Roundup: `/blog/google-ads-meta-dashboard-alternatives`. No Madgicx vs-page until sourced like the others.

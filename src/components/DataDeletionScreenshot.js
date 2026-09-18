@@ -13,7 +13,7 @@ const SCREENSHOTS = {
   accountDeletion: {
     light: '/assets/account_deletion.png',
     dark: '/assets/account_deletion_dark.png',
-    alt: 'KAMPALO Settings Security page showing Danger Zone and Delete account',
+    alt: 'Kampalo Settings Preferences showing Danger Zone and Delete account',
   },
 };
 

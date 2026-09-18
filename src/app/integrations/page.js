@@ -4,9 +4,9 @@ import { pageMetadata } from '@/lib/site';
 import { breadcrumbSchema, itemListSchema } from '@/lib/structuredData';
 
 export const metadata = pageMetadata({
-  title: 'Integrations — Google Ads, Meta, GA4, Search Console',
+  title: 'Integrations — Google Ads, Meta, Shopify, GA4, Search Console',
   description:
-    'Connect Google Ads, Meta Ads, GA4, and Search Console to Kampalo. One sign-in per provider. Kai reads the same synced data.',
+    'Connect Google Ads, Meta Ads, Shopify, GA4, and Search Console to Kampalo. One sign-in per provider. Kai reads the same synced data.',
   path: '/integrations',
 });
 
@@ -31,6 +31,11 @@ const items = [
     title: 'Search Console',
     body: 'Queries and pages in the SEO suite, on the same Google connection as Ads.',
   },
+  {
+    href: '/integrations/shopify',
+    title: 'Shopify',
+    body: 'One shop login for products, orders, customers, and store analytics beside your ads — not mixed into paid ROAS.',
+  },
 ];
 
 export default function IntegrationsIndexPage() {
@@ -50,8 +55,9 @@ export default function IntegrationsIndexPage() {
       <p className="km-kicker">Connections</p>
       <h1 className="km-h1 mb-6 text-[var(--km-ink)]">Kampalo integrations</h1>
       <p className="km-lead mb-12">
-        One OAuth flow per provider. Google covers the Google family; Meta covers ads and optional
-        organic insights. Refresh in the app when you want a newer snapshot.
+        One OAuth flow per provider. Each product uses a slot from the shared pool (Starter 4 /
+        Enterprise 16). Google Ads accounts, GA4, and SEO are billed separately even on the same
+        Gmail. Refresh in the app when you want a newer snapshot.
       </p>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {items.map((item) => (

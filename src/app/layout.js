@@ -24,13 +24,14 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: {
-    default: "Kampalo — AI Marketing Analytics for Google Ads & Meta",
+    default: "Kampalo — AI Marketing Analytics for Google, Meta & Shopify",
     template: "%s | Kampalo",
   },
   description:
-    "Kampalo unifies Google Ads and Meta in one dashboard. Ask Kai, our AI assistant, which campaigns to scale based on your synced performance data.",
+    "Kampalo unifies Google Ads, Meta, and Shopify in one dashboard. Kai proposes what to scale; live pauses wait for your confirm.",
   keywords: [
     "Google Ads Meta dashboard",
+    "Shopify ads dashboard",
     "AgencyAnalytics alternative",
     "Looker Studio alternative",
     "Databox alternative",
@@ -43,9 +44,9 @@ export const metadata = {
   publisher: "Kampalo",
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://kampalo.com"),
   openGraph: {
-    title: "Kampalo — AI Marketing Analytics for Google Ads & Meta",
+    title: "Kampalo — AI Marketing Analytics for Google, Meta & Shopify",
     description:
-      "One dashboard for Google Ads and Meta—plus Kai to recommend which campaigns deserve more budget.",
+      "One dashboard for Google Ads, Meta, and Shopify—plus Kai that proposes, and waits for your confirm.",
     url: "/",
     siteName: "Kampalo",
     images: [
@@ -53,7 +54,7 @@ export const metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Kampalo — AI marketing analytics for Google Ads and Meta",
+        alt: "Kampalo — AI marketing analytics for Google Ads, Meta, and Shopify",
       },
     ],
     locale: "en_GB",
@@ -61,9 +62,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kampalo — AI Marketing Analytics for Google Ads & Meta",
+    title: "Kampalo — AI Marketing Analytics for Google, Meta & Shopify",
     description:
-      "One dashboard for Google Ads and Meta—plus Kai to recommend which campaigns deserve more budget.",
+      "One dashboard for Google Ads, Meta, and Shopify—plus Kai that proposes, and waits for your confirm.",
     images: ["/og-image.png"],
     creator: "@kampalo",
   },

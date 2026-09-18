@@ -13,7 +13,7 @@ import {
 export const metadata = pageMetadata({
   title: 'Kai AI Agent — Ask Which Ads to Scale',
   description:
-    'Kai is Kampalo’s AI marketing assistant. Ask about Google Ads, Meta Ads, and Meta organic—get clear ROAS, CTR, and CPC guidance from your synced data.',
+    'Kai is Kampalo’s AI marketing assistant. It reads synced Google Ads, Meta, and Shopify data, proposes what to scale, and stays read-only in the app. Live pauses wait for your confirm.',
   path: '/kai',
 });
 
@@ -24,7 +24,7 @@ const flowSteps = [
   },
   {
     title: 'Check the right parts of your data',
-    body: 'Kai looks across Google Ads, Meta Ads, and Meta organic insights using the stats already synced into Kampalo.',
+    body: 'Kai looks across Google Ads, Meta Ads, Shopify, and Meta organic insights using the stats already synced into Kampalo.',
   },
   {
     title: 'Rank winners, then explain',
@@ -40,6 +40,10 @@ const specialtyAreas = [
   {
     title: 'Meta Ads',
     body: 'Facebook and Instagram ads performance, including useful breakdowns when available.',
+  },
+  {
+    title: 'Shopify',
+    body: 'Store products, orders, and analytics from the shop you connected — beside ads, not mixed into paid ROAS.',
   },
   {
     title: 'Meta organic',
@@ -72,9 +76,10 @@ export default function KaiPage() {
             Ask Kai which campaigns to scale
           </h1>
           <p className="text-xl text-slate-600 dark:text-slate-300 leading-relaxed mb-10">
-            Kai is the AI assistant inside Kampalo. Instead of exporting spreadsheets into a generic chatbot,
-            you ask about Google Ads, Meta Ads, and Meta organic—and get recommendations grounded in the data
-            already connected to your workspace.
+            Kai is the AI assistant inside Kampalo. You ask about Google Ads, Meta Ads, Shopify, and
+            Meta organic — it ranks winners from data already synced to your workspace. Kai stays
+            read-only in the app. If a campaign should pause, Grok Bot proposes it; live ads stay on
+            until you confirm.
           </p>
 
           <section className="mb-16 rounded-2xl bg-gradient-to-br from-[#4B95F0] to-[#6D4AFF] p-8 md:p-10 text-white">

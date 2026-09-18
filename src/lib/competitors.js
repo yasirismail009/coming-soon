@@ -19,7 +19,7 @@ export const TOOL_COMPARISONS = [
       ['SEO / rank tracking', 'Search Console + on-page audits you already own', 'Native SEO rank tracking and site audits'],
       ['AI', 'Kai answers from synced Kampalo stats', 'Ask AI / AI Tracker across client accounts'],
       ['Client delivery', 'Branded PDF/CSV per client, scheduled', 'White-label portal, live dashboards, tasks'],
-      ['Pricing model', 'GBP, by platform connections — Free, Starter £8/mo, Basic £40/mo', 'Typically campaign- or client-based agency plans'],
+      ['Pricing model', 'GBP, by integration slots — Free, Starter £8/mo, Enterprise £40/mo', 'Typically campaign- or client-based agency plans'],
     ],
     whenOtherTitle: 'When AgencyAnalytics is the better fit',
     whenOther:
@@ -97,7 +97,7 @@ export const TOOL_COMPARISONS = [
       ['Setup', 'Connect Google and Meta; dashboard fills on first sync', 'Pick a template, map widgets, send the report'],
       ['SEO / extra sources', 'Search Console + audits on the Google connection', 'Pulls SEO from other tools you already pay for'],
       ['AI', 'Kai ranks campaigns from synced stats', 'AI insights on the reporting layer'],
-      ['Pricing model', 'GBP by platform connections — from Free', 'Typically report- or source-capped agency plans'],
+      ['Pricing model', 'GBP by integration slots — from Free', 'Typically report- or source-capped agency plans'],
     ],
     whenOtherTitle: 'When DashThis is the better fit',
     whenOther:
@@ -123,7 +123,7 @@ export const TOOL_COMPARISONS = [
       ['Sources', 'Google Ads, Meta, GA4, Search Console, organic Meta', '50+ sources with blending and custom metrics'],
       ['Look & feel', 'Product UI the team works in daily', 'Client-ready visual reports as the core deliverable'],
       ['AI', 'Kai, grounded in synced Kampalo stats', 'Report-layer AI (Whatagraph IQ and similar)'],
-      ['Price shape', 'Starter £8/mo, Basic £40/mo (GBP)', 'Typically a much higher agency entry than a two-channel workspace'],
+      ['Price shape', 'Starter £8/mo, Enterprise £40/mo (GBP)', 'Typically a much higher agency entry than a two-channel workspace'],
     ],
     whenOtherTitle: 'When Whatagraph is the better fit',
     whenOther:

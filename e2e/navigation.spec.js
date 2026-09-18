@@ -58,7 +58,7 @@ test.describe('in-app navigation', () => {
     await expect(page.locator('#pricing')).toContainText('£8');
     await expect(page.locator('#pricing')).toContainText('£40');
     await expect(page.locator('#pricing')).toContainText('Starter');
-    await expect(page.locator('#pricing')).toContainText('Basic');
+    await expect(page.locator('#pricing')).toContainText('Enterprise');
     await expect(page.locator('#pricing')).not.toContainText('$3');
   });
 
@@ -99,12 +99,16 @@ test.describe('in-app navigation', () => {
     await expect(page.getByRole('link', { name: 'Home' }).first()).toBeVisible();
   });
 
-  test('integrations hub opens Google Ads and Meta pages', async ({ page }) => {
+  test('integrations hub opens Google Ads, Meta, and Shopify pages', async ({ page }) => {
     await page.goto('/integrations');
     await page.getByRole('link', { name: /Google Ads/i }).first().click();
     await expect(page).toHaveURL(/\/integrations\/google-ads$/);
     await page.goto('/integrations');
     await page.getByRole('link', { name: /Meta Ads/i }).first().click();
     await expect(page).toHaveURL(/\/integrations\/meta$/);
+    await page.goto('/integrations');
+    await page.getByRole('link', { name: /^Shopify$/i }).first().click();
+    await expect(page).toHaveURL(/\/integrations\/shopify$/);
+    await expect(page.getByRole('heading', { level: 1 })).toContainText(/Shopify/i);
   });
 });

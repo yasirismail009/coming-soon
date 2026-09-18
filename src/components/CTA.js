@@ -16,7 +16,7 @@ export default function CTA() {
           See your own numbers in Kampalo
         </h2>
         <p className="mx-auto mb-9 max-w-[32em] text-[1.125rem] leading-[1.65] text-[var(--km-muted)]">
-          Connect one Google or Meta account and the dashboard fills in on the first sync. Bring the rest when you are ready.
+          Connect Google, Meta, or Shopify and the dashboard fills in on the first sync. Bring the rest when you are ready.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3.5">
           <Link href="/contact" className="km-btn-primary">

@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 
 const stats = [
-  { value: 6, label: 'product surfaces reading one synced dataset' },
+  { value: 7, label: 'product surfaces reading one synced dataset' },
   { value: 9, label: 'metrics trended side by side on any window' },
   { value: 4, label: 'report templates, branded per client' },
   { value: 5, label: 'breakdowns behind every campaign' },

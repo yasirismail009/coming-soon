@@ -34,6 +34,7 @@ export const INDEXABLE_ROUTES = [
   { path: '/integrations/meta', title: 'Meta Ads', group: 'Integrations', priority: 0.85, changeFrequency: 'monthly' },
   { path: '/integrations/ga4', title: 'Google Analytics 4', group: 'Integrations', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/integrations/search-console', title: 'Search Console', group: 'Integrations', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/integrations/shopify', title: 'Shopify', group: 'Integrations', priority: 0.85, changeFrequency: 'monthly' },
   { path: '/blog', title: 'Blog', group: 'Resources', priority: 0.75, changeFrequency: 'weekly' },
   { path: '/blog/google-ads-meta-dashboard-alternatives', title: 'Best Google Ads and Meta dashboards in 2026', group: 'Resources', priority: 0.85, changeFrequency: 'monthly', lastModified: '2026-09-11' },
   { path: '/blog/google-ads-vs-meta', title: 'Google Ads vs Meta Ads', group: 'Resources', priority: 0.8, changeFrequency: 'monthly', lastModified: '2026-08-29' },

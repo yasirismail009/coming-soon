@@ -9,7 +9,7 @@ import LaptopFrame from '@/components/LaptopFrame';
 const prompts = [
   'Which campaigns have the best ROAS?',
   'Compare Google vs Meta this month',
-  'Where should I cut spend?',
+  'Which campaign should I pause?',
 ];
 
 export default function KaiHighlight() {
@@ -29,10 +29,10 @@ export default function KaiHighlight() {
         <div>
           <KaiMark size={56} />
           <h2 className="mt-[1.625rem] mb-[1.125rem] km-h2 font-extrabold leading-[1.08] tracking-[-0.035em]">
-            Ask Kai instead of building a pivot table
+            Ask Kai — it proposes, you confirm
           </h2>
           <p className="mb-7 text-[1.0625rem] leading-[1.7] text-[#6b5ea8] dark:text-[#B4A8E4] text-pretty">
-            Kai reads the same synced data the dashboard does. Ask which campaigns have the best ROAS, how Google compared to Meta this month, or where to cut spend — and get an answer with the numbers attached.
+            Kai reads the same synced data the dashboard does, then ranks what to scale or cut. In the app Kai stays read-only. Grok Bot can propose a pause; live ads stay on until you say so. AI that acts with your sign-off — not unsupervised optimization.
           </p>
           <div className="flex flex-col gap-[0.6875rem]">
             {prompts.map((prompt) => (

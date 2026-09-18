@@ -48,11 +48,11 @@ export default function Pricing() {
     <section id="pricing" className="km-wrap pt-28">
       <div className="mb-9 max-w-[40em]">
         <div className="km-kicker">Pricing</div>
-        <h2 className="km-h2">Priced by connections, not by seat</h2>
+        <h2 className="km-h2">Priced by integration slots, not by seat</h2>
         <p className="km-lead mb-3.5">
-          Billed in GBP. Kai, Grok Bot, and the MCP server are on Starter and Basic, not Free. Google
-          Ads, GA4 and Search Console count as one connection; Meta ads, Facebook Page and Instagram
-          count as one.
+          Billed in GBP. Kai, Grok Bot, and the MCP server are on Starter and Enterprise, not Free.
+          Starter has 4 shared slots; Enterprise has 16. Mix Google Ads, GA4, SEO, Meta Ads, Meta
+          Organic, Shopify, and TikTok.
         </p>
       </div>
       <div className="mb-8 flex flex-wrap items-center gap-3.5">
@@ -136,7 +136,7 @@ export default function Pricing() {
       </div>
       <p className="mt-7 text-[0.90625rem] text-[var(--km-faint)]">
         Grok Bot pauses are two-step (propose, then you confirm). In-app Kai stays read-only. Starter
-        and Basic include the MCP server at be.kampalo.com/mcp.{' '}
+        and Enterprise include the MCP server at be.kampalo.com/mcp.{' '}
         <AppLink href="/kai/grok-bot" className="font-semibold text-[var(--km-link)] hover:underline">
           Grok Bot
         </AppLink>

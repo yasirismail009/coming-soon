@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     q: 'Do you offer custom pricing above the published plans?',
-    a: 'Published plans are Free, Individual Starter (£8/month) and Enterprise Basic (£40/month, up to 4 brand clients). If you need more than 30 connections or more brand clients, write to us and we will talk through fit.',
+    a: 'Published plans are Free, Individual Starter (£8/month) and Enterprise (£40/month, up to 4 brand clients and 16 slots). If you need more slots or more brand clients, write to us and we will talk through fit.',
   },
   {
     q: 'Where is our data stored?',

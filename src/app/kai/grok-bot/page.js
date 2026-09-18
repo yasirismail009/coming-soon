@@ -15,7 +15,7 @@ import {
 export const metadata = pageMetadata({
   title: 'Grok Bot — Automate Kampalo Pauses, Alerts & Reports',
   description:
-    'Kampalo for Grok Bot (and Cursor): brief Google vs Meta from synced data, then propose pauses, confirm live, set ads and SEO alerts, and generate report JSON. In-app Kai stays read-only.',
+    'Kampalo for Grok Bot (and Cursor): brief Google vs Meta from synced data, then propose pauses and confirm live. AI that acts with your sign-off. In-app Kai stays read-only.',
   path: '/kai/grok-bot',
 });
 
@@ -65,12 +65,12 @@ export default function GrokBotPage() {
       <KaiMark size={40} className="mb-4" />
       <p className="km-kicker">Grok Bot · Cursor</p>
       <h1 className="km-h1 mb-6 text-[var(--km-ink)]">
-        Automate Kampalo from Grok Bot
+        Automate Kampalo from Grok Bot — with your sign-off
       </h1>
       <p className="km-lead mb-12">
         Install the Kampalo plugin. Grok Bot (or Cursor) reads the same synced workspace Kai uses,
-        then can act: propose pauses, confirm them, set alerts, and save ROAS rules. In-app Kai
-        stays read-only. Starter and Basic — not Free.
+        then can act: propose pauses, confirm them, set alerts, and save ROAS rules. Live ads stay
+        on until you confirm. In-app Kai stays read-only. Starter and Enterprise — not Free.
       </p>
 
       <section className="mb-16">

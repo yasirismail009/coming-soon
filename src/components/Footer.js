@@ -19,6 +19,7 @@ const footerLinks = {
     { name: 'Meta Ads', href: '/integrations/meta' },
     { name: 'Analytics 4', href: '/integrations/ga4' },
     { name: 'Search Console', href: '/integrations/search-console' },
+    { name: 'Shopify', href: '/integrations/shopify' },
   ],
   company: [
     { name: 'About us', href: '/about' },
