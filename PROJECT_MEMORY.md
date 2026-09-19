@@ -73,7 +73,7 @@ Kai → New Chat → Dashboard → Boards (when a valid pair is connected) → A
 - In-app Kai is read-only. Live pause / alert / rule writes go through Grok Bot MCP (`automate_*`), not the chat screen.
 
 ## Architecture (this site)
-- Routes: `/`, `/kai`, `/kai/mcp`, `/kai/grok-bot`, `/compare`, `/alternatives`, `/integrations`, `/integrations/shopify`, `/about`, `/contact`, `/documentation`, `/help`, `/privacy`, `/terms`, `/cookies`, `/data-deletion`.
+- Routes: `/`, `/kai`, `/kai/mcp`, `/kai/grok-bot`, `/boards`, `/compare`, `/alternatives`, `/integrations`, `/integrations/shopify`, `/about`, `/contact`, `/documentation`, `/help`, `/privacy`, `/terms`, `/cookies`, `/data-deletion`.
 - SEO: `src/lib/site.js`, `src/lib/structuredData.js`, `src/lib/competitors.js`, `src/lib/blog.js`, `JsonLd`, `robots.js`, `sitemap.js`, HTML `/sitemap`, `/llms.txt`, `/humans.txt`, `/blog/rss.xml`, `public/og-image.png`.
 - Env: `NEXT_PUBLIC_SITE_URL`, optional `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`, optional `NEXT_PUBLIC_BING_SITE_VERIFICATION`.
 

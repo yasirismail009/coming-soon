@@ -1,3 +1,5 @@
+import AppLink from '@/components/AppLink';
+
 const surfaces = [
   {
     title: 'Dashboard',
@@ -34,6 +36,7 @@ const surfaces = [
   },
   {
     title: 'Boards',
+    href: '/boards',
     body: 'Mix connected SEO, GA4, ads, and organic into one saved view. Free cannot create boards; Starter can create 4; Enterprise can create 16, pooled across brands — not 16 per brand.',
     more: 'Creating a board does not use an integration slot. Open the board for last-7-day KPIs and export the PDF from that page.',
     icon: (
@@ -98,18 +101,33 @@ export default function Features() {
         </p>
       </div>
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-        {surfaces.map((item) => (
-          <div key={item.title} className="km-card group px-[1.75rem] py-[2rem]">
-            <div className="km-icon-box">{item.icon}</div>
-            <h3 className="mt-5 mb-2 text-[1.25rem] font-extrabold tracking-[-0.015em]">{item.title}</h3>
-            <p className="m-0 text-[0.9375rem] leading-relaxed text-[var(--km-muted)]">{item.body}</p>
-            <div className="max-h-0 overflow-hidden opacity-0 transition-all duration-500 group-hover:mt-3.5 group-hover:max-h-40 group-hover:opacity-100">
-              <div className="border-t border-[var(--km-border)] pt-3.5 text-sm leading-relaxed text-[var(--km-link)]">
-                {item.more}
+        {surfaces.map((item) => {
+          const card = (
+            <>
+              <div className="km-icon-box">{item.icon}</div>
+              <h3 className="mt-5 mb-2 text-[1.25rem] font-extrabold tracking-[-0.015em]">{item.title}</h3>
+              <p className="m-0 text-[0.9375rem] leading-relaxed text-[var(--km-muted)]">{item.body}</p>
+              <div className="max-h-0 overflow-hidden opacity-0 transition-all duration-500 group-hover:mt-3.5 group-hover:max-h-40 group-hover:opacity-100">
+                <div className="border-t border-[var(--km-border)] pt-3.5 text-sm leading-relaxed text-[var(--km-link)]">
+                  {item.more}
+                </div>
               </div>
+            </>
+          );
+          const className = 'km-card group px-[1.75rem] py-[2rem]';
+          if (item.href) {
+            return (
+              <AppLink key={item.title} href={item.href} className={`${className} block no-underline text-inherit`}>
+                {card}
+              </AppLink>
+            );
+          }
+          return (
+            <div key={item.title} className={className}>
+              {card}
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

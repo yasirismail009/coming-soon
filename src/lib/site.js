@@ -20,6 +20,7 @@ export const INDEXABLE_ROUTES = [
   { path: '/kai', title: 'Kai AI assistant', group: 'Product', priority: 0.9, changeFrequency: 'weekly' },
   { path: '/kai/mcp', title: 'Kai MCP', group: 'Product', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/kai/grok-bot', title: 'Grok Bot automation', group: 'Product', priority: 0.85, changeFrequency: 'monthly' },
+  { path: '/boards', title: 'Boards', group: 'Product', priority: 0.9, changeFrequency: 'weekly' },
   { path: '/google-ads-meta-dashboard', title: 'Google Ads and Meta dashboard', group: 'Product', priority: 0.9, changeFrequency: 'weekly' },
   { path: '/compare', title: 'Compare Google Ads vs Meta', group: 'Product', priority: 0.85, changeFrequency: 'monthly' },
   { path: '/alternatives', title: 'Tool alternatives', group: 'Alternatives', priority: 0.9, changeFrequency: 'monthly' },

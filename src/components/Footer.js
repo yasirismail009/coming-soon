@@ -9,6 +9,7 @@ const footerLinks = {
     { name: 'Pricing', href: '/#pricing' },
     { name: 'Compare platforms', href: '/compare' },
     { name: 'Tool alternatives', href: '/alternatives' },
+    { name: 'Boards', href: '/boards' },
     { name: 'Google + Meta dashboard', href: '/google-ads-meta-dashboard' },
     { name: 'Kai MCP', href: '/kai/mcp' },
     { name: 'Grok Bot', href: '/kai/grok-bot' },

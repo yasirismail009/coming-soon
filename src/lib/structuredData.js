@@ -219,6 +219,24 @@ export const COMPARE_FAQS = [
   },
 ];
 
+export const BOARDS_FAQS = [
+  {
+    question: 'How many boards can I create?',
+    answer:
+      'Free cannot create boards. Starter can create 4. Enterprise can create 16, pooled across the agency home and up to 4 brand workspaces — not 16 per brand. Creating a board does not use an integration slot.',
+  },
+  {
+    question: 'What can I put on a board?',
+    answer:
+      'Connected SEO, GA4, ads campaigns, and Meta Organic. You need at least two different products. Google Ads plus Meta Ads alone is KPI Comparison, not a board. Shopify and TikTok are not board sources.',
+  },
+  {
+    question: 'Where do I export a board report?',
+    answer:
+      'On the board itself. Open the board for last-7-day KPIs, then preview or download the PDF there. You do not go through the Reports builder.',
+  },
+];
+
 export const DASHBOARD_FAQS = [
   {
     question: 'Can I see Google Ads and Meta in one dashboard?',

@@ -42,7 +42,15 @@ export default function HelpCenter() {
         { question: 'What metrics does Kampalo track?', answer: 'We track spend, impressions, clicks, conversions, ROI, ROAS, CTR, CPA, conversion rate, and related KPIs across connected platforms.' },
         { question: 'How do I create a custom report?', answer: 'Navigate to Reports → Create New Report, select your date range, platforms, metrics, and filters, then save or schedule the report.' },
         { question: 'Can I compare performance across platforms?', answer: 'Yes. KPI Comparison is Google vs Meta ads (Enterprise). Boards mix SEO, GA4, ads, and organic into one view. Free cannot create boards. Starter can create 4; Enterprise can create 16, shared across all brand workspaces — not 16 per brand. Linking campaigns does not use an integration slot.' },
-        { question: 'How many boards can I create?', answer: 'Free cannot create boards. Starter can create 4 in that workspace. Enterprise can create 16, pooled across the agency home and up to 4 brand workspaces — not 16 per brand. Creating a board does not use an integration slot. Google Ads plus Meta Ads alone is Comparison, not a board.' },
+        { question: 'How many boards can I create?', answer: (
+          <>
+            Free cannot create boards. Starter can create 4 in that workspace. Enterprise can create 16, pooled across the agency home and up to 4 brand workspaces — not 16 per brand. Creating a board does not use an integration slot. Google Ads plus Meta Ads alone is Comparison, not a board.{' '}
+            <Link href="/boards" className="text-[var(--km-accent)] font-medium hover:underline">
+              Boards page
+            </Link>
+            .
+          </>
+        ) },
         { question: 'What is a brand workspace on Enterprise?', answer: 'Each of the four brands is a full Kampalo workspace: its own Google, Meta, SEO, GA4, and Shopify connections, plus its own white-label reports. Billing, 16 slots, 16 boards, and Kai tokens are shared across the agency. Switch brands from the top bar; create, rename, or delete them on Clients.' },
         { question: 'How accurate is the data?', answer: 'Data is pulled directly from platform APIs and synced regularly. Some metrics may have slight delays due to platform processing times.' },
       ],

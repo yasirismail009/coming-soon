@@ -173,9 +173,17 @@ export default function Documentation() {
                 </div>
 
                 <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
-                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">Boards</h3>
+                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
+                    <a href="/boards" className="text-[var(--km-accent)] hover:underline">
+                      Boards
+                    </a>
+                  </h3>
                   <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                    A board is a saved mix of products you already connected (SEO, GA4, ads campaigns, Meta Organic). Minimum two different products. Google Ads plus Meta Ads alone is KPI Comparison, not a board.
+                    A board is a saved mix of products you already connected (SEO, GA4, ads campaigns, Meta Organic). Minimum two different products. Google Ads plus Meta Ads alone is KPI Comparison, not a board. Product page:{' '}
+                    <a href="/boards" className="text-[var(--km-accent)] font-medium hover:underline">
+                      kampalo.com/boards
+                    </a>
+                    .
                   </p>
                   <ul className="list-disc pl-6 space-y-2 text-slate-600 dark:text-slate-300">
                     <li>Creation limits: Free cannot create boards. Starter can create 4. Enterprise can create 16, counted across the agency home and all brands — not 16 per brand.</li>

@@ -31,7 +31,14 @@ test.describe('in-app navigation', () => {
     await expect(page.getByRole('heading', { name: 'Kampalo vs Supermetrics' })).toBeVisible();
   });
 
-  test('SEO landers are reachable from the footer', async ({ page }) => {
+  test('footer Boards opens the boards product page', async ({ page }) => {
+    await page.goto('/');
+    await page.getByRole('contentinfo').getByRole('link', { name: 'Boards', exact: true }).click();
+    await expect(page).toHaveURL(/\/boards$/);
+    await expect(page.getByRole('heading', { level: 1, name: /Boards for SEO, GA4, ads, and organic/i })).toBeVisible();
+    await expect(page.locator('main')).toContainText('Free cannot create boards');
+    await expect(page.locator('main')).toContainText('Create up to 16 boards');
+  });
     await page.goto('/');
     await page.getByRole('contentinfo').getByRole('link', { name: 'Google + Meta dashboard' }).click();
     await expect(page).toHaveURL(/\/google-ads-meta-dashboard$/);
