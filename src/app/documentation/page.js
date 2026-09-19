@@ -37,7 +37,7 @@ export default function Documentation() {
                     <li>Visit our homepage and click &quot;Start Free Trial&quot;</li>
                     <li>Pick Individual or Enterprise signup</li>
                     <li>Create your account and verify your email</li>
-                    <li>For Enterprise: set up your agency home and brand clients</li>
+                    <li>For Enterprise: the agency home is extra; add up to 4 brand workspaces — each with its own connections and white-label. Switch the workspace from the top bar.</li>
                     <li>Invite teammates with roles: Admin, Manager, Marketer, Client User, or Visitor</li>
                     <li>Choose a plan—feature access (Ads, GA4, Search Console, and more) follows your subscription</li>
                   </ol>
@@ -165,9 +165,23 @@ export default function Documentation() {
                   </p>
                   <ul className="list-disc pl-6 space-y-2 text-slate-600 dark:text-slate-300">
                     <li><strong>Dashboard:</strong> Overall trends (revenue, spend, ROAS, and more) plus campaigns across connected accounts</li>
-                    <li><strong>KPI Comparison:</strong> Side-by-side comparison (Starter and Enterprise)</li>
+                    <li><strong>KPI Comparison:</strong> Side-by-side Google vs Meta ads (Enterprise)</li>
+                    <li><strong>Boards:</strong> Mix connected SEO, GA4, ads, and organic. Creation limits: Free cannot create boards; Starter 4; Enterprise 16 pooled across brands (not 16 per brand)</li>
                     <li><strong>Accounts &amp; Campaigns:</strong> Google Ads, Search Ads 360, and Meta detail with breakdowns</li>
                     <li><strong>Google Analytics:</strong> GA4 home, reports, and Drive online sales views</li>
+                  </ul>
+                </div>
+
+                <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
+                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">Boards</h3>
+                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                    A board is a saved mix of products you already connected (SEO, GA4, ads campaigns, Meta Organic). Minimum two different products. Google Ads plus Meta Ads alone is KPI Comparison, not a board.
+                  </p>
+                  <ul className="list-disc pl-6 space-y-2 text-slate-600 dark:text-slate-300">
+                    <li>Creation limits: Free cannot create boards. Starter can create 4. Enterprise can create 16, counted across the agency home and all brands — not 16 per brand.</li>
+                    <li>Creating a board does not use an integration slot.</li>
+                    <li>Each board lives in a workspace. On Enterprise, switch the brand from the top bar; manage brands on Clients (up to 4 full brand workspaces, agency home extra).</li>
+                    <li>Open a board for last-7-day KPIs, then export the board PDF from that page — not the Reports builder.</li>
                   </ul>
                 </div>
 

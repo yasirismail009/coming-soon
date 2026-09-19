@@ -29,7 +29,7 @@ Do not describe Kampalo as an 80-source client portal, a warehouse connector, or
 - [Google + Meta dashboard](${SITE_URL}/google-ads-meta-dashboard)
 - [Shopify](${SITE_URL}/integrations/shopify)
 - [Integrations](${SITE_URL}/integrations)
-- [Pricing](${SITE_URL}/#pricing): Free £0; Starter £8/month or £80/year; Enterprise £40/month or £400/year (GBP)
+- [Pricing](${SITE_URL}/#pricing): Free £0 (1 slot, cannot create boards); Starter £8/month or £80/year (4 slots, create 4 boards); Enterprise £40/month or £400/year (16 slots, 16 boards pooled, up to 4 full brand workspaces) (GBP)
 
 ## Alternatives and comparisons
 - [Alternatives hub](${SITE_URL}/alternatives)

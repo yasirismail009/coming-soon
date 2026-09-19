@@ -65,7 +65,8 @@ export default function DataDeletionInstructionsPage() {
                 <strong className="text-red-700 dark:text-red-300">There is no data recovery.</strong> We do not retain a
                 separate &quot;backup&quot; copy of that integration&apos;s KAMPALO-stored data for you to restore after
                 disconnect. Your ad accounts on Google, Meta, or other providers are not deleted by this action—only
-                the copy and linkage inside KAMPALO is removed.
+                the copy and linkage inside KAMPALO is removed. The integration slot stays used after disconnect;
+                reconnect the same account, or contact support if this was a mistake.
               </p>
             </section>
 
@@ -109,6 +110,7 @@ export default function DataDeletionInstructionsPage() {
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
                 <strong className="text-red-700 dark:text-red-300">This cannot be undone.</strong> You will not be able
                 to recover connections, integrations, or the data that was stored in KAMPALO after account deletion.
+                We keep a hashed email for up to 30 days so the same address cannot immediately create a new workspace.
               </p>
             </section>
 

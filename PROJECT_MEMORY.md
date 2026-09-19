@@ -12,9 +12,9 @@ Source of truth for marketing. Translate to buyer language on pages; keep jargon
 ### Auth & tenancy
 - Individual + Enterprise signup; secure auth
 - Roles: Admin / Manager / Marketer / Client User / Visitor
-- Multi-client org (agency home + brand clients); brand scoping per client
+- Multi-client org: agency home + **up to 4 full brand workspaces** (own connections + white-label). Switch from the **top bar**. Billing, 16 slots, 16 boards, and Kai tokens are pooled — not ×4.
 - Subscriptions / plan feature gates (Ads, Search Console, GA4, etc.)
-- Public pricing (GBP): Free £0; Individual Starter £8/mo or £80/yr; Enterprise £40/mo or £400/yr. Catalog: `src/lib/plans.js`. **Kai, Grok Bot, and MCP server are Starter/Enterprise only, not Free.** Surfaces: Google Ads, GA4, SEO, Meta Ads, Meta Organic, Shopify. Pooled slots: Starter 4 / Enterprise 16.
+- Public pricing (GBP): Free £0; Individual Starter £8/mo or £80/yr; Enterprise £40/mo or £400/yr. Catalog: `src/lib/plans.js`. **Kai, Grok Bot, and MCP server are Starter/Enterprise only, not Free.** Surfaces: Google Ads, GA4, SEO, Meta Ads, Meta Organic, Shopify. Pooled slots: Starter 4 / Enterprise 16. **Board creation: Free cannot create / Starter 4 / Enterprise 16 pooled.**
 
 ### Google
 - Google Ads + SA360: OAuth, customers, campaigns, insights, campaign-detail by campaign
@@ -41,8 +41,7 @@ Source of truth for marketing. Translate to buyer language on pages; keep jargon
 - **Kai** AI marketer agent: durable chat; tools over ads + Meta organic (internally LangGraph / Grok + Gemini—never name on marketing)
 
 ### In-app navigation (exact labels)
-Kai → Dashboard → Trends → KPI Comparison → Accounts & Campaigns → Google Analytics → SEO Suite → Organic Insights → Shopify → Reports → Connect
-(+ Ask Kai CTA; Settings via gear). Screenshots are **full product UI** (sidebar + page), light/dark pairs.
+Kai → New Chat → Dashboard → Boards (when a valid pair is connected) → Accounts → Reports → Integrations → Comparison and Clients on Enterprise. Workspace switcher is in the top bar. Settings/Logout live in the account popover. Screenshots are **full product UI** (sidebar + page), light/dark pairs.
 
 ## Screenshot assets (`public/assets/`)
 - Prefer `*_Light.png` / `*_Dark.png` pairs. Map in `src/utils/dashboardScreenshots.js`.

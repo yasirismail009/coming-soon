@@ -243,7 +243,7 @@ export function ReportsTour() {
             <div className="km-card overflow-hidden px-[1.875rem] pt-[1.875rem]">
               <h3 className="mb-2 text-[1.1875rem] font-extrabold">Branding per client</h3>
               <p className="mb-[1.375rem] text-[0.90625rem] leading-relaxed text-[var(--km-muted)]">
-                Company name, three colours, light and dark logos and a centred footer line — saved against each brand client.
+                Company name, three colours, light and dark logos and a centred footer line — saved against each brand workspace.
               </p>
               <Shot
                 id="reportBranding"
@@ -284,7 +284,7 @@ export function ReportsTour() {
               </div>
               <div>
                 <div className="mb-1 text-base font-bold">Roles per workspace</div>
-                <p className="m-0 text-[0.9375rem] leading-relaxed text-[var(--km-muted)]">Invite your team, assign brand clients, and keep each client&apos;s accounts scoped to them.</p>
+                <p className="m-0 text-[0.9375rem] leading-relaxed text-[var(--km-muted)]">Invite your team, assign up to four full brand workspaces, and keep each brand&apos;s accounts scoped to them. Sixteen boards and sixteen slots stay pooled.</p>
               </div>
               <div>
                 <div className="mb-1 text-base font-bold">Disconnect at any time</div>
@@ -300,7 +300,7 @@ export function ReportsTour() {
           <div className="km-kicker">Workspaces &amp; team</div>
           <h2 className="km-h2">A workspace per client, one login for your team</h2>
           <p className="km-lead">
-            Switch between all clients, your own company and each brand client from the sidebar. Invite colleagues, set roles, and let each brand carry its own accounts, branding and report settings.
+            Switch between all clients, your company home, and each brand from the top-bar workspace control. Enterprise includes up to four full brand workspaces — each with its own connections, branding, and reports. Invite colleagues, set roles, and keep 16 boards and 16 slots pooled across the agency.
           </p>
         </div>
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-[1.25fr_1fr]">

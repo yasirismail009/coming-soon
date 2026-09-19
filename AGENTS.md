@@ -41,10 +41,10 @@ Contact form sends via EmailJS (`src/utils/emailjsClient.js`). Parent company co
 
 Source of truth for the marketing site: `src/lib/plans.js` (must match backend `create_subscription_plans.py`).
 
-- Free £0 — 1 integration slot, 1 campaign. Surfaces: Google Ads, GA4, SEO, Meta Ads, Meta Organic, Shopify. **No included Kai.** Grok Bot and MCP are not on Free. Anyone can buy Kai tokens (**£3.50 / 500,000**) from Settings → Plan.
-- Individual **Starter** £8/month or £80/year — **4 integration slots**, one workspace, **includes Kai (100k tokens/month; 150k on annual), Grok Bot, and MCP server**. Extra Kai: **£3.50 / 500k** anytime.
-- Enterprise **£40/month or £400/year** — **16 integration slots**, up to 4 brand clients, white-label, **includes Kai (500k tokens/month; 600k on annual), Grok Bot, and MCP server**. Extra Kai: **£3.50 / 500k** anytime. `plan_type` stays `basic` for Stripe.
-- Annual = two months free. Slots are pooled: each Google Ads / Meta Ads account, each Shopify store, and each TikTok advertiser is 1; GA4 and SEO are 1 per Gmail; Meta Organic is 1 per Meta login.
+- Free £0 — 1 integration slot, 1 campaign, **cannot create boards**. Surfaces: Google Ads, GA4, SEO, Meta Ads, Meta Organic, Shopify. **No included Kai.** Grok Bot and MCP are not on Free. Anyone can buy Kai tokens (**£3.50 / 500,000**) from Settings → Plan.
+- Individual **Starter** £8/month or £80/year — **4 integration slots**, **create up to 4 boards**, one workspace, **includes Kai (100k tokens/month; 150k on annual), Grok Bot, and MCP server**. Extra Kai: **£3.50 / 500k** anytime.
+- Enterprise **£40/month or £400/year** — **16 integration slots**, **create up to 16 boards pooled across the agency (not 16 per brand)**, **up to 4 full brand workspaces** (each with its own connections and white-label; agency home extra), white-label, **includes Kai (500k tokens/month; 600k on annual), Grok Bot, and MCP server**. Extra Kai: **£3.50 / 500k** anytime. `plan_type` stays `basic` for Stripe.
+- Annual = two months free. Slots are pooled: each Google Ads / Meta Ads account, each Shopify store, and each TikTok advertiser is 1; GA4 and SEO are 1 per Gmail; Meta Organic is 1 per Meta login. Slots stay used after disconnect; support can release a hold. Self-delete starts a 30-day hashed-email signup cooldown.
 - Named pillars: Google, Meta, and Shopify. TikTok Ads stays “soon” (not shipping).
 - Homepage pitch: Kai/Grok Bot propose; live ads stay on until the operator confirms. Do not put unsourced competitor-user claims on the homepage. No `/compare/madgicx` unless sourced like the other vs pages.
 - Grok Bot / Cursor automations: `/kai/grok-bot` (in-app Kai is read-only; confirmed pauses, alerts, ROAS rules via MCP).

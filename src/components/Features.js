@@ -25,10 +25,22 @@ const surfaces = [
   {
     title: 'KPI comparison',
     body: 'Google against Meta, account against account, client against client — with the better value marked in every row.',
-    more: 'Currencies stay labelled rather than silently converted.',
+    more: 'Enterprise. Google Ads plus Meta Ads alone is Comparison, not a board.',
     icon: (
       <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="#8CC0FF" strokeWidth="1.7" strokeLinecap="round" aria-hidden>
         <path d="M12 3v18M5 7l-3 7h6zM19 7l-3 7h6zM6 5h12" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Boards',
+    body: 'Mix connected SEO, GA4, ads, and organic into one saved view. Free cannot create boards; Starter can create 4; Enterprise can create 16, pooled across brands — not 16 per brand.',
+    more: 'Creating a board does not use an integration slot. Open the board for last-7-day KPIs and export the PDF from that page.',
+    icon: (
+      <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="#8CC0FF" strokeWidth="1.7" strokeLinecap="round" aria-hidden>
+        <rect x="3" y="4" width="8" height="7" rx="1.5" />
+        <rect x="13" y="4" width="8" height="7" rx="1.5" />
+        <rect x="3" y="13" width="18" height="7" rx="1.5" />
       </svg>
     ),
   },
@@ -80,7 +92,7 @@ export default function Features() {
     <section id="platform" className="km-wrap pt-28">
       <div className="mb-[3.25rem] max-w-[42em]">
         <div className="km-kicker">The platform</div>
-        <h2 className="km-h2">Seven surfaces, one source of numbers</h2>
+        <h2 className="km-h2">The surfaces, one source of numbers</h2>
         <p className="km-lead">
           Every view reads from the same synced data, so the ROAS on a client report matches the ROAS in the dashboard and the one Kai quotes back to you.
         </p>

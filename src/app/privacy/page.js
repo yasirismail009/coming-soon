@@ -218,9 +218,10 @@ export default function PrivacyPolicy() {
                 We retain your personal information and synced marketing data for as long as your workspace remains
                 active, unless a longer period is required or permitted by law. When an admin deletes the account or
                 workspace, we permanently delete the Kampalo-stored copy of that data, including connections, tokens, and
-                synced analytics. We may still retain a limited subset where the law requires it (for example billing,
-                tax, or security logs) only for as long as necessary. Stripe may retain payment records under its own
-                policies even after we cancel the subscription.
+                synced analytics. We keep a hashed copy of the deleting admin&apos;s email for up to 30 days solely to
+                prevent immediate re-registration abuse; that hash is not used for marketing. We may still retain a
+                limited subset where the law requires it (for example billing, tax, or security logs) only for as long as
+                necessary. Stripe may retain payment records under its own policies even after we cancel the subscription.
               </p>
             </section>
 

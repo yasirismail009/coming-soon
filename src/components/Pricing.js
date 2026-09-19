@@ -51,8 +51,9 @@ export default function Pricing() {
         <h2 className="km-h2">Priced by integration slots, not by seat</h2>
         <p className="km-lead mb-3.5">
           Billed in GBP. Kai, Grok Bot, and the MCP server are on Starter and Enterprise, not Free.
-          Starter has 4 shared slots; Enterprise has 16. Mix Google Ads, GA4, SEO, Meta Ads, Meta
-          Organic, Shopify, and TikTok.
+          Board creation: Free 0, Starter 4, Enterprise 16 (pooled across brands). Starter has 4
+          shared slots; Enterprise has 16 slots plus up to 4 full brand workspaces. Mix Google Ads,
+          GA4, SEO, Meta Ads, Meta Organic, Shopify, and TikTok.
         </p>
       </div>
       <div className="mb-8 flex flex-wrap items-center gap-3.5">
@@ -108,7 +109,12 @@ export default function Pricing() {
               </div>
               <div className="mb-6 text-sm text-[var(--km-faint)]">
                 Up to {plan.max_connections} platform connection{plan.max_connections === 1 ? '' : 's'}
-                {plan.max_clients > 1 ? ` · ${plan.max_clients} brand clients` : ''}
+                {plan.max_boards === 0
+                  ? ' · cannot create boards'
+                  : plan.max_boards != null
+                    ? ` · create up to ${plan.max_boards} board${plan.max_boards === 1 ? '' : 's'}`
+                    : ''}
+                {plan.max_clients > 1 ? ` · ${plan.max_clients} brand workspaces` : ''}
               </div>
               <div className="mb-8 grid flex-1 content-start gap-[0.625rem] text-[0.90625rem]">
                 {plan.features.map((f) => (

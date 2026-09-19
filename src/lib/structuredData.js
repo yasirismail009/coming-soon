@@ -174,6 +174,11 @@ export const HELP_FAQS = [
     answer:
       'No. Kai uses campaign stats already synced into Kampalo. Refresh your integrations in the app when you need newer numbers.',
   },
+  {
+    question: 'How many boards can I create?',
+    answer:
+      'Free cannot create boards. Starter can create 4. Enterprise can create 16, pooled across the agency home and up to 4 brand workspaces — not 16 per brand. Creating a board does not use an integration slot.',
+  },
 ];
 
 export const KAI_FAQS = [
@@ -295,7 +300,7 @@ export const AGENCYANALYTICS_FAQS = [
   {
     question: 'Does Kampalo white-label reports for clients?',
     answer:
-      'Yes. Brand clients get their own colours, logo, and footer on scheduled PDFs and CSVs. Kampalo is not a full client login portal with tasks and proposals.',
+      'Yes. Each of the four Enterprise brand workspaces gets its own colours, logo, and footer on scheduled PDFs and CSVs. Kampalo is not a full client login portal with tasks and proposals.',
   },
 ];
 
@@ -357,7 +362,7 @@ export const HOME_FAQS = [
   {
     question: 'Can clients see their own data?',
     answer:
-      'Brand clients scope a workspace to the accounts assigned to them, with their own report branding. Most teams still send the branded PDF rather than a login.',
+      'Enterprise includes up to four full brand workspaces — each with its own connections and white-label. Sixteen boards and sixteen slots are shared across the agency. Most teams still send the branded PDF rather than a client login.',
   },
   {
     question: 'What is Kai actually reading?',

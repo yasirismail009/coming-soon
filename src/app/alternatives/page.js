@@ -83,8 +83,9 @@ export default function AlternativesPage() {
         <h2 className="km-h2">Pricing in one line</h2>
         <p className="mb-6 text-lg leading-relaxed text-[var(--km-muted)]">
           Kampalo is billed in GBP by integration slots: Free £0, Individual Starter £8/month
-          (or £80/year), Enterprise £40/month (or £400/year). Starter has 4 shared slots;
-          Enterprise has 16, plus up to 4 brand clients. Agency
+          (or £80/year), Enterprise £40/month (or £400/year). Starter has 4 shared slots and you
+          can create 4 boards; Enterprise has 16 slots, 16 boards pooled, plus up to 4 full brand
+          workspaces. Agency
           reporting tools usually price per client, per report, or per source credit—right for a
           different product.
         </p>

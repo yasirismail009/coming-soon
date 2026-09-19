@@ -20,7 +20,7 @@ export default function HelpCenter() {
       icon: '🚀',
       topics: [
         { question: 'How do I create an account?', answer: 'Click "Start Free Trial" on our homepage, enter your email, verify it, and complete your profile.' },
-        { question: 'What subscription plan should I choose?', answer: 'Start on Free (one integration slot) to explore Google Ads, GA4, SEO, Meta Ads, Meta Organic, and Shopify. Kai is not on Free. Individual Starter is £8/month or £80/year and includes Kai for a single workspace (4 slots). Enterprise is £40/month or £400/year for agencies — Kai, up to 4 brand clients, and 16 slots. Billing is in GBP.' },
+        { question: 'What subscription plan should I choose?', answer: 'Start on Free (one integration slot; you cannot create boards). Individual Starter is £8/month or £80/year: Kai, 4 slots, and you can create 4 boards in one workspace. Enterprise is £40/month or £400/year for agencies: Kai, 16 slots, 16 boards pooled across the org, and up to 4 full brand workspaces. Billing is in GBP.' },
         { question: 'How long does setup take?', answer: 'Account setup takes less than 5 minutes. Platform connections typically take 2-5 minutes per integration.' },
       ],
     },
@@ -31,7 +31,7 @@ export default function HelpCenter() {
         { question: 'How do I connect my Google Ads account?', answer: 'Go to Settings → Integrations, click "Connect Google Ads", sign in with your Google account, and authorize access. Select the accounts you want to connect.' },
         { question: 'How do I connect Shopify?', answer: 'Go to Connect, choose Shopify, enter your shop domain, and sign in. One shop login covers products, orders, customers, and store analytics. Shopify is its own platform connection — not folded into Google or Meta.' },
         { question: 'Why is my Meta Ads connection failing?', answer: 'Ensure you have admin access to the ad account, try disconnecting and reconnecting, or check that your Facebook account permissions are correct.' },
-        { question: 'Can I connect multiple accounts from the same platform?', answer: 'Yes. Free includes one slot. Starter allows 4 shared slots; Enterprise allows 16. Each Google Ads or Meta Ads account uses one slot. GA4 and SEO each use one slot per Gmail (all properties/sites included). Meta Organic uses one slot per Meta login. Each Shopify store uses one slot. You can connect more than one Gmail.' },
+        { question: 'Can I connect multiple accounts from the same platform?', answer: 'Yes. Free includes one slot. Starter allows 4 shared slots; Enterprise allows 16. Each Google Ads or Meta Ads account uses one slot. GA4 and SEO each use one slot per Gmail (all properties/sites included). Meta Organic uses one slot per Meta login. Each Shopify store uses one slot. You can connect more than one Gmail. Disconnecting does not return a slot — reconnect the same account, or contact support if you attached the wrong one.' },
         { question: 'How do I refresh data from connected platforms?', answer: 'Click the "Refresh" button next to any connected platform in Settings → Integrations, or wait for automatic sync every 4-6 hours.' },
       ],
     },
@@ -41,7 +41,9 @@ export default function HelpCenter() {
       topics: [
         { question: 'What metrics does Kampalo track?', answer: 'We track spend, impressions, clicks, conversions, ROI, ROAS, CTR, CPA, conversion rate, and related KPIs across connected platforms.' },
         { question: 'How do I create a custom report?', answer: 'Navigate to Reports → Create New Report, select your date range, platforms, metrics, and filters, then save or schedule the report.' },
-        { question: 'Can I compare performance across platforms?', answer: 'Yes, use the Cross-Platform Comparison feature to analyze performance side-by-side and identify trends.' },
+        { question: 'Can I compare performance across platforms?', answer: 'Yes. KPI Comparison is Google vs Meta ads (Enterprise). Boards mix SEO, GA4, ads, and organic into one view. Free cannot create boards. Starter can create 4; Enterprise can create 16, shared across all brand workspaces — not 16 per brand. Linking campaigns does not use an integration slot.' },
+        { question: 'How many boards can I create?', answer: 'Free cannot create boards. Starter can create 4 in that workspace. Enterprise can create 16, pooled across the agency home and up to 4 brand workspaces — not 16 per brand. Creating a board does not use an integration slot. Google Ads plus Meta Ads alone is Comparison, not a board.' },
+        { question: 'What is a brand workspace on Enterprise?', answer: 'Each of the four brands is a full Kampalo workspace: its own Google, Meta, SEO, GA4, and Shopify connections, plus its own white-label reports. Billing, 16 slots, 16 boards, and Kai tokens are shared across the agency. Switch brands from the top bar; create, rename, or delete them on Clients.' },
         { question: 'How accurate is the data?', answer: 'Data is pulled directly from platform APIs and synced regularly. Some metrics may have slight delays due to platform processing times.' },
       ],
     },
@@ -156,8 +158,10 @@ export default function HelpCenter() {
             </h2>
             <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
             In the Kampalo app, disconnecting an integration permanently deletes synced data for that connection—there is
-              no recovery. Admins can permanently delete an Individual account or an Enterprise workspace from Settings
-              → Preferences (Danger Zone). Team members cannot.
+              no recovery. The integration slot stays used; contact support if you disconnected by mistake. Admins can
+              permanently delete an Individual account or an Enterprise workspace from Settings
+              → Preferences (Danger Zone). After self-delete we keep a hashed email for up to 30 days so the same
+              address cannot immediately create a new workspace. Team members cannot delete the workspace.
             </p>
             <Link
               href="/data-deletion"
