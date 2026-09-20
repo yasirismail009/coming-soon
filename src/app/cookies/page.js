@@ -86,7 +86,7 @@ export default function CookiesPolicy() {
                 <li>Track user journeys and navigation patterns</li>
               </ul>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                <strong>Examples:</strong> Google Analytics cookies, performance monitoring tools
+                <strong>Examples:</strong> Google Analytics cookies, Microsoft Clarity cookies, performance monitoring tools
               </p>
 
               <h3 className="text-xl font-semibold text-slate-900 dark:text-white mt-6 mb-3">3.3 Functionality Cookies</h3>
@@ -145,6 +145,11 @@ export default function CookiesPolicy() {
                       <td className="border border-slate-300 dark:border-slate-700 px-[1rem] py-[0.5rem] text-slate-600 dark:text-slate-300">2 years / 24 hours</td>
                     </tr>
                     <tr>
+                      <td className="border border-slate-300 dark:border-slate-700 px-[1rem] py-[0.5rem] text-slate-600 dark:text-slate-300">_clck, _clsk</td>
+                      <td className="border border-slate-300 dark:border-slate-700 px-[1rem] py-[0.5rem] text-slate-600 dark:text-slate-300">Microsoft Clarity - session replay, heatmaps, and usage analytics on kampalo.com and the app</td>
+                      <td className="border border-slate-300 dark:border-slate-700 px-[1rem] py-[0.5rem] text-slate-600 dark:text-slate-300">1 year / 1 day</td>
+                    </tr>
+                    <tr>
                       <td className="border border-slate-300 dark:border-slate-700 px-[1rem] py-[0.5rem] text-slate-600 dark:text-slate-300">dashboard_preferences</td>
                       <td className="border border-slate-300 dark:border-slate-700 px-[1rem] py-[0.5rem] text-slate-600 dark:text-slate-300">Stores user dashboard layout preferences</td>
                       <td className="border border-slate-300 dark:border-slate-700 px-[1rem] py-[0.5rem] text-slate-600 dark:text-slate-300">1 year</td>
@@ -161,6 +166,7 @@ export default function CookiesPolicy() {
               </p>
               <ul className="list-disc pl-6 mb-4 text-slate-600 dark:text-slate-300 space-y-2">
                 <li><strong>Google Analytics:</strong> Web analytics service to understand website usage</li>
+                <li><strong>Microsoft Clarity:</strong> Session recordings, heatmaps, and behavioral analytics on the marketing site and in-app dashboard</li>
                 <li><strong>Payment processors:</strong> Cookies for secure payment processing</li>
                 <li><strong>Customer support tools:</strong> Cookies to provide support services</li>
                 <li><strong>Security services:</strong> Cookies for fraud prevention and security monitoring</li>

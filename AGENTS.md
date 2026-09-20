@@ -31,6 +31,8 @@ Hash URLs (`/#pricing`) and header/footer CTAs must use a real `<a>` / `AppLink`
 
 Contact form sends via EmailJS (`src/utils/emailjsClient.js`). Parent company contact is `src/constants/companyContact.js`.
 
+Microsoft Clarity (2026-09-20): `@microsoft/clarity` project `yld0ipfw7j` via `ClarityInit` in the root layout (`src/lib/clarity.js`). Tag `app=landing`. Same project as the SPA. CSP in `next.config.mjs` allows Clarity plus the existing Google Analytics (`G-1VKP8S34NJ`) hosts. Playwright `navigator.webdriver` skips init. Cookies/privacy pages list `_clck` / `_clsk`. Do not add a second snippet or project.
+
 ## Do not
 
 - Add a second CSS/UI library

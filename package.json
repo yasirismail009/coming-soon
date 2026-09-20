@@ -10,6 +10,7 @@
     "test:e2e": "playwright test"
   },
   "dependencies": {
+    "@microsoft/clarity": "^1.0.2",
     "framer-motion": "^12.27.5",
     "next": "15.4.8",
     "react": "19.1.2",

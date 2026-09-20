@@ -3,6 +3,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import Script from "next/script";
 import JsonLd from "@/components/JsonLd";
+import ClarityInit from "@/components/ClarityInit";
 import {
   organizationSchema,
   softwareApplicationSchema,
@@ -175,6 +176,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className={`${jakarta.variable} ${geistMono.variable} antialiased`}>
+        <ClarityInit />
         <JsonLd
           data={[organizationSchema(), websiteSchema(), softwareApplicationSchema()]}
         />

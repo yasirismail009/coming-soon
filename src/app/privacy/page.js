@@ -125,6 +125,11 @@ export default function PrivacyPolicy() {
                   limited card-on-file details such as brand and last four digits when you add a card
                 </li>
                 <li>Email and communication services</li>
+                <li>
+                  Website analytics (Google Analytics and Microsoft Clarity). Clarity records page interactions
+                  (session replay and heatmaps) on kampalo.com and app.kampalo.com; custom user IDs are hashed in
+                  the browser before they are sent
+                </li>
                 <li>Connected advertising platforms you authorize (Google, Meta, and Shopify when enabled)</li>
               </ul>
 
