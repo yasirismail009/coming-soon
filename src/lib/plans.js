@@ -57,8 +57,10 @@ export const PLANS = [
     max_clients: 1,
     emphasis: 'popular',
     badge: 'Most chosen',
-    cta: 'Start with Starter',
+    cta: 'Start 7-day trial',
+    trialDays: 7,
     features: [
+      '7-day free trial (card required)',
       '4 integration slots (mix Google Ads, GA4, SEO, Meta, Shopify, TikTok)',
       'Create up to 4 boards (SEO, GA4, ads, and organic mixes)',
       'One Individual workspace',
@@ -88,8 +90,10 @@ export const PLANS = [
     max_clients: 4,
     emphasis: 'premium',
     badge: 'For agencies',
-    cta: 'Start with Enterprise',
+    cta: 'Start 7-day trial',
+    trialDays: 7,
     features: [
+      '7-day free trial (card required)',
       '16 integration slots shared across brands (for example 4+4+4+4 or 8+8)',
       'Create up to 16 boards, pooled across the agency (not 16 per brand)',
       'Up to 4 brand workspaces — each with its own connections and white-label (agency home extra)',

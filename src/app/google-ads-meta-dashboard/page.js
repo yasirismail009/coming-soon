@@ -100,7 +100,7 @@ export default function GoogleAdsMetaDashboardPage() {
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
               <a href="/#pricing" className="km-btn-primary">
-                See pricing
+                Start 7-day trial
               </a>
               <Link href="/alternatives" className="km-btn-ghost">
                 AgencyAnalytics alternatives

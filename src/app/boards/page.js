@@ -110,7 +110,7 @@ export default function BoardsPage() {
         </p>
         <div className="flex flex-col gap-4 sm:flex-row">
           <a href="/#pricing" className="km-btn-primary">
-            See board limits on pricing
+            Start 7-day trial
           </a>
           <Link href="/google-ads-meta-dashboard" className="km-btn-ghost">
             Google + Meta dashboard

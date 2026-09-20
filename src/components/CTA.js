@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 export default function CTA() {
   return (
     <section
@@ -19,11 +17,11 @@ export default function CTA() {
           Connect Google, Meta, or Shopify and the dashboard fills in on the first sync. Bring the rest when you are ready.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3.5">
-          <Link href="/contact" className="km-btn-primary">
+          <a href="#pricing" className="km-btn-primary">
+            Start 7-day trial
+          </a>
+          <a href="/contact" className="km-btn-ghost">
             Contact us
-          </Link>
-          <a href="#pricing" className="km-btn-ghost">
-            See pricing
           </a>
         </div>
       </div>

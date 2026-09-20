@@ -78,7 +78,7 @@ export function softwareApplicationSchema() {
       priceCurrency: 'GBP',
       offerCount: '3',
       description:
-        'Free £0; Individual Starter £8/month or £80/year; Enterprise £40/month or £400/year. Annual billing is two months free.',
+        'Free £0; Individual Starter £8/month or £80/year with a 7-day trial (card required); Enterprise £40/month or £400/year with the same 7-day trial. Annual billing is two months free.',
     },
     creator: { '@id': `${SITE_URL}/#organization` },
     screenshot: absoluteUrl('/og-image.png'),
@@ -160,7 +160,7 @@ export const HELP_FAQS = [
   {
     question: 'How do I create a Kampalo account?',
     answer:
-      'Click Start Free Trial on the homepage, enter your email, verify it, and complete your profile. Most people finish setup in under five minutes.',
+      'Open kampalo.com pricing, choose Start free or Start 7-day trial, enter your email, verify it, and complete your profile. Most people finish setup in under five minutes.',
   },
   {
     question: 'How do I connect Google Ads?',
@@ -351,7 +351,7 @@ export const AGENCYANALYTICS_FAQS = [
   {
     question: 'Is Kampalo cheaper than AgencyAnalytics?',
     answer:
-      'Kampalo is billed in GBP by integration slots: Free £0, Starter £8/month, Enterprise £40/month. AgencyAnalytics typically prices per client. That looks cheaper for two channels and more expensive if you need dozens of sources per client.',
+      'Kampalo is billed in GBP by integration slots: Free £0, Starter £8/month with a 7-day trial, Enterprise £40/month with the same trial. AgencyAnalytics typically prices per client. That looks cheaper for two channels and more expensive if you need dozens of sources per client.',
   },
   {
     question: 'Does Kampalo white-label reports for clients?',
@@ -439,6 +439,11 @@ export const HOME_FAQS = [
     question: 'Does Kai pause campaigns by itself?',
     answer:
       'No. In-app Kai is read-only. Grok Bot can propose a pause from campaigns already in Kampalo. Live ads stay on until you confirm. That two-step sign-off is on purpose.',
+  },
+  {
+    question: 'Is there a free trial?',
+    answer:
+      'Starter and Enterprise include a 7-day trial. A card is required; cancel before the trial ends and you are not charged. Free is a separate always-free plan with one integration slot and no included Kai.',
   },
   {
     question: 'Is TikTok Ads supported?',

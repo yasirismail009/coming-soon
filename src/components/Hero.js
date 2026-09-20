@@ -76,8 +76,8 @@ export default function Hero() {
           PPC reporting for Google Ads, Meta Ads, and Shopify — spend, store revenue and ROAS side by side. An AgencyAnalytics alternative when you need a dashboard, not 80-source client reporting. Grok Bot can propose a pause; live ads stay on until you confirm.
         </p>
         <div className="mb-6 flex flex-wrap items-center justify-center gap-3.5">
-          <a href="/contact" className="km-btn-primary">
-            Contact us
+          <a href="#pricing" className="km-btn-primary">
+            Start 7-day trial
           </a>
           <a href="#platform" className="km-btn-ghost">
             See the platform

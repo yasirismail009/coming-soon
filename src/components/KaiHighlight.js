@@ -44,6 +44,9 @@ export default function KaiHighlight() {
               </div>
             ))}
           </div>
+          <a href="#pricing" className="km-btn-primary km-btn-sm mt-8 inline-flex">
+            Start 7-day trial
+          </a>
         </div>
         <LaptopFrame url="app.kampalo.com/kai" accent>
           <Image

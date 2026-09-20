@@ -1,11 +1,12 @@
 import { expect, test } from '@playwright/test';
 
 test.describe('in-app navigation', () => {
-  test('header Contact us goes to /contact', async ({ page }) => {
+  test('header Start 7-day trial goes to homepage pricing', async ({ page }) => {
     await page.goto('/');
-    await page.getByRole('banner').getByRole('link', { name: 'Contact us' }).click();
-    await expect(page).toHaveURL(/\/contact$/);
-    await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+    await page.getByRole('banner').getByRole('link', { name: 'Start 7-day trial' }).click();
+    await expect(page).toHaveURL(/\/#pricing/);
+    await expect(page.locator('#pricing')).toBeInViewport();
+    await expect(page.locator('#pricing')).toContainText('7-day');
   });
 
   test('footer Compare platforms goes to /compare', async ({ page }) => {
@@ -65,17 +66,19 @@ test.describe('in-app navigation', () => {
     await expect(page).toHaveURL(/\/#pricing/);
     await expect(page.locator('#pricing')).toBeInViewport();
     await expect(page.locator('#pricing')).toContainText('Starter');
+    await expect(page.locator('#pricing')).toContainText('7-day');
   });
 
   test('hash link from /kai lands on homepage pricing', async ({ page }) => {
     await page.goto('/kai');
-    await page.getByRole('link', { name: 'Start free trial' }).click();
+    await page.getByRole('link', { name: 'Start 7-day trial' }).click();
     await expect(page).toHaveURL(/\/#pricing/);
     await expect(page.locator('#pricing')).toBeInViewport();
     await expect(page.locator('#pricing')).toContainText('£8');
     await expect(page.locator('#pricing')).toContainText('£40');
     await expect(page.locator('#pricing')).toContainText('Starter');
     await expect(page.locator('#pricing')).toContainText('Enterprise');
+    await expect(page.locator('#pricing')).toContainText('7-day');
     await expect(page.locator('#pricing')).not.toContainText('$3');
   });
 

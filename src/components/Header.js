@@ -4,8 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { useTheme } from '@/contexts/ThemeContext';
 import BrandLogo from '@/components/BrandLogo';
-
-const APP_URL = 'https://app.kampalo.com';
+import { APP_URL } from '@/lib/site';
 
 const nav = [
   { href: '/#platform', label: 'Platform' },
@@ -59,8 +58,8 @@ export default function Header() {
           >
             Sign in
           </a>
-          <a href="/contact" className="km-btn-primary km-btn-sm">
-            Contact us
+          <a href="/#pricing" className="km-btn-primary km-btn-sm">
+            Start 7-day trial
           </a>
         </div>
 
@@ -126,11 +125,11 @@ export default function Header() {
                 Sign in
               </a>
               <a
-                href="/contact"
+                href="/#pricing"
                 onClick={() => setMobileMenuOpen(false)}
                 className="km-btn-primary km-btn-sm mt-2 w-full"
               >
-                Contact us
+                Start 7-day trial
               </a>
             </div>
           </motion.div>

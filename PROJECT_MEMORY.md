@@ -14,7 +14,7 @@ Source of truth for marketing. Translate to buyer language on pages; keep jargon
 - Roles: Admin / Manager / Marketer / Client User / Visitor
 - Multi-client org: agency home + **up to 4 full brand workspaces** (own connections + white-label). Switch from the **top bar**. Billing, 16 slots, 16 boards, and Kai tokens are pooled — not ×4.
 - Subscriptions / plan feature gates (Ads, Search Console, GA4, etc.)
-- Public pricing (GBP): Free £0; Individual Starter £8/mo or £80/yr; Enterprise £40/mo or £400/yr. Catalog: `src/lib/plans.js`. **Kai, Grok Bot, and MCP server are Starter/Enterprise only, not Free.** Surfaces: Google Ads, GA4, SEO, Meta Ads, Meta Organic, Shopify. Pooled slots: Starter 4 / Enterprise 16. **Board creation: Free cannot create / Starter 4 / Enterprise 16 pooled.**
+- Public pricing (GBP): Free £0; Individual Starter £8/mo or £80/yr; Enterprise £40/mo or £400/yr. Starter and Enterprise include a **7-day trial (card required)**. Catalog: `src/lib/plans.js`. **Kai, Grok Bot, and MCP server are Starter/Enterprise only, not Free.** Surfaces: Google Ads, GA4, SEO, Meta Ads, Meta Organic, Shopify. Pooled slots: Starter 4 / Enterprise 16. **Board creation: Free cannot create / Starter 4 / Enterprise 16 pooled.**
 
 ### Google
 - Google Ads + SA360: OAuth, customers, campaigns, insights, campaign-detail by campaign

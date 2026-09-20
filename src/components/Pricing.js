@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import AppLink from '@/components/AppLink';
 import { PLANS, formatPlanPrice } from '@/lib/plans';
+import { APP_SIGNUP_URL } from '@/lib/site';
 
 function CheckMark() {
   return (
@@ -50,10 +51,11 @@ export default function Pricing() {
         <div className="km-kicker">Pricing</div>
         <h2 className="km-h2">Priced by integration slots, not by seat</h2>
         <p className="km-lead mb-3.5">
-          Billed in GBP. Kai, Grok Bot, and the MCP server are on Starter and Enterprise, not Free.
-          Board creation: Free 0, Starter 4, Enterprise 16 (pooled across brands). Starter has 4
-          shared slots; Enterprise has 16 slots plus up to 4 full brand workspaces. Mix Google Ads,
-          GA4, SEO, Meta Ads, Meta Organic, Shopify, and TikTok.
+          Billed in GBP. Starter and Enterprise include a 7-day trial — card required, cancel
+          before it ends and you are not charged. Kai, Grok Bot, and the MCP server are on those
+          plans, not Free. Board creation: Free 0, Starter 4, Enterprise 16 (pooled across brands).
+          Starter has 4 shared slots; Enterprise has 16 slots plus up to 4 full brand workspaces.
+          Mix Google Ads, GA4, SEO, Meta Ads, Meta Organic, Shopify, and TikTok.
         </p>
       </div>
       <div className="mb-8 flex flex-wrap items-center gap-3.5">
@@ -107,6 +109,13 @@ export default function Pricing() {
                   <span className="text-[0.9375rem] text-[var(--km-faint)]">GBP / {annual ? 'year' : 'month'}</span>
                 ) : null}
               </div>
+              {plan.trialDays ? (
+                <p className="mb-4 text-[0.84375rem] font-semibold text-[#059669] dark:text-[#34D399]">
+                  {plan.trialDays}-day free trial, then billed. Card required.
+                </p>
+              ) : (
+                <p className="mb-4 text-[0.84375rem] text-[var(--km-faint)]">No card required</p>
+              )}
               <div className="mb-6 text-sm text-[var(--km-faint)]">
                 Up to {plan.max_connections} platform connection{plan.max_connections === 1 ? '' : 's'}
                 {plan.max_boards === 0
@@ -131,7 +140,7 @@ export default function Pricing() {
                 ))}
               </div>
               <AppLink
-                href="/contact"
+                href={APP_SIGNUP_URL}
                 className={premium ? 'km-btn-primary km-btn-sm mt-auto w-full' : 'km-btn-ghost km-btn-sm mt-auto w-full'}
               >
                 {plan.cta}
@@ -141,8 +150,9 @@ export default function Pricing() {
         })}
       </div>
       <p className="mt-7 text-[0.90625rem] text-[var(--km-faint)]">
-        Grok Bot pauses are two-step (propose, then you confirm). In-app Kai stays read-only. Starter
-        and Enterprise include the MCP server at be.kampalo.com/mcp.{' '}
+        Starter and Enterprise include a 7-day trial. A card is required; cancel before the trial
+        ends and you are not charged. Grok Bot pauses are two-step (propose, then you confirm). In-app
+        Kai stays read-only. Starter and Enterprise include the MCP server at be.kampalo.com/mcp.{' '}
         <AppLink href="/kai/grok-bot" className="font-semibold text-[var(--km-link)] hover:underline">
           Grok Bot
         </AppLink>

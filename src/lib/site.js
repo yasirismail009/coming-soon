@@ -3,6 +3,9 @@ export const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL || 'https://kampalo.com'
 ).replace(/\/$/, '');
 
+export const APP_URL = 'https://app.kampalo.com';
+export const APP_SIGNUP_URL = `${APP_URL}/signup`;
+
 export const SITE_NAME = 'Kampalo';
 export const SITE_NAME_DISPLAY = 'Kampalo';
 

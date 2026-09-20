@@ -19,8 +19,8 @@ export default function HelpCenter() {
       title: 'Getting Started',
       icon: '🚀',
       topics: [
-        { question: 'How do I create an account?', answer: 'Click "Start Free Trial" on our homepage, enter your email, verify it, and complete your profile.' },
-        { question: 'What subscription plan should I choose?', answer: 'Start on Free (one integration slot; you cannot create boards). Individual Starter is £8/month or £80/year: Kai, 4 slots, and you can create 4 boards in one workspace. Enterprise is £40/month or £400/year for agencies: Kai, 16 slots, 16 boards pooled across the org, and up to 4 full brand workspaces. Billing is in GBP.' },
+        { question: 'How do I create an account?', answer: 'Open kampalo.com pricing, choose Start free or Start 7-day trial, enter your email, verify it, and complete your profile.' },
+        { question: 'What subscription plan should I choose?', answer: 'Start on Free (one integration slot; you cannot create boards). Individual Starter is £8/month or £80/year with a 7-day trial (card required): Kai, 4 slots, and you can create 4 boards in one workspace. Enterprise is £40/month or £400/year with the same 7-day trial for agencies: Kai, 16 slots, 16 boards pooled across the org, and up to 4 full brand workspaces. Billing is in GBP.' },
         { question: 'How long does setup take?', answer: 'Account setup takes less than 5 minutes. Platform connections typically take 2-5 minutes per integration.' },
       ],
     },

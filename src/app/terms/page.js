@@ -134,12 +134,17 @@ export default function TermsAndConditions() {
                 <li>Provide accurate and complete billing information through Stripe-hosted Checkout</li>
                 <li>Authorize Stripe to charge your payment method for subscription fees and eligible one-time purchases (such as Kai token packs)</li>
                 <li>Complete additional authentication (for example 3-D Secure) when Stripe requests it</li>
-                <li>Understand that subscription fees are charged in advance on a monthly or yearly basis</li>
+                <li>Understand that after any trial, subscription fees are charged in advance on a monthly or yearly basis</li>
               </ul>
 
-              <h3 className="text-xl font-semibold text-slate-900 dark:text-white mt-6 mb-3">5.3 Refunds</h3>
+              <h3 className="text-xl font-semibold text-slate-900 dark:text-white mt-6 mb-3">5.3 Trials and refunds</h3>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                Refund policies vary by subscription plan. Free trial periods may be offered without charge. Once a paid subscription begins, refunds are provided at our discretion and in accordance with applicable laws.
+                First-time Starter and Enterprise Checkout includes a 7-day trial. A payment method is required.
+                You are not charged during the trial. If you cancel before the trial ends, the paid subscription
+                does not start. After the trial, Stripe charges the selected monthly or yearly price unless you
+                have cancelled. One trial is available per billed workspace. The Free plan is a separate
+                always-free tier and is not this trial. Once a paid subscription begins, refunds are provided
+                at our discretion and in accordance with applicable laws.
               </p>
 
               <h3 className="text-xl font-semibold text-slate-900 dark:text-white mt-6 mb-3">5.4 Price Changes</h3>

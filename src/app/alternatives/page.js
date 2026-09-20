@@ -160,15 +160,15 @@ export default function AlternativesPage() {
         <h2 className="km-h2">Pricing in one line</h2>
         <p className="mb-6 text-lg leading-relaxed text-[var(--km-muted)]">
           Kampalo is billed in GBP by integration slots: Free £0, Individual Starter £8/month
-          (or £80/year), Enterprise £40/month (or £400/year). Starter has 4 shared slots and you
-          can create 4 boards; Enterprise has 16 slots, 16 boards pooled, plus up to 4 full brand
-          workspaces. Agency
+          (or £80/year), Enterprise £40/month (or £400/year). Starter and Enterprise include a
+          7-day trial (card required). Starter has 4 shared slots and you can create 4 boards;
+          Enterprise has 16 slots, 16 boards pooled, plus up to 4 full brand workspaces. Agency
           reporting tools usually price per client, per report, or per source credit—right for a
           different product.
         </p>
         <div className="flex flex-col gap-4 sm:flex-row">
           <a href="/#pricing" className="km-btn-primary">
-            See Kampalo plans
+            Start 7-day trial
           </a>
           <Link href="/blog/google-ads-meta-dashboard-alternatives" className="km-btn-ghost">
             2026 alternatives roundup

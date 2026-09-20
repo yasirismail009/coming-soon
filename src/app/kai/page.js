@@ -156,7 +156,7 @@ export default function KaiPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a href="/#pricing" className="km-btn-primary">
-                Start free trial
+                Start 7-day trial
               </a>
               <Link
                 href="/compare"

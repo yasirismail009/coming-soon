@@ -85,7 +85,7 @@ export default function CompareToolPage({ tool, faqs }) {
         <p className="mb-6 text-lg leading-relaxed text-[var(--km-muted)]">{tool.whenKampalo}</p>
         <div className="flex flex-col gap-4 sm:flex-row">
           <a href="/#pricing" className="km-btn-primary">
-            See Kampalo plans
+            Start 7-day trial
           </a>
           <Link href={tool.ctaSecondary.href} className="km-btn-ghost">
             {tool.ctaSecondary.label}

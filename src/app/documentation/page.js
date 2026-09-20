@@ -34,7 +34,7 @@ export default function Documentation() {
                     Choose Individual or Enterprise signup, then set up your workspace:
                   </p>
                   <ol className="list-decimal pl-6 space-y-2 text-slate-600 dark:text-slate-300">
-                    <li>Visit our homepage and click &quot;Start Free Trial&quot;</li>
+                    <li>Visit our homepage, open Pricing, and choose Start free or Start 7-day trial</li>
                     <li>Pick Individual or Enterprise signup</li>
                     <li>Create your account and verify your email</li>
                     <li>For Enterprise: the agency home is extra; add up to 4 brand workspaces — each with its own connections and white-label. Switch the workspace from the top bar.</li>

@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     q: 'Do you offer custom pricing above the published plans?',
-    a: 'Published plans are Free, Individual Starter (£8/month: 4 slots, create 4 boards) and Enterprise (£40/month: 16 slots, create 16 boards pooled, up to 4 full brand workspaces). If you need more slots or more brands, write to us and we will talk through fit.',
+    a: 'Published plans are Free, Individual Starter (£8/month: 4 slots, create 4 boards, 7-day trial) and Enterprise (£40/month: 16 slots, create 16 boards pooled, up to 4 full brand workspaces, same 7-day trial). A card is required for the trial. If you need more slots or more brands, write to us and we will talk through fit.',
   },
   {
     q: 'Where is our data stored?',
@@ -315,7 +315,7 @@ export default function ContactPageClient() {
               See the platform
             </a>
             <a href="/#pricing" className="km-btn-ghost">
-              See pricing
+              Start 7-day trial
             </a>
           </div>
         </div>
