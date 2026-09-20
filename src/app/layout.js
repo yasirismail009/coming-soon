@@ -24,17 +24,26 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: {
-    default: "Kampalo — AI Marketing Analytics for Google, Meta & Shopify",
+    default: "Kampalo — Google Ads & Meta Dashboard with Kai",
     template: "%s | Kampalo",
   },
   description:
-    "Kampalo unifies Google Ads, Meta, and Shopify in one dashboard. Kai proposes what to scale; live pauses wait for your confirm.",
+    "PPC reporting for Google Ads, Meta, and Shopify. An AgencyAnalytics and Looker Studio alternative when the job is paid search versus social. Kai proposes; you confirm.",
   keywords: [
     "Google Ads Meta dashboard",
-    "Shopify ads dashboard",
+    "PPC reporting software",
+    "Google Ads reporting tool",
+    "Facebook Ads dashboard",
     "AgencyAnalytics alternative",
     "Looker Studio alternative",
+    "Google Data Studio alternative",
     "Databox alternative",
+    "DashThis alternative",
+    "Whatagraph alternative",
+    "Supermetrics alternative",
+    "marketing dashboard",
+    "KPI dashboard",
+    "Shopify ads dashboard",
     "AI marketing analytics",
     "cross-platform ROAS",
     "Kampalo Kai",
@@ -44,9 +53,9 @@ export const metadata = {
   publisher: "Kampalo",
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://kampalo.com"),
   openGraph: {
-    title: "Kampalo — AI Marketing Analytics for Google, Meta & Shopify",
+    title: "Kampalo — Google Ads & Meta Dashboard with Kai",
     description:
-      "One dashboard for Google Ads, Meta, and Shopify—plus Kai that proposes, and waits for your confirm.",
+      "PPC reporting for Google Ads, Meta, and Shopify. AgencyAnalytics and Looker Studio alternative when the job is paid search versus social. Kai proposes; you confirm.",
     url: "/",
     siteName: "Kampalo",
     images: [
@@ -62,9 +71,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kampalo — AI Marketing Analytics for Google, Meta & Shopify",
+    title: "Kampalo — Google Ads & Meta Dashboard with Kai",
     description:
-      "One dashboard for Google Ads, Meta, and Shopify—plus Kai that proposes, and waits for your confirm.",
+      "PPC reporting for Google Ads, Meta, and Shopify. AgencyAnalytics and Looker Studio alternative when the job is paid search versus social. Kai proposes; you confirm.",
     images: ["/og-image.png"],
     creator: "@kampalo",
   },

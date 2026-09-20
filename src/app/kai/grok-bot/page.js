@@ -106,17 +106,18 @@ export default function GrokBotPage() {
       <section className="mb-16">
         <h2 className="km-h2">Connect</h2>
         <p className="mb-4 text-lg leading-relaxed text-[var(--km-muted)]">
-          Point the plugin at <code className="text-[0.95em]">{GROK_BOT_MCP_URL}</code> with your
-          Kampalo MCP API key (same as backend <code className="text-[0.95em]">MCP_API_KEY</code>
-          ). Every request needs your Kampalo user email. Production MCP is not{' '}
+          In Kampalo open Settings → API Keys and generate a personal MCP key (Starter and
+          Enterprise). Point any MCP client at <code className="text-[0.95em]">{GROK_BOT_MCP_URL}</code>{' '}
+          with that key as <code className="text-[0.95em]">Authorization: Bearer</code>. The key is
+          scoped to your account. Production MCP is not{' '}
           <code className="text-[0.95em]">/api</code>.
         </p>
         <div className="flex flex-col gap-4 sm:flex-row">
           <AppLink href={GROK_BOT_PLUGIN_REPO} className="km-btn-primary" target="_blank" rel="noopener noreferrer">
             Plugin on GitHub
           </AppLink>
-          <AppLink href="/contact" className="km-btn-ghost">
-            Ask for MCP access
+          <AppLink href="https://app.kampalo.com/settings?tab=mcp" className="km-btn-ghost">
+            Open Settings → API Keys
           </AppLink>
         </div>
       </section>

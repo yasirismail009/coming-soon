@@ -9,6 +9,15 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/pricing',
+        destination: '/#pricing',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

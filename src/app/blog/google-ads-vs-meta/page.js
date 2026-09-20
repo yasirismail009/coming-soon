@@ -8,9 +8,9 @@ import {
   GOOGLE_VS_META_FAQS,
 } from '@/lib/structuredData';
 
-const TITLE = 'Google Ads vs Meta Ads: Compare Your Own ROAS';
+const TITLE = 'Google Ads vs Meta Ads (Facebook Ads): Compare Your Own ROAS';
 const DESCRIPTION =
-  'Google Ads captures demand; Meta creates it. Do not pick a winner from industry averages. Compare spend, ROAS, and CPA on the same date range.';
+  'Google Ads vs Facebook Ads without industry averages. Google captures demand; Meta creates it. Compare spend, ROAS, and CPA on the same date range.';
 const PATH = '/blog/google-ads-vs-meta';
 const PUBLISHED = '2026-08-29';
 
@@ -20,6 +20,11 @@ export const metadata = pageMetadata({
   path: PATH,
   type: 'article',
   publishedTime: PUBLISHED,
+  keywords: [
+    'Google Ads vs Meta Ads',
+    'Google Ads vs Facebook Ads',
+    'Google vs Meta ROAS',
+  ],
 });
 
 export default function GoogleAdsVsMetaGuidePage() {
@@ -42,7 +47,7 @@ export default function GoogleAdsVsMetaGuidePage() {
     >
       <p className="km-kicker">Guide · 29 Aug 2026</p>
       <h1 className="km-h1 mb-6 text-[var(--km-ink)]">
-        Google Ads vs Meta Ads: compare your accounts, not averages
+        Google Ads vs Meta Ads (Facebook Ads): compare your accounts, not averages
       </h1>
       <p className="km-lead mb-12">{DESCRIPTION}</p>
 

@@ -10,6 +10,7 @@ export function compareToolMetadata(tool) {
     title: tool.title,
     description: tool.description,
     path: tool.path,
+    keywords: tool.keywords,
   });
 }
 
@@ -23,7 +24,7 @@ export default function CompareToolPage({ tool, faqs }) {
           { name: 'Home', path: '/' },
           { name: 'Compare', path: '/compare' },
           { name: 'Alternatives', path: '/alternatives' },
-          { name: tool.name, path: tool.path },
+          { name: tool.searchKeyword, path: tool.path },
         ]),
         faqSchema(faqs),
         {
@@ -36,12 +37,19 @@ export default function CompareToolPage({ tool, faqs }) {
             { '@type': 'SoftwareApplication', name: 'Kampalo' },
             { '@type': 'SoftwareApplication', name: tool.name },
           ],
+          keywords: (tool.keywords || []).join(', '),
         },
       ]}
     >
-      <p className="km-kicker">Tool comparison</p>
-      <h1 className="km-h1 mb-6 text-[var(--km-ink)]">{tool.h1}</h1>
-      <p className="km-lead mb-12">{tool.lead}</p>
+      <p className="km-kicker">{tool.searchKeyword}</p>
+      <h1 className="km-h1 mb-3 text-[var(--km-ink)]">{tool.h1}</h1>
+      <h2 className="mb-6 text-[1.25rem] font-semibold text-[var(--km-muted)]">
+        Kampalo vs {tool.name}
+      </h2>
+      <p className="km-lead mb-8">{tool.lead}</p>
+      {tool.searchIntent ? (
+        <p className="mb-12 text-lg leading-relaxed text-[var(--km-muted)]">{tool.searchIntent}</p>
+      ) : null}
 
       <div className="mb-16 overflow-x-auto">
         <table className="w-full min-w-[36rem] border-collapse text-left text-[0.9375rem]">
@@ -86,18 +94,18 @@ export default function CompareToolPage({ tool, faqs }) {
       </section>
 
       <section className="mb-16">
-        <h2 className="km-h2">Other comparisons</h2>
+        <h2 className="km-h2">Other {tool.categoryKeyword} comparisons</h2>
         <ul className="list-disc space-y-3 pl-6 text-lg text-[var(--km-muted)]">
           <li>
             <Link href="/alternatives" className="text-[var(--km-link)] underline">
-              Kampalo as an alternative
+              AgencyAnalytics alternatives hub
             </Link>
-            {' — '}who each tool is for
+            {' — '}PPC reporting, KPI dashboards, and Looker Studio in one list
           </li>
           {others.map((item) => (
             <li key={item.slug}>
               <Link href={item.path} className="text-[var(--km-link)] underline">
-                Kampalo vs {item.name}
+                {item.searchKeyword}
               </Link>
               {' — '}
               {item.hubBlurb}

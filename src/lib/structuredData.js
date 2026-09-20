@@ -32,8 +32,15 @@ export function organizationSchema() {
     knowsAbout: [
       'Google Ads reporting',
       'Meta Ads reporting',
+      'Facebook Ads dashboard',
+      'PPC reporting software',
       'Shopify store analytics',
       'marketing analytics',
+      'marketing dashboard',
+      'KPI dashboard',
+      'AgencyAnalytics alternative',
+      'Looker Studio alternative',
+      'Google Data Studio alternative',
       'ROAS',
       'GA4',
       'Google Search Console',
@@ -63,7 +70,7 @@ export function softwareApplicationSchema() {
     operatingSystem: 'Web',
     url: SITE_URL,
     description:
-      'Kampalo is AI-powered marketing analytics for Google Ads, Meta, and Shopify—one dashboard plus Kai, an assistant that proposes what to scale from synced data. Live pauses wait for your confirm.',
+      'Kampalo is a Google Ads, Meta, and Shopify dashboard with Kai—an AgencyAnalytics and Looker Studio alternative when the job is PPC reporting, not 80-source client reporting software. Live pauses wait for your confirm.',
     offers: {
       '@type': 'AggregateOffer',
       lowPrice: '0',
@@ -77,6 +84,7 @@ export function softwareApplicationSchema() {
     screenshot: absoluteUrl('/og-image.png'),
     featureList: [
       'Unified Google Ads, Meta Ads, and Shopify dashboard',
+      'PPC reporting for Google Ads and Meta',
       'Cross-platform ROAS, ROI, CPA, and CTR tracking',
       'Kai AI assistant — proposes; you confirm before live pauses',
       'Clear rankings for ROAS, CTR, and CPC winners',
@@ -217,6 +225,11 @@ export const COMPARE_FAQS = [
     answer:
       'Dashboards show the full picture. When you ask Kai, it ranks campaigns and platforms using consistent rules on ROAS, CTR, and CPC from your synced data—so recommendations are easy to verify.',
   },
+  {
+    question: 'Is this a Google Ads vs Facebook Ads dashboard?',
+    answer:
+      'Yes. Meta Ads is Facebook and Instagram ads. Kampalo is a Google Ads vs Facebook Ads (Meta) comparison workspace—PPC reporting on both, not a 30-source marketing reporting suite.',
+  },
 ];
 
 export const BOARDS_FAQS = [
@@ -244,6 +257,11 @@ export const DASHBOARD_FAQS = [
       'Yes. Kampalo syncs Google Ads and Meta into one workspace so spend, revenue, ROAS, CTR, and CPA sit side by side. You can filter to one platform or compare both.',
   },
   {
+    question: 'Is Kampalo PPC reporting software?',
+    answer:
+      'For Google Ads and Meta, yes: campaign-level spend, ROAS, CTR, CPC, and CPA in one PPC dashboard. It is not agency reporting software that covers 80 sources, SEO rank tracking, and a client portal.',
+  },
+  {
     question: 'Does the dashboard replace Looker Studio or Sheets?',
     answer:
       'For teams that only need Google + Meta (+ GA4 and Search Console) in a product UI, yes. If you already warehouse 50+ sources into Looker or Power BI, keep that stack—Kampalo is the operator dashboard, not an ETL.',
@@ -262,6 +280,11 @@ export const GOOGLE_ADS_FAQS = [
       'Open Connect (or Settings → Connections), choose Google, sign in with an account that can access Ads, and approve the scopes Kampalo requests. One Google sign-in can also cover Search Ads 360, GA4, and Search Console, subject to your plan.',
   },
   {
+    question: 'Is Kampalo a Google Ads reporting tool?',
+    answer:
+      'Yes, for operators: spend, impressions, clicks, conversions, revenue, ROAS, ROI, CTR, CPC, and CPA next to Meta. Agency reporting software that white-labels a client portal across 80 sources is a different product.',
+  },
+  {
     question: 'What Google Ads metrics does Kampalo show?',
     answer:
       'Spend, impressions, clicks, conversions, revenue, ROAS, ROI, CTR, CPC, and CPA, plus campaign and account comparisons. Trends cover daily, weekly, and custom ranges.',
@@ -278,6 +301,11 @@ export const META_ADS_FAQS = [
     question: 'How do I connect Meta Ads to Kampalo?',
     answer:
       'Open Connect, choose Meta, sign in, and approve access. One Meta connection covers ads plus Facebook Page and Instagram insight scopes when you enable organic.',
+  },
+  {
+    question: 'Does Kampalo include a Facebook Ads dashboard?',
+    answer:
+      'Yes. Meta Ads is Facebook and Instagram ads. Kampalo is a Facebook Ads dashboard next to Google Ads—not a social-only reporting template.',
   },
   {
     question: 'Does Kampalo mix organic social into paid ROAS?',
@@ -311,9 +339,19 @@ export const SHOPIFY_FAQS = [
 
 export const AGENCYANALYTICS_FAQS = [
   {
+    question: 'What is the best AgencyAnalytics alternative in 2026?',
+    answer:
+      'It depends on the job. Swydo is the closest like-for-like client reporting replacement. Kampalo is the better AgencyAnalytics alternative if you mainly need Google Ads, Meta, GA4, and Search Console in one PPC workspace plus Kai. Keep AgencyAnalytics if you need 80+ sources, SEO rank tracking, and a white-label client portal.',
+  },
+  {
     question: 'Is Kampalo an AgencyAnalytics alternative?',
     answer:
       'It can be if you mainly need Google Ads, Meta, GA4, and Search Console in one workspace plus an AI assistant. AgencyAnalytics is stronger if you need 80+ sources, SEO rank tracking, and a white-label client portal as the product.',
+  },
+  {
+    question: 'Is Kampalo cheaper than AgencyAnalytics?',
+    answer:
+      'Kampalo is billed in GBP by integration slots: Free £0, Starter £8/month, Enterprise £40/month. AgencyAnalytics typically prices per client. That looks cheaper for two channels and more expensive if you need dozens of sources per client.',
   },
   {
     question: 'Does Kampalo white-label reports for clients?',
@@ -326,7 +364,7 @@ export const SUPERMETRICS_FAQS = [
   {
     question: 'Is Kampalo a Supermetrics alternative?',
     answer:
-      'Only for a narrower job. Supermetrics moves marketing data into Sheets, Looker Studio, and warehouses. Kampalo is a product dashboard and Kai—not a general connector into your BI stack.',
+      'Only for a narrower job. Supermetrics is a marketing intelligence platform that moves data into Sheets, Looker Studio, and warehouses. Kampalo is a product dashboard and Kai—not a general connector into your BI stack.',
   },
   {
     question: 'Can I use Kampalo and Supermetrics together?',
@@ -360,6 +398,11 @@ export const GOOGLE_VS_META_FAQS = [
       'Neither wins for every account. Google usually captures existing search demand; Meta creates demand. Compare your own ROAS, CPA, and CTR in one dashboard instead of industry averages.',
   },
   {
+    question: 'Google Ads vs Facebook Ads — how should I split budget?',
+    answer:
+      'Treat Facebook Ads as Meta Ads. Start from blended and per-platform ROAS on the same date range, then move spend toward the campaigns that win on your ranking rules—not last month’s habit.',
+  },
+  {
     question: 'How should I split budget between Google and Meta?',
     answer:
       'Start from blended and per-platform ROAS on the same date range, then move spend toward the campaigns that win on your ranking rules—not last month’s habit.',
@@ -367,6 +410,11 @@ export const GOOGLE_VS_META_FAQS = [
 ];
 
 export const HOME_FAQS = [
+  {
+    question: 'Is Kampalo an AgencyAnalytics alternative?',
+    answer:
+      'When the job is Google Ads and Meta in one PPC dashboard, plus Kai, yes. AgencyAnalytics, DashThis, and Whatagraph are stronger if you sell 80-source client reporting software with a white-label portal.',
+  },
   {
     question: 'How long does connecting take?',
     answer:
@@ -403,7 +451,7 @@ export const DATABOX_FAQS = [
   {
     question: 'Is Kampalo a Databox alternative?',
     answer:
-      'It can be if you mainly need Google Ads and Meta compared in one product, plus Kai. Databox is stronger if you want a live KPI wall across marketing, CRM, and finance with goals and benchmarks.',
+      'It can be if you mainly need Google Ads and Meta compared in one product, plus Kai. Databox is stronger if you want a live KPI dashboard across marketing, CRM, and finance with goals and benchmarks.',
   },
   {
     question: 'Does Kampalo have goal tracking like Databox?',
@@ -416,7 +464,7 @@ export const DASHTHIS_FAQS = [
   {
     question: 'Is Kampalo a DashThis alternative?',
     answer:
-      'It can be if the report is secondary to deciding Google versus Meta. DashThis is stronger if the product you sell is a template-based client PDF across many sources.',
+      'It can be if the report is secondary to deciding Google versus Meta. DashThis is stronger if the product you sell is template-based marketing reporting software across many sources.',
   },
   {
     question: 'Does Kampalo send scheduled client reports?',
@@ -429,7 +477,7 @@ export const WHATAGRAPH_FAQS = [
   {
     question: 'Is Kampalo a Whatagraph alternative?',
     answer:
-      'Only for a narrower, cheaper job: Google Ads and Meta in one UI, with Kai. Whatagraph is stronger if you need designed, blended reports across dozens of sources at agency scale.',
+      'Only for a narrower, cheaper job: Google Ads and Meta in one UI, with Kai. Whatagraph is stronger if you need designed, blended cross-channel reporting across dozens of sources at agency scale.',
   },
   {
     question: 'Can Kampalo blend custom metrics across 50 sources?',
@@ -445,6 +493,11 @@ export const LOOKER_STUDIO_FAQS = [
       'For teams that only need Google + Meta in a product UI, yes. Keep Looker Studio if an analyst already maintains custom boards or you warehouse many sources.',
   },
   {
+    question: 'Is Kampalo a Google Data Studio alternative?',
+    answer:
+      'Yes—the same canvas, still widely searched as Google Data Studio. Kampalo replaces the DIY ads report, not every Looker board you already trust for finance or custom metrics.',
+  },
+  {
     question: 'Is Looker Studio free and Kampalo paid?',
     answer:
       'Looker Studio’s canvas is free; Meta and many connectors are not, and someone has to maintain the report. Kampalo has a Free plan, then Starter at £8/month with Kai.',
@@ -455,16 +508,26 @@ export const ALTERNATIVES_FAQS = [
   {
     question: 'What is Kampalo an alternative to?',
     answer:
-      'Kampalo is an alternative when the job is Google Ads and Meta in one dashboard, plus an assistant on those numbers. It is not a drop-in for 80-source client portals, warehouses, or TV KPI walls.',
+      'Kampalo is an AgencyAnalytics, Databox, DashThis, Whatagraph, Supermetrics, and Looker Studio alternative when the job is Google Ads and Meta in one dashboard, plus an assistant on those numbers. It is not a drop-in for 80-source client portals, warehouses, or TV KPI walls.',
   },
   {
     question: 'Which tool should I pick if I only run Google and Meta?',
     answer:
       'Start with Kampalo if you want a product UI and Kai. Keep Looker Studio if you already have a report you trust. Add AgencyAnalytics, DashThis, or Whatagraph if client reporting across many sources is the product you sell.',
   },
+  {
+    question: 'AgencyAnalytics vs Databox vs DashThis — who wins?',
+    answer:
+      'Different jobs. AgencyAnalytics is agency reporting software with a client portal. Databox is a KPI dashboard. DashThis is template marketing reporting software. Kampalo is PPC reporting for Google and Meta. Pick the job, then the vendor.',
+  },
 ];
 
 export const DASHBOARD_ALTERNATIVES_FAQS = [
+  {
+    question: 'What is the best AgencyAnalytics alternative in 2026?',
+    answer:
+      'Swydo if you need a like-for-like client reporting suite. Kampalo if operators need Google versus Meta plus Kai. Looker Studio if you will maintain the canvas. Databox if the job is a KPI dashboard. Whatagraph if the deliverable is a designed multi-source report.',
+  },
   {
     question: 'What is the best Google Ads and Meta dashboard in 2026?',
     answer:

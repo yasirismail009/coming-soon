@@ -5,9 +5,9 @@ import { pageMetadata } from '@/lib/site';
 import { breadcrumbSchema, itemListSchema } from '@/lib/structuredData';
 
 export const metadata = pageMetadata({
-  title: 'Kampalo Blog — Google Ads, Meta, and Dashboard Guides',
+  title: 'Kampalo Blog — AgencyAnalytics Alternatives & Google vs Meta',
   description:
-    'Guides on Google Ads vs Meta, dashboard alternatives, and asking Kai which campaigns to scale. RSS at /blog/rss.xml.',
+    'AgencyAnalytics alternatives 2026, Google Ads vs Facebook Ads budget notes, and asking Kai which campaigns to scale. RSS at /blog/rss.xml.',
   path: '/blog',
 });
 

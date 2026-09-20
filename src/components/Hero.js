@@ -73,7 +73,7 @@ export default function Hero() {
           Google, Meta, and Shopify, in <span className="km-gradient-text">one dashboard</span>
         </h1>
         <p className="mx-auto mb-[2.375rem] max-w-[33em] text-[1.1875rem] leading-[1.62] text-[var(--km-muted)] text-pretty">
-          Kampalo unifies Google Ads, Meta Ads, Shopify, Analytics and Search Console — spend, store revenue and ROAS side by side. Grok Bot can propose a pause; live ads stay on until you confirm.
+          PPC reporting for Google Ads, Meta Ads, and Shopify — spend, store revenue and ROAS side by side. An AgencyAnalytics alternative when you need a dashboard, not 80-source client reporting. Grok Bot can propose a pause; live ads stay on until you confirm.
         </p>
         <div className="mb-6 flex flex-wrap items-center justify-center gap-3.5">
           <a href="/contact" className="km-btn-primary">

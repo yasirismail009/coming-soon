@@ -4,9 +4,9 @@ import { pageMetadata } from '@/lib/site';
 import { breadcrumbSchema, itemListSchema } from '@/lib/structuredData';
 
 export const metadata = pageMetadata({
-  title: 'Integrations — Google Ads, Meta, Shopify, GA4, Search Console',
+  title: 'Integrations — Google Ads Reporting, Facebook Ads Dashboard, Shopify',
   description:
-    'Connect Google Ads, Meta Ads, Shopify, GA4, and Search Console to Kampalo. One sign-in per provider. Kai reads the same synced data.',
+    'Connect a Google Ads reporting tool, Facebook Ads dashboard, Shopify, GA4, and Search Console to Kampalo. One sign-in per provider. Kai reads the same synced data.',
   path: '/integrations',
 });
 
@@ -53,7 +53,7 @@ export default function IntegrationsIndexPage() {
       ]}
     >
       <p className="km-kicker">Connections</p>
-      <h1 className="km-h1 mb-6 text-[var(--km-ink)]">Kampalo integrations</h1>
+      <h1 className="km-h1 mb-6 text-[var(--km-ink)]">Google Ads reporting, Facebook Ads dashboard, Shopify</h1>
       <p className="km-lead mb-12">
         One OAuth flow per provider. Each product uses a slot from the shared pool (Starter 4 /
         Enterprise 16). Google Ads accounts, GA4, and SEO are billed separately even on the same

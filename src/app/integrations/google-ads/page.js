@@ -8,10 +8,15 @@ import {
 } from '@/lib/structuredData';
 
 export const metadata = pageMetadata({
-  title: 'Google Ads Reporting in Kampalo',
+  title: 'Google Ads Reporting Tool — Next to Meta in One Dashboard',
   description:
-    'Connect Google Ads to Kampalo. Track spend, ROAS, CTR, and CPA next to Meta. One Google sign-in can include GA4 and Search Console.',
+    'Google Ads reporting tool in Kampalo: spend, ROAS, CTR, and CPA next to Meta. PPC reporting without AgencyAnalytics-style 80-source client software. One Google sign-in can include GA4 and Search Console.',
   path: '/integrations/google-ads',
+  keywords: [
+    'Google Ads reporting tool',
+    'Google Ads dashboard',
+    'PPC reporting software',
+  ],
 });
 
 const steps = [
@@ -34,11 +39,11 @@ export default function GoogleAdsIntegrationPage() {
         faqSchema(GOOGLE_ADS_FAQS),
       ]}
     >
-      <p className="km-kicker">Google integration</p>
-      <h1 className="km-h1 mb-6 text-[var(--km-ink)]">Google Ads reporting without a second tab</h1>
+      <p className="km-kicker">Google Ads reporting tool</p>
+      <h1 className="km-h1 mb-6 text-[var(--km-ink)]">Google Ads reporting tool — next to Meta, not a second tab</h1>
       <p className="km-lead mb-12">
-        Connect Google Ads once. Kampalo shows campaign and account performance next to Meta, with
-        the same ROAS, CTR, and CPA language across both.
+        Connect Google Ads once. Kampalo is PPC reporting for campaign and account performance next
+        to Meta, with the same ROAS, CTR, and CPA language across both.
       </p>
 
       <section className="mb-16">

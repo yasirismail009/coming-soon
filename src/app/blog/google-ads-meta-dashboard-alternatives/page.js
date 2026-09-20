@@ -19,6 +19,14 @@ export const metadata = pageMetadata({
   path: POST.path,
   type: 'article',
   publishedTime: POST.datePublished,
+  keywords: [
+    'AgencyAnalytics alternatives',
+    'best AgencyAnalytics alternatives 2026',
+    'Databox alternative',
+    'Looker Studio alternative',
+    'Google Ads dashboard',
+    'PPC reporting software',
+  ],
 });
 
 const picks = [
@@ -80,6 +88,7 @@ export default function DashboardAlternativesGuidePage() {
           description: POST.description,
           path: POST.path,
           datePublished: POST.datePublished,
+          dateModified: POST.dateModified,
         }),
         faqSchema(DASHBOARD_ALTERNATIVES_FAQS),
       ]}
@@ -93,14 +102,16 @@ export default function DashboardAlternativesGuidePage() {
       <section className="mb-16 space-y-5 text-lg leading-relaxed text-[var(--km-muted)]">
         <h2 className="km-h2">Pick the job before the vendor</h2>
         <p>
-          “Best marketing dashboard” lists usually rank connector count. That metric picks a client
-          reporting suite or an ETL tool. If the actual job is “should this pound go to Google Ads
-          or Meta?”, you need consistent ROAS, CTR, and CPA on one date range—not 80 tiles.
+          “AgencyAnalytics alternatives 2026” lists usually rank connector count. That metric picks
+          client reporting software or an ETL tool. If the actual job is “should this pound go to
+          Google Ads or Meta?”, you need consistent ROAS, CTR, and CPA on one date range—not 80 tiles.
         </p>
         <p>
-          This roundup splits the category the way buyers actually shop. Kampalo is included because
-          we build that narrower product. The other six are the names that show up in the same
-          shortlists. None of them is universally worse; they solve different jobs.
+          Competitor homepages title themselves differently: AgencyAnalytics is agency reporting,
+          DashThis is marketing reporting software, Databox is a KPI dashboard, Whatagraph is
+          cross-channel reporting, Supermetrics is a marketing intelligence platform, Looker Studio
+          is a Google Data Studio canvas. Kampalo is PPC reporting for Google and Meta. This roundup
+          splits the category that way. None of them is universally worse.
         </p>
       </section>
 
@@ -151,12 +162,12 @@ export default function DashboardAlternativesGuidePage() {
       </section>
 
       <section className="mb-16">
-        <h2 className="km-h2">Full Kampalo vs pages</h2>
+        <h2 className="km-h2">Vendor alternative pages</h2>
         <ul className="list-disc space-y-3 pl-6 text-lg text-[var(--km-muted)]">
           {TOOL_COMPARISONS.map((tool) => (
             <li key={tool.slug}>
               <Link href={tool.path} className="text-[var(--km-link)] underline">
-                Kampalo vs {tool.name}
+                {tool.searchKeyword}
               </Link>
               {' — '}
               {tool.hubBlurb}

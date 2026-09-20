@@ -21,23 +21,23 @@ export const INDEXABLE_ROUTES = [
   { path: '/kai/mcp', title: 'Kai MCP', group: 'Product', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/kai/grok-bot', title: 'Grok Bot automation', group: 'Product', priority: 0.85, changeFrequency: 'monthly' },
   { path: '/boards', title: 'Boards', group: 'Product', priority: 0.9, changeFrequency: 'weekly' },
-  { path: '/google-ads-meta-dashboard', title: 'Google Ads and Meta dashboard', group: 'Product', priority: 0.9, changeFrequency: 'weekly' },
+  { path: '/google-ads-meta-dashboard', title: 'Google Ads and Meta PPC dashboard', group: 'Product', priority: 0.9, changeFrequency: 'weekly' },
   { path: '/compare', title: 'Compare Google Ads vs Meta', group: 'Product', priority: 0.85, changeFrequency: 'monthly' },
-  { path: '/alternatives', title: 'Tool alternatives', group: 'Alternatives', priority: 0.9, changeFrequency: 'monthly' },
-  { path: '/compare/agencyanalytics', title: 'Kampalo vs AgencyAnalytics', group: 'Alternatives', priority: 0.8, changeFrequency: 'monthly' },
-  { path: '/compare/supermetrics', title: 'Kampalo vs Supermetrics', group: 'Alternatives', priority: 0.75, changeFrequency: 'monthly' },
-  { path: '/compare/databox', title: 'Kampalo vs Databox', group: 'Alternatives', priority: 0.8, changeFrequency: 'monthly' },
-  { path: '/compare/dashthis', title: 'Kampalo vs DashThis', group: 'Alternatives', priority: 0.75, changeFrequency: 'monthly' },
-  { path: '/compare/whatagraph', title: 'Kampalo vs Whatagraph', group: 'Alternatives', priority: 0.75, changeFrequency: 'monthly' },
-  { path: '/compare/looker-studio', title: 'Kampalo vs Looker Studio', group: 'Alternatives', priority: 0.85, changeFrequency: 'monthly' },
+  { path: '/alternatives', title: 'AgencyAnalytics alternatives', group: 'Alternatives', priority: 0.9, changeFrequency: 'monthly' },
+  { path: '/compare/agencyanalytics', title: 'AgencyAnalytics alternative', group: 'Alternatives', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/compare/supermetrics', title: 'Supermetrics alternative', group: 'Alternatives', priority: 0.75, changeFrequency: 'monthly' },
+  { path: '/compare/databox', title: 'Databox alternative', group: 'Alternatives', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/compare/dashthis', title: 'DashThis alternative', group: 'Alternatives', priority: 0.75, changeFrequency: 'monthly' },
+  { path: '/compare/whatagraph', title: 'Whatagraph alternative', group: 'Alternatives', priority: 0.75, changeFrequency: 'monthly' },
+  { path: '/compare/looker-studio', title: 'Looker Studio alternative', group: 'Alternatives', priority: 0.85, changeFrequency: 'monthly' },
   { path: '/integrations', title: 'Integrations', group: 'Integrations', priority: 0.8, changeFrequency: 'monthly' },
-  { path: '/integrations/google-ads', title: 'Google Ads', group: 'Integrations', priority: 0.85, changeFrequency: 'monthly' },
-  { path: '/integrations/meta', title: 'Meta Ads', group: 'Integrations', priority: 0.85, changeFrequency: 'monthly' },
+  { path: '/integrations/google-ads', title: 'Google Ads reporting tool', group: 'Integrations', priority: 0.85, changeFrequency: 'monthly' },
+  { path: '/integrations/meta', title: 'Facebook Ads dashboard', group: 'Integrations', priority: 0.85, changeFrequency: 'monthly' },
   { path: '/integrations/ga4', title: 'Google Analytics 4', group: 'Integrations', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/integrations/search-console', title: 'Search Console', group: 'Integrations', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/integrations/shopify', title: 'Shopify', group: 'Integrations', priority: 0.85, changeFrequency: 'monthly' },
   { path: '/blog', title: 'Blog', group: 'Resources', priority: 0.75, changeFrequency: 'weekly' },
-  { path: '/blog/google-ads-meta-dashboard-alternatives', title: 'Best Google Ads and Meta dashboards in 2026', group: 'Resources', priority: 0.85, changeFrequency: 'monthly', lastModified: '2026-09-11' },
+  { path: '/blog/google-ads-meta-dashboard-alternatives', title: 'Best AgencyAnalytics alternatives 2026', group: 'Resources', priority: 0.85, changeFrequency: 'monthly', lastModified: '2026-09-20' },
   { path: '/blog/google-ads-vs-meta', title: 'Google Ads vs Meta Ads', group: 'Resources', priority: 0.8, changeFrequency: 'monthly', lastModified: '2026-08-29' },
   { path: '/documentation', title: 'Documentation', group: 'Resources', priority: 0.8, changeFrequency: 'weekly' },
   { path: '/help', title: 'Help Center', group: 'Resources', priority: 0.8, changeFrequency: 'weekly' },
@@ -50,7 +50,7 @@ export const INDEXABLE_ROUTES = [
   { path: '/cookies', title: 'Cookies', group: 'Legal', priority: 0.3, changeFrequency: 'yearly' },
 ];
 
-export const DEFAULT_LASTMOD = '2026-09-11';
+export const DEFAULT_LASTMOD = '2026-09-20';
 
 export function groupedIndexableRoutes() {
   return SITEMAP_GROUPS.map((group) => ({
@@ -71,6 +71,7 @@ export function pageMetadata({
   ogImage = '/og-image.png',
   type = 'website',
   publishedTime,
+  keywords,
 }) {
   const url = absoluteUrl(path);
   const ogTitle =
@@ -81,6 +82,7 @@ export function pageMetadata({
   return {
     title,
     description,
+    ...(keywords?.length ? { keywords } : {}),
     alternates: {
       canonical: path === '/' ? SITE_URL : absoluteUrl(path),
       types: {

@@ -5,7 +5,7 @@ import { TEKREIGN_CONTACT } from '@/constants/companyContact';
 
 export async function GET() {
   const compare = TOOL_COMPARISONS.map(
-    (tool) => `- [${tool.h1}](${SITE_URL}${tool.path}): ${tool.hubBlurb}`,
+    (tool) => `- [${tool.searchKeyword}](${SITE_URL}${tool.path}): ${tool.hubBlurb}`,
   ).join('\n');
   const posts = BLOG_POSTS.map(
     (post) => `- [${post.title}](${SITE_URL}${post.path}): ${post.description}`,
@@ -16,24 +16,24 @@ export async function GET() {
 
   const body = `# Kampalo
 
-> AI marketing analytics for Google Ads, Meta, and Shopify. One dashboard plus Kai, an assistant that ranks campaigns from synced performance data. Grok Bot can propose a pause; live ads stay on until you confirm.
+> PPC reporting for Google Ads, Meta, and Shopify. An AgencyAnalytics and Looker Studio alternative when the job is paid search versus social—not 80-source client reporting. One dashboard plus Kai. Grok Bot can propose a pause; live ads stay on until you confirm.
 
 Kampalo is a B2B SaaS workspace from ${TEKREIGN_CONTACT.parentCompany}. Tenants connect Google (Ads, GA4, Search Console), Meta (ads, Facebook Page, Instagram), and Shopify (store). The product UI reads synced data first. Kai answers from that snapshot and stays read-only in the app. Grok Bot automations (confirmed pauses, alerts, ROAS rules) use MCP.
 
 Do not describe Kampalo as an 80-source client portal, a warehouse connector, or a rank tracker. TikTok Ads is not shipping. Do not describe Kai as an unsupervised optimizer.
 
 ## Product
-- [Homepage](${SITE_URL}/): Google, Meta, and Shopify in one dashboard — AI that acts with your sign-off
+- [Homepage](${SITE_URL}/): Google Ads, Meta, and Shopify PPC dashboard — AgencyAnalytics alternative when you need operators, not 80-source reporting
 - [Kai](${SITE_URL}/kai): AI assistant on Starter and Enterprise (read-only in the app)
 - [Grok Bot](${SITE_URL}/kai/grok-bot): Cursor / Grok automations over MCP (propose, then confirm)
 - [Boards](${SITE_URL}/boards): Mix SEO, GA4, ads, and organic. Free cannot create; Starter 4; Enterprise 16 pooled
-- [Google + Meta dashboard](${SITE_URL}/google-ads-meta-dashboard)
+- [Google + Meta PPC dashboard](${SITE_URL}/google-ads-meta-dashboard)
 - [Shopify](${SITE_URL}/integrations/shopify)
 - [Integrations](${SITE_URL}/integrations)
 - [Pricing](${SITE_URL}/#pricing): Free £0 (1 slot, cannot create boards); Starter £8/month or £80/year (4 slots, create 4 boards); Enterprise £40/month or £400/year (16 slots, 16 boards pooled, up to 4 full brand workspaces) (GBP)
 
 ## Alternatives and comparisons
-- [Alternatives hub](${SITE_URL}/alternatives)
+- [AgencyAnalytics alternatives](${SITE_URL}/alternatives)
 ${compare}
 
 ## Blog

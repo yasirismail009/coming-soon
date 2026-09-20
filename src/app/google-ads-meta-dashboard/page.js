@@ -8,10 +8,18 @@ import {
 } from '@/lib/structuredData';
 
 export const metadata = pageMetadata({
-  title: 'Google Ads & Meta Dashboard — Unified ROAS',
+  title: 'Google Ads & Meta Dashboard — PPC Reporting Software',
   description:
-    'One dashboard for Google Ads and Meta. Compare spend, ROAS, CTR, and CPA side by side, then ask Kai which campaigns to scale from your synced data.',
+    'PPC reporting software for Google Ads and Meta: spend, ROAS, CTR, and CPA in one dashboard. A Looker Studio and AgencyAnalytics alternative when you need a product UI, not 80 connectors.',
   path: '/google-ads-meta-dashboard',
+  keywords: [
+    'Google Ads dashboard',
+    'Meta Ads dashboard',
+    'PPC reporting software',
+    'PPC dashboard',
+    'Google Ads reporting tool',
+    'Facebook Ads dashboard',
+  ],
 });
 
 const surfaces = [
@@ -40,13 +48,14 @@ export default function GoogleAdsMetaDashboardPage() {
         faqSchema(DASHBOARD_FAQS),
       ]}
     >
-      <p className="km-kicker">Unified ads analytics</p>
+      <p className="km-kicker">PPC reporting software</p>
       <h1 className="km-h1 mb-6 text-[var(--km-ink)]">
-        Google Ads and Meta in one dashboard
+        Google Ads and Meta dashboard — PPC reporting in one place
       </h1>
       <p className="km-lead mb-12">
-        Stop reconciling two exports. Kampalo syncs Google Ads and Meta into one workspace so you can
-        compare ROAS, spend, and CPA—then ask Kai where budget should go next.
+        Stop reconciling two exports. Kampalo is PPC reporting software for Google Ads and Meta: ROAS,
+        spend, and CPA side by side, then Kai on where budget should go next. Not agency reporting
+        software with 80 connectors.
       </p>
 
       <section className="mb-16 grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -63,7 +72,7 @@ export default function GoogleAdsMetaDashboardPage() {
         <p className="mb-6 text-lg leading-relaxed text-[var(--km-muted)]">
           Native Ads Manager and Meta Ads Manager are built for buying. Kampalo is built for the
           weekly decision: which channel and which campaigns deserve more spend. That is a different
-          job from a 80-source agency report pack or a warehouse connector.
+          job from agency reporting software, a KPI dashboard, or a warehouse connector.
         </p>
         <ul className="list-disc space-y-3 pl-6 text-lg text-[var(--km-muted)]">
           <li>Platform and campaign ROAS, ROI, CTR, CPC, and CPA</li>
@@ -74,18 +83,18 @@ export default function GoogleAdsMetaDashboardPage() {
       </section>
 
           <section className="mb-16">
-            <h2 className="km-h2">Not Looker Studio, not a spreadsheet</h2>
+            <h2 className="km-h2">Not Looker Studio, not AgencyAnalytics</h2>
             <p className="mb-6 text-lg leading-relaxed text-[var(--km-muted)]">
-              Looker Studio plus a paid connector works if someone on the team already maintains the
-              report. Kampalo is for operators who want the comparison without building the dashboard
-              first. If you already warehouse dozens of sources, keep that stack and use Kampalo for
-              Google-versus-Meta decisions. Full write-up:{' '}
+              Looker Studio (Google Data Studio) plus a paid connector works if someone on the team
+              already maintains the report. AgencyAnalytics is client reporting software. Kampalo is
+              for operators who want the comparison without building the dashboard first. If you
+              already warehouse dozens of sources, keep that stack. Full write-up:{' '}
               <Link href="/compare/looker-studio" className="text-[var(--km-link)] underline">
-                Kampalo vs Looker Studio
+                Looker Studio alternative
               </Link>
               {' '}and the{' '}
               <Link href="/blog/google-ads-meta-dashboard-alternatives" className="text-[var(--km-link)] underline">
-                2026 dashboard roundup
+                2026 AgencyAnalytics alternatives roundup
               </Link>
               .
             </p>
@@ -94,7 +103,7 @@ export default function GoogleAdsMetaDashboardPage() {
                 See pricing
               </a>
               <Link href="/alternatives" className="km-btn-ghost">
-                Tool alternatives
+                AgencyAnalytics alternatives
               </Link>
             </div>
           </section>

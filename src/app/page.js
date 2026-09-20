@@ -19,11 +19,25 @@ import { faqSchema, HOME_FAQS } from '@/lib/structuredData';
 
 export const metadata = pageMetadata({
   title: {
-    absolute: 'Kampalo — Google, Meta & Shopify with Kai',
+    absolute: 'Kampalo — Google Ads & Meta Dashboard with Kai',
   },
   description:
-    'Kampalo unifies Google Ads, Meta Ads, Shopify, GA4, and Search Console. Kai proposes what to pause; you confirm before anything goes live.',
+    'PPC reporting for Google Ads, Meta, and Shopify in one dashboard. An AgencyAnalytics and Looker Studio alternative when the job is paid search versus social—not 80-source client reporting. Kai proposes; you confirm.',
   path: '/',
+  keywords: [
+    'Google Ads Meta dashboard',
+    'PPC reporting software',
+    'Google Ads reporting tool',
+    'Facebook Ads dashboard',
+    'AgencyAnalytics alternative',
+    'Looker Studio alternative',
+    'Google Data Studio alternative',
+    'Databox alternative',
+    'DashThis alternative',
+    'marketing dashboard',
+    'Shopify ads dashboard',
+    'AI marketing analytics',
+  ],
 });
 
 export default function Home() {

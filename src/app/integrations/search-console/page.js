@@ -71,7 +71,7 @@ export default function SearchConsoleIntegrationPage() {
           If you need independent SERP tracking across thousands of keywords, that is a different
           category—see{' '}
           <Link href="/compare/agencyanalytics" className="text-[var(--km-link)] underline">
-            Kampalo vs AgencyAnalytics
+            AgencyAnalytics alternative
           </Link>
           . Kampalo reports the Search Console properties you connect.
         </p>

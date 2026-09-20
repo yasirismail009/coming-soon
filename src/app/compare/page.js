@@ -10,10 +10,16 @@ import {
 } from '@/lib/structuredData';
 
 export const metadata = pageMetadata({
-  title: 'Compare Google Ads vs Meta Performance',
+  title: 'Google Ads vs Meta Ads Dashboard — Compare PPC Performance',
   description:
-    'Compare Google Ads and Meta side by side in Kampalo—spend, ROAS, CTR, and CPA in one view. Ask Kai which channel and campaigns to scale.',
+    'Google Ads vs Facebook Ads (Meta) in one PPC dashboard—spend, ROAS, CTR, and CPA. Compare channels, then ask Kai which campaigns to scale.',
   path: '/compare',
+  keywords: [
+    'Google Ads vs Meta Ads',
+    'Google Ads vs Facebook Ads',
+    'PPC dashboard',
+    'compare Google Ads and Meta',
+  ],
 });
 
 const benefits = [
@@ -47,15 +53,15 @@ export default function ComparePage() {
       <main className="km-main">
         <div className="km-prose">
           <p className="text-sm font-semibold uppercase tracking-wide text-[var(--km-accent)] mb-3">
-            Cross-platform analytics
+            Cross-platform PPC reporting
           </p>
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">
-            Compare Google Ads and Meta without the tab chaos
+            Compare Google Ads vs Meta Ads without the tab chaos
           </h1>
           <p className="text-xl text-slate-600 dark:text-slate-300 leading-relaxed mb-12">
             If you run paid search and social together, you should not need two logins and a spreadsheet to
-            decide where budget goes. Kampalo connects both, shows performance side by side, and lets you ask
-            Kai what to scale next.
+            decide where budget goes. Kampalo is a Google Ads vs Facebook Ads (Meta) dashboard: both
+            channels, same ROAS language, then Kai on what to scale.
           </p>
 
           <section className="mb-16 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -116,46 +122,46 @@ export default function ComparePage() {
               Need Google versus Meta inside Kampalo? You are on that page. Choosing a vendor? Start
               with the{' '}
               <a href="/alternatives" className="text-[var(--km-link)] underline">
-                alternatives hub
+                AgencyAnalytics alternatives hub
               </a>{' '}
               or a direct comparison:
             </p>
             <ul className="list-disc pl-6 space-y-3 text-lg text-slate-600 dark:text-slate-300">
               <li>
                 <a href="/compare/agencyanalytics" className="text-[var(--km-link)] underline">
-                  Kampalo vs AgencyAnalytics
+                  AgencyAnalytics alternative
                 </a>
                 {' — '}client reporting suite versus a Google + Meta workspace
               </li>
               <li>
                 <a href="/compare/databox" className="text-[var(--km-link)] underline">
-                  Kampalo vs Databox
+                  Databox alternative
                 </a>
-                {' — '}operator ads workspace versus a KPI wall
+                {' — '}operator ads workspace versus a KPI dashboard
               </li>
               <li>
                 <a href="/compare/dashthis" className="text-[var(--km-link)] underline">
-                  Kampalo vs DashThis
+                  DashThis alternative
                 </a>
-                {' — '}decision workspace versus template reports
+                {' — '}decision workspace versus marketing reporting software
               </li>
               <li>
                 <a href="/compare/whatagraph" className="text-[var(--km-link)] underline">
-                  Kampalo vs Whatagraph
+                  Whatagraph alternative
                 </a>
                 {' — '}two-channel UI versus blended visual reports
               </li>
               <li>
                 <a href="/compare/supermetrics" className="text-[var(--km-link)] underline">
-                  Kampalo vs Supermetrics
+                  Supermetrics alternative
                 </a>
                 {' — '}product dashboard versus a data pipeline
               </li>
               <li>
                 <a href="/compare/looker-studio" className="text-[var(--km-link)] underline">
-                  Kampalo vs Looker Studio
+                  Looker Studio alternative
                 </a>
-                {' — '}product dashboard versus a DIY canvas
+                {' — '}product dashboard versus a DIY canvas (Google Data Studio)
               </li>
               <li>
                 <a href="/blog/google-ads-vs-meta" className="text-[var(--km-link)] underline">

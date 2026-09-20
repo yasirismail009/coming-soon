@@ -8,10 +8,15 @@ import {
 } from '@/lib/structuredData';
 
 export const metadata = pageMetadata({
-  title: 'Meta Ads Reporting in Kampalo',
+  title: 'Facebook Ads Dashboard — Meta Next to Google Ads',
   description:
-    'Connect Meta Ads (Facebook and Instagram) to Kampalo. Compare ROAS and CPA with Google Ads. Organic Page insights stay out of paid ROAS.',
+    'Facebook Ads dashboard in Kampalo: Meta (Facebook and Instagram) ads compared with Google Ads on ROAS and CPA. Organic Page insights stay out of paid ROAS.',
   path: '/integrations/meta',
+  keywords: [
+    'Facebook Ads dashboard',
+    'Meta Ads dashboard',
+    'Instagram ads reporting',
+  ],
 });
 
 const steps = [
@@ -33,8 +38,8 @@ export default function MetaIntegrationPage() {
         faqSchema(META_ADS_FAQS),
       ]}
     >
-      <p className="km-kicker">Meta integration</p>
-      <h1 className="km-h1 mb-6 text-[var(--km-ink)]">Meta Ads next to Google, not instead of it</h1>
+      <p className="km-kicker">Facebook Ads dashboard</p>
+      <h1 className="km-h1 mb-6 text-[var(--km-ink)]">Facebook Ads dashboard — Meta next to Google, not instead of it</h1>
       <p className="km-lead mb-12">
         Facebook and Instagram ads sync into the same workspace as Google Ads. Paid ROAS stays paid.
         Organic reach sits beside it so you can read both without mixing the math.

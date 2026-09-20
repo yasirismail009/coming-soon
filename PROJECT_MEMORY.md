@@ -74,9 +74,9 @@ Kai → New Chat → Dashboard → Boards (when a valid pair is connected) → A
 
 ## Architecture (this site)
 - Routes: `/`, `/kai`, `/kai/mcp`, `/kai/grok-bot`, `/boards`, `/compare`, `/alternatives`, `/integrations`, `/integrations/shopify`, `/about`, `/contact`, `/documentation`, `/help`, `/privacy`, `/terms`, `/cookies`, `/data-deletion`.
-- SEO: `src/lib/site.js`, `src/lib/structuredData.js`, `src/lib/competitors.js`, `src/lib/blog.js`, `JsonLd`, `robots.js`, `sitemap.js`, HTML `/sitemap`, `/llms.txt`, `/humans.txt`, `/blog/rss.xml`, `public/og-image.png`.
+- SEO: `src/lib/site.js`, `src/lib/structuredData.js`, `src/lib/competitors.js`, `src/lib/blog.js`, `JsonLd`, `robots.js`, `sitemap.xml/route.js`, HTML `/sitemap`, `/llms.txt`, `/humans.txt`, `/blog/rss.xml`, `public/og-image.png`. Titles/H1s lead with competitor keywords (`AgencyAnalytics alternative`, PPC/KPI/marketing reporting, Looker Studio / Google Data Studio alternative), not “Kampalo vs …” as the primary query.
 - Env: `NEXT_PUBLIC_SITE_URL`, optional `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`, optional `NEXT_PUBLIC_BING_SITE_VERIFICATION`.
 
 - Homepage order: Hero → Platforms → Features → Showcase → **KaiHighlight** → **GrokBotHighlight** (`#automate`) → Reports → Pricing → **AlternativesStrip** → FAQ…
 - Kai is the lead product story: hero badge/CTA, nav “Kai AI” pill, dedicated section with live screenshot + prompt chips.
-- Competitor SEO (2026-09-11): honest vs pages for AgencyAnalytics, Supermetrics, Databox, DashThis, Whatagraph, Looker Studio. Kampalo’s lane is Google + Meta (+ Shopify commerce) operators + Kai with sign-off — not 80-source portals or ETL. Roundup: `/blog/google-ads-meta-dashboard-alternatives`. No Madgicx vs-page until sourced like the others.
+- Competitor SEO (2026-09-20): vs pages retargeted to rival SERP phrases. Kampalo’s lane is Google + Meta (+ Shopify commerce) operators + Kai with sign-off — not 80-source portals or ETL. Roundup: `/blog/google-ads-meta-dashboard-alternatives` (AgencyAnalytics alternatives 2026). No Madgicx vs-page until sourced like the others.

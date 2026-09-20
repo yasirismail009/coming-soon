@@ -13,20 +13,21 @@ test.describe('in-app navigation', () => {
     await page.getByRole('contentinfo').getByRole('link', { name: 'Compare platforms' }).click();
     await expect(page).toHaveURL(/\/compare$/);
     await expect(
-      page.getByRole('heading', { level: 1, name: /Compare Google Ads and Meta/i }),
+      page.getByRole('heading', { level: 1, name: /Compare Google Ads vs Meta/i }),
     ).toBeVisible();
   });
 
   test('compare page opens AgencyAnalytics comparison', async ({ page }) => {
     await page.goto('/compare');
-    await page.getByRole('link', { name: 'Kampalo vs AgencyAnalytics' }).click();
+    await page.getByRole('main').getByRole('link', { name: 'AgencyAnalytics alternative' }).click();
     await expect(page).toHaveURL(/\/compare\/agencyanalytics$/);
+    await expect(page.getByRole('heading', { level: 1, name: /AgencyAnalytics alternative/i })).toBeVisible();
     await expect(page.getByRole('heading', { name: 'Kampalo vs AgencyAnalytics' })).toBeVisible();
   });
 
   test('compare page opens Supermetrics comparison', async ({ page }) => {
     await page.goto('/compare');
-    await page.getByRole('link', { name: 'Kampalo vs Supermetrics' }).click();
+    await page.getByRole('main').getByRole('link', { name: 'Supermetrics alternative' }).click();
     await expect(page).toHaveURL(/\/compare\/supermetrics$/);
     await expect(page.getByRole('heading', { name: 'Kampalo vs Supermetrics' })).toBeVisible();
   });
@@ -39,6 +40,8 @@ test.describe('in-app navigation', () => {
     await expect(page.locator('main')).toContainText('Free cannot create boards');
     await expect(page.locator('main')).toContainText('Create up to 16 boards');
   });
+
+  test('footer Google + Meta dashboard and blog Google vs Meta', async ({ page }) => {
     await page.goto('/');
     await page.getByRole('contentinfo').getByRole('link', { name: 'Google + Meta dashboard' }).click();
     await expect(page).toHaveURL(/\/google-ads-meta-dashboard$/);
@@ -55,6 +58,13 @@ test.describe('in-app navigation', () => {
     await page.getByRole('banner').getByRole('link', { name: 'Platform' }).click();
     await expect(page).toHaveURL(/#platform/);
     await expect(page.locator('#platform')).toBeInViewport();
+  });
+
+  test('/pricing redirects to homepage #pricing', async ({ page }) => {
+    await page.goto('/pricing');
+    await expect(page).toHaveURL(/\/#pricing/);
+    await expect(page.locator('#pricing')).toBeInViewport();
+    await expect(page.locator('#pricing')).toContainText('Starter');
   });
 
   test('hash link from /kai lands on homepage pricing', async ({ page }) => {
@@ -83,18 +93,18 @@ test.describe('in-app navigation', () => {
     await page.getByRole('contentinfo').getByRole('link', { name: 'Tool alternatives' }).click();
     await expect(page).toHaveURL(/\/alternatives$/);
     await expect(
-      page.getByRole('heading', { level: 1, name: /Kampalo as an alternative/i }),
+      page.getByRole('heading', { level: 1, name: /AgencyAnalytics alternatives/i }),
     ).toBeVisible();
-    await page.getByRole('link', { name: 'Kampalo vs Looker Studio' }).first().click();
+    await page.getByRole('main').getByRole('link', { name: 'Looker Studio alternative' }).first().click();
     await expect(page).toHaveURL(/\/compare\/looker-studio$/);
     await expect(page.getByRole('heading', { name: 'Kampalo vs Looker Studio' })).toBeVisible();
   });
 
   test('blog lists the dashboard alternatives roundup', async ({ page }) => {
     await page.goto('/blog');
-    await page.getByRole('link', { name: /Best Google Ads and Meta dashboards/i }).click();
+    await page.getByRole('link', { name: /Best AgencyAnalytics alternatives 2026/i }).click();
     await expect(page).toHaveURL(/\/blog\/google-ads-meta-dashboard-alternatives$/);
-    await expect(page.getByRole('heading', { level: 1 })).toContainText(/Best Google Ads and Meta dashboards/i);
+    await expect(page.getByRole('heading', { level: 1 })).toContainText(/Best AgencyAnalytics alternatives 2026/i);
   });
 
   test('footer Sitemap opens the HTML index', async ({ page }) => {
